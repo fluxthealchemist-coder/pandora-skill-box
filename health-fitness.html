@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pandora's Skill Box — Health & Fitness</title>
+<title>Pandora's Skill Box — Health & Fitness Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+<style>:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--verdict:#17A673;--flag:#D64533;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,46,41,0.06)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .nav-logo .seal{width:32px;height:32px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
 .nav-logo span{font-family:var(--font-display);font-size:20px}
-.nav-links{display:flex;gap:20px;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:500}
-.nav-cta{background:var(--ink);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600}
-.hero{min-height:70vh;display:flex;align-items:center;background:var(--ink);position:relative}
+.nav-links{display:flex;gap:16px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:12px;font-weight:500;white-space:nowrap}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}
+.hero{min-height:60vh;display:flex;align-items:center;background:var(--ink);position:relative}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(184,137,45,0.08) 0%,transparent 60%)}
-.hero-inner{max-width:800px;margin:0 auto;padding:140px 24px 80px;text-align:center;position:relative;z-index:2}
+.hero-inner{max-width:800px;margin:0 auto;padding:140px 24px 60px;text-align:center;position:relative;z-index:2}
 .hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,56px);color:var(--porcelain);line-height:1.1;margin-bottom:20px}
 .hero h1 em{color:var(--brass-soft);font-style:italic}
 .hero p{font-size:18px;color:rgba(244,246,242,0.7);margin-bottom:32px}
-.coming-soon{display:inline-block;background:rgba(184,137,45,0.15);border:1px solid rgba(184,137,45,0.3);color:var(--brass-soft);padding:10px 24px;border-radius:100px;font-family:var(--font-mono);font-size:14px;letter-spacing:1px}
+.btn-primary{background:var(--brass);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;display:inline-block}
 .back-link{display:inline-block;margin-top:40px;color:var(--brass-soft);text-decoration:none;font-weight:600}
-.section{padding:80px 24px;background:#fff}
-.section-inner{max-width:800px;margin:0 auto;text-align:center}
-.section h2{font-family:var(--font-display);font-size:32px;margin-bottom:16px}
-.section p{color:var(--muted);font-size:16px;margin-bottom:32px}
+.filters{max-width:1200px;margin:0 auto;padding:24px;display:flex;gap:10px;flex-wrap:wrap}
+.filters button{background:var(--porcelain);border:none;padding:8px 16px;border-radius:100px;font-family:var(--font-mono);font-size:12px;color:var(--muted);cursor:pointer;transition:all 0.2s}
+.filters button:hover,.filters button.active{background:var(--ink);color:#fff}
+.skills{max-width:1200px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.skill-card{background:#fff;border-radius:12px;padding:24px;border:1px solid rgba(11,46,41,0.06);transition:all 0.2s;position:relative;text-decoration:none;color:inherit;display:block}
+.skill-card::after{content:'';position:absolute;inset:0;z-index:10}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--brass);opacity:0;transition:opacity 0.2s}
+.skill-card:hover::before{opacity:1}
+.skill-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(11,46,41,0.06)}
+.skill-badge{display:inline-block;background:var(--porcelain);color:var(--muted);font-family:var(--font-mono);font-size:11px;padding:4px 12px;border-radius:100px;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;position:relative;z-index:5;pointer-events:none}
+.skill-card h3{font-family:var(--font-display);font-size:20px;margin-bottom:8px;color:var(--ink);position:relative;z-index:5;pointer-events:none}
+.skill-card p{color:var(--muted);font-size:14px;margin-bottom:16px;min-height:60px;position:relative;z-index:5;pointer-events:none}
+.skill-meta{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:5;pointer-events:none}
+.skill-meta .price{font-family:var(--font-mono);font-size:12px;color:var(--brass);font-weight:500}
+.skill-meta .run{color:var(--brass);font-weight:600;font-size:13px}
 footer{background:var(--ink-deep);padding:60px 24px 40px}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .seal{width:40px;height:40px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;margin-bottom:16px}
 .footer-brand h4{font-family:var(--font-display);color:var(--porcelain);font-size:20px;margin-bottom:8px}
 .footer-brand p{color:rgba(244,246,242,0.5);font-size:14px}
 .footer-col h5{color:var(--porcelain);font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
@@ -42,22 +56,208 @@ footer{background:var(--ink-deep);padding:60px 24px 40px}
 <li><a href="real-estate.html">Real Estate</a></li>
 <li><a href="ceo-reset.html">CEO Reset</a></li>
 <li><a href="finance-audit.html">Finance</a></li>
+<li><a href="sales.html">Sales</a></li>
+<li><a href="marketing.html">Marketing</a></li>
+<li><a href="customer-support.html">Support</a></li>
+<li><a href="coaching.html">Coaching</a></li>
+<li><a href="schools-education.html">Education</a></li>
+<li><a href="consultancy.html">Consultancy</a></li>
+<li><a href="healthcare.html">Healthcare</a></li>
+<li><a href="legal.html">Legal</a></li>
+<li><a href="construction.html">Construction</a></li>
+<li><a href="logistics.html">Logistics</a></li>
+<li><a href="hospitality.html">Hospitality</a></li>
+<li><a href="it-devops.html">IT</a></li>
+<li><a href="personal-productivity.html">Productivity</a></li>
+<li><a href="health-fitness.html">Fitness</a></li>
 </ul>
 <a href="index.html" class="nav-cta">← All verticals</a>
 </div></nav>
 <section class="hero"><div class="hero-inner">
-<h1>Health & Fitness<br><em>Coming soon</em></h1>
-<p>Workout planning, nutrition tracking, wellness coaching, biometric monitoring, and habit formation — 25 skills for wellness professionals.</p>
-<div class="coming-soon">🚀 LAUNCHING Q3 2026</div>
+<h1>Health & Fitness<br><em>25 certified skills</em></h1>
+<p>Workout planning, nutrition tracking, wellness coaching, biometric monitoring, and habit formation — 25 skills for wellness professionals and individuals.</p>
+<a href="#skills" class="btn-primary">Browse 25 skills</a>
 <div><a href="index.html" class="back-link">← Back to all verticals</a></div>
 </div></section>
-<section class="section"><div class="section-inner">
-<h2>What to expect</h2><p>This vertical will include certified skills for meal plan generation, training periodization, recovery protocols, supplement tracking, biometric trend analysis, and accountability coaching.</p>
-</div></section>
+<div class="filters" id="skills"><button data-filter="aesthetic">AESTHETIC</button>
+<button data-filter="behavior">BEHAVIOR</button>
+<button data-filter="cardio">CARDIO</button>
+<button data-filter="coach">COACH</button>
+<button data-filter="correct">CORRECT</button>
+<button data-filter="data">DATA</button>
+<button data-filter="edu">EDU</button>
+<button data-filter="entrepreneur">ENTREPRENEUR</button>
+<button data-filter="equip">EQUIP</button>
+<button data-filter="event">EVENT</button>
+<button data-filter="group">GROUP</button>
+<button data-filter="habit">HABIT</button>
+<button data-filter="lift">LIFT</button>
+<button data-filter="mind">MIND</button>
+<button data-filter="mobility">MOBILITY</button>
+<button data-filter="nutrition">NUTRITION</button>
+<button data-filter="onboard">ONBOARD</button>
+<button data-filter="prevent">PREVENT</button>
+<button data-filter="recover">RECOVER</button>
+<button data-filter="sleep">SLEEP</button>
+<button data-filter="track">TRACK</button>
+<button data-filter="train">TRAIN</button>
+</div>
+<div class="skills"><a href="#" class="skill-card" data-category="train">
+<div class="skill-badge">TRAIN</div>
+<h3>Periodized Training Plan</h3>
+<p>Macro, meso, micro cycles with volume, intensity, and recovery by sport. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="nutrition">
+<div class="skill-badge">NUTRITION</div>
+<h3>Meal Plan Generator</h3>
+<p>Calorie target, macro split, grocery list, and prep schedule by dietary preference. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="recover">
+<div class="skill-badge">RECOVER</div>
+<h3>Recovery Protocol Designer</h3>
+<p>Sleep, mobility, massage, ice, and active recovery scheduling. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="nutrition">
+<div class="skill-badge">NUTRITION</div>
+<h3>Supplement Stack Tracker</h3>
+<p>Dosing, timing, interactions, and blood marker correlation. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="data">
+<div class="skill-badge">DATA</div>
+<h3>Biometric Trend Analyzer</h3>
+<p>Weight, body fat, HRV, sleep, and performance trend visualization. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="coach">
+<div class="skill-badge">COACH</div>
+<h3>Accountability Coaching Check-In</h3>
+<p>Weekly goal review, obstacle troubleshooting, and next-week commitment. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="prevent">
+<div class="skill-badge">PREVENT</div>
+<h3>Injury Prevention Screening</h3>
+<p>Movement assessment, asymmetry detection, and corrective exercise plan. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="event">
+<div class="skill-badge">EVENT</div>
+<h3>Race Day Strategy Builder</h3>
+<p>Pacing, nutrition, hydration, and mental preparation for marathon or triathlon. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="aesthetic">
+<div class="skill-badge">AESTHETIC</div>
+<h3>Body Composition Planner</h3>
+<p>Cut, maintain, or bulk phases with calorie adjustment and progress photos. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="equip">
+<div class="skill-badge">EQUIP</div>
+<h3>Home Gym Setup Guide</h3>
+<p>Space, budget, equipment selection, and workout program for limited space. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="group">
+<div class="skill-badge">GROUP</div>
+<h3>Group Class Choreographer</h3>
+<p>Music, sequence, intensity peaks, and modifications by fitness level. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="edu">
+<div class="skill-badge">EDU</div>
+<h3>Nutrition Label Decoder</h3>
+<p>Serving size, macro, ingredient quality, and health claim evaluation. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="sleep">
+<div class="skill-badge">SLEEP</div>
+<h3>Sleep Hygiene Optimizer</h3>
+<p>Routine, environment, blue light, caffeine, and nap protocol. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="mind">
+<div class="skill-badge">MIND</div>
+<h3>Stress Resilience Plan</h3>
+<p>Breathing, meditation, nature, and social connection prescriptions. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="mobility">
+<div class="skill-badge">MOBILITY</div>
+<h3>Yoga Sequence Builder</h3>
+<p>Warm-up, peak pose, counter pose, and relaxation with breath cues. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="lift">
+<div class="skill-badge">LIFT</div>
+<h3>Strength PR Tracker</h3>
+<p>1RM, 5RM, volume PR logging with attempt planning and safety. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="habit">
+<div class="skill-badge">HABIT</div>
+<h3>Hydration Monitor</h3>
+<p>Intake target, reminder schedule, and urine color self-assessment. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="behavior">
+<div class="skill-badge">BEHAVIOR</div>
+<h3>Mindful Eating Guide</h3>
+<p>Hunger scale, eating speed, distraction reduction, and satiety awareness. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="correct">
+<div class="skill-badge">CORRECT</div>
+<h3>Desk Worker Mobility Plan</h3>
+<p>Neck, shoulder, hip, and wrist routines for sedentary professionals. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="event">
+<div class="skill-badge">EVENT</div>
+<h3>Wellness Retreat Itinerary</h3>
+<p>Activities, meals, workshops, and downtime balance for group retreats. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="onboard">
+<div class="skill-badge">ONBOARD</div>
+<h3>Gym Newbie Orientation</h3>
+<p>Etiquette, equipment intro, basic program, and confidence building. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="cardio">
+<div class="skill-badge">CARDIO</div>
+<h3>Heart Rate Zone Calculator</h3>
+<p>Max HR, resting HR, zone definitions, and training allocation. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="nutrition">
+<div class="skill-badge">NUTRITION</div>
+<h3>Meal Prep Sunday Planner</h3>
+<p>Batch recipes, storage, portioning, and weekly rotation schedule. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="track">
+<div class="skill-badge">TRACK</div>
+<h3>Progress Photo Protocol</h3>
+<p>Lighting, pose, frequency, and comparison guidelines for visual tracking. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="entrepreneur">
+<div class="skill-badge">ENTREPRENEUR</div>
+<h3>Wellness Business Launch Kit</h3>
+<p>Niche, pricing, packages, marketing, and liability for coaches. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+</div>
 <footer><div class="footer-inner">
-<div class="footer-brand"><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
-<div class="footer-col"><h5>Featured</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a></div>
+<div class="footer-brand"><div class="seal">P</div><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
+<div class="footer-col"><h5>Verticals</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a><a href="sales.html">Sales</a><a href="marketing.html">Marketing</a></div>
+<div class="footer-col"><h5>More</h5><a href="customer-support.html">Support</a><a href="coaching.html">Coaching</a><a href="schools-education.html">Education</a><a href="consultancy.html">Consultancy</a><a href="healthcare.html">Healthcare</a><a href="legal.html">Legal</a></div>
 <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
-<div class="footer-col"><h5>Contact</h5><a href="mailto:founders@pandorasskillbox.com">founders@pandorasskillbox.com</a></div>
-</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified</span></div></footer>
+</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified · 12-Point Security Scan</span></div></footer>
+<script>document.addEventListener('click',function(e){var c=e.target.closest('.skill-card[href]');if(c){window.location.href=c.getAttribute('href');}});</script>
 </body></html>

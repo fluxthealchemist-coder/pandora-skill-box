@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pandora's Skill Box — IT & DevOps</title>
+<title>Pandora's Skill Box — IT & DevOps Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+<style>:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--verdict:#17A673;--flag:#D64533;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,46,41,0.06)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .nav-logo .seal{width:32px;height:32px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
 .nav-logo span{font-family:var(--font-display);font-size:20px}
-.nav-links{display:flex;gap:20px;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:500}
-.nav-cta{background:var(--ink);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600}
-.hero{min-height:70vh;display:flex;align-items:center;background:var(--ink);position:relative}
+.nav-links{display:flex;gap:16px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:12px;font-weight:500;white-space:nowrap}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}
+.hero{min-height:60vh;display:flex;align-items:center;background:var(--ink);position:relative}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(184,137,45,0.08) 0%,transparent 60%)}
-.hero-inner{max-width:800px;margin:0 auto;padding:140px 24px 80px;text-align:center;position:relative;z-index:2}
+.hero-inner{max-width:800px;margin:0 auto;padding:140px 24px 60px;text-align:center;position:relative;z-index:2}
 .hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,56px);color:var(--porcelain);line-height:1.1;margin-bottom:20px}
 .hero h1 em{color:var(--brass-soft);font-style:italic}
 .hero p{font-size:18px;color:rgba(244,246,242,0.7);margin-bottom:32px}
-.coming-soon{display:inline-block;background:rgba(184,137,45,0.15);border:1px solid rgba(184,137,45,0.3);color:var(--brass-soft);padding:10px 24px;border-radius:100px;font-family:var(--font-mono);font-size:14px;letter-spacing:1px}
+.btn-primary{background:var(--brass);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;display:inline-block}
 .back-link{display:inline-block;margin-top:40px;color:var(--brass-soft);text-decoration:none;font-weight:600}
-.section{padding:80px 24px;background:#fff}
-.section-inner{max-width:800px;margin:0 auto;text-align:center}
-.section h2{font-family:var(--font-display);font-size:32px;margin-bottom:16px}
-.section p{color:var(--muted);font-size:16px;margin-bottom:32px}
+.filters{max-width:1200px;margin:0 auto;padding:24px;display:flex;gap:10px;flex-wrap:wrap}
+.filters button{background:var(--porcelain);border:none;padding:8px 16px;border-radius:100px;font-family:var(--font-mono);font-size:12px;color:var(--muted);cursor:pointer;transition:all 0.2s}
+.filters button:hover,.filters button.active{background:var(--ink);color:#fff}
+.skills{max-width:1200px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.skill-card{background:#fff;border-radius:12px;padding:24px;border:1px solid rgba(11,46,41,0.06);transition:all 0.2s;position:relative;text-decoration:none;color:inherit;display:block}
+.skill-card::after{content:'';position:absolute;inset:0;z-index:10}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--brass);opacity:0;transition:opacity 0.2s}
+.skill-card:hover::before{opacity:1}
+.skill-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(11,46,41,0.06)}
+.skill-badge{display:inline-block;background:var(--porcelain);color:var(--muted);font-family:var(--font-mono);font-size:11px;padding:4px 12px;border-radius:100px;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;position:relative;z-index:5;pointer-events:none}
+.skill-card h3{font-family:var(--font-display);font-size:20px;margin-bottom:8px;color:var(--ink);position:relative;z-index:5;pointer-events:none}
+.skill-card p{color:var(--muted);font-size:14px;margin-bottom:16px;min-height:60px;position:relative;z-index:5;pointer-events:none}
+.skill-meta{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:5;pointer-events:none}
+.skill-meta .price{font-family:var(--font-mono);font-size:12px;color:var(--brass);font-weight:500}
+.skill-meta .run{color:var(--brass);font-weight:600;font-size:13px}
 footer{background:var(--ink-deep);padding:60px 24px 40px}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .seal{width:40px;height:40px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;margin-bottom:16px}
 .footer-brand h4{font-family:var(--font-display);color:var(--porcelain);font-size:20px;margin-bottom:8px}
 .footer-brand p{color:rgba(244,246,242,0.5);font-size:14px}
 .footer-col h5{color:var(--porcelain);font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
@@ -42,22 +56,207 @@ footer{background:var(--ink-deep);padding:60px 24px 40px}
 <li><a href="real-estate.html">Real Estate</a></li>
 <li><a href="ceo-reset.html">CEO Reset</a></li>
 <li><a href="finance-audit.html">Finance</a></li>
+<li><a href="sales.html">Sales</a></li>
+<li><a href="marketing.html">Marketing</a></li>
+<li><a href="customer-support.html">Support</a></li>
+<li><a href="coaching.html">Coaching</a></li>
+<li><a href="schools-education.html">Education</a></li>
+<li><a href="consultancy.html">Consultancy</a></li>
+<li><a href="healthcare.html">Healthcare</a></li>
+<li><a href="legal.html">Legal</a></li>
+<li><a href="construction.html">Construction</a></li>
+<li><a href="logistics.html">Logistics</a></li>
+<li><a href="hospitality.html">Hospitality</a></li>
+<li><a href="it-devops.html">IT</a></li>
+<li><a href="personal-productivity.html">Productivity</a></li>
+<li><a href="health-fitness.html">Fitness</a></li>
 </ul>
 <a href="index.html" class="nav-cta">← All verticals</a>
 </div></nav>
 <section class="hero"><div class="hero-inner">
-<h1>IT & DevOps<br><em>Coming soon</em></h1>
+<h1>IT & DevOps<br><em>25 certified skills</em></h1>
 <p>Infrastructure monitoring, incident response, CI/CD pipelines, security compliance, and cloud resource management — 25 skills for tech teams.</p>
-<div class="coming-soon">🚀 LAUNCHING Q3 2026</div>
+<a href="#skills" class="btn-primary">Browse 25 skills</a>
 <div><a href="index.html" class="back-link">← Back to all verticals</a></div>
 </div></section>
-<section class="section"><div class="section-inner">
-<h2>What to expect</h2><p>This vertical will include certified skills for runbook generation, on-call rotation planning, SRE dashboards, security scan reporting, cost optimization, and deployment risk analysis.</p>
-</div></section>
+<div class="filters" id="skills"><button data-filter="arch">ARCH</button>
+<button data-filter="automation">AUTOMATION</button>
+<button data-filter="comms">COMMS</button>
+<button data-filter="dba">DBA</button>
+<button data-filter="deploy">DEPLOY</button>
+<button data-filter="dev">DEV</button>
+<button data-filter="dr">DR</button>
+<button data-filter="finance">FINANCE</button>
+<button data-filter="govern">GOVERN</button>
+<button data-filter="iac">IAC</button>
+<button data-filter="incident">INCIDENT</button>
+<button data-filter="k8s">K8S</button>
+<button data-filter="migrate">MIGRATE</button>
+<button data-filter="monitor">MONITOR</button>
+<button data-filter="net">NET</button>
+<button data-filter="obs">OBS</button>
+<button data-filter="ops">OPS</button>
+<button data-filter="perf">PERF</button>
+<button data-filter="plan">PLAN</button>
+<button data-filter="sec">SEC</button>
+<button data-filter="sre">SRE</button>
+</div>
+<div class="skills"><a href="#" class="skill-card" data-category="sre">
+<div class="skill-badge">SRE</div>
+<h3>Runbook Generator</h3>
+<p>Step-by-step incident response procedures with commands, checks, and escalation. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="sre">
+<div class="skill-badge">SRE</div>
+<h3>On-Call Rotation Planner</h3>
+<p>Schedule builder, handoff notes, and escalation matrix with timezone support. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="monitor">
+<div class="skill-badge">MONITOR</div>
+<h3>SRE Dashboard Blueprint</h3>
+<p>SLI, SLO, error budget, burn rate, and alert threshold design. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="sec">
+<div class="skill-badge">SEC</div>
+<h3>Security Scan Report</h3>
+<p>Vulnerability summary, CVSS scoring, remediation priority, and timeline. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="finance">
+<div class="skill-badge">FINANCE</div>
+<h3>Cost Optimization Audit</h3>
+<p>Unused resources, right-sizing, reserved instance, and savings plan analysis. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="deploy">
+<div class="skill-badge">DEPLOY</div>
+<h3>Deployment Risk Assessment</h3>
+<p>Change scope, blast radius, rollback plan, and go/no-go checklist. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="incident">
+<div class="skill-badge">INCIDENT</div>
+<h3>Post-Mortem Template</h3>
+<p>Timeline, impact, root cause, action items, and follow-up tracking. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="automation">
+<div class="skill-badge">AUTOMATION</div>
+<h3>CI/CD Pipeline Design</h3>
+<p>Build, test, scan, deploy, and rollback stages with tool selection. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="dr">
+<div class="skill-badge">DR</div>
+<h3>Disaster Recovery Plan</h3>
+<p>RTO, RPO, backup verification, failover test, and communication plan. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="sec">
+<div class="skill-badge">SEC</div>
+<h3>Access Control Review</h3>
+<p>Role matrix, privilege audit, offboarding checklist, and periodic recertification. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="migrate">
+<div class="skill-badge">MIGRATE</div>
+<h3>Cloud Migration Planner</h3>
+<p>Assessment, pilot, cutover, and optimization phases with risk mitigation. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="dba">
+<div class="skill-badge">DBA</div>
+<h3>Database Performance Tuner</h3>
+<p>Query analysis, index recommendation, and connection pool optimization. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="k8s">
+<div class="skill-badge">K8S</div>
+<h3>Kubernetes Manifest Review</h3>
+<p>Resource limits, health checks, security context, and best practice. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="obs">
+<div class="skill-badge">OBS</div>
+<h3>Log Analysis Query Builder</h3>
+<p>Search, aggregation, anomaly detection, and correlation queries. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="sec">
+<div class="skill-badge">SEC</div>
+<h3>SSL Certificate Tracker</h3>
+<p>Expiry monitoring, renewal procedure, and SAN verification. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="perf">
+<div class="skill-badge">PERF</div>
+<h3>Load Testing Scenario</h3>
+<p>Concurrency, throughput, latency, and error rate targets with JMeter/k6 script. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="iac">
+<div class="skill-badge">IAC</div>
+<h3>Infrastructure-as-Code Review</h3>
+<p>Terraform/CloudFormation linting, state management, and module design. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="sec">
+<div class="skill-badge">SEC</div>
+<h3>Penetration Test Brief</h3>
+<p>Scope, methodology, tools, timeline, and report template. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="dev">
+<div class="skill-badge">DEV</div>
+<h3>API Documentation Template</h3>
+<p>Endpoint, method, auth, request, response, and error specification. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="arch">
+<div class="skill-badge">ARCH</div>
+<h3>Service Dependency Map</h3>
+<p>Upstream, downstream, critical path, and failure impact visualization. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="ops">
+<div class="skill-badge">OPS</div>
+<h3>Backup Verification Script</h3>
+<p>Restore test, integrity check, and retention compliance validation. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="net">
+<div class="skill-badge">NET</div>
+<h3>Network Troubleshooter</h3>
+<p>Ping, traceroute, DNS, firewall, and routing diagnosis with resolution. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="govern">
+<div class="skill-badge">GOVERN</div>
+<h3>Change Advisory Board Pack</h3>
+<p>Change description, risk, test evidence, and approval request. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="plan">
+<div class="skill-badge">PLAN</div>
+<h3>Tech Debt Register</h3>
+<p>Item, impact, effort, priority, and quarterly reduction target. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="comms">
+<div class="skill-badge">COMMS</div>
+<h3>Incident Communication Template</h3>
+<p>Status page update, stakeholder notification, and post-resolution summary. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+</div>
 <footer><div class="footer-inner">
-<div class="footer-brand"><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
-<div class="footer-col"><h5>Featured</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a></div>
+<div class="footer-brand"><div class="seal">P</div><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
+<div class="footer-col"><h5>Verticals</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a><a href="sales.html">Sales</a><a href="marketing.html">Marketing</a></div>
+<div class="footer-col"><h5>More</h5><a href="customer-support.html">Support</a><a href="coaching.html">Coaching</a><a href="schools-education.html">Education</a><a href="consultancy.html">Consultancy</a><a href="healthcare.html">Healthcare</a><a href="legal.html">Legal</a></div>
 <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
-<div class="footer-col"><h5>Contact</h5><a href="mailto:founders@pandorasskillbox.com">founders@pandorasskillbox.com</a></div>
-</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified</span></div></footer>
+</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified · 12-Point Security Scan</span></div></footer>
+<script>document.addEventListener('click',function(e){var c=e.target.closest('.skill-card[href]');if(c){window.location.href=c.getAttribute('href');}});</script>
 </body></html>

@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pandora's Skill Box — Schools & Education</title>
+<title>Pandora's Skill Box — Schools & Education Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+<style>:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--verdict:#17A673;--flag:#D64533;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,46,41,0.06)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .nav-logo .seal{width:32px;height:32px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
 .nav-logo span{font-family:var(--font-display);font-size:20px}
-.nav-links{display:flex;gap:20px;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:500}
-.nav-cta{background:var(--ink);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600}
-.hero{min-height:70vh;display:flex;align-items:center;background:var(--ink);position:relative}
+.nav-links{display:flex;gap:16px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:12px;font-weight:500;white-space:nowrap}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}
+.hero{min-height:60vh;display:flex;align-items:center;background:var(--ink);position:relative}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(184,137,45,0.08) 0%,transparent 60%)}
-.hero-inner{max-width:800px;margin:0 auto;padding:140px 24px 80px;text-align:center;position:relative;z-index:2}
+.hero-inner{max-width:800px;margin:0 auto;padding:140px 24px 60px;text-align:center;position:relative;z-index:2}
 .hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,56px);color:var(--porcelain);line-height:1.1;margin-bottom:20px}
 .hero h1 em{color:var(--brass-soft);font-style:italic}
 .hero p{font-size:18px;color:rgba(244,246,242,0.7);margin-bottom:32px}
-.coming-soon{display:inline-block;background:rgba(184,137,45,0.15);border:1px solid rgba(184,137,45,0.3);color:var(--brass-soft);padding:10px 24px;border-radius:100px;font-family:var(--font-mono);font-size:14px;letter-spacing:1px}
+.btn-primary{background:var(--brass);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;display:inline-block}
 .back-link{display:inline-block;margin-top:40px;color:var(--brass-soft);text-decoration:none;font-weight:600}
-.section{padding:80px 24px;background:#fff}
-.section-inner{max-width:800px;margin:0 auto;text-align:center}
-.section h2{font-family:var(--font-display);font-size:32px;margin-bottom:16px}
-.section p{color:var(--muted);font-size:16px;margin-bottom:32px}
+.filters{max-width:1200px;margin:0 auto;padding:24px;display:flex;gap:10px;flex-wrap:wrap}
+.filters button{background:var(--porcelain);border:none;padding:8px 16px;border-radius:100px;font-family:var(--font-mono);font-size:12px;color:var(--muted);cursor:pointer;transition:all 0.2s}
+.filters button:hover,.filters button.active{background:var(--ink);color:#fff}
+.skills{max-width:1200px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.skill-card{background:#fff;border-radius:12px;padding:24px;border:1px solid rgba(11,46,41,0.06);transition:all 0.2s;position:relative;text-decoration:none;color:inherit;display:block}
+.skill-card::after{content:'';position:absolute;inset:0;z-index:10}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--brass);opacity:0;transition:opacity 0.2s}
+.skill-card:hover::before{opacity:1}
+.skill-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(11,46,41,0.06)}
+.skill-badge{display:inline-block;background:var(--porcelain);color:var(--muted);font-family:var(--font-mono);font-size:11px;padding:4px 12px;border-radius:100px;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;position:relative;z-index:5;pointer-events:none}
+.skill-card h3{font-family:var(--font-display);font-size:20px;margin-bottom:8px;color:var(--ink);position:relative;z-index:5;pointer-events:none}
+.skill-card p{color:var(--muted);font-size:14px;margin-bottom:16px;min-height:60px;position:relative;z-index:5;pointer-events:none}
+.skill-meta{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:5;pointer-events:none}
+.skill-meta .price{font-family:var(--font-mono);font-size:12px;color:var(--brass);font-weight:500}
+.skill-meta .run{color:var(--brass);font-weight:600;font-size:13px}
 footer{background:var(--ink-deep);padding:60px 24px 40px}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .seal{width:40px;height:40px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;margin-bottom:16px}
 .footer-brand h4{font-family:var(--font-display);color:var(--porcelain);font-size:20px;margin-bottom:8px}
 .footer-brand p{color:rgba(244,246,242,0.5);font-size:14px}
 .footer-col h5{color:var(--porcelain);font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
@@ -42,22 +56,209 @@ footer{background:var(--ink-deep);padding:60px 24px 40px}
 <li><a href="real-estate.html">Real Estate</a></li>
 <li><a href="ceo-reset.html">CEO Reset</a></li>
 <li><a href="finance-audit.html">Finance</a></li>
+<li><a href="sales.html">Sales</a></li>
+<li><a href="marketing.html">Marketing</a></li>
+<li><a href="customer-support.html">Support</a></li>
+<li><a href="coaching.html">Coaching</a></li>
+<li><a href="schools-education.html">Education</a></li>
+<li><a href="consultancy.html">Consultancy</a></li>
+<li><a href="healthcare.html">Healthcare</a></li>
+<li><a href="legal.html">Legal</a></li>
+<li><a href="construction.html">Construction</a></li>
+<li><a href="logistics.html">Logistics</a></li>
+<li><a href="hospitality.html">Hospitality</a></li>
+<li><a href="it-devops.html">IT</a></li>
+<li><a href="personal-productivity.html">Productivity</a></li>
+<li><a href="health-fitness.html">Fitness</a></li>
 </ul>
 <a href="index.html" class="nav-cta">← All verticals</a>
 </div></nav>
 <section class="hero"><div class="hero-inner">
-<h1>Schools & Education<br><em>Coming soon</em></h1>
-<p>Admissions funnel, lesson plans, timetables, parent communication, student progress tracking, and exam preparation — 25 skills for educators.</p>
-<div class="coming-soon">🚀 LAUNCHING Q3 2026</div>
+<h1>Schools & Education<br><em>25 certified skills</em></h1>
+<p>Admissions funnel, lesson plans, timetables, parent communication, student progress tracking, and exam preparation — 25 skills for educators and institutions.</p>
+<a href="#skills" class="btn-primary">Browse 25 skills</a>
 <div><a href="index.html" class="back-link">← Back to all verticals</a></div>
 </div></section>
-<section class="section"><div class="section-inner">
-<h2>What to expect</h2><p>This vertical will include certified skills for enrollment workflows, curriculum design, report card generators, parent newsletters, attendance tracking, and individualized education plans.</p>
-</div></section>
+<div class="filters" id="skills"><button data-filter="academic">ACADEMIC</button>
+<button data-filter="assessment">ASSESSMENT</button>
+<button data-filter="behavior">BEHAVIOR</button>
+<button data-filter="compliance">COMPLIANCE</button>
+<button data-filter="cover">COVER</button>
+<button data-filter="engagement">ENGAGEMENT</button>
+<button data-filter="enrollment">ENROLLMENT</button>
+<button data-filter="events">EVENTS</button>
+<button data-filter="finance">FINANCE</button>
+<button data-filter="hr">HR</button>
+<button data-filter="logistics">LOGISTICS</button>
+<button data-filter="marketing">MARKETING</button>
+<button data-filter="meetings">MEETINGS</button>
+<button data-filter="operations">OPERATIONS</button>
+<button data-filter="policy">POLICY</button>
+<button data-filter="relations">RELATIONS</button>
+<button data-filter="resources">RESOURCES</button>
+<button data-filter="safeguard">SAFEGUARD</button>
+<button data-filter="safety">SAFETY</button>
+<button data-filter="schedule">SCHEDULE</button>
+<button data-filter="sen">SEN</button>
+<button data-filter="teaching">TEACHING</button>
+<button data-filter="training">TRAINING</button>
+</div>
+<div class="skills"><a href="#" class="skill-card" data-category="enrollment">
+<div class="skill-badge">ENROLLMENT</div>
+<h3>Admissions Funnel Builder</h3>
+<p>Inquiry-to-enrollment pipeline with touchpoints, events, and conversion tracking. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="teaching">
+<div class="skill-badge">TEACHING</div>
+<h3>Lesson Plan Generator</h3>
+<p>Objective, activity, assessment, differentiation, and resource planning. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="schedule">
+<div class="skill-badge">SCHEDULE</div>
+<h3>Timetable Optimizer</h3>
+<p>Teacher availability, room constraints, subject balance, and clash resolution. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="engagement">
+<div class="skill-badge">ENGAGEMENT</div>
+<h3>Parent Communication Log</h3>
+<p>Incident reports, progress updates, and meeting summaries by student. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="assessment">
+<div class="skill-badge">ASSESSMENT</div>
+<h3>Student Progress Report</h3>
+<p>Grade trends, skill mastery, behavior notes, and improvement targets. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="assessment">
+<div class="skill-badge">ASSESSMENT</div>
+<h3>Exam Paper Generator</h3>
+<p>Question bank selection, difficulty balancing, answer key, and rubric. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="cover">
+<div class="skill-badge">COVER</div>
+<h3>Substitute Teacher Brief</h3>
+<p>Class profile, lesson plan, behavior notes, and emergency contacts. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="safety">
+<div class="skill-badge">SAFETY</div>
+<h3>Field Trip Risk Assessment</h3>
+<p>Hazards, mitigation, consent forms, and emergency procedures. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="sen">
+<div class="skill-badge">SEN</div>
+<h3>Special Needs IEP Planner</h3>
+<p>Goals, accommodations, progress monitoring, and stakeholder reviews. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="hr">
+<div class="skill-badge">HR</div>
+<h3>Staff Appraisal Template</h3>
+<p>Performance criteria, evidence collection, feedback, and development goals. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="finance">
+<div class="skill-badge">FINANCE</div>
+<h3>Budget Request Builder</h3>
+<p>Need justification, cost breakdown, vendor comparison, and ROI projection. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="marketing">
+<div class="skill-badge">MARKETING</div>
+<h3>School Marketing Brochure</h3>
+<p>Value proposition, program highlights, testimonials, and enrollment CTA. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="relations">
+<div class="skill-badge">RELATIONS</div>
+<h3>Alumni Engagement Plan</h3>
+<p>Database segmentation, event calendar, and donation campaign strategy. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="resources">
+<div class="skill-badge">RESOURCES</div>
+<h3>Library Catalog Update</h3>
+<p>Acquisition, classification, weeding, and lending analytics. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="operations">
+<div class="skill-badge">OPERATIONS</div>
+<h3>Canteen Menu Planner</h3>
+<p>Nutritional balance, dietary restrictions, supplier rotation, and waste tracking. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="logistics">
+<div class="skill-badge">LOGISTICS</div>
+<h3>Transport Route Optimizer</h3>
+<p>Stop sequencing, capacity management, and parent notification. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="safeguard">
+<div class="skill-badge">SAFEGUARD</div>
+<h3>Anti-Bullying Action Plan</h3>
+<p>Policy drafting, reporting mechanism, intervention steps, and monitoring. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="training">
+<div class="skill-badge">TRAINING</div>
+<h3>Professional Development Plan</h3>
+<p>Teacher skills gap, course matching, budget, and certification tracking. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="events">
+<div class="skill-badge">EVENTS</div>
+<h3>Open Day Event Planner</h3>
+<p>Logistics, tours, presentations, registration, and follow-up nurturing. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="behavior">
+<div class="skill-badge">BEHAVIOR</div>
+<h3>Attendance Intervention Tracker</h3>
+<p>Absence pattern analysis, early-warning flags, and parent contact. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="academic">
+<div class="skill-badge">ACADEMIC</div>
+<h3>Curriculum Gap Analysis</h3>
+<p>Standard mapping, coverage audit, and resource acquisition plan. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="meetings">
+<div class="skill-badge">MEETINGS</div>
+<h3>Parent Teacher Meeting Prep</h3>
+<p>Agenda, talking points, data packets, and action note templates. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="events">
+<div class="skill-badge">EVENTS</div>
+<h3>Graduation Ceremony Script</h3>
+<p>Program flow, speaker notes, award sequences, and photography plan. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="policy">
+<div class="skill-badge">POLICY</div>
+<h3>IT Acceptable Use Policy</h3>
+<p>Device rules, internet safety, consequences, and parent consent. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="compliance">
+<div class="skill-badge">COMPLIANCE</div>
+<h3>Accreditation Readiness Pack</h3>
+<p>Self-study, evidence folder, visit prep, and post-visit action. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+</div>
 <footer><div class="footer-inner">
-<div class="footer-brand"><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
-<div class="footer-col"><h5>Featured</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a></div>
+<div class="footer-brand"><div class="seal">P</div><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
+<div class="footer-col"><h5>Verticals</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a><a href="sales.html">Sales</a><a href="marketing.html">Marketing</a></div>
+<div class="footer-col"><h5>More</h5><a href="customer-support.html">Support</a><a href="coaching.html">Coaching</a><a href="schools-education.html">Education</a><a href="consultancy.html">Consultancy</a><a href="healthcare.html">Healthcare</a><a href="legal.html">Legal</a></div>
 <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
-<div class="footer-col"><h5>Contact</h5><a href="mailto:founders@pandorasskillbox.com">founders@pandorasskillbox.com</a></div>
-</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified</span></div></footer>
+</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified · 12-Point Security Scan</span></div></footer>
+<script>document.addEventListener('click',function(e){var c=e.target.closest('.skill-card[href]');if(c){window.location.href=c.getAttribute('href');}});</script>
 </body></html>

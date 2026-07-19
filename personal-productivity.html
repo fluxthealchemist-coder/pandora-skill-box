@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pandora's Skill Box — Personal Productivity</title>
+<title>Pandora's Skill Box — Personal Productivity Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+<style>:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--verdict:#17A673;--flag:#D64533;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,46,41,0.06)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .nav-logo .seal{width:32px;height:32px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
 .nav-logo span{font-family:var(--font-display);font-size:20px}
-.nav-links{display:flex;gap:20px;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:500}
-.nav-cta{background:var(--ink);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600}
-.hero{min-height:70vh;display:flex;align-items:center;background:var(--ink);position:relative}
+.nav-links{display:flex;gap:16px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:12px;font-weight:500;white-space:nowrap}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}
+.hero{min-height:60vh;display:flex;align-items:center;background:var(--ink);position:relative}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(184,137,45,0.08) 0%,transparent 60%)}
-.hero-inner{max-width:800px;margin:0 auto;padding:140px 24px 80px;text-align:center;position:relative;z-index:2}
+.hero-inner{max-width:800px;margin:0 auto;padding:140px 24px 60px;text-align:center;position:relative;z-index:2}
 .hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,56px);color:var(--porcelain);line-height:1.1;margin-bottom:20px}
 .hero h1 em{color:var(--brass-soft);font-style:italic}
 .hero p{font-size:18px;color:rgba(244,246,242,0.7);margin-bottom:32px}
-.coming-soon{display:inline-block;background:rgba(184,137,45,0.15);border:1px solid rgba(184,137,45,0.3);color:var(--brass-soft);padding:10px 24px;border-radius:100px;font-family:var(--font-mono);font-size:14px;letter-spacing:1px}
+.btn-primary{background:var(--brass);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;display:inline-block}
 .back-link{display:inline-block;margin-top:40px;color:var(--brass-soft);text-decoration:none;font-weight:600}
-.section{padding:80px 24px;background:#fff}
-.section-inner{max-width:800px;margin:0 auto;text-align:center}
-.section h2{font-family:var(--font-display);font-size:32px;margin-bottom:16px}
-.section p{color:var(--muted);font-size:16px;margin-bottom:32px}
+.filters{max-width:1200px;margin:0 auto;padding:24px;display:flex;gap:10px;flex-wrap:wrap}
+.filters button{background:var(--porcelain);border:none;padding:8px 16px;border-radius:100px;font-family:var(--font-mono);font-size:12px;color:var(--muted);cursor:pointer;transition:all 0.2s}
+.filters button:hover,.filters button.active{background:var(--ink);color:#fff}
+.skills{max-width:1200px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.skill-card{background:#fff;border-radius:12px;padding:24px;border:1px solid rgba(11,46,41,0.06);transition:all 0.2s;position:relative;text-decoration:none;color:inherit;display:block}
+.skill-card::after{content:'';position:absolute;inset:0;z-index:10}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--brass);opacity:0;transition:opacity 0.2s}
+.skill-card:hover::before{opacity:1}
+.skill-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(11,46,41,0.06)}
+.skill-badge{display:inline-block;background:var(--porcelain);color:var(--muted);font-family:var(--font-mono);font-size:11px;padding:4px 12px;border-radius:100px;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;position:relative;z-index:5;pointer-events:none}
+.skill-card h3{font-family:var(--font-display);font-size:20px;margin-bottom:8px;color:var(--ink);position:relative;z-index:5;pointer-events:none}
+.skill-card p{color:var(--muted);font-size:14px;margin-bottom:16px;min-height:60px;position:relative;z-index:5;pointer-events:none}
+.skill-meta{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:5;pointer-events:none}
+.skill-meta .price{font-family:var(--font-mono);font-size:12px;color:var(--brass);font-weight:500}
+.skill-meta .run{color:var(--brass);font-weight:600;font-size:13px}
 footer{background:var(--ink-deep);padding:60px 24px 40px}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .seal{width:40px;height:40px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;margin-bottom:16px}
 .footer-brand h4{font-family:var(--font-display);color:var(--porcelain);font-size:20px;margin-bottom:8px}
 .footer-brand p{color:rgba(244,246,242,0.5);font-size:14px}
 .footer-col h5{color:var(--porcelain);font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
@@ -42,22 +56,209 @@ footer{background:var(--ink-deep);padding:60px 24px 40px}
 <li><a href="real-estate.html">Real Estate</a></li>
 <li><a href="ceo-reset.html">CEO Reset</a></li>
 <li><a href="finance-audit.html">Finance</a></li>
+<li><a href="sales.html">Sales</a></li>
+<li><a href="marketing.html">Marketing</a></li>
+<li><a href="customer-support.html">Support</a></li>
+<li><a href="coaching.html">Coaching</a></li>
+<li><a href="schools-education.html">Education</a></li>
+<li><a href="consultancy.html">Consultancy</a></li>
+<li><a href="healthcare.html">Healthcare</a></li>
+<li><a href="legal.html">Legal</a></li>
+<li><a href="construction.html">Construction</a></li>
+<li><a href="logistics.html">Logistics</a></li>
+<li><a href="hospitality.html">Hospitality</a></li>
+<li><a href="it-devops.html">IT</a></li>
+<li><a href="personal-productivity.html">Productivity</a></li>
+<li><a href="health-fitness.html">Fitness</a></li>
 </ul>
 <a href="index.html" class="nav-cta">← All verticals</a>
 </div></nav>
 <section class="hero"><div class="hero-inner">
-<h1>Personal Productivity<br><em>Coming soon</em></h1>
+<h1>Personal Productivity<br><em>25 certified skills</em></h1>
 <p>Daily briefs, email triage, meeting prep, calendar optimization, and focus-time protection — 25 skills for executives and individuals.</p>
-<div class="coming-soon">🚀 LAUNCHING Q3 2026</div>
+<a href="#skills" class="btn-primary">Browse 25 skills</a>
 <div><a href="index.html" class="back-link">← Back to all verticals</a></div>
 </div></section>
-<section class="section"><div class="section-inner">
-<h2>What to expect</h2><p>This vertical will include certified skills for Eisenhower matrix automation, daily digest generation, travel itinerary building, expense report drafting, and delegation planning.</p>
-</div></section>
+<div class="filters" id="skills"><button data-filter="close">CLOSE</button>
+<button data-filter="comm">COMM</button>
+<button data-filter="deep">DEEP</button>
+<button data-filter="finance">FINANCE</button>
+<button data-filter="goals">GOALS</button>
+<button data-filter="grow">GROW</button>
+<button data-filter="habit">HABIT</button>
+<button data-filter="inbox">INBOX</button>
+<button data-filter="know">KNOW</button>
+<button data-filter="market">MARKET</button>
+<button data-filter="meetings">MEETINGS</button>
+<button data-filter="org">ORG</button>
+<button data-filter="plan">PLAN</button>
+<button data-filter="priority">PRIORITY</button>
+<button data-filter="project">PROJECT</button>
+<button data-filter="reflect">REFLECT</button>
+<button data-filter="relations">RELATIONS</button>
+<button data-filter="sec">SEC</button>
+<button data-filter="team">TEAM</button>
+<button data-filter="think">THINK</button>
+<button data-filter="time">TIME</button>
+<button data-filter="travel">TRAVEL</button>
+<button data-filter="wellness">WELLNESS</button>
+</div>
+<div class="skills"><a href="#" class="skill-card" data-category="plan">
+<div class="skill-badge">PLAN</div>
+<h3>Daily Brief Generator</h3>
+<p>Priority extraction, schedule scan, and top-3 focus from calendar and tasks. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="priority">
+<div class="skill-badge">PRIORITY</div>
+<h3>Eisenhower Matrix Sorter</h3>
+<p>Urgent-important classification, delegation suggestions, and elimination. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="meetings">
+<div class="skill-badge">MEETINGS</div>
+<h3>Meeting Prep Dossier</h3>
+<p>Attendees, agenda, pre-reads, decisions needed, and follow-up actions. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="time">
+<div class="skill-badge">TIME</div>
+<h3>Calendar Optimization Audit</h3>
+<p>Meeting density analysis, focus block creation, and boundary enforcement. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="inbox">
+<div class="skill-badge">INBOX</div>
+<h3>Email Triage System</h3>
+<p>2-minute rule, delegate, defer, and delete decision tree with templates. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="travel">
+<div class="skill-badge">TRAVEL</div>
+<h3>Travel Itinerary Builder</h3>
+<p>Flights, hotels, ground transport, and buffer time with contingency. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="finance">
+<div class="skill-badge">FINANCE</div>
+<h3>Expense Report Compiler</h3>
+<p>Receipt capture, categorization, policy check, and submission formatting. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="team">
+<div class="skill-badge">TEAM</div>
+<h3>Delegation Planner</h3>
+<p>Task assessment, candidate matching, briefing, and checkpoint schedule. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="reflect">
+<div class="skill-badge">REFLECT</div>
+<h3>Weekly Review Framework</h3>
+<p>Wins, misses, learnings, and next-week intention setting. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="deep">
+<div class="skill-badge">DEEP</div>
+<h3>Focus Session Timer</h3>
+<p>Pomodoro, break schedule, distraction list, and session goal. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="goals">
+<div class="skill-badge">GOALS</div>
+<h3>Personal OKR Tracker</h3>
+<p>Quarterly objective, key results, weekly initiatives, and confidence scoring. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="relations">
+<div class="skill-badge">RELATIONS</div>
+<h3>Networking Follow-Up Log</h3>
+<p>Contact recency, conversation notes, and re-engagement triggers. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="think">
+<div class="skill-badge">THINK</div>
+<h3>Decision Journal Template</h3>
+<p>Context, options, criteria, choice, expected outcome, and later review. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="habit">
+<div class="skill-badge">HABIT</div>
+<h3>Morning Routine Designer</h3>
+<p>Energy, focus, and mood optimization with timing and buffer. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="know">
+<div class="skill-badge">KNOW</div>
+<h3>Note-Taking System Setup</h3>
+<p>PARA, Zettelkasten, or bullet journal structure with tool selection. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="project">
+<div class="skill-badge">PROJECT</div>
+<h3>Side Project Planner</h3>
+<p>Scope, time allocation, milestone, and resource plan for personal ventures. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="org">
+<div class="skill-badge">ORG</div>
+<h3>Digital Declutter Guide</h3>
+<p>File structure, naming convention, archive, and backup automation. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="comm">
+<div class="skill-badge">COMM</div>
+<h3>Boundary Setting Script</h3>
+<p>Declining, deferring, and negotiating requests with respect and clarity. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="grow">
+<div class="skill-badge">GROW</div>
+<h3>Learning Path Designer</h3>
+<p>Skill gap, resource curation, practice schedule, and milestone assessment. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="wellness">
+<div class="skill-badge">WELLNESS</div>
+<h3>Energy Audit Tracker</h3>
+<p>Peak hours, drain identification, and recovery protocol optimization. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="sec">
+<div class="skill-badge">SEC</div>
+<h3>Password Security Review</h3>
+<p>Manager audit, 2FA check, and breach exposure scan. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="finance">
+<div class="skill-badge">FINANCE</div>
+<h3>Subscription Optimizer</h3>
+<p>Usage review, duplicate detection, and cancellation or downgrade plan. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="relations">
+<div class="skill-badge">RELATIONS</div>
+<h3>Gift & Occasion Reminder</h3>
+<p>Birthday, anniversary, and special event calendar with gift suggestions. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="market">
+<div class="skill-badge">MARKET</div>
+<h3>Personal Brand Builder</h3>
+<p>LinkedIn bio, content pillars, posting cadence, and engagement strategy. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="close">
+<div class="skill-badge">CLOSE</div>
+<h3>End-of-Day Shutdown Ritual</h3>
+<p>Inbox zero, tomorrow preview, gratitude, and device boundaries. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+</div>
 <footer><div class="footer-inner">
-<div class="footer-brand"><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
-<div class="footer-col"><h5>Featured</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a></div>
+<div class="footer-brand"><div class="seal">P</div><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
+<div class="footer-col"><h5>Verticals</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a><a href="sales.html">Sales</a><a href="marketing.html">Marketing</a></div>
+<div class="footer-col"><h5>More</h5><a href="customer-support.html">Support</a><a href="coaching.html">Coaching</a><a href="schools-education.html">Education</a><a href="consultancy.html">Consultancy</a><a href="healthcare.html">Healthcare</a><a href="legal.html">Legal</a></div>
 <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
-<div class="footer-col"><h5>Contact</h5><a href="mailto:founders@pandorasskillbox.com">founders@pandorasskillbox.com</a></div>
-</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified</span></div></footer>
+</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified · 12-Point Security Scan</span></div></footer>
+<script>document.addEventListener('click',function(e){var c=e.target.closest('.skill-card[href]');if(c){window.location.href=c.getAttribute('href');}});</script>
 </body></html>

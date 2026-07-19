@@ -1,32 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pandora's Skill Box — Marketing & Growth</title>
+<title>Pandora's Skill Box — Marketing & Growth Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+<style>:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--verdict:#17A673;--flag:#D64533;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,46,41,0.06)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .nav-logo .seal{width:32px;height:32px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
 .nav-logo span{font-family:var(--font-display);font-size:20px}
-.nav-links{display:flex;gap:20px;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:500}
-.nav-cta{background:var(--ink);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600}
-.hero{min-height:70vh;display:flex;align-items:center;background:var(--ink);position:relative}
+.nav-links{display:flex;gap:16px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:12px;font-weight:500;white-space:nowrap}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}
+.hero{min-height:60vh;display:flex;align-items:center;background:var(--ink);position:relative}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(184,137,45,0.08) 0%,transparent 60%)}
-.hero-inner{max-width:800px;margin:0 auto;padding:140px 24px 80px;text-align:center;position:relative;z-index:2}
+.hero-inner{max-width:800px;margin:0 auto;padding:140px 24px 60px;text-align:center;position:relative;z-index:2}
 .hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,56px);color:var(--porcelain);line-height:1.1;margin-bottom:20px}
 .hero h1 em{color:var(--brass-soft);font-style:italic}
 .hero p{font-size:18px;color:rgba(244,246,242,0.7);margin-bottom:32px}
-.coming-soon{display:inline-block;background:rgba(184,137,45,0.15);border:1px solid rgba(184,137,45,0.3);color:var(--brass-soft);padding:10px 24px;border-radius:100px;font-family:var(--font-mono);font-size:14px;letter-spacing:1px}
+.btn-primary{background:var(--brass);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;display:inline-block}
 .back-link{display:inline-block;margin-top:40px;color:var(--brass-soft);text-decoration:none;font-weight:600}
-.section{padding:80px 24px;background:#fff}
-.section-inner{max-width:800px;margin:0 auto;text-align:center}
-.section h2{font-family:var(--font-display);font-size:32px;margin-bottom:16px}
-.section p{color:var(--muted);font-size:16px;margin-bottom:32px}
+.filters{max-width:1200px;margin:0 auto;padding:24px;display:flex;gap:10px;flex-wrap:wrap}
+.filters button{background:var(--porcelain);border:none;padding:8px 16px;border-radius:100px;font-family:var(--font-mono);font-size:12px;color:var(--muted);cursor:pointer;transition:all 0.2s}
+.filters button:hover,.filters button.active{background:var(--ink);color:#fff}
+.skills{max-width:1200px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.skill-card{background:#fff;border-radius:12px;padding:24px;border:1px solid rgba(11,46,41,0.06);transition:all 0.2s;position:relative;text-decoration:none;color:inherit;display:block}
+.skill-card::after{content:'';position:absolute;inset:0;z-index:10}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--brass);opacity:0;transition:opacity 0.2s}
+.skill-card:hover::before{opacity:1}
+.skill-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(11,46,41,0.06)}
+.skill-badge{display:inline-block;background:var(--porcelain);color:var(--muted);font-family:var(--font-mono);font-size:11px;padding:4px 12px;border-radius:100px;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px;position:relative;z-index:5;pointer-events:none}
+.skill-card h3{font-family:var(--font-display);font-size:20px;margin-bottom:8px;color:var(--ink);position:relative;z-index:5;pointer-events:none}
+.skill-card p{color:var(--muted);font-size:14px;margin-bottom:16px;min-height:60px;position:relative;z-index:5;pointer-events:none}
+.skill-meta{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:5;pointer-events:none}
+.skill-meta .price{font-family:var(--font-mono);font-size:12px;color:var(--brass);font-weight:500}
+.skill-meta .run{color:var(--brass);font-weight:600;font-size:13px}
 footer{background:var(--ink-deep);padding:60px 24px 40px}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .seal{width:40px;height:40px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;margin-bottom:16px}
 .footer-brand h4{font-family:var(--font-display);color:var(--porcelain);font-size:20px;margin-bottom:8px}
 .footer-brand p{color:rgba(244,246,242,0.5);font-size:14px}
 .footer-col h5{color:var(--porcelain);font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
@@ -42,22 +56,206 @@ footer{background:var(--ink-deep);padding:60px 24px 40px}
 <li><a href="real-estate.html">Real Estate</a></li>
 <li><a href="ceo-reset.html">CEO Reset</a></li>
 <li><a href="finance-audit.html">Finance</a></li>
+<li><a href="sales.html">Sales</a></li>
+<li><a href="marketing.html">Marketing</a></li>
+<li><a href="customer-support.html">Support</a></li>
+<li><a href="coaching.html">Coaching</a></li>
+<li><a href="schools-education.html">Education</a></li>
+<li><a href="consultancy.html">Consultancy</a></li>
+<li><a href="healthcare.html">Healthcare</a></li>
+<li><a href="legal.html">Legal</a></li>
+<li><a href="construction.html">Construction</a></li>
+<li><a href="logistics.html">Logistics</a></li>
+<li><a href="hospitality.html">Hospitality</a></li>
+<li><a href="it-devops.html">IT</a></li>
+<li><a href="personal-productivity.html">Productivity</a></li>
+<li><a href="health-fitness.html">Fitness</a></li>
 </ul>
 <a href="index.html" class="nav-cta">← All verticals</a>
 </div></nav>
 <section class="hero"><div class="hero-inner">
-<h1>Marketing & Growth<br><em>Coming soon</em></h1>
-<p>Campaign planning, content creation, brand voice, review management, audience intelligence, and multi-channel growth strategies — 25 skills for modern marketers.</p>
-<div class="coming-soon">🚀 LAUNCHING Q3 2026</div>
+<h1>Marketing & Growth<br><em>25 certified skills</em></h1>
+<p>Campaign planning, content creation, brand voice, review management, and audience intelligence — 25 skills for modern marketers.</p>
+<a href="#skills" class="btn-primary">Browse 25 skills</a>
 <div><a href="index.html" class="back-link">← Back to all verticals</a></div>
 </div></section>
-<section class="section"><div class="section-inner">
-<h2>What to expect</h2><p>This vertical will include certified skills for market research, content calendars, social media briefs, ad copy optimization, email marketing, SEO auditing, influencer outreach, and brand positioning frameworks.</p>
-</div></section>
+<div class="filters" id="skills"><button data-filter="analytics">ANALYTICS</button>
+<button data-filter="audience">AUDIENCE</button>
+<button data-filter="brand">BRAND</button>
+<button data-filter="content">CONTENT</button>
+<button data-filter="conversion">CONVERSION</button>
+<button data-filter="email">EMAIL</button>
+<button data-filter="events">EVENTS</button>
+<button data-filter="experiment">EXPERIMENT</button>
+<button data-filter="finance">FINANCE</button>
+<button data-filter="growth">GROWTH</button>
+<button data-filter="intel">INTEL</button>
+<button data-filter="launch">LAUNCH</button>
+<button data-filter="paid">PAID</button>
+<button data-filter="partners">PARTNERS</button>
+<button data-filter="pr">PR</button>
+<button data-filter="reputation">REPUTATION</button>
+<button data-filter="research">RESEARCH</button>
+<button data-filter="seo">SEO</button>
+<button data-filter="strategy">STRATEGY</button>
+<button data-filter="video">VIDEO</button>
+</div>
+<div class="skills"><a href="#" class="skill-card" data-category="strategy">
+<div class="skill-badge">STRATEGY</div>
+<h3>Campaign Brief Builder</h3>
+<p>Objective, audience, message, channel, and KPI definition for any campaign. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="brand">
+<div class="skill-badge">BRAND</div>
+<h3>Brand Voice Guide Generator</h3>
+<p>Tone pillars, vocabulary rules, do/don't lists, and sample copy by channel. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="content">
+<div class="skill-badge">CONTENT</div>
+<h3>Content Calendar Planner</h3>
+<p>Monthly editorial calendar with themes, formats, deadlines, and owner assignments. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="seo">
+<div class="skill-badge">SEO</div>
+<h3>SEO Audit Checklist</h3>
+<p>Technical, on-page, off-page, and local SEO scoring with prioritized fixes. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="paid">
+<div class="skill-badge">PAID</div>
+<h3>Social Media Ad Copy Pack</h3>
+<p>Headline-body-CTA variants for Meta, LinkedIn, X, and TikTok ads. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="conversion">
+<div class="skill-badge">CONVERSION</div>
+<h3>Landing Page Copy Optimizer</h3>
+<p>Hero, social proof, benefit bullets, FAQ, and CTA sections for any offer. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="email">
+<div class="skill-badge">EMAIL</div>
+<h3>Email Drip Sequence Writer</h3>
+<p>Welcome, nurture, re-engagement, and win-back sequences with send logic. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="pr">
+<div class="skill-badge">PR</div>
+<h3>Influencer Outreach Brief</h3>
+<p>Pitch templates, rate negotiation, deliverable specs, and tracking setup. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="reputation">
+<div class="skill-badge">REPUTATION</div>
+<h3>Review Response Generator</h3>
+<p>Positive and negative review responses for Google, TripAdvisor, and industry sites. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="intel">
+<div class="skill-badge">INTEL</div>
+<h3>Competitor Ad Intel Brief</h3>
+<p>Messaging analysis, offer comparison, and gap identification from public ads. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="audience">
+<div class="skill-badge">AUDIENCE</div>
+<h3>Customer Persona Builder</h3>
+<p>Demographic, psychographic, pain-point, and journey-map profiles. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="video">
+<div class="skill-badge">VIDEO</div>
+<h3>Video Script Template</h3>
+<p>Hook-problem-solution-CTA structure for 30, 60, and 90-second formats. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="pr">
+<div class="skill-badge">PR</div>
+<h3>Press Release Draft</h3>
+<p>Newsworthy angle, quote insertion, boilerplate, and journalist pitching list. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="finance">
+<div class="skill-badge">FINANCE</div>
+<h3>Marketing Budget Allocator</h3>
+<p>Channel mix, CAC targets, ROI projections, and reallocation triggers. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="experiment">
+<div class="skill-badge">EXPERIMENT</div>
+<h3>A/B Test Design Framework</h3>
+<p>Hypothesis, variant, sample size, duration, and success criteria. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="events">
+<div class="skill-badge">EVENTS</div>
+<h3>Webinar Promotion Kit</h3>
+<p>Registration page, reminder sequence, social posts, and follow-up nurture. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="launch">
+<div class="skill-badge">LAUNCH</div>
+<h3>Product Launch Playbook</h3>
+<p>Pre-launch, launch-day, and post-launch activities with owner and deadline. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="analytics">
+<div class="skill-badge">ANALYTICS</div>
+<h3>UTM Tagging Generator</h3>
+<p>Campaign, source, medium, and content parameters with naming convention. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="growth">
+<div class="skill-badge">GROWTH</div>
+<h3>Lead Magnet Creator</h3>
+<p>Ebook, checklist, or template outline with title, hook, and delivery flow. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="research">
+<div class="skill-badge">RESEARCH</div>
+<h3>Customer Survey Designer</h3>
+<p>NPS, CSAT, product-market fit, and churn reason questionnaires. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="analytics">
+<div class="skill-badge">ANALYTICS</div>
+<h3>Marketing Dashboard Builder</h3>
+<p>KPI hierarchy, data sources, refresh schedule, and alert thresholds. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="growth">
+<div class="skill-badge">GROWTH</div>
+<h3>Referral Program Design</h3>
+<p>Incentive structure, landing page, email triggers, and reward fulfillment. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="pr">
+<div class="skill-badge">PR</div>
+<h3>Podcast Guest Pitch Kit</h3>
+<p>Angle selection, bio draft, talking points, and episode promotion plan. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="partners">
+<div class="skill-badge">PARTNERS</div>
+<h3>Affiliate Program Brief</h3>
+<p>Commission tiers, terms, tracking setup, and onboarding sequence. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+<a href="#" class="skill-card" data-category="reputation">
+<div class="skill-badge">REPUTATION</div>
+<h3>Crisis Response Template</h3>
+<p>Escalation protocol, holding statement, channel response, and post-mortem. $19</p>
+<div class="skill-meta"><span class="price"></span><span class="run">Run →</span></div>
+</a>
+</div>
 <footer><div class="footer-inner">
-<div class="footer-brand"><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
-<div class="footer-col"><h5>Featured</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a></div>
+<div class="footer-brand"><div class="seal">P</div><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
+<div class="footer-col"><h5>Verticals</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a><a href="sales.html">Sales</a><a href="marketing.html">Marketing</a></div>
+<div class="footer-col"><h5>More</h5><a href="customer-support.html">Support</a><a href="coaching.html">Coaching</a><a href="schools-education.html">Education</a><a href="consultancy.html">Consultancy</a><a href="healthcare.html">Healthcare</a><a href="legal.html">Legal</a></div>
 <div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
-<div class="footer-col"><h5>Contact</h5><a href="mailto:founders@pandorasskillbox.com">founders@pandorasskillbox.com</a></div>
-</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified</span></div></footer>
+</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified · 12-Point Security Scan</span></div></footer>
+<script>document.addEventListener('click',function(e){var c=e.target.closest('.skill-card[href]');if(c){window.location.href=c.getAttribute('href');}});</script>
 </body></html>
