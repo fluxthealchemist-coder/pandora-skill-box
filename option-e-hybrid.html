@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option E — Hybrid Protocol (Pre-Call + Zoom + Post-Call)</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--verdict:#17A673;--rose:#D64533;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+.container{max-width:1000px;margin:0 auto;padding:0 32px}
+
+/* NAV */
+.phase-nav{position:sticky;top:0;background:var(--ink);padding:16px 32px;display:flex;gap:8px;overflow-x:auto;z-index:100;border-bottom:1px solid rgba(244,246,242,0.1)}
+.phase-btn{font-family:var(--font-body);font-size:14px;font-weight:600;padding:10px 20px;border-radius:8px;border:none;cursor:pointer;background:rgba(244,246,242,0.08);color:var(--paper);white-space:nowrap;transition:all 0.2s}
+.phase-btn:hover{background:rgba(244,246,242,0.15)}
+.phase-btn.active{background:var(--brass);color:#fff}
+
+/* PHASE */
+.phase{display:none;padding:40px 0}
+.phase.active{display:block;animation:fadeIn 0.3s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.phase-header{margin-bottom:32px;padding-bottom:24px;border-bottom:2px solid var(--ink)}
+.phase-badge{font-family:var(--font-mono);font-size:11px;color:var(--brass);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px}
+.phase-header h2{font-family:var(--font-display);font-size:32px}
+.phase-header p{color:var(--muted);font-size:15px;margin-top:6px}
+
+/* CARDS */
+.card{background:#fff;border-radius:12px;padding:28px;margin-bottom:20px;border:1px solid rgba(11,46,41,0.06)}
+.card h3{font-family:var(--font-display);font-size:20px;margin-bottom:12px}
+.card p,.card li{color:var(--muted);font-size:15px;line-height:1.7}
+.card ul{padding-left:20px;margin-bottom:16px}
+.card li{margin-bottom:6px}
+
+/* PRINTABLE */
+.printable{background:var(--porcelain);padding:32px;border-radius:12px;margin-bottom:24px}
+.printable h3{font-family:var(--font-display);font-size:22px;margin-bottom:16px}
+.printable .q{margin-bottom:16px;padding-bottom:16px;border-bottom:1px dashed rgba(11,46,41,0.15)}
+.printable .q:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.printable .q-num{font-family:var(--font-mono);font-size:11px;color:var(--brass);margin-bottom:4px}
+.printable .q-text{font-size:15px;font-weight:600;margin-bottom:6px}
+.printable .q-ans{min-height:36px;padding:8px 12px;background:#fff;border-radius:6px;border:1px solid rgba(11,46,41,0.1);color:var(--muted);font-size:14px}
+.printable .q-ans:empty:before{content:'Write answer here...';color:var(--muted);opacity:0.5}
+
+/* ZOOM SCRIPT */
+.script-card{background:var(--ink);color:var(--porcelain);padding:24px;border-radius:12px;margin-bottom:16px}
+.script-card .q-num{font-family:var(--font-mono);font-size:12px;color:var(--brass);margin-bottom:6px}
+.script-card .q-question{font-size:18px;font-weight:600;margin-bottom:8px;line-height:1.4}
+.script-card .q-probe{font-size:14px;color:rgba(244,246,242,0.6);margin-bottom:12px;padding-left:16px;border-left:3px solid var(--brass)}
+.script-card .notes{background:rgba(244,246,242,0.05);min-height:48px;padding:10px 12px;border-radius:6px;border:1px dashed rgba(244,246,242,0.2);font-size:14px;color:var(--porcelain)}
+.script-card .notes:empty:before{content:'Jot notes...';color:rgba(244,246,242,0.4)}
+.script-card .notes:focus{outline:none;border-color:var(--brass);background:rgba(244,246,242,0.08)}
+.red-flag{display:inline-block;background:var(--rose);color:#fff;font-family:var(--font-mono);font-size:10px;padding:3px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:0.5px;margin-left:8px}
+
+/* QUICK FILL */
+.quick-fill .q-block{margin-bottom:20px;padding:20px;background:#fff;border-radius:10px;border:1px solid rgba(11,46,41,0.06)}
+.quick-fill .q-num{font-family:var(--font-mono);font-size:12px;color:var(--brass);margin-bottom:4px}
+.quick-fill .q-text{font-size:16px;font-weight:600;margin-bottom:8px}
+.quick-fill input,.quick-fill textarea{width:100%;padding:12px 14px;border:2px solid rgba(11,46,41,0.1);border-radius:8px;font-family:var(--font-body);font-size:15px;color:var(--ink);background:#fff}
+.quick-fill input:focus,.quick-fill textarea:focus{outline:none;border-color:var(--brass)}
+.quick-fill textarea{min-height:60px;resize:vertical}
+.quick-fill .cb-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.quick-fill .cb-tag{padding:6px 12px;background:rgba(11,46,41,0.04);border-radius:6px;font-size:13px;cursor:pointer;border:2px solid transparent;transition:all 0.2s}
+.quick-fill .cb-tag:hover{background:rgba(11,46,41,0.08)}
+.quick-fill .cb-tag.selected{background:rgba(184,137,45,0.1);border-color:var(--brass);color:var(--ink)}
+
+/* EXPORT */
+.export-box{background:var(--ink-deep);color:var(--porcelain);padding:24px;border-radius:12px;font-family:var(--font-mono);font-size:13px;line-height:1.6;max-height:400px;overflow-y:auto;white-space:pre-wrap;margin:20px 0;display:none}
+
+/* ACTIONS */
+.actions{display:flex;gap:12px;justify-content:center;padding:32px 0;flex-wrap:wrap}
+.btn-primary{background:var(--brass);color:#fff;font-family:var(--font-body);font-size:16px;font-weight:600;padding:14px 32px;border-radius:8px;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--brass-soft);color:var(--ink)}
+.btn-secondary{background:rgba(11,46,41,0.06);color:var(--ink);font-family:var(--font-body);font-size:16px;font-weight:600;padding:14px 32px;border-radius:8px;border:none;cursor:pointer}
+
+@media print{
+  .phase-nav{display:none}
+  .phase{display:block!important}
+  .phase-header{break-after:avoid}
+  .card{break-inside:avoid}
+}
+@media(max-width:768px){.container{padding:0 16px}.phase{padding:20px 0}.phase-header h2{font-size:24px}}
+</style>
+</head>
+<body>
+
+<div class="phase-nav">
+  <button class="phase-btn active" onclick="showPhase('pre')">📋 Phase 1: Pre-Call</button>
+  <button class="phase-btn" onclick="showPhase('zoom')">🎥 Phase 2: Zoom Call</button>
+  <button class="phase-btn" onclick="showPhase('post')">✅ Phase 3: Post-Call</button>
+</div>
+
+<div class="container">
+
+<!-- PHASE 1: PRE-CALL -->
+<div class="phase active" id="phase-pre">
+  <div class="phase-header">
+    <div class="phase-badge">Phase 1 of 3 · Before the Zoom Call</div>
+    <h2>Pre-Call Preparation</h2>
+    <p>Send this to the family before the call so they come prepared.</p>
+  </div>
+
+  <div class="card">
+    <h3>What to Send the Family</h3>
+    <ul>
+      <li><strong>The printable questionnaire below</strong> — they can fill it by hand or type answers</li>
+      <li><strong>A brief note:</strong> "Please review these questions before our Zoom call. You don't need to write essays — bullet points are fine."</li>
+      <li><strong>Ask them to gather:</strong> Medication list, recent diagnosis reports, caregiver contact info</li>
+    </ul>
+  </div>
+
+  <div class="printable">
+    <h3>📄 Printable Pre-Call Questionnaire</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:20px">
+      Client Name: <span style="border-bottom:1px solid var(--muted);display:inline-block;width:200px">&nbsp;</span>
+      &nbsp;&nbsp;
+      Date: <span style="border-bottom:1px solid var(--muted);display:inline-block;width:120px">&nbsp;</span>
+    </p>
+
+    <div class="q">
+      <div class="q-num">Q01</div>
+      <div class="q-text">Primary reason for seeking energy healing:</div>
+      <div class="q-ans" contenteditable="true"></div>
+    </div>
+    <div class="q">
+      <div class="q-num">Q02</div>
+      <div class="q-text">Current medical diagnoses and conditions:</div>
+      <div class="q-ans" contenteditable="true"></div>
+    </div>
+    <div class="q">
+      <div class="q-num">Q03</div>
+      <div class="q-text">Current medications (name, dosage, frequency):</div>
+      <div class="q-ans" contenteditable="true"></div>
+    </div>
+    <div class="q">
+      <div class="q-num">Q04</div>
+      <div class="q-text">Medical conditions checklist (circle all that apply):</div>
+      <p style="font-size:13px;color:var(--muted)">
+        Pacemaker / Heart condition / Diabetes / Recent surgery / Fractures / Cancer / Chronic pain / Joint replacements / Skin fragility / None
+      </p>
+    </div>
+    <div class="q">
+      <div class="q-num">Q05</div>
+      <div class="q-text">Daily energy level (0–10): <span style="border-bottom:1px solid var(--muted);display:inline-block;width:40px">&nbsp;</span></div>
+      <div style="font-size:12px;color:var(--muted)">0 = cannot get out of bed | 10 = fully vibrant</div>
+    </div>
+    <div class="q">
+      <div class="q-num">Q06–Q08</div>
+      <div class="q-text">Sleep quality, pain patterns, mobility level:</div>
+      <div class="q-ans" contenteditable="true"></div>
+    </div>
+    <div class="q">
+      <div class="q-num">Q09–Q14</div>
+      <div class="q-text">Emotional state, recent changes, anxiety, depression, joy sources, mental health support:</div>
+      <div class="q-ans" contenteditable="true"></div>
+    </div>
+    <div class="q">
+      <div class="q-num">Q15–Q17</div>
+      <div class="q-text">Prior energy healing, energy sensitivity, spiritual practice:</div>
+      <div class="q-ans" contenteditable="true"></div>
+    </div>
+    <div class="q">
+      <div class="q-num">Q18</div>
+      <div class="q-text">Top 3 goals for the 5 sessions:</div>
+      <div class="q-ans" contenteditable="true"></div>
+    </div>
+    <div class="q">
+      <div class="q-num">Q19–Q20</div>
+      <div class="q-text">Preferred format (in-person / distant / hybrid) and touch preference:</div>
+      <div class="q-ans" contenteditable="true"></div>
+    </div>
+    <div class="q">
+      <div class="q-num">Q21–Q22</div>
+      <div class="q-text">Caregiver contact and anything else we should know:</div>
+      <div class="q-ans" contenteditable="true"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Instructions for the Family</h3>
+    <p><strong>Please fill this out before the Zoom call.</strong> You don't need perfect answers — bullet points, single words, or even "not sure" is fine. The goal is to help the practitioner understand how to best serve you.</p>
+    <p>Bring this completed form to the Zoom call, or have it nearby to reference.</p>
+  </div>
+
+  <div class="actions">
+    <button class="btn-primary" onclick="window.print()">🖨️ Print This Page</button>
+    <button class="btn-secondary" onclick="showPhase('zoom')">Go to Phase 2 →</button>
+  </div>
+</div>
+
+<!-- PHASE 2: ZOOM CALL -->
+<div class="phase" id="phase-zoom">
+  <div class="phase-header">
+    <div class="phase-badge">Phase 2 of 3 · During the Zoom Call</div>
+    <h2>Zoom Interview Script</h2>
+    <p>Conversational questions. Probes included. Jot notes in the boxes.</p>
+  </div>
+
+  <div class="card" style="background:var(--porcelain)">
+    <h3>🎥 How to Run the Call</h3>
+    <ul>
+      <li><strong>Start warm:</strong> "Thank you for taking the time. I'm going to ask some questions about your health and how you're feeling — there are no wrong answers."</li>
+      <li><strong>Use the printed form:</strong> If the family filled the pre-call questionnaire, reference it: "I see you mentioned arthritis — tell me more about that."</li>
+      <li><strong>Watch for red flags:</strong> Pacemaker, cancer, severe depression, self-harm thoughts — mark these prominently</li>
+      <li><strong>Keep it conversational:</strong> Don't read like a robot. Adapt. Skip irrelevant questions. Dig deeper where needed.</li>
+    </ul>
+  </div>
+
+  <div class="script-card">
+    <div class="q-num">Q01 · Opening</div>
+    <div class="q-question">"What brings you to energy healing? What's the main thing you'd like help with?"</div>
+    <div class="q-probe">💡 Is this pain, sleep, anxiety, energy, or something else? How long has it been going on?</div>
+    <div class="notes" contenteditable="true"></div>
+  </div>
+
+  <div class="script-card">
+    <div class="q-num">Q02 · Medical Background</div>
+    <div class="q-question">"Do you have any medical conditions I should know about?"</div>
+    <div class="q-probe">💡 Diabetes? Heart condition? High blood pressure? Arthritis? Anything else?</div>
+    <div class="notes" contenteditable="true"></div>
+  </div>
+
+  <div class="script-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <div class="q-num">Q03 · Medications</div>
+    </div>
+    <div class="q-question">"What medications are you currently taking?"</div>
+    <div class="q-probe">💡 Daily meds, occasional meds, supplements. Don't need exact doses unless relevant.</div>
+    <div class="notes" contenteditable="true"></div>
+  </div>
+
+  <div class="script-card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <div class="q-num">Q04 · Safety Critical</div>
+      <span class="red-flag">🔴 Must Report</span>
+    </div>
+    <div class="q-question">"Do you have a pacemaker, any implants, or recent surgery?"</div>
+    <div class="q-probe">💡 If pacemaker — Reiki is safe (hands hover). Pranic needs caution near device. Note prominently.</div>
+    <div class="notes" contenteditable="true"></div>
+  </div>
+
+  <div class="script-card">
+    <div class="q-num">Q05 · Energy Level</div>
+    <div class="q-question">"On a scale of 0 to 10, how is your energy day-to-day?"</div>
+    <div class="q-probe">💡 0 = can't get out of bed, 10 = fully vibrant. Where are you most days?</div>
+    <div class="notes" contenteditable="true"></div>
+  </div>
+
+  <div class="script-card">
+    <div class="q-num">Q06 · Sleep</div>
+    <div class="q-question">"How is your sleep? Do you sleep through the night?"</div>
+    <div class="q-probe">💡 Hard to fall asleep? Waking up? Early waking? Using CPAP?</div>
+    <div class="notes" contenteditable="true"></div>
+  </div>
+
+  <div class="script-card">
+    <div class="q-num">Q07 · Pain</div>
+    <div class="q-question">"Do you have any pain? Where, and how intense?"</div>
+    <div class="q-probe">💡 Location, frequency, intensity (0-10), what makes it better/worse.</div>
+    <div class="notes" contenteditable="true"></div>
+  </div>
+
+  <div class="script-card">
+    <div class="q-num">Q08 · Mobility</div>
+    <div class="q-question">"How is your mobility? Can you walk on your own? Lie flat?"</div>
+    <div class="q-probe">💡 Cane? Walker? Wheelchair? Needs pillows? Can she lie flat for 45–60 minutes?</div>
+    <div class="notes" contenteditable="true"></div>
+  </div>
+
+  <div style="text-align:center;padding:24px;color:var(--muted);font-size:14px">
+    — Continue to emotional, energy, and goals questions in the same style —
+  </div>
+
+  <div class="actions">
+    <button class="btn-secondary" onclick="showPhase('pre')">← Phase 1</button>
+    <button class="btn-primary" onclick="showPhase('post')">Go to Phase 3 →</button>
+  </div>
+</div>
+
+<!-- PHASE 3: POST-CALL -->
+<div class="phase" id="phase-post">
+  <div class="phase-header">
+    <div class="phase-badge">Phase 3 of 3 · After the Zoom Call</div>
+    <h2>Quick-Fill & Export</h2>
+    <p>Transfer your notes into this form. One-click copy to send to Flux.</p>
+  </div>
+
+  <div class="quick-fill">
+    <div class="q-block">
+      <div class="q-num">Q01</div>
+      <div class="q-text">Primary reason for seeking healing:</div>
+      <input type="text" id="qf01" placeholder="Answer...">
+    </div>
+
+    <div class="q-block">
+      <div class="q-num">Q02</div>
+      <div class="q-text">Medical diagnoses:</div>
+      <input type="text" id="qf02" placeholder="e.g., arthritis, hypertension...">
+    </div>
+
+    <div class="q-block">
+      <div class="q-num">Q03</div>
+      <div class="q-text">Current medications:</div>
+      <input type="text" id="qf03" placeholder="List medications...">
+    </div>
+
+    <div class="q-block">
+      <div class="q-num">Q04 · Medical Conditions</div>
+      <div class="cb-row" id="qf04">
+        <span class="cb-tag" onclick="toggleTag(this,event)">Pacemaker</span>
+        <span class="cb-tag" onclick="toggleTag(this,event)">Heart condition</span>
+        <span class="cb-tag" onclick="toggleTag(this,event)">Diabetes</span>
+        <span class="cb-tag" onclick="toggleTag(this,event)">Recent surgery</span>
+        <span class="cb-tag" onclick="toggleTag(this,event)">Cancer</span>
+        <span class="cb-tag" onclick="toggleTag(this,event)">Chronic pain</span>
+        <span class="cb-tag" onclick="toggleTag(this,event)">None</span>
+      </div>
+    </div>
+
+    <div class="q-block">
+      <div class="q-num">Q05</div>
+      <div class="q-text">Energy level (0–10):</div>
+      <input type="text" id="qf05" placeholder="e.g., 5" style="width:80px">
+    </div>
+
+    <div class="q-block">
+      <div class="q-num">Q06–Q08</div>
+      <div class="q-text">Sleep, pain, mobility (brief summary):</div>
+      <textarea id="qf06" placeholder="e.g., Wakes 3x/night. Lower back pain 6/10. Uses cane."></textarea>
+    </div>
+
+    <div class="q-block">
+      <div class="q-num">Q09–Q14</div>
+      <div class="q-text">Emotional state (brief summary):</div>
+      <textarea id="qf09" placeholder="e.g., Anxious about health. Grieving spouse loss 8 months ago. No therapy."></textarea>
+    </div>
+
+    <div class="q-block">
+      <div class="q-num">Q15–Q17</div>
+      <div class="q-text">Energy experience & spiritual practice:</div>
+      <input type="text" id="qf15" placeholder="e.g., First time. Prays daily.">
+    </div>
+
+    <div class="q-block">
+      <div class="q-num">Q18</div>
+      <div class="q-text">Top 3 goals:</div>
+      <input type="text" id="qf18" placeholder="e.g., Pain relief, better sleep, emotional release">
+    </div>
+
+    <div class="q-block">
+      <div class="q-num">Q19–Q20</div>
+      <div class="q-text">Preferred format and touch:</div>
+      <input type="text" id="qf19" placeholder="e.g., Hybrid (1st in-person, rest distant). Hands-off.">
+    </div>
+
+    <div class="q-block">
+      <div class="q-num">Q21–Q22</div>
+      <div class="q-text">Caregiver contact + notes:</div>
+      <textarea id="qf21" placeholder="e.g., Daughter Sarah +971... + Mentioned fear of needles."></textarea>
+    </div>
+  </div>
+
+  <div class="export-box" id="exportOutput"></div>
+
+  <div class="actions">
+    <button class="btn-secondary" onclick="showPhase('zoom')">← Phase 2</button>
+    <button class="btn-primary" onclick="exportAll()">📋 Copy All Answers</button>
+  </div>
+
+  <div class="card" style="background:var(--porcelain)">
+    <h3>✅ What Happens Next</h3>
+    <ul>
+      <li><strong>Copy the answers</strong> using the button above</li>
+      <li><strong>Paste them in a message to Flux</strong> (Telegram/WhatsApp)</li>
+      <li><strong>Flux generates the personalized protocol</strong> within minutes</li>
+      <li><strong>You receive:</strong> Client brief + session plan + invoice</li>
+      <li><strong>Send to client</strong> same day</li>
+    </ul>
+  </div>
+</div>
+
+</div>
+
+<script>
+function showPhase(id){
+  document.querySelectorAll('.phase').forEach(p=>p.classList.remove('active'));
+  document.getElementById('phase-'+id).classList.add('active');
+  document.querySelectorAll('.phase-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('.phase-btn[onclick="showPhase(\''+id+'\')"]').classList.add('active');
+  window.scrollTo(0,0);
+}
+function toggleTag(el){el.classList.toggle('selected');}
+function exportAll(){
+  const data={
+    q01:document.getElementById('qf01').value||'(not answered)',
+    q02:document.getElementById('qf02').value||'(not answered)',
+    q03:document.getElementById('qf03').value||'(not answered)',
+    q04:Array.from(document.querySelectorAll('#qf04 .cb-tag.selected')).map(t=>t.textContent).join(', ')||'(none)',
+    q05:document.getElementById('qf05').value||'(not answered)',
+    q06:document.getElementById('qf06').value||'(not answered)',
+    q09:document.getElementById('qf09').value||'(not answered)',
+    q15:document.getElementById('qf15').value||'(not answered)',
+    q18:document.getElementById('qf18').value||'(not answered)',
+    q19:document.getElementById('qf19').value||'(not answered)',
+    q21:document.getElementById('qf21').value||'(not answered)'
+  };
+  const questions={q01:'Primary reason',q02:'Medical diagnoses',q03:'Medications',q04:'Conditions',q05:'Energy level',q06:'Sleep/pain/mobility',q09:'Emotional state',q15:'Prior healing/spiritual',q18:'Goals',q19:'Format/touch',q21:'Caregiver/notes'};
+  let text='=== HEALING PROTOCOL INTAKE ===\nDate: '+new Date().toLocaleString()+'\n\n';
+  for(const key in questions){text+=questions[key]+':\n'+data[key]+'\n\n';}
+  text+='=== END ===';
+  const box=document.getElementById('exportOutput');
+  box.textContent=text;
+  box.style.display='block';
+  navigator.clipboard.writeText(text).then(()=>alert('Copied to clipboard! Send to Flux.')).catch(()=>alert('Please select and copy the text manually.'));
+}
+</script>
+</body>
+</html>

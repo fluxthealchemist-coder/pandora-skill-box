@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option B — Client Self-Assessment Form</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B2E29;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--verdict:#17A673;--rose:#D64533;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6;min-height:100vh}
+.container{max-width:800px;margin:0 auto;padding:40px 24px}
+.header{text-align:center;padding:40px 0 32px;border-bottom:2px solid var(--ink);margin-bottom:40px}
+.header .seal{width:56px;height:56px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:22px;color:#fff;font-weight:700}
+.header h1{font-family:var(--font-display);font-size:32px;margin-bottom:8px}
+.header p{color:var(--muted);font-size:15px}
+
+.section{margin-bottom:48px}
+.section-title{font-family:var(--font-display);font-size:24px;margin-bottom:8px}
+.section-subtitle{font-size:14px;color:var(--muted);margin-bottom:28px}
+
+.q-block{margin-bottom:28px;padding:24px;background:#fff;border-radius:12px;border:1px solid rgba(11,46,41,0.06)}
+.q-num{font-family:var(--font-mono);font-size:12px;color:var(--brass);margin-bottom:6px}
+.q-text{font-size:17px;font-weight:600;margin-bottom:10px}
+.q-hint{font-size:13px;color:var(--muted);margin-bottom:12px;font-style:italic}
+
+input[type="text"],textarea,select{
+  width:100%;padding:14px 16px;border:2px solid rgba(11,46,41,0.1);border-radius:8px;
+  font-family:var(--font-body);font-size:16px;color:var(--ink);background:#fff;
+  transition:border-color 0.2s;
+}
+input[type="text"]:focus,textarea:focus,select:focus{outline:none;border-color:var(--brass)}
+textarea{min-height:80px;resize:vertical;line-height:1.6}
+
+.cb-grid{display:grid;grid-template-columns:1fr;gap:8px}
+.cb-item{display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(11,46,41,0.03);border-radius:8px;cursor:pointer;transition:all 0.2s;border:2px solid transparent}
+.cb-item:hover{background:rgba(11,46,41,0.06)}
+.cb-item.selected{background:rgba(184,137,45,0.1);border-color:var(--brass)}
+.cb-item input[type="checkbox"]{width:18px;height:18px;accent-color:var(--brass);flex-shrink:0}
+.cb-item label{font-size:15px;color:var(--ink);cursor:pointer;flex:1}
+
+.radio-grid{display:grid;gap:8px}
+.radio-item{display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(11,46,41,0.03);border-radius:8px;cursor:pointer;transition:all 0.2s;border:2px solid transparent}
+.radio-item:hover{background:rgba(11,46,41,0.06)}
+.radio-item.selected{background:rgba(184,137,45,0.1);border-color:var(--brass)}
+.radio-item input[type="radio"]{width:18px;height:18px;accent-color:var(--brass);flex-shrink:0}
+.radio-item label{font-size:15px;color:var(--ink);cursor:pointer;flex:1}
+
+.scale-wrap{display:flex;align-items:center;gap:16px;margin-top:8px}
+.scale-wrap input[type="range"]{flex:1;height:8px;accent-color:var(--brass)}
+.scale-num{font-family:var(--font-mono);font-size:24px;color:var(--brass);font-weight:600;min-width:36px;text-align:center}
+.scale-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}
+
+.actions{display:flex;gap:12px;justify-content:center;padding:40px 0}
+.btn-primary{background:var(--brass);color:#fff;font-family:var(--font-body);font-size:16px;font-weight:600;padding:14px 32px;border-radius:8px;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--brass-soft);color:var(--ink)}
+.btn-secondary{background:rgba(11,46,41,0.06);color:var(--ink);font-family:var(--font-body);font-size:16px;font-weight:600;padding:14px 32px;border-radius:8px;border:none;cursor:pointer}
+
+.output{background:var(--ink);color:var(--porcelain);padding:24px;border-radius:12px;font-family:var(--font-mono);font-size:13px;line-height:1.6;max-height:400px;overflow-y:auto;white-space:pre-wrap;margin:20px 0;display:none}
+
+.completion{text-align:center;padding:60px 20px;display:none}
+.completion h2{font-family:var(--font-display);font-size:36px;margin-bottom:12px}
+.completion p{color:var(--muted);font-size:16px;margin-bottom:32px}
+
+@media(max-width:640px){.container{padding:20px 16px}.header h1{font-size:24px}}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+  <div class="seal">H</div>
+  <h1>Client Self-Assessment</h1>
+  <p>Reiki &amp; Pranic Healing · 5-Session Protocol</p>
+</div>
+
+<div id="formContent">
+
+<div class="section">
+  <div class="section-title">Part 1 · Your Physical Body</div>
+  <div class="section-subtitle">Please answer honestly. This helps us design your personalized protocol.</div>
+
+  <div class="q-block">
+    <div class="q-num">Q01</div>
+    <div class="q-text">What is your primary reason for seeking energy healing?</div>
+    <textarea id="q01" placeholder="e.g., chronic back pain, anxiety, grief, sleep issues..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q02</div>
+    <div class="q-text">Please list all current medical diagnoses:</div>
+    <textarea id="q02" placeholder="e.g., arthritis, hypertension, diabetes, fibromyalgia..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q03</div>
+    <div class="q-text">Current medications:</div>
+    <textarea id="q03" placeholder="Medication name, dosage, frequency..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q04</div>
+    <div class="q-text">Do you have any of these conditions? (Click all that apply)</div>
+    <div class="cb-grid" id="q04">
+      <div class="cb-item" onclick="toggleCb(this,'q04','pacemaker',event)"><input type="checkbox" value="pacemaker"><label>Pacemaker or implanted device</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q04','heart',event)"><input type="checkbox" value="heart"><label>Heart condition / hypertension</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q04','diabetes',event)"><input type="checkbox" value="diabetes"><label>Diabetes</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q04','surgery',event)"><input type="checkbox" value="surgery"><label>Recent surgery (within 6 months)</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q04','fracture',event)"><input type="checkbox" value="fracture"><label>Unhealed fractures or injuries</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q04','cancer',event)"><input type="checkbox" value="cancer"><label>Cancer (current or in remission)</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q04','pain',event)"><input type="checkbox" value="pain"><label>Chronic pain</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q04','joints',event)"><input type="checkbox" value="joints"><label>Joint replacements</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q04','skin',event)"><input type="checkbox" value="skin"><label>Skin fragility / easy bruising</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q04','none',event)"><input type="checkbox" value="none"><label>None of the above</label></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q05</div>
+    <div class="q-text">Daily energy level (0–10)</div>
+    <div class="q-hint">0 = cannot get out of bed | 10 = fully vibrant</div>
+    <div class="scale-wrap"><input type="range" id="q05" min="0" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value"><div class="scale-num">5</div></div>
+    <div class="scale-labels"><span>0</span><span>5</span><span>10</span></div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q06</div>
+    <div class="q-text">How is your sleep? (Click all that apply)</div>
+    <div class="cb-grid" id="q06">
+      <div class="cb-item" onclick="toggleCb(this,'q06','restful',event)"><input type="checkbox" value="restful"><label>Restful and adequate</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q06','falling',event)"><input type="checkbox" value="falling"><label>Difficulty falling asleep</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q06','waking',event)"><input type="checkbox" value="waking"><label>Waking frequently</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q06','early',event)"><input type="checkbox" value="early"><label>Waking too early</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q06','apnea',event)"><input type="checkbox" value="apnea"><label>Sleep apnea / CPAP</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q06','other-sleep',event)"><input type="checkbox" value="other-sleep"><label>Other</label></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q07</div>
+    <div class="q-text">Describe your pain patterns, if any:</div>
+    <div class="q-hint">Location / Frequency / Intensity (0–10) / What relieves it</div>
+    <textarea id="q07" placeholder="e.g., Lower back / daily / 6 / heat pad helps"></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q08</div>
+    <div class="q-text">How is your mobility? (Click all that apply)</div>
+    <div class="cb-grid" id="q08">
+      <div class="cb-item" onclick="toggleCb(this,'q08','mobile',event)"><input type="checkbox" value="mobile"><label>Fully mobile, walk without assistance</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q08','cane',event)"><input type="checkbox" value="cane"><label>Walk with cane/walker</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q08','wheelchair',event)"><input type="checkbox" value="wheelchair"><label>Wheelchair-bound</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q08','bedridden',event)"><input type="checkbox" value="bedridden"><label>Bedridden for portions of the day</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q08','flat',event)"><input type="checkbox" value="flat"><label>Can lie flat for 45–60 minutes</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q08','pillows',event)"><input type="checkbox" value="pillows"><label>Need pillows under knees/back</label></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Part 2 · Emotional & Mental State</div>
+
+  <div class="q-block">
+    <div class="q-num">Q09</div>
+    <div class="q-text">How would you describe your emotional landscape right now?</div>
+    <div class="q-hint">e.g., anxious, grieving, numb, hopeful, overwhelmed, peaceful</div>
+    <input type="text" id="q09" placeholder="Your answer...">
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q10</div>
+    <div class="q-text">Significant losses or life changes in the past 2 years?</div>
+    <textarea id="q10" placeholder="e.g., death of a loved one, divorce, retirement, diagnosis..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q11</div>
+    <div class="q-text">Do you experience anxiety? What triggers it?</div>
+    <textarea id="q11" placeholder="e.g., racing thoughts, physical tension, panic, insomnia..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q12</div>
+    <div class="q-text">Do you experience depression, low mood, or emotional flatness?</div>
+    <textarea id="q12" placeholder="Your answer..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q13</div>
+    <div class="q-text">What brings you joy? What did you used to love doing?</div>
+    <textarea id="q13" placeholder="Your answer..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q14</div>
+    <div class="q-text">Are you currently receiving mental health support?</div>
+    <div class="cb-grid" id="q14">
+      <div class="cb-item" onclick="toggleCb(this,'q14','therapy',event)"><input type="checkbox" value="therapy"><label>Therapy / counseling</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q14','psychiatry',event)"><input type="checkbox" value="psychiatry"><label>Psychiatric care / medication</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q14','support-group',event)"><input type="checkbox" value="support-group"><label>Support group</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q14','spiritual',event)"><input type="checkbox" value="spiritual"><label>Spiritual guidance</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q14','none-mental',event)"><input type="checkbox" value="none-mental"><label>None</label></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Part 3 · Energy & Sensitivity</div>
+
+  <div class="q-block">
+    <div class="q-num">Q15</div>
+    <div class="q-text">Have you had energy healing before?</div>
+    <div class="cb-grid" id="q15">
+      <div class="cb-item" onclick="toggleCb(this,'q15','reiki-before',event)"><input type="checkbox" value="reiki-before"><label>Yes — Reiki</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q15','pranic-before',event)"><input type="checkbox" value="pranic-before"><label>Yes — Pranic Healing</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q15','acupuncture',event)"><input type="checkbox" value="acupuncture"><label>Yes — Acupuncture</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q15','other-healing',event)"><input type="checkbox" value="other-healing"><label>Yes — Other</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q15','first-time',event)"><input type="checkbox" value="first-time"><label>No — first time</label></div>
+    </div>
+    <textarea id="q15-detail" style="margin-top:12px;min-height:60px" placeholder="If yes, describe your experience..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q16</div>
+    <div class="q-text">Are you sensitive to energy? Do you notice subtle sensations?</div>
+    <div class="q-hint">e.g., feeling someone staring, sensing room energy, tingling</div>
+    <textarea id="q16" placeholder="Your answer..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q17</div>
+    <div class="q-text">Do you have a regular spiritual or contemplative practice?</div>
+    <div class="q-hint">e.g., prayer, meditation, yoga, nature walks, journaling</div>
+    <textarea id="q17" placeholder="Your answer..."></textarea>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Part 4 · Goals & Preferences</div>
+
+  <div class="q-block">
+    <div class="q-num">Q18</div>
+    <div class="q-text">What would you most like to shift or improve? (Click priorities)</div>
+    <div class="cb-grid" id="q18">
+      <div class="cb-item" onclick="toggleCb(this,'q18','pain-relief',event)"><input type="checkbox" value="pain-relief"><label>Pain relief</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q18','sleep',event)"><input type="checkbox" value="sleep"><label>Better sleep</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q18','anxiety',event)"><input type="checkbox" value="anxiety"><label>Reduced anxiety</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q18','grief',event)"><input type="checkbox" value="grief"><label>Emotional release / grief</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q18','energy',event)"><input type="checkbox" value="energy"><label>More energy / vitality</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q18','clarity',event)"><input type="checkbox" value="clarity"><label>Mental clarity</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q18','spiritual',event)"><input type="checkbox" value="spiritual"><label>Spiritual connection</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q18','recovery',event)"><input type="checkbox" value="recovery"><label>Faster recovery</label></div>
+      <div class="cb-item" onclick="toggleCb(this,'q18','other-goal',event)"><input type="checkbox" value="other-goal"><label>Other</label></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q19</div>
+    <div class="q-text">Preferred session format:</div>
+    <div class="radio-grid" id="q19">
+      <div class="radio-item" onclick="selectRadio(this,'q19','in-person',event)"><input type="radio" name="q19" value="in-person"><label>In-person at the clinic</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'q19','distant',event)"><input type="radio" name="q19" value="distant"><label>Distant from home (equally effective)</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'q19','hybrid',event)"><input type="radio" name="q19" value="hybrid"><label>Hybrid — first in-person, rest distant</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'q19','flexible',event)"><input type="radio" name="q19" value="flexible"><label>Flexible — decide each week</label></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q20</div>
+    <div class="q-text">Preferred touch level:</div>
+    <div class="radio-grid" id="q20">
+      <div class="radio-item" onclick="selectRadio(this,'q20','hands-on',event)"><input type="radio" name="q20" value="hands-on"><label>Gentle hands-on is fine</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'q20','hands-off',event)"><input type="radio" name="q20" value="hands-off"><label>Prefer hands hovering above (no touch)</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'q20','distant-touch',event)"><input type="radio" name="q20" value="distant-touch"><label>Distant healing (no physical presence)</label></div>
+      <div class="radio-item" onclick="selectRadio(this,'q20','check-first',event)"><input type="radio" name="q20" value="check-first"><label>Need to check skin sensitivity first</label></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q21</div>
+    <div class="q-text">Caregiver or family member to include in communications?</div>
+    <textarea id="q21" placeholder="Name, relationship, phone number..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q22</div>
+    <div class="q-text">Anything else I should know?</div>
+    <div class="q-hint">Fears, preferences, cultural considerations, language, etc.</div>
+    <textarea id="q22" placeholder="Your answer..."></textarea>
+  </div>
+</div>
+
+<div class="actions">
+  <button class="btn-secondary" onclick="resetForm()">Clear All</button>
+  <button class="btn-primary" onclick="submitForm()">Submit Assessment →</button>
+</div>
+
+<div class="output" id="outputBox"></div>
+
+</div>
+
+<div class="completion" id="completionBox">
+  <div class="seal" style="width:64px;height:64px;border-radius:50%;background:var(--verdict);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;color:#fff">✓</div>
+  <h2>Assessment Complete</h2>
+  <p>Your answers are ready. Please copy them from the box above<br>and send them to your practitioner.</p>
+  <button class="btn-primary" onclick="copyOutput()" style="margin-top:16px">📋 Copy Answers</button>
+</div>
+
+</div>
+
+<script>
+function toggleCb(el,group,val){const cb=el.querySelector('input[type="checkbox"]');cb.checked=!cb.checked;el.classList.toggle('selected',cb.checked);}
+function selectRadio(el,group,val){document.querySelectorAll('#'+group+' .radio-item').forEach(item=>item.classList.remove('selected'));el.classList.add('selected');el.querySelector('input[type="radio"]').checked=true;}
+function collectData(){const data={};for(let i=1;i<=22;i++){const key='q'+String(i).padStart(2,'0');const el=document.getElementById(key);if(el)data[key]=el.value;}['q04','q06','q08','q14','q15','q18'].forEach(group=>{data[group]=Array.from(document.querySelectorAll('#'+group+' .cb-item input:checked')).map(cb=>cb.value);});['q19','q20'].forEach(group=>{const checked=document.querySelector('#'+group+' input[type="radio"]:checked');data[group]=checked?checked.value:'';});data['q15-detail']=document.getElementById('q15-detail').value;return data;}
+function submitForm(){const data=collectData();const questions={q01:'Primary reason',q02:'Medical diagnoses',q03:'Medications',q04:'Conditions',q05:'Energy level',q06:'Sleep',q07:'Pain',q08:'Mobility',q09:'Emotions',q10:'Life changes',q11:'Anxiety',q12:'Mood',q13:'Joy',q14:'Support',q15:'Prior healing',q16:'Sensitivity',q17:'Practice',q18:'Goals',q19:'Format',q20:'Touch preference',q21:'Caregiver',q22:'Notes'};let text='=== HEALING PROTOCOL INTAKE ===\nDate: '+new Date().toLocaleString()+'\n\n';for(let i=1;i<=22;i++){const key='q'+String(i).padStart(2,'0');let val=data[key];if(Array.isArray(val))val=val.join(', ')||'(none selected)';if(!val||val==='')val='(not answered)';text+=questions[key]+':\n'+val+'\n\n';}text+='=== END ===';document.getElementById('outputBox').textContent=text;document.getElementById('outputBox').style.display='block';document.getElementById('formContent').style.display='none';document.getElementById('completionBox').style.display='block';window.scrollTo(0,0);}
+function copyOutput(){const text=document.getElementById('outputBox').textContent;navigator.clipboard.writeText(text).then(()=>alert('Copied! Send to your practitioner.')).catch(()=>alert('Please select and copy the text manually.'));}
+function resetForm(){if(!confirm('Clear all answers?'))return;document.querySelectorAll('input,textarea').forEach(el=>{if(el.type==='checkbox'||el.type==='radio')el.checked=false;else if(el.type==='range'){el.value=5;}else el.value='';});document.querySelectorAll('.cb-item,.radio-item').forEach(el=>el.classList.remove('selected'));document.getElementById('outputBox').style.display='none';document.getElementById('completionBox').style.display='none';document.getElementById('formContent').style.display='block';window.scrollTo(0,0);}
+</script>
+</body>
+</html>

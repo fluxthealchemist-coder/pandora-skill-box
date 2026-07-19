@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Option C — Collaborative Doc Template</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B2E29;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+.container{max-width:900px;margin:0 auto;padding:40px 32px}
+.header{border-bottom:2px solid var(--ink);padding-bottom:24px;margin-bottom:32px}
+.header h1{font-family:var(--font-display);font-size:32px}
+.header p{color:var(--muted);font-size:14px;margin-top:6px}
+.header .tag{display:inline-block;background:var(--brass);color:#fff;font-family:var(--font-mono);font-size:11px;padding:4px 12px;border-radius:100px;text-transform:uppercase;letter-spacing:1px;margin-top:12px}
+.section{margin-bottom:32px}
+.section h2{font-family:var(--font-display);font-size:22px;border-bottom:1px solid rgba(11,46,41,0.1);padding-bottom:8px;margin-bottom:16px}
+.q{margin-bottom:20px;padding:16px;background:#fff;border-radius:8px;border:1px solid rgba(11,46,41,0.06)}
+.q .num{font-family:var(--font-mono);font-size:12px;color:var(--brass);margin-bottom:4px}
+.q .text{font-size:15px;font-weight:600;margin-bottom:8px}
+.q .hint{font-size:13px;color:var(--muted);margin-bottom:8px;font-style:italic}
+.q .answer{min-height:40px;padding:10px 12px;background:var(--porcelain);border-radius:6px;border:1px dashed var(--muted);color:var(--muted);font-size:14px;cursor:text}
+.q .answer:focus{outline:none;border-color:var(--brass);color:var(--ink);background:#fff}
+.q .answer:empty:before{content:'Type answer here...';color:var(--muted)}
+.checks{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.check-tag{padding:6px 12px;background:rgba(11,46,41,0.04);border-radius:6px;font-size:13px;cursor:pointer;transition:all 0.2s;border:2px solid transparent}
+.check-tag:hover{background:rgba(11,46,41,0.08)}
+.check-tag.selected{background:rgba(184,137,45,0.1);border-color:var(--brass);color:var(--ink)}
+.actions{display:flex;gap:12px;justify-content:center;padding:40px 0}
+.btn-primary{background:var(--brass);color:#fff;font-family:var(--font-body);font-size:16px;font-weight:600;padding:14px 32px;border-radius:8px;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--brass-soft);color:var(--ink)}
+.btn-secondary{background:rgba(11,46,41,0.06);color:var(--ink);font-family:var(--font-body);font-size:16px;font-weight:600;padding:14px 32px;border-radius:8px;border:none;cursor:pointer}
+.instructions{background:var(--porcelain);padding:20px;border-radius:12px;margin-bottom:32px}
+.instructions h3{font-family:var(--font-display);font-size:18px;margin-bottom:10px}
+.instructions li{font-size:14px;color:var(--muted);margin-bottom:6px}
+@media(max-width:640px){.container{padding:20px 16px}}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+  <h1>Collaborative Intake Document</h1>
+  <p>Reiki &amp; Pranic Healing · 5-Session Protocol</p>
+  <span class="tag">Option C — Real-time collaboration</span>
+</div>
+
+<div class="instructions">
+  <h3>How to use during Zoom</h3>
+  <ul style="padding-left:20px">
+    <li>Share this document's screen on Zoom</li>
+    <li>Give family member the link to edit</li>
+    <li>They type while you talk — both see changes live</li>
+    <li>Click "Copy All" at the end to send to practitioner</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Part 1 · Physical Body</h2>
+
+  <div class="q">
+    <div class="num">Q01</div>
+    <div class="text">Primary reason for seeking healing:</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q02</div>
+    <div class="text">Current medical diagnoses:</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q03</div>
+    <div class="text">Current medications:</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q04</div>
+    <div class="text">Medical conditions (click all that apply):</div>
+    <div class="checks" id="q04">
+      <span class="check-tag" onclick="toggleTag(this)">Pacemaker</span>
+      <span class="check-tag" onclick="toggleTag(this)">Heart condition</span>
+      <span class="check-tag" onclick="toggleTag(this)">Diabetes</span>
+      <span class="check-tag" onclick="toggleTag(this)">Recent surgery</span>
+      <span class="check-tag" onclick="toggleTag(this)">Fractures</span>
+      <span class="check-tag" onclick="toggleTag(this)">Cancer</span>
+      <span class="check-tag" onclick="toggleTag(this)">Chronic pain</span>
+      <span class="check-tag" onclick="toggleTag(this)">Joint replacements</span>
+      <span class="check-tag" onclick="toggleTag(this)">Skin fragility</span>
+      <span class="check-tag" onclick="toggleTag(this)">None</span>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q05</div>
+    <div class="text">Daily energy level (0–10):</div>
+    <div class="hint">0 = cannot get out of bed | 10 = fully vibrant</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q06</div>
+    <div class="text">Sleep quality:</div>
+    <div class="checks" id="q06">
+      <span class="check-tag" onclick="toggleTag(this)">Restful</span>
+      <span class="check-tag" onclick="toggleTag(this)">Hard to fall asleep</span>
+      <span class="check-tag" onclick="toggleTag(this)">Waking frequently</span>
+      <span class="check-tag" onclick="toggleTag(this)">Waking too early</span>
+      <span class="check-tag" onclick="toggleTag(this)">Sleep apnea/CPAP</span>
+      <span class="check-tag" onclick="toggleTag(this)">Other</span>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q07</div>
+    <div class="text">Pain patterns:</div>
+    <div class="hint">Location / Frequency / Intensity (0-10) / What relieves it</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q08</div>
+    <div class="text">Mobility level (click all):</div>
+    <div class="checks" id="q08">
+      <span class="check-tag" onclick="toggleTag(this)">Fully mobile</span>
+      <span class="check-tag" onclick="toggleTag(this)">Cane/walker</span>
+      <span class="check-tag" onclick="toggleTag(this)">Wheelchair</span>
+      <span class="check-tag" onclick="toggleTag(this)">Bedridden portions</span>
+      <span class="check-tag" onclick="toggleTag(this)">Can lie flat 45–60 min</span>
+      <span class="check-tag" onclick="toggleTag(this)">Needs pillows</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Part 2 · Emotional & Mental State</h2>
+
+  <div class="q">
+    <div class="num">Q09</div>
+    <div class="text">Current emotional landscape:</div>
+    <div class="hint">e.g., anxious, grieving, numb, hopeful, overwhelmed, peaceful</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q10</div>
+    <div class="text">Significant losses or changes in past 2 years:</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q11</div>
+    <div class="text">Anxiety — triggers and manifestations:</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q12</div>
+    <div class="text">Depression, low mood, or emotional flatness:</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q13</div>
+    <div class="text">What brings you joy? What did you used to love doing?</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q14</div>
+    <div class="text">Current mental health support:</div>
+    <div class="checks" id="q14">
+      <span class="check-tag" onclick="toggleTag(this)">Therapy</span>
+      <span class="check-tag" onclick="toggleTag(this)">Psychiatric care</span>
+      <span class="check-tag" onclick="toggleTag(this)">Support group</span>
+      <span class="check-tag" onclick="toggleTag(this)">Spiritual guidance</span>
+      <span class="check-tag" onclick="toggleTag(this)">None</span>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Part 3 · Energy & Sensitivity</h2>
+
+  <div class="q">
+    <div class="num">Q15</div>
+    <div class="text">Previous energy healing experience:</div>
+    <div class="checks" id="q15">
+      <span class="check-tag" onclick="toggleTag(this)">Reiki</span>
+      <span class="check-tag" onclick="toggleTag(this)">Pranic Healing</span>
+      <span class="check-tag" onclick="toggleTag(this)">Acupuncture</span>
+      <span class="check-tag" onclick="toggleTag(this)">Other</span>
+      <span class="check-tag" onclick="toggleTag(this)">First time</span>
+    </div>
+    <div class="answer" contenteditable="true" style="margin-top:10px"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q16</div>
+    <div class="text">Energy sensitivity — subtle body sensations:</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q17</div>
+    <div class="text">Spiritual or contemplative practice:</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Part 4 · Goals & Preferences</h2>
+
+  <div class="q">
+    <div class="num">Q18</div>
+    <div class="text">Top goals for the 5 sessions (click priorities):</div>
+    <div class="checks" id="q18">
+      <span class="check-tag" onclick="toggleTag(this)">Pain relief</span>
+      <span class="check-tag" onclick="toggleTag(this)">Better sleep</span>
+      <span class="check-tag" onclick="toggleTag(this)">Reduced anxiety</span>
+      <span class="check-tag" onclick="toggleTag(this)">Emotional release</span>
+      <span class="check-tag" onclick="toggleTag(this)">More energy</span>
+      <span class="check-tag" onclick="toggleTag(this)">Mental clarity</span>
+      <span class="check-tag" onclick="toggleTag(this)">Spiritual connection</span>
+      <span class="check-tag" onclick="toggleTag(this)">Faster recovery</span>
+      <span class="check-tag" onclick="toggleTag(this)">Other</span>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q19</div>
+    <div class="text">Preferred session format:</div>
+    <div class="checks" id="q19">
+      <span class="check-tag" onclick="toggleTag(this)">In-person</span>
+      <span class="check-tag" onclick="toggleTag(this)">Distant (from home)</span>
+      <span class="check-tag" onclick="toggleTag(this)">Hybrid</span>
+      <span class="check-tag" onclick="toggleTag(this)">Flexible</span>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q20</div>
+    <div class="text">Preferred touch level:</div>
+    <div class="checks" id="q20">
+      <span class="check-tag" onclick="toggleTag(this)">Hands-on</span>
+      <span class="check-tag" onclick="toggleTag(this)">Hands-off (hovering)</span>
+      <span class="check-tag" onclick="toggleTag(this)">Distant only</span>
+      <span class="check-tag" onclick="toggleTag(this)">Check sensitivity first</span>
+    </div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q21</div>
+    <div class="text">Caregiver / family contact:</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+
+  <div class="q">
+    <div class="num">Q22</div>
+    <div class="text">Anything else I should know:</div>
+    <div class="answer" contenteditable="true"></div>
+  </div>
+</div>
+
+<div class="actions">
+  <button class="btn-secondary" onclick="clearAll()">Clear</button>
+  <button class="btn-primary" onclick="copyAll()">📋 Copy All Answers</button>
+</div>
+
+</div>
+
+<script>
+function toggleTag(el){el.classList.toggle('selected');}
+function clearAll(){if(!confirm('Clear all answers?'))return;document.querySelectorAll('.answer').forEach(el=>el.textContent='');document.querySelectorAll('.check-tag').forEach(el=>el.classList.remove('selected'));window.scrollTo(0,0);}
+function copyAll(){let text='=== HEALING PROTOCOL INTAKE ===\nDate: '+new Date().toLocaleString()+'\n\n';const sections=document.querySelectorAll('.section');sections.forEach(sec=>{const qs=sec.querySelectorAll('.q');qs.forEach(q=>{const num=q.querySelector('.num')?.textContent||'';const txt=q.querySelector('.text')?.textContent||'';const ans=q.querySelector('.answer')?.textContent?.trim()||'';const selected=Array.from(q.querySelectorAll('.check-tag.selected')).map(t=>t.textContent).join(', ');text+=num+' '+txt+'\n';if(selected)text+='Selected: '+selected+'\n';if(ans)text+='Answer: '+ans+'\n';text+='\n';});});text+='=== END ===';navigator.clipboard.writeText(text).then(()=>alert('All answers copied! Send to your practitioner.')).catch(()=>alert('Please select and copy manually.'));}
+</script>
+</body>
+</html>
