@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pandora's Skill Box — Certified AI Skills That Run</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;
+  --brass:#B8892D;--brass-soft:#E4C878;--brass-deep:#8F6716;
+  --verdict:#17A673;--flag:#D64533;--muted:#5C6F6A;
+  --font-display:'Instrument Serif',Georgia,serif;
+  --font-body:'Schibsted Grotesk',system-ui,sans-serif;
+  --font-mono:'Spline Sans Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+
+/* Sealed box animation */
+@keyframes sealCrack{
+  0%{transform:scale(1);opacity:1}
+  30%{transform:scale(1.02);opacity:0.95}
+  60%{transform:scale(1.05) rotate(1deg);opacity:0.9}
+  100%{transform:scale(1);opacity:1}
+}
+@keyframes glowPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(184,137,45,0)}
+  50%{box-shadow:0 0 60px 10px rgba(184,137,45,0.15)}
+}
+
+/* Navigation */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,46,41,0.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.nav-logo .seal{width:32px;height:32px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
+.nav-logo span{font-family:var(--font-display);font-size:20px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff;padding:8px 18px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600}
+
+/* Hero — The Box */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:var(--ink)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(184,137,45,0.08) 0%,transparent 60%)}
+.hero-inner{max-width:900px;text-align:center;padding:120px 24px 80px;position:relative;z-index:2}
+.hero-seal{width:120px;height:120px;border-radius:50%;background:var(--brass);margin:0 auto 40px;display:flex;align-items:center;justify-content:center;animation:glowPulse 3s ease-in-out infinite;cursor:pointer;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1)}
+.hero-seal:hover{transform:scale(1.08)}
+.hero-seal .wax{font-size:48px;color:#fff;font-family:var(--font-display)}
+.hero h1{font-family:var(--font-display);font-size:clamp(40px,6vw,72px);color:var(--porcelain);line-height:1.1;margin-bottom:24px}
+.hero h1 em{color:var(--brass-soft);font-style:italic}
+.hero p{font-size:clamp(16px,2vw,20px);color:rgba(244,246,242,0.7);max-width:600px;margin:0 auto 40px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(184,137,45,0.12);border:1px solid rgba(184,137,45,0.3);color:var(--brass-soft);padding:8px 20px;border-radius:100px;font-family:var(--font-mono);font-size:12px;letter-spacing:0.5px}
+.hero-actions{display:flex;gap:16px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+.btn-primary{background:var(--brass);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.2s;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--brass-deep);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--porcelain);border:1px solid rgba(244,246,242,0.3);padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.2s}
+.btn-ghost:hover{border-color:var(--brass-soft);color:var(--brass-soft)}
+
+/* Three verticals */
+.verticals{padding:100px 24px;background:var(--paper)}
+.verticals-inner{max-width:1200px;margin:0 auto}
+.section-label{text-align:center;font-family:var(--font-mono);font-size:12px;color:var(--brass);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.verticals h2{text-align:center;font-family:var(--font-display);font-size:clamp(32px,4vw,48px);color:var(--ink);margin-bottom:16px}
+.verticals-sub{text-align:center;color:var(--muted);font-size:18px;max-width:600px;margin:0 auto 60px}
+.vert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px}
+.vert-card{background:#fff;border-radius:16px;padding:40px 32px;border:1px solid rgba(11,46,41,0.06);transition:all 0.3s;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block}
+.vert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--brass);opacity:0;transition:opacity 0.3s}
+.vert-card:hover::before{opacity:1}
+.vert-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(11,46,41,0.08)}
+.vert-icon{width:56px;height:56px;border-radius:12px;background:var(--ink);display:flex;align-items:center;justify-content:center;color:var(--brass-soft);font-size:24px;margin-bottom:24px}
+.vert-card h3{font-family:var(--font-display);font-size:28px;margin-bottom:12px;color:var(--ink)}
+.vert-card p{color:var(--muted);font-size:15px;margin-bottom:24px;min-height:72px}
+.vert-meta{display:flex;gap:16px;align-items:center;font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+.vert-meta .badge{background:var(--porcelain);padding:4px 12px;border-radius:100px}
+.vert-cta{color:var(--brass);font-weight:600;font-size:14px;display:flex;align-items:center;gap:6px}
+
+/* Stats bar */
+.stats{background:var(--ink);padding:60px 24px}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;text-align:center}
+.stat-num{font-family:var(--font-display);font-size:clamp(36px,4vw,56px);color:var(--brass-soft);line-height:1}
+.stat-label{color:rgba(244,246,242,0.6);font-size:14px;margin-top:8px;font-family:var(--font-mono);text-transform:uppercase;letter-spacing:1px}
+
+/* Footer */
+footer{background:var(--ink-deep);padding:60px 24px 40px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .seal{width:40px;height:40px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;margin-bottom:16px}
+.footer-brand h4{font-family:var(--font-display);color:var(--porcelain);font-size:20px;margin-bottom:8px}
+.footer-brand p{color:rgba(244,246,242,0.5);font-size:14px}
+.footer-col h5{color:var(--porcelain);font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.footer-col a{display:block;color:rgba(244,246,242,0.5);text-decoration:none;font-size:14px;margin-bottom:12px;transition:color 0.2s}
+.footer-col a:hover{color:var(--brass-soft)}
+.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(244,246,242,0.08);display:flex;justify-content:space-between;color:rgba(244,246,242,0.4);font-size:12px}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero-inner{padding:100px 20px 60px}
+  .vert-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+  .stats-inner{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="seal">P</div>
+      <span>Pandora's Skill Box</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#verticals">Verticals</a></li>
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="real-estate.html">Real Estate</a></li>
+      <li><a href="ceo-reset.html">CEO Reset</a></li>
+    </ul>
+    <a href="product.html" class="nav-cta">Build my resume →</a>
+  </div>
+</nav>
+
+<!-- Hero: The Box -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-seal" id="heroSeal">
+      <span class="wax">✦</span>
+    </div>
+    <h1>Your next <em>breakthrough</em><br>is one skill away.</h1>
+    <p>Not prompts. Not templates. Certified AI skills — expert playbooks that turn any model into a specialist who knows exactly what your situation demands.</p>
+    <div class="hero-tag">⚡ 25 CERTIFIED SKILLS · ZERO INSTALL · PAY PER OUTCOME</div>
+    <div class="hero-actions">
+      <a href="index.html#verticals" class="btn-primary">Open the box</a>
+      <a href="product.html" class="btn-ghost">Try the flagship — free</a>
+    </div>
+  </div>
+</section>
+
+<!-- Three Verticals -->
+<section class="verticals" id="verticals">
+  <div class="verticals-inner">
+    <div class="section-label">Choose your arena</div>
+    <h2>Three verticals. One standard.</h2>
+    <p class="verticals-sub">Every skill is Pandora Certified: scanned, benchmarked, versioned. You run it in your own AI account — your data never leaves.</p>
+    
+    <div class="vert-grid">
+      <!-- Careers -->
+      <a href="product.html" class="vert-card">
+        <div class="vert-icon">📋</div>
+        <h3>Careers</h3>
+        <p>Resume rebuild, cover letters, interview prep, salary negotiation — 25 skills that turn job seekers into hired candidates.</p>
+        <div class="vert-meta">
+          <span class="badge">25 skills</span>
+          <span class="vert-cta">Explore →</span>
+        </div>
+      </a>
+      
+      <!-- Real Estate -->
+      <a href="real-estate.html" class="vert-card">
+        <div class="vert-icon">🏢</div>
+        <h3>Real Estate</h3>
+        <p>RERA compliance, property valuation, tenant screening, lease analysis — UAE-focused skills for brokers, landlords, and developers.</p>
+        <div class="vert-meta">
+          <span class="badge">12 skills</span>
+          <span class="vert-cta">Explore →</span>
+        </div>
+      </a>
+      
+      <!-- CEO Reset -->
+      <a href="ceo-reset.html" class="vert-card">
+        <div class="vert-icon">🎯</div>
+        <h3>CEO Reset</h3>
+        <p>Strategic planning, decision frameworks, board decks, fundraising prep — leadership skills for founders and executives.</p>
+        <div class="vert-meta">
+          <span class="badge">15 skills</span>
+          <span class="vert-cta">Explore →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num">25</div>
+      <div class="stat-label">Certified Skills</div>
+    </div>
+    <div>
+      <div class="stat-num">12</div>
+      <div class="stat-label">Point Security Scan</div>
+    </div>
+    <div>
+      <div class="stat-num">$19</div>
+      <div class="stat-label">Per Skill Outcome</div>
+    </div>
+    <div>
+      <div class="stat-num">0</div>
+      <div class="stat-label">Data Stored</div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="verticals" id="how">
+  <div class="verticals-inner">
+    <div class="section-label">The process</div>
+    <h2>Three steps. Ten minutes. One outcome.</h2>
+    <div class="vert-grid">
+      <div class="vert-card" style="cursor:default">
+        <div class="vert-icon" style="background:var(--porcelain);color:var(--ink)">01</div>
+        <h3>Pick your outcome</h3>
+        <p>Not a prompt. A certified skill with a specific deliverable: rebuilt resume, valuation report, board deck.</p>
+      </div>
+      <div class="vert-card" style="cursor:default">
+        <div class="vert-icon" style="background:var(--porcelain);color:var(--ink)">02</div>
+        <h3>The skill runs</h3>
+        <p>Paste your inputs. The skill applies expert methodology — calibrated, specific, zero invention.</p>
+      </div>
+      <div class="vert-card" style="cursor:default">
+        <div class="vert-icon" style="background:var(--porcelain);color:var(--ink)">03</div>
+        <h3>Export and apply</h3>
+        <p>Download your deliverable. Word, PDF, or copy. Pay only when you export — try everything free.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="seal">P</div>
+      <h4>Pandora's Skill Box</h4>
+      <p>Certified AI skills that run in your own account. Your data never leaves your system.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Verticals</h5>
+      <a href="product.html">Careers</a>
+      <a href="real-estate.html">Real Estate</a>
+      <a href="ceo-reset.html">CEO Reset</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="index.html#how">How it works</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <a href="mailto:founders@pandorasskillbox.com">founders@pandorasskillbox.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Pandora's Skill Box</span>
+    <span>Pandora Certified · 12-Point Security Scan</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('heroSeal').addEventListener('click',function(){
+  document.getElementById('verticals').scrollIntoView({behavior:'smooth'});
+});
+</script>
+</body>
+</html>

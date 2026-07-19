@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pandora's Skill Box — CEO Reset Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;
+  --brass:#B8892D;--brass-soft:#E4C878;--brass-deep:#8F6716;
+  --verdict:#17A673;--flag:#D64533;--muted:#5C6F6A;
+  --font-display:'Instrument Serif',Georgia,serif;
+  --font-body:'Schibsted Grotesk',system-ui,sans-serif;
+  --font-mono:'Spline Sans Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,46,41,0.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.nav-logo .seal{width:32px;height:32px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
+.nav-logo span{font-family:var(--font-display);font-size:20px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff;padding:8px 18px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600}
+
+.hero{min-height:60vh;display:flex;align-items:center;position:relative;background:var(--ink)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(184,137,45,0.08) 0%,transparent 60%)}
+.hero-inner{max-width:1200px;margin:0 auto;padding:120px 24px 60px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-text h1{font-family:var(--font-display);font-size:clamp(36px,5vw,56px);color:var(--porcelain);line-height:1.1;margin-bottom:20px}
+.hero-text h1 em{color:var(--brass-soft);font-style:italic}
+.hero-text p{font-size:18px;color:rgba(244,246,242,0.7);margin-bottom:32px}
+.hero-actions{display:flex;gap:16px}
+.btn-primary{background:var(--brass);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.2s;border:none;cursor:pointer;display:inline-block}
+.btn-primary:hover{background:var(--brass-deep)}
+.btn-ghost{background:transparent;color:var(--porcelain);border:1px solid rgba(244,246,242,0.3);padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.2s;display:inline-block}
+.btn-ghost:hover{border-color:var(--brass-soft)}
+.hero-visual{background:rgba(184,137,45,0.1);border:1px solid rgba(184,137,45,0.2);border-radius:16px;padding:40px;text-align:center}
+.hero-visual .big-num{font-family:var(--font-display);font-size:64px;color:var(--brass-soft)}
+.hero-visual p{color:rgba(244,246,242,0.6);font-family:var(--font-mono);font-size:14px;margin-top:16px}
+
+.section-label{text-align:center;font-family:var(--font-mono);font-size:12px;color:var(--brass);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.section-title{text-align:center;font-family:var(--font-display);font-size:clamp(32px,4vw,48px);color:var(--ink);margin-bottom:16px}
+.section-sub{text-align:center;color:var(--muted);font-size:18px;max-width:600px;margin:0 auto 60px}
+
+.skills{padding:80px 24px;background:#fff}
+.skills-inner{max-width:1200px;margin:0 auto}
+.filter{display:flex;gap:12px;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+.filter button{background:transparent;border:1px solid rgba(11,46,41,0.1);color:var(--muted);padding:8px 20px;border-radius:100px;font-family:var(--font-body);font-size:14px;cursor:pointer;transition:all 0.2s}
+.filter button.active,.filter button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
+.skill-card{background:var(--paper);border:1px solid rgba(11,46,41,0.06);border-radius:12px;padding:28px;transition:all 0.2s;text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--brass);opacity:0;transition:opacity 0.2s}
+.skill-card:hover::before{opacity:1}
+.skill-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(11,46,41,0.06)}
+.skill-badge{display:inline-block;background:var(--porcelain);color:var(--muted);font-family:var(--font-mono);font-size:11px;padding:4px 12px;border-radius:100px;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px}
+.skill-card h3{font-family:var(--font-display);font-size:22px;margin-bottom:8px;color:var(--ink)}
+.skill-card p{color:var(--muted);font-size:14px;margin-bottom:16px;min-height:60px}
+.skill-meta{display:flex;justify-content:space-between;align-items:center}
+.skill-price{font-family:var(--font-mono);font-size:13px;color:var(--brass);font-weight:600}
+.skill-cta{color:var(--ink);font-size:13px;font-weight:600;display:flex;align-items:center;gap:4px}
+
+.back-section{padding:40px 24px;text-align:center;background:var(--paper)}
+.back-section a{color:var(--brass);text-decoration:none;font-weight:600;font-size:15px}
+
+footer{background:var(--ink-deep);padding:60px 24px 40px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .seal{width:40px;height:40px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;margin-bottom:16px}
+.footer-brand h4{font-family:var(--font-display);color:var(--porcelain);font-size:20px;margin-bottom:8px}
+.footer-brand p{color:rgba(244,246,242,0.5);font-size:14px}
+.footer-col h5{color:var(--porcelain);font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.footer-col a{display:block;color:rgba(244,246,242,0.5);text-decoration:none;font-size:14px;margin-bottom:12px;transition:color 0.2s}
+.footer-col a:hover{color:var(--brass-soft)}
+.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(244,246,242,0.08);display:flex;justify-content:space-between;color:rgba(244,246,242,0.4);font-size:12px}
+
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;padding:100px 20px 40px}
+  .nav-links{display:none}
+  .skill-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="seal">P</div>
+      <span>Pandora's Skill Box</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="product.html">Careers</a></li>
+      <li><a href="real-estate.html">Real Estate</a></li>
+      <li><a href="ceo-reset.html">CEO Reset</a></li>
+    </ul>
+    <a href="index.html" class="nav-cta">← All verticals</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>CEO Reset<br><em>Leadership</em> skills</h1>
+      <p>Strategic planning, decision frameworks, board decks, fundraising prep — 15 certified skills for founders and executives who need clarity under pressure.</p>
+      <div class="hero-actions">
+        <a href="#skills" class="btn-primary">Browse 15 skills</a>
+        <a href="index.html" class="btn-ghost">← Back to all verticals</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="big-num">15</div>
+      <p>CERTIFIED SKILLS<br>FOUNDER & EXECUTIVE</p>
+    </div>
+  </div>
+</section>
+
+<section class="skills" id="skills">
+  <div class="skills-inner">
+    <div class="section-label">CEO Reset Collection</div>
+    <h2 class="section-title">15 skills for decisive leadership.</h2>
+    <p class="section-sub">Every skill is calibrated for high-stakes executive decisions. Run in your own AI account — your data never leaves.</p>
+    
+    <div class="filter">
+      <button class="active">All 15</button>
+      <button>Strategy</button>
+      <button>Operations</button>
+      <button>Finance</button>
+    </div>
+    
+    <div class="skill-grid" id="skillGrid">
+      <!-- Strategy -->
+      <a href="skill-strategic-plan.html" class="skill-card">
+        <span class="skill-badge">Strategy</span>
+        <h3>Strategic Plan Builder</h3>
+        <p>One-page strategic plan with vision, 3-year objectives, key initiatives, and KPIs — board-ready in 20 minutes.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$29</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-board-deck.html" class="skill-card">
+        <span class="skill-badge">Strategy</span>
+        <h3>Board Deck Architect</h3>
+        <p>Quarterly board presentation — narrative structure, metrics, risks, and asks. Investor-tested format.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$29</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-decision-matrix.html" class="skill-card">
+        <span class="skill-badge">Strategy</span>
+        <h3>Decision Matrix Builder</h3>
+        <p>Weighted decision framework for complex choices — stakeholder mapping, criteria scoring, risk trade-offs.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$19</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-fundraising-prep.html" class="skill-card">
+        <span class="skill-badge">Finance</span>
+        <h3>Fundraising Prep Kit</h3>
+        <p>Pitch narrative, financial model, cap table scenario, and investor Q&A prep for Seed to Series B.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$29</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-kpi-dashboard.html" class="skill-card">
+        <span class="skill-badge">Operations</span>
+        <h3>Executive KPI Dashboard</h3>
+        <p>Weekly CEO metrics summary — revenue, burn, runway, team health, and leading indicators. One page.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$19</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-all-hands.html" class="skill-card">
+        <span class="skill-badge">Operations</span>
+        <h3>All-Hands Narrative</h3>
+        <p>Company-wide update that builds alignment — wins, learnings, next-quarter priorities, and cultural reinforcement.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$19</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-crisis-response.html" class="skill-card">
+        <span class="skill-badge">Strategy</span>
+        <h3>Crisis Response Playbook</h3>
+        <p>72-hour crisis communication plan — stakeholder mapping, message sequencing, and reputation recovery.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$29</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-hiring-plan.html" class="skill-card">
+        <span class="skill-badge">Operations</span>
+        <h3>Executive Hiring Plan</span>
+        <p>12-month leadership hiring roadmap — role sequencing, compensation bands, and interview loops.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$19</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-compensation-review.html" class="skill-card">
+        <span class="skill-badge">Finance</span>
+        <h3>Compensation Review Framework</h3>
+        <p>Annual compensation calibration — market benchmarking, equity refresh, and retention-risk analysis.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$19</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-investor-update.html" class="skill-card">
+        <span class="skill-badge">Finance</span>
+        <h3>Investor Update Writer</h3>
+        <p>Monthly investor email that builds confidence — metrics narrative, milestone tracking, and forward guidance.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$19</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-exit-strategy.html" class="skill-card">
+        <span class="skill-badge">Strategy</span>
+        <h3>Exit Strategy Options Map</h3>
+        <p>Strategic exit analysis — acquisition, IPO, private equity, and continuation scenarios with valuation ranges.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$29</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-1on1-prep.html" class="skill-card">
+        <span class="skill-badge">Operations</span>
+        <h3>1-on-1 Prep for Direct Reports</h3>
+        <p>Structured executive coaching prep — growth areas, blocker removal, and career-path conversations.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$19</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-competitive-intel.html" class="skill-card">
+        <span class="skill-badge">Strategy</span>
+        <h3>Competitive Intelligence Brief</h3>
+        <p>Weekly competitor summary — product moves, pricing shifts, hiring signals, and market positioning threats.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$19</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-runway-calculator.html" class="skill-card">
+        <span class="skill-badge">Finance</span>
+        <h3>Runway & Burn Scenario Planner</h3>
+        <p>Interactive runway model — hiring scenarios, revenue ramps, and funding-need timing with sensitivity analysis.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$19</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+      
+      <a href="skill-press-release.html" class="skill-card">
+        <span class="skill-badge">Operations</span>
+        <h3>Press Release Draft</h3>
+        <p>Product launch, funding announcement, or milestone press release — journalist-ready format with quote prep.</p>
+        <div class="skill-meta">
+          <span class="skill-price">$19</span>
+          <span class="skill-cta">Run →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="back-section">
+  <a href="index.html">← Back to all verticals</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="seal">P</div>
+      <h4>Pandora's Skill Box</h4>
+      <p>Certified AI skills that run in your own account.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Verticals</h5>
+      <a href="product.html">Careers</a>
+      <a href="real-estate.html">Real Estate</a>
+      <a href="ceo-reset.html">CEO Reset</a>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <a href="index.html#how">How it works</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <a href="mailto:founders@pandorasskillbox.com">founders@pandorasskillbox.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Pandora's Skill Box</span>
+    <span>Pandora Certified · 12-Point Security Scan</span>
+  </div>
+</footer>
+
+</body>
+</html>
