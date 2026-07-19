@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pandora's Skill Box — Invoice</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1\u0026family=Schibsted+Grotesk:wght@400;500;600;700\u0026family=Spline+Sans+Mono:wght@400;500\u0026display=swap" rel="stylesheet">
+<style>:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--verdict:#17A673;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,46,41,0.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.nav-logo .seal{width:32px;height:32px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
+.nav-logo span{font-family:var(--font-display);font-size:20px}
+.invoice{max-width:900px;margin:0 auto;padding:120px 24px 60px}
+.invoice-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px}
+.invoice-brand .seal{width:48px;height:48px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:20px;font-weight:700;margin-bottom:12px}
+.invoice-brand h1{font-family:var(--font-display);font-size:28px;color:var(--ink)}
+.invoice-brand p{color:var(--muted);font-size:14px}
+.invoice-meta{text-align:right}
+.invoice-meta .label{font-family:var(--font-mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.invoice-meta .value{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:12px}
+.invoice-to{margin-bottom:48px}
+.invoice-to h3{font-family:var(--font-display);font-size:20px;margin-bottom:8px}
+.invoice-to p{color:var(--muted);font-size:14px;line-height:1.8}
+.invoice-to .editable{border-bottom:1px dashed var(--muted);min-width:200px;display:inline-block;padding:2px 4px}
+table{width:100%;border-collapse:collapse;margin-bottom:32px}
+th{text-align:left;font-family:var(--font-mono);font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);padding:12px 8px;border-bottom:2px solid var(--ink)}
+td{padding:16px 8px;border-bottom:1px solid rgba(11,46,41,0.06);font-size:15px}
+.td-skill{font-weight:600}
+.td-price{text-align:right;font-family:var(--font-mono);font-weight:500}
+.td-qty{text-align:center}
+.td-total{text-align:right;font-weight:600}
+.invoice-total{border-top:2px solid var(--ink);padding-top:24px;text-align:right}
+.invoice-total .label{font-family:var(--font-mono);font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.invoice-total .amount{font-family:var(--font-display);font-size:36px;color:var(--ink);margin-top:8px}
+.invoice-notes{max-width:900px;margin:0 auto;padding:0 24px 80px}
+.invoice-notes h3{font-family:var(--font-display);font-size:20px;margin-bottom:12px}
+.invoice-notes p{color:var(--muted);font-size:14px;margin-bottom:8px}
+.invoice-notes .stamp{display:inline-block;margin-top:24px;padding:12px 24px;border:2px solid var(--brass);border-radius:8px;font-family:var(--font-mono);font-size:12px;color:var(--brass);text-transform:uppercase;letter-spacing:1px}
+@media print{nav{display:none}.invoice{padding-top:40px}}
+@media(max-width:768px){.invoice-header{flex-direction:column;gap:24px}.invoice-meta{text-align:left}}
+</style></head>
+<body>
+<nav><div class="nav-inner">
+<a href="index.html" class="nav-logo"><div class="seal">P</div><span>Pandora's Skill Box</span></a>
+</div></nav>
+<section class="invoice">
+<div class="invoice-header">
+<div class="invoice-brand"><div class="seal">P</div><h1>Pandora's Skill Box</h1><p>Certified AI Skills · Dubai, UAE</p></div>
+<div class="invoice-meta">
+<div class="label">Invoice #</div><div class="value">PSB-2026-001</div>
+<div class="label">Date</div><div class="value">19 July 2026</div>
+<div class="label">Due</div><div class="value">Upon Receipt</div>
+</div>
+</div>
+<div class="invoice-to">
+<h3>Bill To</h3>
+<p><span class="editable">Client Name</span><br>
+<span class="editable">Company Name</span><br>
+<span class="editable">Address Line 1</span><br>
+<span class="editable">Dubai, UAE</span></p>
+</div>
+<table>
+<thead><tr><th>Skill</th><th>Vertical</th><th class="td-qty">Qty</th><th class="td-price">Unit Price</th><th class="td-total">Total</th></tr></thead>
+<tbody>
+<tr><td class="td-skill">Employee Onboarding Playbook</td><td>HR Solutions</td><td class="td-qty">1</td><td class="td-price">$19.00</td><td class="td-total">$19.00</td></tr>
+<tr><td class="td-skill">RERA Compliance Checklist</td><td>Real Estate</td><td class="td-qty">1</td><td class="td-price">$19.00</td><td class="td-total">$19.00</td></tr>
+<tr><td class="td-skill">Strategic Plan — 90 Days</td><td>CEO Reset</td><td class="td-qty">1</td><td class="td-price">$19.00</td><td class="td-total">$19.00</td></tr>
+<tr><td class="td-skill">Monthly Bookkeeping Close</td><td>Finance &amp; Audit</td><td class="td-qty">1</td><td class="td-price">$19.00</td><td class="td-total">$19.00</td></tr>
+</tbody>
+</table>
+<div class="invoice-total">
+<div class="label">Total Due</div>
+<div class="amount">$76.00 USD</div>
+</div>
+</section>
+<section class="invoice-notes">
+<h3>Notes</h3>
+<p>• Payment due upon receipt. Wire transfer or credit card accepted.</p>
+<p>• Skills delivered as certified playbooks — run in your own AI account.</p>
+<p>• No data stored. No subscription. Pay per outcome only.</p>
+<div class="stamp">Pandora Certified · 12-Point Security Scan</div>
+</section>
+</body></html>
