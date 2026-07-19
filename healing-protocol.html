@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Healing Protocol — Reiki & Pranic Healing</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B2E29;
+  --ink-deep:#072320;
+  --porcelain:#F4F6F2;
+  --paper:#FBFCFA;
+  --brass:#B8892D;
+  --brass-soft:#E4C878;
+  --muted:#5C6F6A;
+  --verdict:#17A673;
+  --rose:#D64533;
+  --font-display:'Instrument Serif',Georgia,serif;
+  --font-body:'Schibsted Grotesk',system-ui,sans-serif;
+  --font-mono:'Spline Sans Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+.page-break{page-break-before:always}
+
+/* ===== HEADER ===== */
+.header-top{
+  background:var(--ink);
+  color:#fff;
+  padding:48px 24px 40px;
+  text-align:center;
+}
+.header-top .seal{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--brass);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+  font-size:22px;font-weight:700;letter-spacing:1px;
+}
+.header-top h1{font-family:var(--font-display);font-size:32px;font-weight:400;margin-bottom:8px}
+.header-top .tagline{color:var(--brass-soft);font-size:14px;letter-spacing:2px;text-transform:uppercase}
+.header-top .divider{
+  width:60px;height:2px;background:var(--brass);margin:20px auto;
+}
+.header-top .meta{
+  color:rgba(255,255,255,0.6);font-size:13px;
+}
+
+/* ===== SECTIONS ===== */
+.section{
+  max-width:800px;margin:0 auto;padding:48px 24px;
+  border-bottom:1px solid rgba(11,46,41,0.08);
+}
+.section:last-child{border-bottom:none}
+.section h2{
+  font-family:var(--font-display);font-size:26px;color:var(--ink);
+  margin-bottom:8px;
+}
+.section .label{
+  font-family:var(--font-mono);font-size:11px;color:var(--brass);
+  text-transform:uppercase;letter-spacing:1.5px;margin-bottom:24px;
+}
+.section h3{
+  font-family:var(--font-display);font-size:20px;color:var(--ink);
+  margin:28px 0 12px;
+}
+.section h4{
+  font-size:16px;font-weight:600;margin:20px 0 8px;
+}
+.section p,.section li{
+  color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:12px;
+}
+.section ul{padding-left:20px;margin-bottom:16px}
+.section li::marker{color:var(--brass)}
+
+/* ===== TABLE ===== */
+.table-wrap{overflow-x:auto;margin:20px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{
+  text-align:left;font-family:var(--font-mono);font-size:11px;
+  text-transform:uppercase;letter-spacing:1px;color:var(--muted);
+  padding:10px 8px;border-bottom:2px solid var(--ink);
+}
+td{padding:12px 8px;border-bottom:1px solid rgba(11,46,41,0.06);vertical-align:top}
+.td-num{
+  font-family:var(--font-mono);font-size:13px;color:var(--brass);font-weight:600;
+  width:30px;
+}
+.td-title{font-weight:600;color:var(--ink);font-size:14px}
+.td-badge{
+  font-family:var(--font-mono);font-size:10px;color:var(--brass);
+  text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;
+}
+
+/* ===== QUESTIONNAIRE ===== */
+.q-block{margin-bottom:24px}
+.q-number{
+  font-family:var(--font-mono);font-size:11px;color:var(--brass);
+  margin-bottom:6px;
+}
+.q-text{font-weight:600;color:var(--ink);font-size:15px;margin-bottom:10px}
+.q-hint{color:var(--muted);font-size:13px;margin-bottom:8px;font-style:italic}
+.q-field{
+  width:100%;min-height:48px;border:1px solid rgba(11,46,41,0.12);
+  border-radius:6px;padding:10px 14px;font-family:var(--font-body);
+  font-size:14px;color:var(--ink);background:#fff;
+  margin-bottom:8px;
+}
+.q-field:focus{outline:none;border-color:var(--brass)}
+textarea.q-field{min-height:80px;resize:vertical}
+.checkbox-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:8px;
+}
+.checkbox-grid label{
+  display:flex;align-items:center;gap:8px;
+  font-size:14px;color:var(--muted);cursor:pointer;
+}
+.checkbox-grid input[type="checkbox"]{
+  width:16px;height:16px;accent-color:var(--brass);
+}
+.scale-box{
+  display:flex;align-items:center;gap:12px;margin-top:8px;
+}
+.scale-box input[type="range"]{
+  flex:1;accent-color:var(--brass);
+}
+.scale-num{
+  font-family:var(--font-mono);font-size:18px;color:var(--brass);font-weight:600;
+  min-width:24px;text-align:center;
+}
+
+/* ===== INVOICE ===== */
+.invoice-header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  flex-wrap:wrap;gap:24px;margin-bottom:32px;
+}
+.invoice-header .left h2{font-family:var(--font-display);font-size:28px}
+.invoice-header .left .tag{
+  display:inline-block;background:var(--ink);color:#fff;
+  font-family:var(--font-mono);font-size:11px;padding:6px 16px;
+  border-radius:100px;text-transform:uppercase;letter-spacing:1px;
+}
+.invoice-header .right{text-align:right}
+.invoice-header .right .l{
+  font-family:var(--font-mono);font-size:11px;color:var(--muted);
+  text-transform:uppercase;letter-spacing:1px;
+}
+.invoice-header .right .v{font-size:16px;font-weight:600}
+
+.session-row{
+  display:grid;grid-template-columns:auto 1fr auto;gap:16px;
+  align-items:center;padding:16px;background:#fff;border-radius:8px;
+  border:1px solid rgba(11,46,41,0.06);margin-bottom:12px;
+}
+.session-num{
+  width:36px;height:36px;border-radius:50%;background:var(--ink);
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-size:14px;font-weight:600;
+}
+.session-info h4{font-family:var(--font-display);font-size:17px;margin-bottom:2px}
+.session-info p{color:var(--muted);font-size:13px}
+
+.client-box{
+  background:var(--porcelain);border-radius:8px;padding:20px;margin:24px 0;
+}
+.client-box h4{font-family:var(--font-display);font-size:16px;margin-bottom:10px}
+.client-box .field{
+  border-bottom:1px dashed var(--muted);min-width:200px;
+  display:inline-block;padding:2px 0;color:var(--muted);
+}
+
+.terms{margin:24px 0}
+.terms ul{list-style:none;padding:0}
+.terms li{color:var(--muted);font-size:13px;margin-bottom:8px;padding-left:16px;position:relative}
+.terms li::before{content:'—';position:absolute;left:0;color:var(--brass)}
+
+.total-box{
+  text-align:right;padding-top:24px;border-top:2px solid var(--ink);
+}
+.total-box .l{
+  font-family:var(--font-mono);font-size:11px;color:var(--muted);
+  text-transform:uppercase;letter-spacing:1px;
+}
+.total-box .v{
+  font-family:var(--font-display);font-size:32px;color:var(--ink);margin-top:4px;
+}
+.total-box .sub{color:var(--muted);font-size:13px;margin-top:8px}
+.discount-line{
+  text-decoration:line-through;color:var(--muted);font-size:18px;
+  font-family:var(--font-display);margin-bottom:4px;
+}
+.discount-tag{
+  display:inline-block;background:var(--rose);color:#fff;
+  font-family:var(--font-mono);font-size:10px;padding:4px 10px;
+  border-radius:100px;text-transform:uppercase;letter-spacing:0.5px;
+  margin-bottom:8px;
+}
+.stamp{
+  display:inline-block;margin-top:20px;padding:10px 20px;
+  border:2px solid var(--brass);border-radius:6px;
+  font-family:var(--font-mono);font-size:11px;color:var(--brass);
+  text-transform:uppercase;letter-spacing:1px;
+}
+
+/* ===== PRINT ===== */
+@media print{
+  .section{padding:32px 24px}
+  .page-break{page-break-before:always}
+  body{background:#fff}
+}
+@media(max-width:640px){
+  .checkbox-grid{grid-template-columns:1fr}
+  .session-row{grid-template-columns:1fr}
+  .session-num{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<div class="header-top">
+  <div class="seal">H</div>
+  <h1>Healing Protocol</h1>
+  <div class="tagline">Reiki · Pranic Healing</div>
+  <div class="divider"></div>
+  <div class="meta">Prepared for a friend's mother · Dubai, UAE · July 2026</div>
+</div>
+
+<!-- ===== SECTION 1: CLIENT BRIEF ===== -->
+<div class="section">
+  <div class="label">01 · Client Brief</div>
+  <h2>Your Healing Journey</h2>
+  <p style="color:var(--muted);font-size:15px;margin-bottom:24px">
+    A 5-session protocol designed for you. Reiki and Pranic Healing work with your body's natural energy to restore balance, relieve discomfort, and bring deep peace.
+  </p>
+
+  <h3>What These Modalities Are</h3>
+  <p><strong>Reiki</strong> is a Japanese energy practice where the practitioner channels universal life force through their hands to your body. You remain fully clothed. The practitioner may place hands gently on or just above your body. There is no massage, no manipulation, and no religious belief required.</p>
+  <p><strong>Pranic Healing</strong> is a Filipino energy system that works with your "energy body" — the field that surrounds and interpenetrates your physical form. It has two steps: first, congested or stagnant energy is cleansed away; then fresh, revitalizing energy is channeled in. Think of it as energetic hygiene followed by nourishment.</p>
+
+  <h3>Your 5-Session Journey</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Session</th><th>What Happens</th><th>What You May Feel</th></tr>
+      <tr><td class="td-num">1</td><td><div class="td-title">Foundation & Assessment</div><div class="td-badge">Reiki · 60 min</div></td><td>Deep relaxation, warmth, emotional release, peaceful sleep afterward.</td></tr>
+      <tr><td class="td-num">2</td><td><div class="td-title">Deep Cleansing</div><div class="td-badge">Pranic · 45 min</div></td><td>Lightness, yawning, temperature shifts, or temporary fatigue as old energy releases.</td></tr>
+      <tr><td class="td-num">3</td><td><div class="td-title">Targeted Healing</div><div class="td-badge">Fusion · 60 min</div></td><td>Relief in the targeted area, emotional softening, sense of "something shifted."</td></tr>
+      <tr><td class="td-num">4</td><td><div class="td-title">Chakra Rebalancing</div><div class="td-badge">Pranic Adv · 45 min</div></td><td>Balanced energy, mental clarity, improved sleep quality, heightened vitality.</td></tr>
+      <tr><td class="td-num">5</td><td><div class="td-title">Integration & Maintenance</div><div class="td-badge">Reiki · 60 min</div></td><td>Wholeness, empowerment, clear path forward for continued well-being.</td></tr>
+    </table>
+  </div>
+
+  <h3>What to Expect</h3>
+  <p><strong>In-person:</strong> You lie on a comfortable table, fully clothed, with a blanket. Soft music. Warm room. The practitioner works silently or may guide you through breathing. Sessions last 45–60 minutes.</p>
+  <p><strong>Distant healing:</strong> You rest in your own home at the scheduled time. The practitioner connects to your energy field remotely using Reiki distance symbols and Pranic scanning techniques. You may feel warmth, tingling, or deep relaxation exactly as in person. A phone or video check-in before and after the session is included.</p>
+  <p>After either format, drink water and rest. Avoid heavy meals for 1–2 hours.</p>
+
+  <h3>Distant Healing — How It Works</h3>
+  <p>Reiki and Pranic Healing both function beyond physical proximity:</p>
+  <ul>
+    <li><strong>Reiki:</strong> Uses the <em>Hon Sha Ze Sho Nen</em> symbol — the "distance healing" symbol that transcends space and time. The practitioner holds your photograph or name and channels energy to you directly.</li>
+    <li><strong>Pranic Healing:</strong> The practitioner scans your energy body remotely using the same palm sensitivity techniques. Cleansing and energizing are performed through intention and visualization, with the same precision as in-person.</li>
+  </ul>
+  <p>Distant healing is equally effective. Many clients prefer it for convenience, comfort, and avoiding travel fatigue.</p>
+
+  <h3>Format Options</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Format</th><th>Best For</th><th>Setup</th></tr>
+      <tr><td class="td-title">In-person</td><td>First session, hands-on preference, severe immobility</td><td>Clinic visit</td></tr>
+      <tr><td class="td-title">Distant</td><td>Ongoing sessions, travel constraints, home comfort</td><td>Scheduled time, quiet room, phone/video pre/post</td></tr>
+      <tr><td class="td-title">Hybrid</td><td>First session in-person, remaining sessions distant</td><td>Session 1 in clinic, 2–5 from home</td></tr>
+    </table>
+  </div>
+
+  <h3>Common Sensations</h3>
+  <ul>
+    <li>Warmth or coolness flowing through the body</li>
+    <li>Tingling, gentle pulsing, or waves of relaxation</li>
+    <li>Emotional release — tears, laughter, memories surfacing</li>
+    <li>Deep sleep during or after the session</li>
+    <li><strong>Nothing at all</strong> — this is also valid. Energy works regardless of conscious sensation.</li>
+  </ul>
+
+  <h3>Safety & Contraindications</h3>
+  <p>Both modalities are <strong>completely safe</strong> and non-invasive. Reiki has no contraindications.</p>
+  <p>Pranic Healing is gentle but more active. Please inform your practitioner if you have:</p>
+  <ul>
+    <li>Pacemaker (hands stay 4+ inches away)</li>
+    <li>Heart condition / uncontrolled hypertension</li>
+    <li>Diabetes</li>
+    <li>Recent surgery or unhealed fractures</li>
+    <li>Cancer (a modified protocol is used)</li>
+  </ul>
+  <p><em>These modalities complement medical care. They do not replace it.</em></p>
+
+  <h3>Aftercare</h3>
+  <ul>
+    <li>Hydrate well for 24 hours.</li>
+    <li>Some clients experience a mild "healing crisis" — temporary fatigue, emotional waves, or slight detox symptoms. This passes within 1–3 days.</li>
+    <li>Rest. Your body is recalibrating.</li>
+    <li>Track your sleep, pain levels, and mood. We review this at each session.</li>
+  </ul>
+
+  <h3>Ready to Begin?</h3>
+  <p>Each session builds on the last. By Session 5, you will have a clear sense of what shifted, what remains, and how to maintain your energy hygiene going forward. You will also learn self-Reiki — a tool you keep for life.</p>
+</div>
+
+<!-- ===== SECTION 2: QUESTIONNAIRE ===== -->
+<div class="section page-break">
+  <div class="label">02 · Discovery Questionnaire</div>
+  <h2>Client Discovery Form</h2>
+  <p style="color:var(--muted);font-size:14px;margin-bottom:28px">
+    Please complete at your own pace. There are no right answers. The more honest and detailed you are, the more precise and effective your protocol will be.
+  </p>
+
+  <h3>Part 1 · Your Physical Body</h3>
+
+  <div class="q-block">
+    <div class="q-number">Q01</div>
+    <div class="q-text">What is your primary reason for seeking energy healing at this time?</div>
+    <textarea class="q-field" placeholder="Your answer..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q02</div>
+    <div class="q-text">Please list all current medical diagnoses and conditions:</div>
+    <textarea class="q-field" placeholder="e.g., arthritis, hypertension, diabetes, fibromyalgia..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q03</div>
+    <div class="q-text">Are you taking any medications? Please list them:</div>
+    <textarea class="q-field" placeholder="Medication name, dosage, frequency..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q04</div>
+    <div class="q-text">Do you have any of the following? (Check all that apply)</div>
+    <div class="checkbox-grid">
+      <label><input type="checkbox"> Pacemaker or implanted device</label>
+      <label><input type="checkbox"> Heart condition / hypertension</label>
+      <label><input type="checkbox"> Diabetes</label>
+      <label><input type="checkbox"> Recent surgery (within 6 months)</label>
+      <label><input type="checkbox"> Unhealed fractures or injuries</label>
+      <label><input type="checkbox"> Cancer (current or in remission)</label>
+      <label><input type="checkbox"> Chronic pain</label>
+      <label><input type="checkbox"> Joint replacements</label>
+      <label><input type="checkbox"> Skin fragility / easy bruising</label>
+      <label><input type="checkbox"> None of the above</label>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q05</div>
+    <div class="q-text">On a scale of 0–10, rate your average daily energy level:</div>
+    <div class="q-hint">0 = cannot get out of bed &nbsp;|&nbsp; 10 = fully vibrant</div>
+    <div class="scale-box"><input type="range" min="0" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value"><div class="scale-num">5</div></div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q06</div>
+    <div class="q-text">How is your sleep?</div>
+    <div class="checkbox-grid">
+      <label><input type="checkbox"> Restful and adequate</label>
+      <label><input type="checkbox"> Difficulty falling asleep</label>
+      <label><input type="checkbox"> Waking frequently</label>
+      <label><input type="checkbox"> Waking too early</label>
+      <label><input type="checkbox"> Sleep apnea / CPAP</label>
+      <label><input type="checkbox"> Other</label>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q07</div>
+    <div class="q-text">Describe your pain patterns, if any:</div>
+    <div class="q-hint">Location / Frequency / Intensity (0–10) / What relieves it</div>
+    <textarea class="q-field" placeholder="e.g., Lower back / daily / 6 / heat pad helps"></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q08</div>
+    <div class="q-text">How is your mobility?</div>
+    <div class="checkbox-grid">
+      <label><input type="checkbox"> Fully mobile, walk without assistance</label>
+      <label><input type="checkbox"> Walk with cane/walker</label>
+      <label><input type="checkbox"> Wheelchair-bound</label>
+      <label><input type="checkbox"> Bedridden for portions of the day</label>
+      <label><input type="checkbox"> Can lie flat for 45–60 minutes</label>
+      <label><input type="checkbox"> Need pillows under knees/back</label>
+    </div>
+  </div>
+
+  <h3>Part 2 · Your Emotional & Mental State</h3>
+
+  <div class="q-block">
+    <div class="q-number">Q09</div>
+    <div class="q-text">How would you describe your emotional landscape right now?</div>
+    <div class="q-hint">e.g., anxious, grieving, numb, hopeful, overwhelmed, peaceful</div>
+    <input type="text" class="q-field" placeholder="Your answer...">
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q10</div>
+    <div class="q-text">Have you experienced any significant losses or life changes in the past 2 years?</div>
+    <textarea class="q-field" placeholder="e.g., death of a loved one, divorce, retirement, relocation, diagnosis..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q11</div>
+    <div class="q-text">Do you experience anxiety? If yes, what triggers it and how does it manifest?</div>
+    <textarea class="q-field" placeholder="e.g., racing thoughts, physical tension, panic, insomnia..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q12</div>
+    <div class="q-text">Do you experience depression, low mood, or emotional flatness? Describe:</div>
+    <textarea class="q-field" placeholder="Your answer..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q13</div>
+    <div class="q-text">What brings you joy? What did you used to love doing that you no longer do?</div>
+    <textarea class="q-field" placeholder="Your answer..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q14</div>
+    <div class="q-text">Are you currently receiving mental health support?</div>
+    <div class="checkbox-grid">
+      <label><input type="checkbox"> Therapy / counseling</label>
+      <label><input type="checkbox"> Psychiatric care / medication</label>
+      <label><input type="checkbox"> Support group</label>
+      <label><input type="checkbox"> Spiritual guidance</label>
+      <label><input type="checkbox"> None</label>
+    </div>
+  </div>
+
+  <h3>Part 3 · Your Energy & Sensitivity</h3>
+
+  <div class="q-block">
+    <div class="q-number">Q15</div>
+    <div class="q-text">Have you had energy healing before?</div>
+    <div class="checkbox-grid">
+      <label><input type="checkbox"> Yes — Reiki</label>
+      <label><input type="checkbox"> Yes — Pranic Healing</label>
+      <label><input type="checkbox"> Yes — Acupuncture</label>
+      <label><input type="checkbox"> Yes — Other</label>
+      <label><input type="checkbox"> No — this is my first time</label>
+    </div>
+    <textarea class="q-field" style="margin-top:8px;min-height:48px" placeholder="If yes, describe your experience..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q16</div>
+    <div class="q-text">Are you sensitive to energy? Do you notice subtle sensations in your body?</div>
+    <div class="q-hint">e.g., feeling someone staring, sensing room energy, tingling, temperature shifts</div>
+    <textarea class="q-field" placeholder="Your answer..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q17</div>
+    <div class="q-text">Do you have a regular spiritual or contemplative practice?</div>
+    <div class="q-hint">e.g., prayer, meditation, yoga, nature walks, journaling</div>
+    <textarea class="q-field" placeholder="Your answer..."></textarea>
+  </div>
+
+  <h3>Part 4 · Your Goals & Preferences</h3>
+
+  <div class="q-block">
+    <div class="q-number">Q18</div>
+    <div class="q-text">What would you most like to shift or improve through these 5 sessions?</div>
+    <div class="q-hint">Rank your top 3</div>
+    <div class="checkbox-grid">
+      <label><input type="checkbox"> Pain relief</label>
+      <label><input type="checkbox"> Better sleep</label>
+      <label><input type="checkbox"> Reduced anxiety</label>
+      <label><input type="checkbox"> Emotional release / grief</label>
+      <label><input type="checkbox"> More energy / vitality</label>
+      <label><input type="checkbox"> Mental clarity</label>
+      <label><input type="checkbox"> Spiritual connection</label>
+      <label><input type="checkbox"> Faster recovery</label>
+      <label><input type="checkbox"> Other</label>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q19</div>
+    <div class="q-text">Do you prefer in-person or distant healing sessions?</div>
+    <div class="checkbox-grid">
+      <label><input type="checkbox"> In-person — at the clinic</label>
+      <label><input type="checkbox"> Distant — from home (equally effective, phone/video check-in)</label>
+      <label><input type="checkbox"> Hybrid — first in-person, remaining distant</label>
+      <label><input type="checkbox"> Flexible — decide each week</label>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q20</div>
+    <div class="q-text">Do you prefer hands-on or hands-off treatment?</div>
+    <div class="checkbox-grid">
+      <label><input type="checkbox"> Gentle hands-on is fine</label>
+      <label><input type="checkbox"> Prefer hands hovering above (no touch)</label>
+      <label><input type="checkbox"> Distant healing (no physical presence)</label>
+      <label><input type="checkbox"> Need to check skin sensitivity first</label>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q21</div>
+    <div class="q-text">Do you have a caregiver or family member who should be included in communications?</div>
+    <textarea class="q-field" placeholder="Name, relationship, phone number..."></textarea>
+  </div>
+
+  <div class="q-block">
+    <div class="q-number">Q22</div>
+    <div class="q-text">Is there anything else I should know to serve you best?</div>
+    <div class="q-hint">Fears, preferences, cultural considerations, language, etc.</div>
+    <textarea class="q-field" placeholder="Your answer..."></textarea>
+  </div>
+
+  <div class="client-box" style="margin-top:32px">
+    <p style="font-size:14px;color:var(--muted);line-height:1.8">
+      <strong>Signature:</strong> <span class="field" style="min-width:200px">&nbsp;</span><br>
+      <strong>Date:</strong> <span class="field" style="min-width:120px">&nbsp;</span><br>
+      <strong>Caregiver / Family Contact:</strong> <span class="field" style="min-width:200px">&nbsp;</span>
+    </p>
+    <p style="font-size:12px;color:var(--muted);margin-top:12px;font-style:italic">
+      This questionnaire is confidential and used solely to design your personalized healing protocol.
+    </p>
+  </div>
+</div>
+
+<!-- ===== SECTION 3: 5-SESSION INVOICE ===== -->
+<div class="section page-break">
+  <div class="label">03 · 5-Session Protocol Invoice</div>
+  <div class="invoice-header">
+    <div class="left">
+      <h2>5-Session Protocol</h2>
+      <span class="tag">Complete Journey</span>
+    </div>
+    <div class="right">
+      <div class="l">Reference</div><div class="v">HP-5S-2026</div>
+      <div class="l">Date</div><div class="v">19 July 2026</div>
+    </div>
+  </div>
+
+  <div class="client-box">
+    <h4>Prepared For</h4>
+    <p><span class="field">Client Name</span><br><span class="field">Contact Number</span><br><span class="field">Dubai, UAE</span></p>
+  </div>
+
+  <h4>Session Breakdown</h4>
+  <div class="session-row"><div class="session-num">1</div><div class="session-info"><h4>Foundation & Assessment</h4><p>Full-body Reiki scan · Crown, Heart, Root focus · Baseline energy mapping</p></div><div style="text-align:right"><div class="td-badge">Reiki · 60 min</div></div></div>
+  <div class="session-row"><div class="session-num">2</div><div class="session-info"><h4>Deep Cleansing</h4><p>Pranic aura sweep · Chakra cleansing · Twin Hearts Meditation · Energy release</p></div><div style="text-align:right"><div class="td-badge">Pranic · 45 min</div></div></div>
+  <div class="session-row"><div class="session-num">3</div><div class="session-info"><h4>Targeted Healing</h4><p>Pranic targeted cleanse + Reiki deep relaxation · Focus on primary complaint</p></div><div style="text-align:right"><div class="td-badge">Fusion · 60 min</div></div></div>
+  <div class="session-row"><div class="session-num">4</div><div class="session-info"><h4>Chakra Rebalancing</h4><p>Advanced Pranic color therapy · Blue·Green·Violet·White across all chakras</p></div><div style="text-align:right"><div class="td-badge">Pranic Adv · 45 min</div></div></div>
+  <div class="session-row"><div class="session-num">5</div><div class="session-info"><h4>Integration & Maintenance</h4><p>Full Reiki · Self-Reiki teaching · Maintenance plan design · Written summary</p></div><div style="text-align:right"><div class="td-badge">Reiki · 60 min</div></div></div>
+
+  <div class="terms">
+    <h4>Protocol Terms</h4>
+    <ul>
+      <li>All sessions must be completed within 8 weeks of first session.</li>
+      <li>Cancellations require 24-hour notice. Late cancellations forfeit the session.</li>
+      <li>This is a complementary wellness protocol, not medical treatment.</li>
+      <li>Client must disclose all medical conditions and medications before Session 1.</li>
+      <li>Practitioner reserves the right to modify the protocol based on client response.</li>
+      <li><strong>Format:</strong> In-person or distant healing available for all sessions. Distant sessions include phone/video pre and post check-in. Equally effective.</li>
+    </ul>
+  </div>
+
+  <div class="total-box">
+    <div class="discount-line">6,500 AED</div>
+    <div class="discount-tag">Special Family Discount Applied</div>
+    <div class="l">Total Investment</div>
+    <div class="v">2,500 AED</div>
+    <div class="sub">5 sessions at 500 AED each. One-time unlock. No recurring fees.</div>
+    <div class="stamp">Sealed · Confidential · Sacred Space</div>
+  </div>
+</div>
+
+<!-- ===== SECTION 4: 1-SESSION INVOICE ===== -->
+<div class="section page-break">
+  <div class="label">04 · Single Session Invoice</div>
+  <div class="invoice-header">
+    <div class="left">
+      <h2>Single Session</h2>
+      <span class="tag" style="background:var(--verdict)">Trial / Introductory</span>
+    </div>
+    <div class="right">
+      <div class="l">Reference</div><div class="v">HP-1S-2026</div>
+      <div class="l">Date</div><div class="v">19 July 2026</div>
+    </div>
+  </div>
+
+  <div class="client-box">
+    <h4>Prepared For</h4>
+    <p><span class="field">Client Name</span><br><span class="field">Contact Number</span><br><span class="field">Dubai, UAE</span></p>
+  </div>
+
+  <div style="background:#fff;border-radius:12px;padding:28px;border:1px solid rgba(11,46,41,0.06);margin:20px 0">
+    <div style="font-family:var(--font-mono);font-size:11px;color:var(--brass);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Session Type</div>
+    <h3 style="font-family:var(--font-display);font-size:22px;margin-bottom:12px">Introductory Reiki or Pranic Healing Session</h3>
+    <p style="color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:16px">A complete single-session experience designed to introduce you to energy healing, assess your energy field, and provide immediate relief. Includes full-body energy scan, targeted treatment based on your primary concern, grounding, and post-session guidance.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:16px">
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:8px;height:8px;border-radius:50%;background:var(--brass)"></div><div style="font-family:var(--font-mono);font-size:13px;color:var(--muted)">60 minutes</div></div>
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:8px;height:8px;border-radius:50%;background:var(--brass)"></div><div style="font-family:var(--font-mono);font-size:13px;color:var(--muted)">Reiki or Pranic Healing</div></div>
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:8px;height:8px;border-radius:50%;background:var(--brass)"></div><div style="font-family:var(--font-mono);font-size:13px;color:var(--muted)">Fully clothed · Non-invasive</div></div>
+      <div style="display:flex;align-items:center;gap:8px"><div style="width:8px;height:8px;border-radius:50%;background:var(--brass)"></div><div style="font-family:var(--font-mono);font-size:13px;color:var(--muted)">Includes intake + aftercare</div></div>
+    </div>
+  </div>
+
+  <div class="terms">
+    <h4>Session Terms</h4>
+    <ul>
+      <li>Single session valid for 30 days from date of issue.</li>
+      <li>Cancellations require 24-hour notice.</li>
+      <li>This is a complementary wellness session, not medical treatment.</li>
+      <li>Client must disclose all medical conditions before the session begins.</li>
+      <li>Upgrade to full 5-session protocol available within 7 days at adjusted rate.</li>
+      <li><strong>Format:</strong> In-person or distant healing. Distant sessions include phone/video pre and post check-in. Equally effective.</li>
+    </ul>
+  </div>
+
+  <div class="total-box">
+    <div class="l">Investment</div>
+    <div class="v">500 AED</div>
+    <div class="sub">One session. No commitment. Experience the work first.</div>
+    <div class="stamp">Sealed · Confidential · Sacred Space</div>
+  </div>
+</div>
+
+</body>
+</html>
