@@ -52,11 +52,12 @@ tr:nth-child(even){background:#f9fafb}
   <div class="seal">H</div>
 </div>
 
-<div class="meta-row">
-  <div><strong>Practitioner:</strong> <span>Dr. Smitha Prabhakar</span></div>
-  <div><strong>Client:</strong> <span>Intake Respondent</span></div>
-  <div><strong>Date:</strong> <span>19 July 2026</span></div>
-  <div><strong>Format:</strong> <span>Distant Healing</span></div>
+<div class="meta-row" id="metaRow">
+  <div><strong>Practitioner:</strong> <span id="practitionerName" contenteditable="true">Dr. Smitha Prabhakar</span></div>
+  <div><strong>Client:</strong> <span id="clientName" contenteditable="true">Intake Respondent</span></div>
+  <div><strong>Date:</strong> <span id="sessionDate" contenteditable="true">19 July 2026</span></div>
+  <div><strong>Format:</strong> <span id="sessionFormat" contenteditable="true">Distant Healing</span></div>
+  <button onclick="document.getElementById('metaRow').style.display='none'" style="margin-left:auto;background:none;border:none;color:var(--rose);cursor:pointer;font-size:16px" title="Remove this row before printing">✕</button>
 </div>
 
 <!-- SAFETY FLAGS -->
