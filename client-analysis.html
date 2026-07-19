@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Client Analysis — Intake Respondent</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--verdict:#17A673;--rose:#D64533;--warn:#D97706;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:#e8ebe6;padding:24px;color:var(--ink)}
+.page{background:#fff;max-width:210mm;margin:0 auto;padding:32px 36px;box-shadow:0 4px 24px rgba(0,0,0,0.08);min-height:297mm}
+.header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid var(--brass)}
+.header-left h1{font-family:var(--font-display);font-size:26px;font-weight:400;color:var(--ink);margin-bottom:4px}
+.header-left .sub{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px}
+.seal{width:48px;height:48px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:700}
+.meta-row{display:flex;gap:24px;margin-bottom:20px;font-size:13px;color:var(--muted)}
+.meta-row span{color:var(--ink);font-weight:600}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}
+.section{margin-bottom:16px}
+.section-title{font-family:var(--font-display);font-size:15px;color:var(--brass);margin-bottom:8px;border-left:3px solid var(--brass);padding-left:10px;display:flex;align-items:center;gap:8px}
+.section-title .icon{font-size:16px}
+.box{background:var(--porcelain);border-radius:8px;padding:12px 14px}
+.box-warn{background:#fffbeb;border:1px solid #fbbf24;border-radius:8px;padding:12px 14px}
+.box-ok{background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px 14px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:var(--ink);color:var(--paper);padding:8px 10px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.5px}
+td{padding:8px 10px;border-bottom:1px solid #e5e7eb}
+tr:nth-child(even){background:#f9fafb}
+.label{font-family:var(--font-mono);font-size:10px;color:var(--brass);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:3px}
+.value{font-size:13px;font-weight:600;color:var(--ink)}
+.value-muted{font-size:12px;color:var(--muted)}
+.tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600;margin-right:4px;margin-bottom:4px}
+.tag-red{background:#fef2f2;color:#991b1b}
+.tag-amber{background:#fffbeb;color:#92400e}
+.tag-green{background:#f0fdf4;color:#166534}
+.tag-blue{background:#eff6ff;color:#1e40af}
+.footer{margin-top:20px;padding-top:14px;border-top:1px solid #e5e7eb;display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+@media print{body{background:#fff;padding:0}.page{box-shadow:none;padding:20px 24px}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="header-left">
+    <h1>Client Intake Analysis</h1>
+    <div class="sub">Reiki &amp; Pranic Healing · 5-Session Protocol</div>
+  </div>
+  <div class="seal">H</div>
+</div>
+
+<div class="meta-row">
+  <div><strong>Practitioner:</strong> <span>Dr. Smitha Prabhakar</span></div>
+  <div><strong>Client:</strong> <span>Intake Respondent</span></div>
+  <div><strong>Date:</strong> <span>19 July 2026</span></div>
+  <div><strong>Format:</strong> <span>Distant Healing</span></div>
+</div>
+
+<!-- SAFETY FLAGS -->
+<div class="section">
+  <div class="section-title"><span class="icon">⚠️</span> Safety Flags</div>
+  <div class="grid-2">
+    <div class="box-warn">
+      <div class="label">Critical Alert</div>
+      <div class="value" style="color:#92400e">Pacemaker Detected</div>
+      <div class="value-muted" style="margin-top:4px">No hands-on chest work. Distant healing only.</div>
+    </div>
+    <div class="box-ok">
+      <div class="label">Status</div>
+      <div class="value" style="color:#166534">Active Therapy — Complementary</div>
+      <div class="value-muted" style="margin-top:4px">No contraindications with professional care.</div>
+    </div>
+  </div>
+</div>
+
+<!-- VITALS -->
+<div class="section">
+  <div class="section-title"><span class="icon">📊</span> Vital Snapshot</div>
+  <div class="grid-3">
+    <div class="box">
+      <div class="label">Energy Level</div>
+      <div class="value">7/10</div>
+      <div class="value-muted">Above average — good capacity</div>
+    </div>
+    <div class="box">
+      <div class="label">Sleep</div>
+      <div class="value">Restful</div>
+      <div class="value-muted">No intervention needed</div>
+    </div>
+    <div class="box">
+      <div class="label">Mobility</div>
+      <div class="value">Fully Mobile</div>
+      <div class="value-muted">No positioning constraints</div>
+    </div>
+  </div>
+</div>
+
+<!-- CLINICAL FOCUS -->
+<div class="section">
+  <div class="section-title"><span class="icon">🎯</span> Clinical Priorities</div>
+  <table>
+    <tr><th style="width:8%">Rank</th><th style="width:22%">Focus Area</th><th style="width:35%">Finding</th><th style="width:35%">Session Target</th></tr>
+    <tr><td><span class="tag tag-red">#1</span></td><td><strong>Anxiety</strong></td><td>Primary stated goal (Q18)</td><td>Solar plexus grounding, heart calming</td></tr>
+    <tr><td><span class="tag tag-amber">#2</span></td><td><strong>Pacemaker</strong></td><td>Implanted device (Q04)</td><td>Distant-only, no chest proximity</td></tr>
+    <tr><td><span class="tag tag-blue">#3</span></td><td><strong>Prior Experience</strong></td><td>Reiki before (Q15)</td><td>Can advance faster than first-timers</td></tr>
+    <tr><td><span class="tag tag-green">#4</span></td><td><strong>Therapy Active</strong></td><td>Professional mental health support (Q14)</td><td>Complementary — no overlap concerns</td></tr>
+  </table>
+</div>
+
+<!-- PROTOCOL ADJUSTMENTS -->
+<div class="section">
+  <div class="section-title"><span class="icon">⚙️</span> Protocol Modifications</div>
+  <div class="box">
+    <table>
+      <tr><th style="width:40%">Standard Protocol</th><th style="width:60%">→ Modified For This Client</th></tr>
+      <tr><td>In-person session</td><td><strong>Distant healing</strong> (Hon Sha Ze Sho Nen)</td></tr>
+      <tr><td>Hands-on Reiki placements</td><td><strong>Hands hovering / distant transmission</strong></td></tr>
+      <tr><td>Heart chakra direct work</td><td><strong>Crown-to-root sweep, avoid chest</strong></td></tr>
+      <tr><td>5-session sequence</td><td>✅ <strong>Unchanged</strong> — standard progression applies</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SESSION 1 PRESCRIPTION -->
+<div class="section">
+  <div class="section-title"><span class="icon">💊</span> Session 1 Prescription</div>
+  <div class="grid-3">
+    <div class="box">
+      <div class="label">Format</div>
+      <div class="value">Distant</div>
+      <div class="value-muted">Hon Sha Ze Sho Nen symbol</div>
+    </div>
+    <div class="box">
+      <div class="label">Focus</div>
+      <div class="value">Anxiety Calming</div>
+      <div class="value-muted">Solar plexus + heart grounding</div>
+    </div>
+    <div class="box">
+      <div class="label">Duration</div>
+      <div class="value">45 minutes</div>
+      <div class="value-muted">Shorter due to distant format</div>
+    </div>
+  </div>
+  <div style="margin-top:8px;font-size:12px;color:var(--muted)">
+    <strong>After-care:</strong> Hydrate. Rest. No heavy meals for 1 hour. Monitor energy for 24 hours.
+  </div>
+</div>
+
+<!-- RED FLAGS -->
+<div class="section">
+  <div class="section-title"><span class="icon">🚩</span> Monitor Between Sessions</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <span class="tag tag-red">Chest discomfort</span>
+    <span class="tag tag-amber">Energy crash</span>
+    <span class="tag tag-amber">Anxiety spike</span>
+    <span class="tag tag-blue">Sleep disruption</span>
+  </div>
+  <div style="margin-top:8px;font-size:12px;color:var(--muted)">
+    Any red flag → reduce intensity next session or switch to grounding-only.
+  </div>
+</div>
+
+<!-- PREPARATION CHECKLIST -->
+<div class="section">
+  <div class="section-title"><span class="icon">✅</span> Preparation Checklist</div>
+  <div class="grid-2" style="font-size:12px">
+    <div class="box">
+      <div class="label">Client To Prepare</div>
+      <div style="margin-top:4px;line-height:1.8">
+        ☐ Quiet space, no interruptions<br>
+        ☐ Water nearby<br>
+        ☐ Comfortable seating/lying position<br>
+        ☐ Phone/laptop if synchronous video
+      </div>
+    </div>
+    <div class="box">
+      <div class="label">Practitioner To Prepare</div>
+      <div style="margin-top:4px;line-height:1.8">
+        ☐ Verify pacemaker-safe protocol<br>
+        ☐ Set distant healing intention<br>
+        ☐ Prepare Hon Sha Ze Sho Nen focus<br>
+        ☐ Confirm appointment time (time zone)
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div><strong>Pricing:</strong> 500 AED/session · 2,500 AED 5-session package</div>
+  <div>Dr. Smitha Prabhakar · Dubai, UAE · Reiki Master &amp; Pranic Healing Practitioner</div>
+</div>
+
+</div>
+</body></html>
