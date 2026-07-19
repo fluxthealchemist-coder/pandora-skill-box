@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Complete Healing Practice Toolkit — From First Contact to Final Invoice</title>
+<meta name="description" content="The only toolkit a professional energy healer needs. Intake forms, client briefs, branded invoices, session protocols, email templates, and auto-submission backend. Everything you need to run your practice — nothing you don't.">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;
+  --brass:#B8892D;--brass-soft:#E4C878;--brass-deep:#8F6716;
+  --muted:#5C6F6A;--verdict:#17A673;--rose:#D64533;
+  --font-display:'Instrument Serif',Georgia,serif;
+  --font-body:'Schibsted Grotesk',system-ui,sans-serif;
+  --font-mono:'Spline Sans Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--ink-deep);color:var(--paper);line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{padding:20px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(244,246,242,0.06)}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-seal{width:36px;height:36px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
+.nav-brand span{font-family:var(--font-display);font-size:18px}
+.nav-cta{font-family:var(--font-body);font-size:13px;font-weight:600;padding:8px 18px;border-radius:6px;background:var(--brass);color:#fff;text-decoration:none;transition:all .2s}
+.nav-cta:hover{background:var(--brass-soft);color:var(--ink)}
+
+/* HERO */
+.hero{padding:80px 0 60px;text-align:center}
+.hero .pre{font-family:var(--font-mono);font-size:12px;color:var(--brass);text-transform:uppercase;letter-spacing:2px;margin-bottom:20px}
+.hero h1{font-family:var(--font-display);font-size:clamp(36px,6vw,64px);font-weight:400;line-height:1.15;margin-bottom:20px}
+.hero h1 em{color:var(--brass-soft);font-style:italic}
+.hero .subtitle{font-size:clamp(17px,2.5vw,22px);color:var(--muted);max-width:680px;margin:0 auto 36px;line-height:1.6}
+.hero-cta{display:inline-flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.btn{font-family:var(--font-body);font-size:16px;font-weight:600;padding:14px 32px;border-radius:8px;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all .2s}
+.btn-primary{background:var(--brass);color:#fff}
+.btn-primary:hover{background:var(--brass-soft);color:var(--ink)}
+.btn-secondary{background:rgba(244,246,242,0.08);color:var(--paper)}
+.btn-secondary:hover{background:rgba(244,246,242,0.15)}
+.hero .trust{font-size:13px;color:var(--muted);margin-top:24px}
+
+/* VIDEO / PREVIEW */
+.preview{padding:40px 0 60px}
+.preview-box{background:var(--ink);border-radius:16px;padding:40px;text-align:center;border:1px solid rgba(244,246,242,0.06)}
+.preview-label{font-family:var(--font-mono);font-size:11px;color:var(--brass);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px}
+.preview h3{font-family:var(--font-display);font-size:28px;margin-bottom:12px}
+.preview p{color:var(--muted);font-size:16px;max-width:560px;margin:0 auto}
+
+/* PAIN */
+.pain{padding:60px 0;background:var(--ink)}
+.pain h2{text-align:center;font-family:var(--font-display);font-size:clamp(28px,4vw,40px);margin-bottom:48px}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.pain-card{background:rgba(244,246,242,0.03);border:1px solid rgba(244,246,242,0.06);border-radius:12px;padding:28px}
+.pain-card h4{font-family:var(--font-display);font-size:20px;margin-bottom:10px;color:var(--rose)}
+.pain-card p{font-size:15px;color:var(--muted);line-height:1.6}
+
+/* SOLUTION */
+.solution{padding:60px 0}
+.solution-header{text-align:center;margin-bottom:48px}
+.solution-header .pre{font-family:var(--font-mono);font-size:12px;color:var(--brass);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
+.solution-header h2{font-family:var(--font-display);font-size:clamp(28px,4vw,40px);margin-bottom:16px}
+.solution-header p{color:var(--muted);font-size:17px;max-width:640px;margin:0 auto}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.feature{background:var(--paper);color:var(--ink);border-radius:12px;padding:28px}
+.feature .icon{width:44px;height:44px;border-radius:10px;background:var(--ink-deep);display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:20px}
+.feature h4{font-family:var(--font-display);font-size:20px;margin-bottom:8px}
+.feature p{font-size:14px;color:var(--muted);line-height:1.6}
+.feature .meta{font-family:var(--font-mono);font-size:11px;color:var(--brass);margin-top:12px;text-transform:uppercase;letter-spacing:.5px}
+
+/* WHAT'S INSIDE */
+.inside{padding:60px 0;background:var(--ink)}
+.inside h2{text-align:center;font-family:var(--font-display);font-size:clamp(28px,4vw,40px);margin-bottom:48px}
+.file-list{display:grid;gap:12px;max-width:800px;margin:0 auto}
+.file-item{background:rgba(244,246,242,0.03);border:1px solid rgba(244,246,242,0.06);border-radius:10px;padding:18px 24px;display:flex;align-items:center;gap:16px;transition:all .2s}
+.file-item:hover{background:rgba(244,246,242,0.06);border-color:var(--brass)}
+.file-icon{font-size:22px;width:40px;text-align:center;flex-shrink:0}
+.file-info{flex:1}
+.file-info h5{font-size:16px;font-weight:600;margin-bottom:2px}
+.file-info p{font-size:13px;color:var(--muted)}
+.file-tag{font-family:var(--font-mono);font-size:11px;color:var(--brass);background:rgba(184,137,45,0.1);padding:4px 10px;border-radius:4px;white-space:nowrap}
+
+/* TESTIMONIAL */
+.testimonial{padding:60px 0;text-align:center}
+.testimonial blockquote{font-family:var(--font-display);font-size:clamp(22px,3vw,32px);font-style:italic;line-height:1.4;max-width:800px;margin:0 auto 24px}
+.testimonial .author{font-size:15px;color:var(--muted)}
+.testimonial .author strong{color:var(--paper);display:block;margin-bottom:4px}
+
+/* PRICING */
+.pricing{padding:60px 0;background:var(--ink)}
+.pricing h2{text-align:center;font-family:var(--font-display);font-size:clamp(28px,4vw,40px);margin-bottom:48px}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:900px;margin:0 auto}
+.price-card{background:var(--paper);color:var(--ink);border-radius:16px;padding:36px;display:flex;flex-direction:column}
+.price-card.popular{border:2px solid var(--brass);position:relative}
+.price-card.popular::before{content:"MOST POPULAR";position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--brass);color:#fff;font-family:var(--font-mono);font-size:11px;padding:4px 14px;border-radius:20px;letter-spacing:.5px}
+.price-card h4{font-family:var(--font-display);font-size:24px;margin-bottom:8px}
+.price-card .price{font-size:42px;font-weight:700;margin-bottom:4px}
+.price-card .price span{font-size:16px;font-weight:400;color:var(--muted)}
+.price-card .note{font-size:14px;color:var(--muted);margin-bottom:20px}
+.price-card ul{list-style:none;margin-bottom:24px;flex:1}
+.price-card ul li{padding:6px 0;font-size:15px;display:flex;align-items:flex-start;gap:8px}
+.price-card ul li::before{content:"✓";color:var(--verdict);font-weight:700}
+.price-card .btn{width:100%;text-align:center}
+.price-card .btn-primary{background:var(--brass);color:#fff}
+.price-card .btn-primary:hover{background:var(--brass-deep);color:#fff}
+
+/* FAQ */
+.faq{padding:60px 0}
+.faq h2{text-align:center;font-family:var(--font-display);font-size:clamp(28px,4vw,40px);margin-bottom:48px}
+.faq-list{max-width:800px;margin:0 auto;display:grid;gap:16px}
+.faq-item{background:rgba(244,246,242,0.03);border:1px solid rgba(244,246,242,0.06);border-radius:10px;padding:20px 24px}
+.faq-item h5{font-size:17px;font-weight:600;margin-bottom:8px}
+.faq-item p{font-size:15px;color:var(--muted);line-height:1.6}
+
+/* GUARANTEE */
+.guarantee{padding:60px 0;text-align:center}
+.guarantee .seal{width:80px;height:80px;border-radius:50%;background:var(--verdict);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;color:#fff;font-size:32px;box-shadow:0 12px 32px rgba(23,166,115,0.25)}
+.guarantee h2{font-family:var(--font-display);font-size:clamp(28px,4vw,40px);margin-bottom:16px}
+.guarantee p{color:var(--muted);font-size:17px;max-width:600px;margin:0 auto;line-height:1.6}
+
+/* FINAL CTA */
+.final-cta{padding:80px 0;text-align:center;background:var(--ink)}
+.final-cta h2{font-family:var(--font-display);font-size:clamp(32px,5vw,48px);margin-bottom:20px}
+.final-cta p{color:var(--muted);font-size:18px;margin-bottom:32px;max-width:560px;margin-left:auto;margin-right:auto}
+
+/* FOOTER */
+footer{padding:40px 0;text-align:center;font-size:13px;color:var(--muted);border-top:1px solid rgba(244,246,242,0.06)}
+
+@media(max-width:768px){
+  .hero{padding:60px 0 40px}
+  .preview-box{padding:24px}
+  .price-card{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<nav class="container">
+  <div class="nav-brand">
+    <div class="nav-seal">H</div>
+    <span>Healing Practice Toolkit</span>
+  </div>
+  <a href="#pricing" class="nav-cta">Get the Toolkit →</a>
+</nav>
+
+<section class="hero container">
+  <div class="pre">A complete business-in-a-box for energy healers</div>
+  <h1>The <em>Complete</em><br>Healing Practice Toolkit</h1>
+  <p class="subtitle">From first contact to final invoice. The only system a professional Reiki Master or Pranic Healer needs to run a practice that looks premium, feels effortless, and gets paid what they're worth.</p>
+  <div class="hero-cta">
+    <a href="#pricing" class="btn btn-primary">Get Instant Access →</a>
+    <a href="#inside" class="btn btn-secondary">See What's Inside</a>
+  </div>
+  <p class="trust">🛡️ 30-Day Money-Back Guarantee · No Subscriptions · Instant Download</p>
+</section>
+
+<section class="preview container">
+  <div class="preview-box">
+    <div class="preview-label">Inside the Toolkit</div>
+    <h3>11 Files. 104KB. Zero fluff.</h3>
+    <p>Every file is something you will use today — not someday. Intake forms that auto-submit. Invoices that make clients say yes. Emails you copy and paste. A protocol you follow session by session.</p>
+  </div>
+</section>
+
+<section class="pain">
+  <div class="container">
+    <h2>You have the gift. But your practice is <em>chaos</em>.</h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <h4>❌ "How much do you charge?"</h4>
+        <p>You freeze. You mumble a number. You discount yourself before they even ask. No pricing structure. No packages. No confidence.</p>
+      </div>
+      <div class="pain-card">
+        <h4>❌ Scattered notes everywhere</h4>
+        <p>Client info in WhatsApp. Session notes on paper. Invoices in your head. You are a healer, not an admin assistant — but admin is eating half your time.</p>
+      </div>
+      <div class="pain-card">
+        <h4>❌ No intake system</h4>
+        <p>You start every session blind. You do not know their medical history, their goals, or whether distant healing is even an option. You are winging it.</p>
+      </div>
+      <div class="pain-card">
+        <h4>❌ Amateur invoices</h4>
+        <p>You send a WhatsApp message with a number. No branding. No payment options. No due date. Clients forget. You chase. It is embarrassing.</p>
+      </div>
+      <div class="pain-card">
+        <h4>❌ Every session is reinvented</h4>
+        <p>No protocol. No progression. You do what feels right in the moment — which is fine, until you forget what you did last week and the client stagnates.</p>
+      </div>
+      <div class="pain-card">
+        <h4>❌ Lost between sessions</h4>
+        <p>You finish a powerful session. Silence until the next booking. No follow-up. No integration support. The energy fades. The client drifts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solution">
+  <div class="container">
+    <div class="solution-header">
+      <div class="pre">The Solution</div>
+      <h2>Everything you need.<br>Nothing you don't.</h2>
+      <p>This is not a course. This is not a membership. This is a complete operational toolkit — files you open, customize in 5 minutes, and deploy today.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="icon">📋</div>
+        <h4>Master Intake Form</h4>
+        <p>22 questions across 4 sections: physical, emotional, energy sensitivity, and goals. Step-by-step UI. Native checkboxes (no broken JS). Auto-save. WhatsApp, Telegram, or Copy submit. Zoom mode for elderly clients.</p>
+        <div class="meta">forms/intake-form.html</div>
+      </div>
+      <div class="feature">
+        <div class="icon">📄</div>
+        <h4>Client Brief Generator</h4>
+        <p>One-page printable summary of the personalized protocol. Session roadmap. Safety notes. Preparation checklist. Practitioner notes section (private). Looks like it came from a premium clinic.</p>
+        <div class="meta">briefs/client-brief.html</div>
+      </div>
+      <div class="feature">
+        <div class="icon">💰</div>
+        <h4>Branded Invoices</h4>
+        <p>Single-session and 5-session package invoices with "ONE-TIME UNLOCK" positioning. Crossed-out standard rates. Savings display. 3 payment options. Wax seal branding. Printable and email-friendly.</p>
+        <div class="meta">invoices/*.html</div>
+      </div>
+      <div class="feature">
+        <div class="icon">🗺️</div>
+        <h4>5-Session Protocol</h4>
+        <p>Complete session-by-session guide: Reiki hand positions, Pranic Healing techniques, timing, contraindications, adaptations for elderly and bedridden clients, distant healing protocol, session notes template.</p>
+        <div class="meta">protocol/5-session-protocol.md</div>
+      </div>
+      <div class="feature">
+        <div class="icon">✉️</div>
+        <h4>8 Email Templates</h4>
+        <p>Outreach. Intake invitation. Session reminders. Post-session follow-up. Invoice chase. Package completion. Referral request. Re-engagement. Copy. Customize. Send.</p>
+        <div class="meta">emails/email-templates.md</div>
+      </div>
+      <div class="feature">
+        <div class="icon">⚡</div>
+        <h4>Auto-Submission Backend</h4>
+        <p>Google Apps Script code that receives form data and writes it to a Google Sheet automatically. Branded confirmation page. 5-minute deployment guide included. No coding needed.</p>
+        <div class="meta">scripts/google-apps-script.js</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="inside" id="inside">
+  <div class="container">
+    <h2>Every file in the toolkit</h2>
+    <div class="file-list">
+      <div class="file-item">
+        <div class="file-icon">📋</div>
+        <div class="file-info">
+          <h5>intake-form.html</h5>
+          <p>Multi-step branded form. 22 questions. Auto-save. WhatsApp/Telegram/Copy submit. Zoom mode.</p>
+        </div>
+        <span class="file-tag">FORM</span>
+      </div>
+      <div class="file-item">
+        <div class="file-icon">📄</div>
+        <div class="file-info">
+          <h5>client-brief.html</h5>
+          <p>One-page personalized protocol. Session roadmap. Safety notes. Preparation. Printable.</p>
+        </div>
+        <span class="file-tag">BRIEF</span>
+      </div>
+      <div class="file-item">
+        <div class="file-icon">💰</div>
+        <div class="file-info">
+          <h5>invoice-single.html</h5>
+          <p>Single session invoice. "ONE-TIME UNLOCK" branding. Crossed-out standard rate.</p>
+        </div>
+        <span class="file-tag">INVOICE</span>
+      </div>
+      <div class="file-item">
+        <div class="file-icon">💎</div>
+        <div class="file-info">
+          <h5>invoice-5session.html</h5>
+          <p>Package invoice. 62% savings display. 3 payment options. Installment plans.</p>
+        </div>
+        <span class="file-tag">INVOICE</span>
+      </div>
+      <div class="file-item">
+        <div class="file-icon">🗺️</div>
+        <div class="file-info">
+          <h5>5-session-protocol.md</h5>
+          <p>Full protocol: Reiki + Pranic per session. Contraindications. Distant healing. Adaptations.</p>
+        </div>
+        <span class="file-tag">PROTOCOL</span>
+      </div>
+      <div class="file-item">
+        <div class="file-icon">✉️</div>
+        <div class="file-info">
+          <h5>email-templates.md</h5>
+          <p>8 ready-to-send templates. Outreach, reminders, follow-up, referral, re-engagement.</p>
+        </div>
+        <span class="file-tag">EMAILS</span>
+      </div>
+      <div class="file-item">
+        <div class="file-icon">⚡</div>
+        <div class="file-info">
+          <h5>google-apps-script.js</h5>
+          <p>Backend code for auto form submission. Writes to Google Sheet. Branded confirmation page.</p>
+        </div>
+        <span class="file-tag">BACKEND</span>
+      </div>
+      <div class="file-item">
+        <div class="file-icon">📖</div>
+        <div class="file-info">
+          <h5>apps-script-deployment.md</h5>
+          <p>5-step guide to deploy the backend. Create Sheet. Paste code. Deploy. Connect form. Done.</p>
+        </div>
+        <span class="file-tag">GUIDE</span>
+      </div>
+      <div class="file-item">
+        <div class="file-icon">🛠️</div>
+        <div class="file-info">
+          <h5>how-to-edit.md</h5>
+          <p>Non-technical editing guide. Find & replace placeholders. No coding required.</p>
+        </div>
+        <span class="file-tag">GUIDE</span>
+      </div>
+      <div class="file-item">
+        <div class="file-icon">🧠</div>
+        <div class="file-info">
+          <h5>pricing-psychology.md</h5>
+          <p>How to package, price, and present. "ONE-TIME UNLOCK" framework. When to discount. Raising rates.</p>
+        </div>
+        <span class="file-tag">GUIDE</span>
+      </div>
+      <div class="file-item">
+        <div class="file-icon">📦</div>
+        <div class="file-info">
+          <h5>README.md</h5>
+          <p>Quick-start overview. 3-minute setup checklist. Deployment options. Support contact.</p>
+        </div>
+        <span class="file-tag">START HERE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonial">
+  <div class="container">
+    <blockquote>"I went from scattered WhatsApp notes to a professional intake system in one afternoon. My first client filled the form, I generated the brief, sent the invoice — all in 20 minutes. For the first time, my practice feels like a real business."</blockquote>
+    <div class="author">
+      <strong>Dr. Smitha Prabhakar</strong>
+      Reiki Master & Pranic Healing Practitioner · Dubai, UAE
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <h2>Choose your toolkit</h2>
+    <div class="price-grid">
+      <div class="price-card">
+        <h4>Basic</h4>
+        <div class="price">$97<span> USD</span></div>
+        <div class="note">Everything to run your practice</div>
+        <ul>
+          <li>Intake form (HTML)</li>
+          <li>Client brief template</li>
+          <li>2 branded invoices</li>
+          <li>5-session protocol</li>
+          <li>8 email templates</li>
+          <li>Editing guide</li>
+          <li>Pricing psychology guide</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Get Basic →</a>
+      </div>
+      <div class="price-card popular">
+        <h4>Pro</h4>
+        <div class="price">$147<span> USD</span></div>
+        <div class="note">Basic + Auto-submission backend</div>
+        <ul>
+          <li>Everything in Basic</li>
+          <li>Google Apps Script backend</li>
+          <li>5-step deployment guide</li>
+          <li>Auto-write to Google Sheet</li>
+          <li>Branded confirmation page</li>
+          <li>Form → Sheet → You (zero manual work)</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Get Pro →</a>
+      </div>
+      <div class="price-card">
+        <h4>Premium</h4>
+        <div class="price">$297<span> USD</span></div>
+        <div class="note">Pro + White-glove setup</div>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>30-min 1:1 setup call</li>
+          <li>I customize all files for you</li>
+          <li>Deploy intake form live</li>
+          <li>Connect backend to your Sheet</li>
+          <li>Test end-to-end before you go live</li>
+        </ul>
+        <a href="#" class="btn btn-secondary">Get Premium →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <h2>Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h5>Do I need to know how to code?</h5>
+        <p>No. The editing guide shows you how to find and replace placeholder text. If you can use Ctrl+F, you can customize every file in this toolkit.</p>
+      </div>
+      <div class="faq-item">
+        <h5>How do I host the intake form?</h5>
+        <p>Three options: GitHub Pages (free, permanent), Netlify (drag & drop, instant), or email the HTML file directly to clients. All explained in the README.</p>
+      </div>
+      <div class="faq-item">
+        <h5>What if I do not use Google Workspace?</h5>
+        <p>The form works without the backend — clients submit via WhatsApp, Telegram, or Copy. The backend is optional. If you want auto-submission, the deployment guide walks you through creating a free Google account and deploying the script in 5 minutes.</p>
+      </div>
+      <div class="faq-item">
+        <h5>Can I use this for non-Reiki modalities?</h5>
+        <p>Yes. The protocol mentions Reiki and Pranic Healing, but the intake form, brief, invoices, and emails are modality-agnostic. Edit the protocol to match your practice.</p>
+      </div>
+      <div class="faq-item">
+        <h5>Is there a refund policy?</h5>
+        <p>30-day money-back guarantee. If this toolkit does not save you time and make your practice look premium within 30 days, email me for a full refund. No questions.</p>
+      </div>
+      <div class="faq-item">
+        <h5>Can I resell this toolkit?</h5>
+        <p>No. This is a single-practitioner license. If you want to resell or use it in a training program, contact me for a commercial license.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="guarantee">
+  <div class="container">
+    <div class="seal">✓</div>
+    <h2>30-Day Money-Back Guarantee</h2>
+    <p>If this toolkit does not transform your practice from scattered notes into a professional system within 30 days, email me for a full refund. I built this because I needed it. I stand behind it completely.</p>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Your practice deserves a system.</h2>
+    <p>Stop reinventing every session. Stop sending WhatsApp invoices. Stop winging it.</p>
+    <div class="hero-cta">
+      <a href="#pricing" class="btn btn-primary">Get Instant Access →</a>
+      <a href="#inside" class="btn btn-secondary">See What's Inside</a>
+    </div>
+  </div>
+</section>
+
+<footer class="container">
+  <p>Built by Dr. Smitha Prabhakar · Reiki Master · Pranic Healing Practitioner · Clinical Hypnotherapist</p>
+  <p>Dubai, UAE · Questions? [YOUR EMAIL]</p>
+</footer>
+
+</body>
+</html>
