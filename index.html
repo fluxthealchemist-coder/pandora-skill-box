@@ -42,8 +42,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,
 .vert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
 .vert-card{background:#fff;border-radius:16px;padding:36px 28px;border:1px solid rgba(11,46,41,0.06);transition:all 0.3s;position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block}
 /* CARD CLICK FIX: overlay pseudo-element captures all clicks */
-.vert-card::after{content:'';position:absolute;inset:0;z-index:10}
-.vert-card:hover::after{z-index:10}
 .vert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--brass);opacity:0;transition:opacity 0.3s}
 .vert-card:hover::before{opacity:1}
 .vert-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(11,46,41,0.08)}
