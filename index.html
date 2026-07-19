@@ -192,9 +192,9 @@ footer{background:var(--ink-deep);padding:60px 24px 40px}
 <script>
 document.getElementById('heroSeal').addEventListener('click',function(){document.getElementById('featured').scrollIntoView({behavior:'smooth'});});
 // Force navigation on all vertical cards — handles nested element interception
-var cards = document.querySelectorAll('.vert-card[href]');
-for(var i=0;i<cards.length;i++){
-  cards[i].addEventListener('click',function(e){window.location.href=this.getAttribute('href');});
-}
+document.addEventListener('click',function(e){
+  var card=e.target.closest('.vert-card[href]');
+  if(card){window.location.href=card.getAttribute('href');}
+});
 </script>
 </body></html>
