@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support Team Dashboard — Pandora's Skill Box</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--verdict:#17A673;--flag:#D64533;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,46,41,0.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.nav-logo .seal{width:32px;height:32px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
+.nav-logo span{font-family:var(--font-display);font-size:20px}
+.nav-links{display:flex;gap:16px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:12px;font-weight:500;white-space:nowrap}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:600;white-space:nowrap}
+.skill-hero{min-height:50vh;display:flex;align-items:center;background:var(--ink);position:relative;overflow:hidden}
+.skill-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 40%,rgba(184,137,45,0.1) 0%,transparent 60%)}
+.skill-hero-inner{max-width:1200px;margin:0 auto;padding:140px 24px 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.skill-hero-text h1{font-family:var(--font-display);font-size:clamp(28px,4vw,48px);color:var(--porcelain);line-height:1.15;margin-bottom:16px}
+.skill-hero-text .badge{display:inline-block;background:rgba(184,137,45,0.15);color:var(--brass-soft);font-family:var(--font-mono);font-size:11px;padding:6px 14px;border-radius:100px;margin-bottom:20px;text-transform:uppercase;letter-spacing:1px}
+.skill-hero-text p{font-size:17px;color:rgba(244,246,242,0.7);margin-bottom:32px}
+.skill-hero-text .meta{display:flex;gap:24px;margin-bottom:32px}
+.skill-hero-text .meta-item{display:flex;align-items:center;gap:8px;color:rgba(244,246,242,0.5);font-size:13px}
+.btn-primary{background:var(--brass);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;display:inline-block;margin-right:12px}
+.btn-secondary{background:transparent;color:var(--brass-soft);padding:14px 24px;border:1px solid rgba(184,137,45,0.3);border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;display:inline-block}
+.preview-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 20px 60px rgba(0,0,0,0.3);transform:rotate(2deg);border:1px solid rgba(255,255,255,0.06)}
+.preview-card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.preview-card-header h4{font-family:var(--font-display);font-size:18px;color:var(--ink)}
+.preview-card-header .status{background:var(--verdict);color:#fff;font-family:var(--font-mono);font-size:10px;padding:4px 10px;border-radius:100px}
+.score-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(11,46,41,0.06)}
+.score-row:last-child{border-bottom:none}
+.score-label{display:flex;align-items:center;gap:10px}
+.score-label .dot{width:8px;height:8px;border-radius:50%;background:var(--brass)}
+.score-label span{font-size:14px;color:var(--ink)}
+.score-value{font-family:var(--font-mono);font-size:14px;font-weight:500;color:var(--ink)}
+.score-bar{height:4px;background:rgba(11,46,41,0.06);border-radius:2px;margin-top:6px;overflow:hidden}
+.score-bar-fill{height:100%;background:var(--brass);border-radius:2px}
+.section{max-width:800px;margin:0 auto;padding:80px 24px}
+.section h2{font-family:var(--font-display);font-size:clamp(24px,3vw,36px);margin-bottom:20px;color:var(--ink)}
+.section p{color:var(--muted);font-size:16px;margin-bottom:16px}
+.section ul{list-style:none;padding:0;margin:20px 0}
+.section ul li{padding:12px 0;padding-left:32px;position:relative;color:var(--muted);font-size:15px;border-bottom:1px solid rgba(11,46,41,0.04)}
+.section ul li::before{content:'';position:absolute;left:0;top:16px;width:6px;height:6px;border-radius:50%;background:var(--brass)}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.how-card{background:#fff;border-radius:12px;padding:28px;border:1px solid rgba(11,46,41,0.06)}
+.how-card .num{font-family:var(--font-mono);font-size:12px;color:var(--brass);margin-bottom:12px}
+.how-card h4{font-family:var(--font-display);font-size:18px;margin-bottom:10px}
+.how-card p{font-size:14px;color:var(--muted)}
+.output-showcase{background:var(--ink-deep);padding:80px 24px}
+.output-showcase-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.output-showcase-text h2{font-family:var(--font-display);font-size:clamp(24px,3vw,36px);color:var(--porcelain);margin-bottom:20px}
+.output-showcase-text p{color:rgba(244,246,242,0.6);font-size:16px;margin-bottom:16px}
+.output-showcase-text .file-list{margin-top:24px}
+.output-showcase-text .file-item{display:flex;align-items:center;gap:12px;padding:10px 0;color:rgba(244,246,242,0.7);font-size:14px;border-bottom:1px solid rgba(244,246,242,0.06)}
+.output-visual{background:#fff;border-radius:16px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.output-visual-header{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.output-visual-header .icon{width:40px;height:40px;border-radius:10px;background:var(--porcelain);display:flex;align-items:center;justify-content:center;font-size:20px}
+.output-visual-header h4{font-family:var(--font-display);font-size:20px}
+.deliverable-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:32px}
+.deliverable-item{text-align:center;padding:20px}
+.deliverable-item .icon{width:48px;height:48px;border-radius:12px;background:var(--porcelain);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:24px}
+.deliverable-item h5{font-size:14px;margin-bottom:6px}
+.deliverable-item p{font-size:12px;color:var(--muted)}
+.cta-bar{background:var(--ink);padding:60px 24px;text-align:center}
+.cta-bar h2{font-family:var(--font-display);font-size:clamp(24px,3vw,36px);color:var(--porcelain);margin-bottom:16px}
+.cta-bar p{color:rgba(244,246,242,0.6);font-size:16px;margin-bottom:32px}
+@media(max-width:768px){.skill-hero-inner{grid-template-columns:1fr}.how-grid{grid-template-columns:1fr}.output-showcase-inner{grid-template-columns:1fr}.deliverable-grid{grid-template-columns:repeat(2,1fr)}}
+footer{background:var(--ink-deep);padding:60px 24px 40px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .seal{width:40px;height:40px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;margin-bottom:16px}
+.footer-brand h4{font-family:var(--font-display);color:var(--porcelain);font-size:20px;margin-bottom:8px}
+.footer-brand p{color:rgba(244,246,242,0.5);font-size:14px}
+.footer-col h5{color:var(--porcelain);font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.footer-col a{display:block;color:rgba(244,246,242,0.5);text-decoration:none;font-size:14px;margin-bottom:12px}
+.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(244,246,242,0.08);display:flex;justify-content:space-between;color:rgba(244,246,242,0.4);font-size:12px}
+</style></head>
+<body>
+<nav><div class="nav-inner">
+<a href="index.html" class="nav-logo"><div class="seal">P</div><span>Pandora's Skill Box</span></a>
+<ul class="nav-links">
+<li><a href="hr-solutions.html">HR</a></li>
+<li><a href="real-estate.html">Real Estate</a></li>
+<li><a href="ceo-reset.html">CEO</a></li>
+<li><a href="finance-audit.html">Finance</a></li>
+<li><a href="sales.html">Sales</a></li>
+<li><a href="marketing.html">Marketing</a></li>
+<li><a href="customer-support.html">Support</a></li>
+<li><a href="coaching.html">Coaching</a></li>
+<li><a href="schools-education.html">Edu</a></li>
+<li><a href="consultancy.html">Consult</a></li>
+<li><a href="healthcare.html">Health</a></li>
+<li><a href="legal.html">Legal</a></li>
+<li><a href="construction.html">Build</a></li>
+<li><a href="logistics.html">Logistics</a></li>
+<li><a href="hospitality.html">Hospitality</a></li>
+<li><a href="it-devops.html">IT</a></li>
+<li><a href="personal-productivity.html">Productivity</a></li>
+<li><a href="health-fitness.html">Fitness</a></li>
+</ul>
+<a href="index.html" class="nav-cta">← All verticals</a>
+</div></nav>
+
+<section class="skill-hero">
+<div class="skill-hero-inner">
+<div class="skill-hero-text">
+<div class="badge">ANALYTICS · CUSTOMER SUPPORT & SERVICES COLLECTION</div>
+<h1>Support Team Dashboard</h1>
+<p>Volume, CSAT, SLA, backlog, and agent performance in one view Turn raw inputs into structured, actionable output that moves your business forward.</p>
+<div class="meta">
+<div class="meta-item">~8 min setup</div>
+<div class="meta-item">Export: PDF + Excel + API</div>
+<div class="meta-item">Data stays in your account</div>
+</div>
+<a href="#get" class="btn-primary">Get this skill →</a>
+<a href="customer-support.html" class="btn-secondary">← Back to Customer Support & Services</a>
+</div>
+<div class="preview-card-wrapper">
+<div class="preview-card">
+<div class="preview-card-header"><h4>Support Team Dashboard</h4><div class="status">READY</div></div>
+<div class="score-row"><div class="score-label"><div class="dot"></div><span>Criterion A</span></div><div class="score-value">+25</div></div>
+<div class="score-bar"><div class="score-bar-fill" style="width:75%"></div></div>
+<div class="score-row"><div class="score-label"><div class="dot"></div><span>Criterion B</span></div><div class="score-value">+20</div></div>
+<div class="score-bar"><div class="score-bar-fill" style="width:60%"></div></div>
+<div class="score-row"><div class="score-label"><div class="dot"></div><span>Criterion C</span></div><div class="score-value">+15</div></div>
+<div class="score-bar"><div class="score-bar-fill" style="width:45%"></div></div>
+<div class="score-row"><div class="score-label"><div class="dot"></div><span>Criterion D</span></div><div class="score-value">+12</div></div>
+<div class="score-bar"><div class="score-bar-fill" style="width:36%"></div></div>
+<div class="score-row"><div class="score-label"><div class="dot"></div><span>Criterion E</span></div><div class="score-value">+10</div></div>
+<div class="score-bar"><div class="score-bar-fill" style="width:30%"></div></div>
+<div class="score-row" style="border-top:2px solid var(--ink);margin-top:12px;padding-top:14px"><div class="score-label"><span style="font-weight:600">TOTAL</span></div><div class="score-value" style="color:var(--verdict);font-size:18px">82/100</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>What this skill does</h2>
+<p>Volume, CSAT, SLA, backlog, and agent performance in one view This skill turns your support function from a cost center into a retention engine. Faster first responses, clearer escalation paths, and proactive health checks mean customers feel heard before they churn. Your team handles more tickets with fewer escalations — and you get the data to prove it.</p>
+<div class="how-grid">
+<div class="how-card"><div class="num">01</div><h4>Input your context</h4><p>Upload data, paste details, or answer guided questions. The skill auto-detects format and maps to the right framework.</p></div>
+<div class="how-card"><div class="num">02</div><h4>Choose your approach</h4><p>Select from proven models — analytics-standard, hybrid, or fully custom. Adjust weights, tone, and depth to match your business.</p></div>
+<div class="how-card"><div class="num">03</div><h4>Get ranked output</h4><p>Receive structured deliverables with hot/warm/cold labels, next actions, and CRM-ready formats. Share, export, or act immediately.</p></div>
+</div>
+</section>
+
+<section class="output-showcase">
+<div class="output-showcase-inner">
+<div class="output-showcase-text">
+<h2>What you get</h2>
+<p>Every run produces a complete package you can use immediately — no formatting, no manual assembly, no guesswork.</p>
+<div class="file-list">
+<div class="file-item">📋 Structured output document (PDF / Word)</div>
+<div class="file-item">📈 Data file ready for import (CSV / Excel / JSON)</div>
+<div class="file-item">🎯 Action playbook with next-best-step guidance</div>
+<div class="file-item">🔄 Integration mapping for your CRM or ERP</div>
+</div>
+</div>
+<div class="output-visual">
+<div class="output-visual-header"><div class="icon">📊</div><h4>Sample Output Preview</h4></div>
+<div style="font-family:var(--font-mono);font-size:12px;color:var(--muted);line-height:2">
+<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee"><span>Acme Corp</span><span>🔥 HOT — 92 pts</span></div>
+<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee"><span>Beta Industries</span><span>🟡 WARM — 64 pts</span></div>
+<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee"><span>Gamma LLC</span><span>❄️ COLD — 31 pts</span></div>
+<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee"><span>Delta Group</span><span>🔥 HOT — 88 pts</span></div>
+<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee"><span>Epsilon Co</span><span>🟡 WARM — 57 pts</span></div>
+</div>
+<p style="font-size:11px;color:var(--muted);margin-top:16px">⚡ This is a live preview. Your actual output will match your data and chosen model.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Use cases</h2>
+<ul>
+<li><strong>Ticket deflection:</strong> Pre-empt the top 20 contact reasons with self-service articles and chatbot flows — watch volume drop 30%.</li>
+<li><strong>VIP recovery:</strong> When a high-value customer escalates, instantly generate the white-glove response, compensation offer, and follow-up sequence.</li>
+<li><strong>Seasonal surge:</strong> Pre-position staffing, FAQ updates, and automation before Black Friday or tax season hits.</li>
+<li><strong>Agent coaching:</strong> Use QA scorecards and call insight extraction to turn every interaction into a micro-training moment.</li>
+<li><strong>Churn early warning:</strong> Flag at-risk accounts from support ticket sentiment, response delays, and complaint patterns before they cancel.</li>
+</ul>
+</section>
+
+<section class="section" style="padding-top:0">
+<h2>Deliverables at a glance</h2>
+<div class="deliverable-grid">
+<div class="deliverable-item"><div class="icon">📋</div><h5>Framework</h5><p>Complete analytics structure with adjustable criteria</p></div>
+<div class="deliverable-item"><div class="icon">📈</div><h5>Ranked Output</h5><p>Segmented results with action labels and priorities</p></div>
+<div class="deliverable-item"><div class="icon">🎯</div><h5>Action Playbook</h5><p>Next-best-action guide by tier for your customer support team</p></div>
+<div class="deliverable-item"><div class="icon">🔄</div><h5>CRM Ready</h5><p>Import mapping and API-ready formatting included</p></div>
+</div>
+</section>
+
+<section class="cta-bar" id="get">
+<h2>Ready to put this skill to work?</h2>
+<p>Get the Support Team Dashboard skill. Runs in your own AI account. Nothing stored on our servers.</p>
+<a href="invoice.html" class="btn-primary">Get this skill →</a>
+</section>
+
+<footer><div class="footer-inner">
+<div class="footer-brand"><div class="seal">P</div><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
+<div class="footer-col"><h5>Verticals</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance &amp; Audit</a><a href="sales.html">Sales</a><a href="marketing.html">Marketing</a></div>
+<div class="footer-col"><h5>More</h5><a href="customer-support.html">Support</a><a href="coaching.html">Coaching</a><a href="schools-education.html">Education</a><a href="consultancy.html">Consultancy</a><a href="healthcare.html">Healthcare</a><a href="legal.html">Legal</a></div>
+<div class="footer-col"><h5>Company</h5><a href="index.html">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified · 12-Point Security Scan</span></div></footer>
+</body></html>
