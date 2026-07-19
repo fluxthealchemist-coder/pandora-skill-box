@@ -6,35 +6,25 @@
 <title>Pandora's Skill Box — Real Estate Collection</title>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;
-  --brass:#B8892D;--brass-soft:#E4C878;--brass-deep:#8F6716;
-  --verdict:#17A673;--flag:#D64533;--muted:#5C6F6A;
-  --font-display:'Instrument Serif',Georgia,serif;
-  --font-body:'Schibsted Grotesk',system-ui,sans-serif;
-  --font-mono:'Spline Sans Mono',monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--brass-deep:#8F6716;--verdict:#17A673;--flag:#D64533;--muted:#5C6F6A;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
-
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,46,41,0.06)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
 .nav-logo .seal{width:32px;height:32px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
 .nav-logo span{font-family:var(--font-display);font-size:20px}
-.nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:500;transition:color 0.2s}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:500;transition:color 0.2s}
 .nav-links a:hover{color:var(--ink)}
-.nav-cta{background:var(--ink);color:#fff;padding:8px 18px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600}
-
+.nav-cta{background:var(--ink);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600}
 .hero{min-height:60vh;display:flex;align-items:center;position:relative;background:var(--ink)}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(184,137,45,0.08) 0%,transparent 60%)}
 .hero-inner{max-width:1200px;margin:0 auto;padding:120px 24px 60px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .hero-text h1{font-family:var(--font-display);font-size:clamp(36px,5vw,56px);color:var(--porcelain);line-height:1.1;margin-bottom:20px}
 .hero-text h1 em{color:var(--brass-soft);font-style:italic}
 .hero-text p{font-size:18px;color:rgba(244,246,242,0.7);margin-bottom:32px}
-.hero-actions{display:flex;gap:16px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
 .btn-primary{background:var(--brass);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.2s;border:none;cursor:pointer;display:inline-block}
 .btn-primary:hover{background:var(--brass-deep)}
 .btn-ghost{background:transparent;color:var(--porcelain);border:1px solid rgba(244,246,242,0.3);padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.2s;display:inline-block}
@@ -42,11 +32,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,
 .hero-visual{background:rgba(184,137,45,0.1);border:1px solid rgba(184,137,45,0.2);border-radius:16px;padding:40px;text-align:center}
 .hero-visual .big-num{font-family:var(--font-display);font-size:64px;color:var(--brass-soft)}
 .hero-visual p{color:rgba(244,246,242,0.6);font-family:var(--font-mono);font-size:14px;margin-top:16px}
-
 .section-label{text-align:center;font-family:var(--font-mono);font-size:12px;color:var(--brass);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
 .section-title{text-align:center;font-family:var(--font-display);font-size:clamp(32px,4vw,48px);color:var(--ink);margin-bottom:16px}
 .section-sub{text-align:center;color:var(--muted);font-size:18px;max-width:600px;margin:0 auto 60px}
-
 .skills{padding:80px 24px;background:#fff}
 .skills-inner{max-width:1200px;margin:0 auto}
 .filter{display:flex;gap:12px;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
@@ -63,10 +51,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,
 .skill-meta{display:flex;justify-content:space-between;align-items:center}
 .skill-price{font-family:var(--font-mono);font-size:13px;color:var(--brass);font-weight:600}
 .skill-cta{color:var(--ink);font-size:13px;font-weight:600;display:flex;align-items:center;gap:4px}
-
 .back-section{padding:40px 24px;text-align:center;background:var(--paper)}
 .back-section a{color:var(--brass);text-decoration:none;font-weight:600;font-size:15px}
-
 footer{background:var(--ink-deep);padding:60px 24px 40px}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
 .footer-brand .seal{width:40px;height:40px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;margin-bottom:16px}
@@ -76,220 +62,75 @@ footer{background:var(--ink-deep);padding:60px 24px 40px}
 .footer-col a{display:block;color:rgba(244,246,242,0.5);text-decoration:none;font-size:14px;margin-bottom:12px;transition:color 0.2s}
 .footer-col a:hover{color:var(--brass-soft)}
 .footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(244,246,242,0.08);display:flex;justify-content:space-between;color:rgba(244,246,242,0.4);font-size:12px}
-
-@media(max-width:768px){
-  .hero-inner{grid-template-columns:1fr;padding:100px 20px 40px}
-  .nav-links{display:none}
-  .skill-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr 1fr}
-}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr;padding:100px 20px 40px}.nav-links{display:none}.skill-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <div class="seal">P</div>
-      <span>Pandora's Skill Box</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="product.html">Careers</a></li>
-      <li><a href="real-estate.html">Real Estate</a></li>
-      <li><a href="ceo-reset.html">CEO Reset</a></li>
-    </ul>
-    <a href="index.html" class="nav-cta">← All verticals</a>
-  </div>
-</nav>
+<nav><div class="nav-inner">
+<a href="index.html" class="nav-logo"><div class="seal">P</div><span>Pandora's Skill Box</span></a>
+<ul class="nav-links">
+<li><a href="hr-solutions.html">HR</a></li>
+<li><a href="real-estate.html">Real Estate</a></li>
+<li><a href="ceo-reset.html">CEO Reset</a></li>
+<li><a href="finance-audit.html">Finance</a></li>
+</ul>
+<a href="index.html" class="nav-cta">← All verticals</a>
+</div></nav>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-text">
-      <h1>Real Estate<br><em>UAE-certified</em> skills</h1>
-      <p>RERA compliance, property valuation, tenant screening, lease analysis — 12 certified skills for brokers, landlords, and developers in the UAE market.</p>
-      <div class="hero-actions">
-        <a href="#skills" class="btn-primary">Browse 12 skills</a>
-        <a href="index.html" class="btn-ghost">← Back to all verticals</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="big-num">12</div>
-      <p>CERTIFIED SKILLS<br>UAE-GCC LOCALIZED</p>
-    </div>
-  </div>
-</section>
-
-<section class="skills" id="skills">
-  <div class="skills-inner">
-    <div class="section-label">Real Estate Collection</div>
-    <h2 class="section-title">12 skills. Every one UAE-ready.</h2>
-    <p class="section-sub">All skills are localized for UAE regulations (RERA, DLD, Tawtheeq) and GCC market conditions. Run in your own AI account — your data never leaves.</p>
-    
-    <div class="filter">
-      <button class="active">All 12</button>
-      <button>Compliance</button>
-      <button>Valuation</button>
-      <button>Operations</button>
-    </div>
-    
-    <div class="skill-grid" id="skillGrid">
-      <!-- Compliance skills -->
-      <a href="skill-rera-compliance.html" class="skill-card">
-        <span class="skill-badge">Compliance</span>
-        <h3>RERA Compliance Checklist</h3>
-        <p>Complete broker compliance verification for every Dubai property transaction — updated for 2026 DLD circulars.</p>
-        <div class="skill-meta">
-          <span class="skill-price">$19</span>
-          <span class="skill-cta">Run →</span>
-        </div>
-      </a>
-      
-      <a href="property-valuation.html" class="skill-card">
-        <span class="skill-badge">Valuation</span>
-        <h3>Property Valuation Report</h3>
-        <p>Comparable-market analysis with UAE-specific adjustments — off-plan, ready, and land valuations.</p>
-        <div class="skill-meta">
-          <span class="skill-price">$19</span>
-          <span class="skill-cta">Run →</span>
-        </div>
-      </a>
-      
-      <a href="lease-analysis.html" class="skill-card">
-        <span class="skill-badge">Compliance</span>
-        <h3>Lease Agreement Analyzer</h3>
-        <p>Flag risky clauses, missing RERA protections, and unfair terms before your client signs.</p>
-        <div class="skill-meta">
-          <span class="skill-price">$19</span>
-          <span class="skill-cta">Run →</span>
-        </div>
-      </a>
-      
-      <a href="tenant-screening.html" class="skill-card">
-        <span class="skill-badge">Operations</span>
-        <h3>Tenant Screening Brief</h3>
-        <p>Comprehensive tenant evaluation — financial, legal, and reference checks formatted for UAE landlords.</p>
-        <div class="skill-meta">
-          <span class="skill-price">$19</span>
-          <span class="skill-cta">Run →</span>
-        </div>
-      </a>
-      
-      <a href="offplan-checklist.html" class="skill-card">
-        <span class="skill-badge">Compliance</span>
-        <h3>Off-Plan Purchase Checklist</h3>
-        <p>Escrow verification, Oqood status, developer track record — every checkpoint before you buy off-plan.</p>
-        <div class="skill-meta">
-          <span class="skill-price">$19</span>
-          <span class="skill-cta">Run →</span>
-        </div>
-      </a>
-      
-      <a href="mortgage-comparison.html" class="skill-card">
-        <span class="skill-badge">Valuation</span>
-        <h3>Mortgage Comparison Matrix</h3>
-        <p>Compare UAE bank mortgage products — rates, fees, early settlement penalties, eligibility.</p>
-        <div class="skill-meta">
-          <span class="skill-price">$19</span>
-          <span class="skill-cta">Run →</span>
-        </div>
-      </a>
-      
-      <a href="listing-optimizer.html" class="skill-card">
-        <span class="skill-badge">Operations</span>
-        <h3>Listing Copy Optimizer</h3>
-        <p>Transform generic property descriptions into search-optimized, emotionally compelling listings that convert.</p>
-        <div class="skill-meta">
-          <span class="skill-price">$19</span>
-          <span class="skill-cta">Run →</span>
-        </div>
-      </a>
-      
-      <a href="investment-roi.html" class="skill-card">
-        <span class="skill-badge">Valuation</span>
-        <h3>Investment ROI Calculator</h3>
-        <p>Cash-on-cash, cap rate, and IRR projections for Dubai rental investments with realistic vacancy assumptions.</p>
-        <div class="skill-meta">
-          <span class="skill-price">$19</span>
-          <span class="skill-cta">Run →</span>
-        </div>
-      </a>
-      
-      <a href="maintenance-schedule.html" class="skill-card">
-        <span class="skill-badge">Operations</span>
-        <h3>Property Maintenance Schedule</h3>
-        <p>Annual maintenance calendar for landlords — AC, plumbing, fire safety, DEWA, and RERA inspections.</p>
-        <div class="skill-meta">
-          <span class="skill-price">$19</span>
-          <span class="skill-cta">Run →</span>
-        </div>
-      </a>
-      
-      <a href="eviction-notice.html" class="skill-card">
-        <span class="skill-badge">Compliance</span>
-        <h3>Eviction Notice Draft (UAE)</h3>
-        <p>Legally compliant eviction notice for non-payment or breach — aligned with UAE Tenancy Law and RERA procedures.</p>
-        <div class="skill-meta">
-          <span class="skill-price">$19</span>
-          <span class="skill-cta">Run →</span>
-        </div>
-      </a>
-      
-      <a href="neighborhood-report.html" class="skill-card">
-        <span class="skill-badge">Valuation</span>
-        <h3>Neighborhood Deep-Dive Report</h3>
-        <p>Schools, metro access, rental yield trends, planned developments — a complete buyer briefing for any Dubai community.</p>
-        <div class="skill-meta">
-          <span class="skill-price">$19</span>
-          <span class="skill-cta">Run →</span>
-        </div>
-      </a>
-      
-      <a href="property-tax-guide.html" class="skill-card">
-        <span class="skill-badge">Compliance</span>
-        <h3>Property Tax & Fee Guide</h3>
-        <p>Complete breakdown of Dubai property costs — DLD fees, agency commission, NOC charges, and hidden costs.</p>
-        <div class="skill-meta">
-          <span class="skill-price">$19</span>
-          <span class="skill-cta">Run →</span>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<div class="back-section">
-  <a href="index.html">← Back to all verticals</a>
+<section class="hero"><div class="hero-inner">
+<div class="hero-text">
+<h1>Real Estate<br><em>UAE-certified</em> skills</h1>
+<p>RERA compliance, property valuation, tenant screening, lease analysis — 25 certified skills for brokers, landlords, and developers in the UAE market.</p>
+<div class="hero-actions">
+<a href="#skills" class="btn-primary">Browse 25 skills</a>
+<a href="index.html" class="btn-ghost">← Back to all verticals</a>
 </div>
+</div>
+<div class="hero-visual"><div class="big-num">25</div><p>CERTIFIED SKILLS<br>UAE REAL ESTATE</p></div>
+</div></section>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="seal">P</div>
-      <h4>Pandora's Skill Box</h4>
-      <p>Certified AI skills that run in your own account.</p>
-    </div>
-    <div class="footer-col">
-      <h5>Verticals</h5>
-      <a href="product.html">Careers</a>
-      <a href="real-estate.html">Real Estate</a>
-      <a href="ceo-reset.html">CEO Reset</a>
-    </div>
-    <div class="footer-col">
-      <h5>Company</h5>
-      <a href="index.html#how">How it works</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </div>
-    <div class="footer-col">
-      <h5>Contact</h5>
-      <a href="mailto:founders@pandorasskillbox.com">founders@pandorasskillbox.com</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2026 Pandora's Skill Box</span>
-    <span>Pandora Certified · 12-Point Security Scan</span>
-  </div>
-</footer>
+<section class="skills" id="skills"><div class="skills-inner">
+<div class="section-label">Real Estate Collection</div>
+<h2 class="section-title">25 skills. Every transaction covered.</h2>
+<p class="section-sub">All skills are localized for UAE regulations (RERA, DLD, Tawtheeq) and GCC market conditions. Run in your own AI account — your data never leaves.</p>
+<div class="filter"><button class="active">All 25</button><button>Compliance</button><button>Valuation</button><button>Operations</button></div>
+<div class="skill-grid" id="skillGrid">
+<a href="skill-rera-compliance.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>RERA Compliance Checklist</h3><p>Broker license verification, trust account audit, and contract registration for every Dubai transaction.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-property-valuation.html" class="skill-card"><span class="skill-badge">Valuation</span><h3>Property Valuation Report</h3><p>Comparable-market analysis with UAE-specific adjustments — off-plan, ready, and land valuations.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-lease-analyzer.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Lease Agreement Analyzer</h3><p>Flag risky clauses, missing RERA protections, and unfair terms before your client signs.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-tenant-screening.html" class="skill-card"><span class="skill-badge">Operations</span><h3>Tenant Screening Brief</h3><p>Comprehensive tenant evaluation — financial, legal, and reference checks formatted for UAE landlords.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-offplan-checklist.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Off-Plan Purchase Checklist</h3><p>Escrow verification, Oqood status, developer track record — every checkpoint before buying off-plan.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-mortgage-comparison.html" class="skill-card"><span class="skill-badge">Valuation</span><h3>Mortgage Comparison Matrix</h3><p>Compare UAE bank mortgage products — rates, fees, early settlement penalties, and eligibility.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-listing-optimizer.html" class="skill-card"><span class="skill-badge">Operations</span><h3>Listing Copy Optimizer</h3><p>Transform generic descriptions into search-optimized, emotionally compelling property listings.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-investment-roi.html" class="skill-card"><span class="skill-badge">Valuation</span><h3>Investment ROI Calculator</h3><p>Cash-on-cash, cap rate, and IRR projections with realistic vacancy and maintenance assumptions.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-maintenance-schedule.html" class="skill-card"><span class="skill-badge">Operations</span><h3>Property Maintenance Schedule</h3><p>Annual maintenance calendar — AC, plumbing, fire safety, DEWA, and RERA inspections.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-eviction-notice.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Eviction Notice Draft (UAE)</h3><p>Legally compliant eviction notice for non-payment or breach — aligned with UAE Tenancy Law.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-neighborhood-report.html" class="skill-card"><span class="skill-badge">Valuation</span><h3>Neighborhood Deep-Dive Report</h3><p>Schools, metro access, rental yield trends, planned developments — complete buyer briefing.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-property-tax-guide.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Property Tax & Fee Guide</h3><p>Complete breakdown of Dubai property costs — DLD fees, agency commission, NOC, hidden costs.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-rental-yield.html" class="skill-card"><span class="skill-badge">Valuation</span><h3>Rental Yield Tracker</h3><p>Gross and net yield calculations, operating expenses, and cash flow projections.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-inspection-report.html" class="skill-card"><span class="skill-badge">Operations</span><h3>Property Inspection Report</h3><p>Move-in/move-out condition report, photo log, and dispute protection documentation.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-commission-calc.html" class="skill-card"><span class="skill-badge">Operations</span><h3>Broker Commission Calculator</h3><p>Split formulas, team overrides, referral fees, and monthly commission forecasts.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-strata-management.html" class="skill-card"><span class="skill-badge">Operations</span><h3>Strata / HOA Management</h3><p>Service charge budgets, AGM notices, maintenance voting, and dispute resolution.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-title-deed.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Title Deed Verification</h3><p>Ownership check, mortgage status, encumbrances, and legal clearance before transfer.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-ejari-guide.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Ejari Registration Guide</h3><p>Step-by-step Tawtheeq registration, required documents, and renewal tracking.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-insurance-advisor.html" class="skill-card"><span class="skill-badge">Operations</span><h3>Property Insurance Advisor</h3><p>Building, contents, landlord, and tenant coverage comparison with claim guidance.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-marketing-plan.html" class="skill-card"><span class="skill-badge">Operations</span><h3>Real Estate Marketing Plan</h3><p>Lead generation strategy, CRM sequence, open house tactics, and digital campaign setup.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-openhouse-checklist.html" class="skill-card"><span class="skill-badge">Operations</span><h3>Open House Checklist</h3><p>Setup, sign-in, follow-up, safety protocols, and feedback capture for every viewing.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-cma-report.html" class="skill-card"><span class="skill-badge">Valuation</span><h3>Comparative Market Analysis</h3><p>Sold and rented comparables, days-on-market, and price positioning strategy.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-dev-approval.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Development Approval Tracker</h3><p>DLD, municipality, NOCs, handover snag list, and defect liability period tracking.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-rent-increase.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Rent Increase Notice (UAE)</h3><p>RERA calculator, 90-day notice requirement, and annual cap compliance verification.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-deposit-recon.html" class="skill-card"><span class="skill-badge">Operations</span><h3>Security Deposit Reconciliation</h3><p>Deduction justification, dispute handling, refund timeline, and documentation.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+</div>
+</div></section>
 
-</body>
-</html>
+<div class="back-section"><a href="index.html">← Back to all verticals</a></div>
+
+<footer><div class="footer-inner">
+<div class="footer-brand"><div class="seal">P</div><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
+<div class="footer-col"><h5>Verticals</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a></div>
+<div class="footer-col"><h5>Company</h5><a href="index.html#how">How it works</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+<div class="footer-col"><h5>Contact</h5><a href="mailto:founders@pandorasskillbox.com">founders@pandorasskillbox.com</a></div>
+</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified · 12-Point Security Scan</span></div></footer>
+
+</body></html>

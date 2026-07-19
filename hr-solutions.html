@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pandora's Skill Box — HR Solutions Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--brass-deep:#8F6716;--verdict:#17A673;--flag:#D64533;--muted:#5C6F6A;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,46,41,0.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.nav-logo .seal{width:32px;height:32px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
+.nav-logo span{font-family:var(--font-display);font-size:20px}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600}
+.hero{min-height:60vh;display:flex;align-items:center;position:relative;background:var(--ink)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(184,137,45,0.08) 0%,transparent 60%)}
+.hero-inner{max-width:1200px;margin:0 auto;padding:120px 24px 60px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-text h1{font-family:var(--font-display);font-size:clamp(36px,5vw,56px);color:var(--porcelain);line-height:1.1;margin-bottom:20px}
+.hero-text h1 em{color:var(--brass-soft);font-style:italic}
+.hero-text p{font-size:18px;color:rgba(244,246,242,0.7);margin-bottom:32px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--brass);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.2s;border:none;cursor:pointer;display:inline-block}
+.btn-primary:hover{background:var(--brass-deep)}
+.btn-ghost{background:transparent;color:var(--porcelain);border:1px solid rgba(244,246,242,0.3);padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.2s;display:inline-block}
+.btn-ghost:hover{border-color:var(--brass-soft)}
+.hero-visual{background:rgba(184,137,45,0.1);border:1px solid rgba(184,137,45,0.2);border-radius:16px;padding:40px;text-align:center}
+.hero-visual .big-num{font-family:var(--font-display);font-size:64px;color:var(--brass-soft)}
+.hero-visual p{color:rgba(244,246,242,0.6);font-family:var(--font-mono);font-size:14px;margin-top:16px}
+.section-label{text-align:center;font-family:var(--font-mono);font-size:12px;color:var(--brass);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.section-title{text-align:center;font-family:var(--font-display);font-size:clamp(32px,4vw,48px);color:var(--ink);margin-bottom:16px}
+.section-sub{text-align:center;color:var(--muted);font-size:18px;max-width:600px;margin:0 auto 60px}
+.skills{padding:80px 24px;background:#fff}
+.skills-inner{max-width:1200px;margin:0 auto}
+.filter{display:flex;gap:12px;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+.filter button{background:transparent;border:1px solid rgba(11,46,41,0.1);color:var(--muted);padding:8px 20px;border-radius:100px;font-family:var(--font-body);font-size:14px;cursor:pointer;transition:all 0.2s}
+.filter button.active,.filter button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
+.skill-card{background:var(--paper);border:1px solid rgba(11,46,41,0.06);border-radius:12px;padding:28px;transition:all 0.2s;text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--brass);opacity:0;transition:opacity 0.2s}
+.skill-card:hover::before{opacity:1}
+.skill-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(11,46,41,0.06)}
+.skill-badge{display:inline-block;background:var(--porcelain);color:var(--muted);font-family:var(--font-mono);font-size:11px;padding:4px 12px;border-radius:100px;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px}
+.skill-card h3{font-family:var(--font-display);font-size:22px;margin-bottom:8px;color:var(--ink)}
+.skill-card p{color:var(--muted);font-size:14px;margin-bottom:16px;min-height:60px}
+.skill-meta{display:flex;justify-content:space-between;align-items:center}
+.skill-price{font-family:var(--font-mono);font-size:13px;color:var(--brass);font-weight:600}
+.skill-cta{color:var(--ink);font-size:13px;font-weight:600;display:flex;align-items:center;gap:4px}
+.back-section{padding:40px 24px;text-align:center;background:var(--paper)}
+.back-section a{color:var(--brass);text-decoration:none;font-weight:600;font-size:15px}
+footer{background:var(--ink-deep);padding:60px 24px 40px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .seal{width:40px;height:40px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;margin-bottom:16px}
+.footer-brand h4{font-family:var(--font-display);color:var(--porcelain);font-size:20px;margin-bottom:8px}
+.footer-brand p{color:rgba(244,246,242,0.5);font-size:14px}
+.footer-col h5{color:var(--porcelain);font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.footer-col a{display:block;color:rgba(244,246,242,0.5);text-decoration:none;font-size:14px;margin-bottom:12px;transition:color 0.2s}
+.footer-col a:hover{color:var(--brass-soft)}
+.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(244,246,242,0.08);display:flex;justify-content:space-between;color:rgba(244,246,242,0.4);font-size:12px}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr;padding:100px 20px 40px}.nav-links{display:none}.skill-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+<a href="index.html" class="nav-logo"><div class="seal">P</div><span>Pandora's Skill Box</span></a>
+<ul class="nav-links">
+<li><a href="hr-solutions.html">HR</a></li>
+<li><a href="real-estate.html">Real Estate</a></li>
+<li><a href="ceo-reset.html">CEO Reset</a></li>
+<li><a href="finance-audit.html">Finance</a></li>
+</ul>
+<a href="index.html" class="nav-cta">← All verticals</a>
+</div></nav>
+
+<section class="hero"><div class="hero-inner">
+<div class="hero-text">
+<h1>HR Solutions<br><em>Infrastructure</em> skills</h1>
+<p>Employee onboarding, payroll, compliance, recruitment, performance reviews — 25 certified skills that make your complete HR infrastructure effortless.</p>
+<div class="hero-actions">
+<a href="#skills" class="btn-primary">Browse 25 skills</a>
+<a href="index.html" class="btn-ghost">← Back to all verticals</a>
+</div>
+</div>
+<div class="hero-visual"><div class="big-num">25</div><p>CERTIFIED SKILLS<br>HR INFRASTRUCTURE</p></div>
+</div></section>
+
+<section class="skills" id="skills"><div class="skills-inner">
+<div class="section-label">HR Solutions Collection</div>
+<h2 class="section-title">25 skills. Every admin task covered.</h2>
+<p class="section-sub">From onboarding paperwork to compliance audits. Run in your own AI account — your data never leaves.</p>
+<div class="filter">
+<button class="active">All 25</button><button>Onboarding</button><button>Payroll</button><button>Compliance</button><button>Recruitment</button>
+</div>
+<div class="skill-grid" id="skillGrid">
+<a href="skill-employee-onboarding.html" class="skill-card"><span class="skill-badge">Onboarding</span><h3>Employee Onboarding Playbook</h3><p>Complete 30/60/90-day onboarding sequence, checklists, welcome kit, and first-week calendar.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-payroll-processing.html" class="skill-card"><span class="skill-badge">Payroll</span><h3>Payroll Processing Guide</h3><p>Monthly payroll run, deductions, overtime calculations, UAE WPS compliance, and payslip generation.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-leave-management.html" class="skill-card"><span class="skill-badge">Admin</span><h3>Leave Management System</h3><p>Annual leave, sick leave, maternity, air ticket accrual tracker with UAE Labor Law rules.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-performance-review.html" class="skill-card"><span class="skill-badge">Admin</span><h3>Performance Review Templates</h3><p>Quarterly and annual review forms, 360-degree feedback, calibration guides, and rating rubrics.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-recruitment-pipeline.html" class="skill-card"><span class="skill-badge">Recruitment</span><h3>Recruitment Pipeline Builder</h3><p>End-to-end hiring workflow from requisition to offer — sourcing, screening, interviews, and closing.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-offer-letter.html" class="skill-card"><span class="skill-badge">Recruitment</span><h3>Offer Letter Generator</h3><p>Legally compliant offer letters with UAE Labor Law clauses, probation terms, and compensation breakdown.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-employee-handbook.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Employee Handbook Creator</h3><p>Complete company handbook — policies, code of conduct, disciplinary procedures, and benefits guide.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-labor-law-audit.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Labor Law Compliance Audit</h3><p>UAE Labor Law checklist — NOC requirements, visa rules, contract terms, and penalty avoidance.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-termination-process.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Termination & Separation Process</h3><p>End-of-service calculation, gratuity, exit checklist, clearance form, and final settlement.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-training-program.html" class="skill-card"><span class="skill-badge">Admin</span><h3>Training Program Designer</h3><p>Skills gap analysis, training calendar, certification tracking, and budget planning.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-org-chart.html" class="skill-card"><span class="skill-badge">Admin</span><h3>Org Chart Builder</h3><p>Visual org chart with reporting lines, headcount planning, span of control analysis, and growth paths.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-compensation-benchmark.html" class="skill-card"><span class="skill-badge">Payroll</span><h3>Compensation Benchmarking</h3><p>Market salary data, pay bands, equity vs cash analysis, and retention risk scoring.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-benefits-admin.html" class="skill-card"><span class="skill-badge">Payroll</span><h3>Benefits Administration</h3><p>Health insurance, life cover, childcare, allowance structuring, and provider comparison.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-time-attendance.html" class="skill-card"><span class="skill-badge">Admin</span><h3>Time & Attendance Tracker</h3><p>Clock-in systems, shift scheduling, overtime compliance, and absence pattern analysis.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-hr-policy.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>HR Policy Writer</h3><p>Dress code, remote work, expense, travel, disciplinary, and social media policies.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-interview-scorecard.html" class="skill-card"><span class="skill-badge">Recruitment</span><h3>Interview Scorecards</h3><p>Structured interview templates, rating rubrics, bias reducers, and competency-based questions.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-candidate-screening.html" class="skill-card"><span class="skill-badge">Recruitment</span><h3>Candidate Screening Brief</h3><p>Background check framework, reference verification, visa eligibility, and red-flag detection.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-engagement-survey.html" class="skill-card"><span class="skill-badge">Admin</span><h3>Employee Engagement Survey</h3><p>eNPS survey design, pulse checks, action planning from results, and trend tracking.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-exit-interview.html" class="skill-card"><span class="skill-badge">Admin</span><h3>Exit Interview Framework</h3><p>Departure analysis, retention insights, knowledge transfer checklist, and alumni network setup.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-hr-dashboard.html" class="skill-card"><span class="skill-badge">Admin</span><h3>HR Reporting Dashboard</h3><p>Headcount, turnover, cost-per-hire, diversity metrics, and workforce planning summaries.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-succession-planning.html" class="skill-card"><span class="skill-badge">Admin</span><h3>Succession Planning</h3><p>Critical role backup plans, talent pipeline mapping, promotion readiness, and development paths.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-diversity-hiring.html" class="skill-card"><span class="skill-badge">Recruitment</span><h3>Diversity & Inclusion Hiring</h3><p>Diverse slate rules, inclusive job descriptions, bias audit, and representation tracking.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-contractor-classifier.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Contractor vs Employee Classifier</h3><p>UAE labor law classification, misclassification risks, contract templates, and audit defense.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-visa-processing.html" class="skill-card"><span class="skill-badge">Compliance</span><h3>Visa & Sponsorship Processing</h3><p>Employment visa, family sponsorship, golden visa, renewal tracking, and document checklists.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-attendance-tracker.html" class="skill-card"><span class="skill-badge">Admin</span><h3>Attendance & Absence Tracker</h3><p>No-show pattern analysis, PTO balance reports, sick leave trends, and automated alerts.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+</div>
+</div></section>
+
+<div class="back-section"><a href="index.html">← Back to all verticals</a></div>
+
+<footer><div class="footer-inner">
+<div class="footer-brand"><div class="seal">P</div><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
+<div class="footer-col"><h5>Verticals</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a></div>
+<div class="footer-col"><h5>Company</h5><a href="index.html#how">How it works</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+<div class="footer-col"><h5>Contact</h5><a href="mailto:founders@pandorasskillbox.com">founders@pandorasskillbox.com</a></div>
+</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified · 12-Point Security Scan</span></div></footer>
+
+</body></html>

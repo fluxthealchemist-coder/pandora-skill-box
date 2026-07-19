@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pandora's Skill Box — Finance & Audit Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--brass-deep:#8F6716;--verdict:#17A673;--flag:#D64533;--muted:#5C6F6A;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--paper);color:var(--ink);line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(251,252,250,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(11,46,41,0.06)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.nav-logo .seal{width:32px;height:32px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
+.nav-logo span{font-family:var(--font-display);font-size:20px}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:13px;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:600}
+.hero{min-height:60vh;display:flex;align-items:center;position:relative;background:var(--ink)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(184,137,45,0.08) 0%,transparent 60%)}
+.hero-inner{max-width:1200px;margin:0 auto;padding:120px 24px 60px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-text h1{font-family:var(--font-display);font-size:clamp(36px,5vw,56px);color:var(--porcelain);line-height:1.1;margin-bottom:20px}
+.hero-text h1 em{color:var(--brass-soft);font-style:italic}
+.hero-text p{font-size:18px;color:rgba(244,246,242,0.7);margin-bottom:32px}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-primary{background:var(--brass);color:#fff;padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.2s;border:none;cursor:pointer;display:inline-block}
+.btn-primary:hover{background:var(--brass-deep)}
+.btn-ghost{background:transparent;color:var(--porcelain);border:1px solid rgba(244,246,242,0.3);padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;transition:all 0.2s;display:inline-block}
+.btn-ghost:hover{border-color:var(--brass-soft)}
+.hero-visual{background:rgba(184,137,45,0.1);border:1px solid rgba(184,137,45,0.2);border-radius:16px;padding:40px;text-align:center}
+.hero-visual .big-num{font-family:var(--font-display);font-size:64px;color:var(--brass-soft)}
+.hero-visual p{color:rgba(244,246,242,0.6);font-family:var(--font-mono);font-size:14px;margin-top:16px}
+.section-label{text-align:center;font-family:var(--font-mono);font-size:12px;color:var(--brass);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.section-title{text-align:center;font-family:var(--font-display);font-size:clamp(32px,4vw,48px);color:var(--ink);margin-bottom:16px}
+.section-sub{text-align:center;color:var(--muted);font-size:18px;max-width:600px;margin:0 auto 60px}
+.skills{padding:80px 24px;background:#fff}
+.skills-inner{max-width:1200px;margin:0 auto}
+.filter{display:flex;gap:12px;justify-content:center;margin-bottom:40px;flex-wrap:wrap}
+.filter button{background:transparent;border:1px solid rgba(11,46,41,0.1);color:var(--muted);padding:8px 20px;border-radius:100px;font-family:var(--font-body);font-size:14px;cursor:pointer;transition:all 0.2s}
+.filter button.active,.filter button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:20px}
+.skill-card{background:var(--paper);border:1px solid rgba(11,46,41,0.06);border-radius:12px;padding:28px;transition:all 0.2s;text-decoration:none;color:inherit;display:block;position:relative;overflow:hidden}
+.skill-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--brass);opacity:0;transition:opacity 0.2s}
+.skill-card:hover::before{opacity:1}
+.skill-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(11,46,41,0.06)}
+.skill-badge{display:inline-block;background:var(--porcelain);color:var(--muted);font-family:var(--font-mono);font-size:11px;padding:4px 12px;border-radius:100px;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px}
+.skill-card h3{font-family:var(--font-display);font-size:22px;margin-bottom:8px;color:var(--ink)}
+.skill-card p{color:var(--muted);font-size:14px;margin-bottom:16px;min-height:60px}
+.skill-meta{display:flex;justify-content:space-between;align-items:center}
+.skill-price{font-family:var(--font-mono);font-size:13px;color:var(--brass);font-weight:600}
+.skill-cta{color:var(--ink);font-size:13px;font-weight:600;display:flex;align-items:center;gap:4px}
+.back-section{padding:40px 24px;text-align:center;background:var(--paper)}
+.back-section a{color:var(--brass);text-decoration:none;font-weight:600;font-size:15px}
+footer{background:var(--ink-deep);padding:60px 24px 40px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand .seal{width:40px;height:40px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;margin-bottom:16px}
+.footer-brand h4{font-family:var(--font-display);color:var(--porcelain);font-size:20px;margin-bottom:8px}
+.footer-brand p{color:rgba(244,246,242,0.5);font-size:14px}
+.footer-col h5{color:var(--porcelain);font-size:13px;text-transform:uppercase;letter-spacing:1px;margin-bottom:20px}
+.footer-col a{display:block;color:rgba(244,246,242,0.5);text-decoration:none;font-size:14px;margin-bottom:12px;transition:color 0.2s}
+.footer-col a:hover{color:var(--brass-soft)}
+.footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(244,246,242,0.08);display:flex;justify-content:space-between;color:rgba(244,246,242,0.4);font-size:12px}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr;padding:100px 20px 40px}.nav-links{display:none}.skill-grid{grid-template-columns:1fr}.footer-inner{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-inner">
+<a href="index.html" class="nav-logo"><div class="seal">P</div><span>Pandora's Skill Box</span></a>
+<ul class="nav-links">
+<li><a href="hr-solutions.html">HR</a></li>
+<li><a href="real-estate.html">Real Estate</a></li>
+<li><a href="ceo-reset.html">CEO Reset</a></li>
+<li><a href="finance-audit.html">Finance</a></li>
+</ul>
+<a href="index.html" class="nav-cta">← All verticals</a>
+</div></nav>
+
+<section class="hero"><div class="hero-inner">
+<div class="hero-text">
+<h1>Finance & Audit<br><em>Accounting</em> skills</h1>
+<p>Bookkeeping, tax compliance, audit prep, financial modeling, CFO reporting — 25 certified skills for finance teams and accounting firms.</p>
+<div class="hero-actions">
+<a href="#skills" class="btn-primary">Browse 25 skills</a>
+<a href="index.html" class="btn-ghost">← Back to all verticals</a>
+</div>
+</div>
+<div class="hero-visual"><div class="big-num">25</div><p>CERTIFIED SKILLS<br>FINANCE & AUDIT</p></div>
+</div></section>
+
+<section class="skills" id="skills"><div class="skills-inner">
+<div class="section-label">Finance & Audit Collection</div>
+<h2 class="section-title">25 skills. Every number covered.</h2>
+<p class="section-sub">From month-end close to IPO readiness. Run in your own AI account — your data never leaves.</p>
+<div class="filter"><button class="active">All 25</button><button>Bookkeeping</button><button>Tax</button><button>Audit</button><button>Finance</button></div>
+<div class="skill-grid" id="skillGrid">
+<a href="skill-bookkeeping-close.html" class="skill-card"><span class="skill-badge">Bookkeeping</span><h3>Monthly Bookkeeping Close</h3><p>Complete month-end close checklist, reconciliation, accrual adjustments, and variance notes.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-vat-return.html" class="skill-card"><span class="skill-badge">Tax</span><h3>VAT Return Filing (UAE)</h3><p>UAE FTA VAT calculation, input/output tax reconciliation, and quarterly return preparation.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-audit-prep.html" class="skill-card"><span class="skill-badge">Audit</span><h3>Audit Prep Checklist</h3><p>External audit readiness — documentation, schedules, confirmations, and management responses.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-financial-model.html" class="skill-card"><span class="skill-badge">Finance</span><h3>Financial Model Builder</h3><p>3-statement model, scenario analysis, sensitivity tables, and valuation outputs.</p><div class="skill-meta"><span class="skill-price">$29</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-cfo-reporting.html" class="skill-card"><span class="skill-badge">Finance</span><h3>CFO Reporting Pack</h3><p>Monthly CEO/CFO board pack — P&L, cash flow, balance sheet, and variance analysis.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-ap-optimizer.html" class="skill-card"><span class="skill-badge">Bookkeeping</span><h3>Accounts Payable Optimizer</h3><p>Vendor payment scheduling, early-pay discounts, and cash flow preservation strategies.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-ar-tracker.html" class="skill-card"><span class="skill-badge">Bookkeeping</span><h3>Accounts Receivable Tracker</h3><p>Aging analysis, collection sequences, bad-debt provisioning, and DSO improvement plan.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-corporate-tax.html" class="skill-card"><span class="skill-badge">Tax</span><h3>Corporate Tax Planner (UAE)</h3><p>UAE CT regime optimization, transfer pricing, and effective tax rate planning from 2024.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-internal-controls.html" class="skill-card"><span class="skill-badge">Audit</span><h3>Internal Controls Assessment</h3><p>SOX-style controls mapping, deficiency grading, and remediation roadmap.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-cash-forecast.html" class="skill-card"><span class="skill-badge">Finance</span><h3>Cash Flow Forecast</h3><p>13-week rolling cash forecast, variance tracking, and liquidity stress testing.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-budget-analysis.html" class="skill-card"><span class="skill-badge">Finance</span><h3>Budget vs Actual Analysis</h3><p>Departmental variance reports, reforecast triggers, and accountability frameworks.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-coa-designer.html" class="skill-card"><span class="skill-badge">Bookkeeping</span><h3>Chart of Accounts Designer</h3><p>GAAP/IFRS-aligned COA, segment reporting, and automated journal entry mapping.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-transfer-pricing.html" class="skill-card"><span class="skill-badge">Tax</span><h3>Transfer Pricing Documentation</h3><p>Local file, master file, and CbCR preparation for UAE and GCC jurisdictions.</p><div class="skill-meta"><span class="skill-price">$29</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-fraud-risk.html" class="skill-card"><span class="skill-badge">Audit</span><h3>Fraud Risk Assessment</h3><p>Red-flag detection, control gap analysis, and investigation playbook for finance teams.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-debt-covenant.html" class="skill-card"><span class="skill-badge">Finance</span><h3>Debt Covenant Monitor</h3><p>Covenant calculation, breach early-warning, and lender communication templates.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-equity-tracker.html" class="skill-card"><span class="skill-badge">Finance</span><h3>Equity Management Tracker</h3><p>Cap table maintenance, option pool planning, and dilution scenario modeling.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-expense-policy.html" class="skill-card"><span class="skill-badge">Bookkeeping</span><h3>Expense Policy Enforcer</h3><p>T&E compliance, receipt matching, and out-of-policy flagging with approval workflows.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-withholding-tax.html" class="skill-card"><span class="skill-badge">Tax</span><h3>Withholding Tax Calculator</h3><p>Cross-border payment WHT rates, treaty benefits, and compliance filing across GCC.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-fixed-asset.html" class="skill-card"><span class="skill-badge">Audit</span><h3>Fixed Asset Register</h3><p>Depreciation schedules, impairment testing, disposal accounting, and physical verification.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-wc-optimizer.html" class="skill-card"><span class="skill-badge">Finance</span><h3>Working Capital Optimizer</h3><p>Inventory, receivables, and payables cycle reduction with measurable targets.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-cost-profitability.html" class="skill-card"><span class="skill-badge">Finance</span><h3>Cost Center Profitability</h3><p>Activity-based costing, overhead allocation, and segment P&L by department or product.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-intercompany.html" class="skill-card"><span class="skill-badge">Bookkeeping</span><h3>Intercompany Reconciliation</h3><p>Cross-entity balances, elimination entries, and transfer pricing compliance.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-compliance-calendar.html" class="skill-card"><span class="skill-badge">Audit</span><h3>Compliance Calendar</h3><p>Regulatory filing deadlines — VAT, CT, audit reports, and license renewals with alerts.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-cap-table-scenario.html" class="skill-card"><span class="skill-badge">Finance</span><h3>Investor Cap Table Scenario</h3><p>Pre/post-money, option pool shuffle, anti-dilution, and liquidation preference modeling.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+<a href="skill-yearend-close.html" class="skill-card"><span class="skill-badge">Bookkeeping</span><h3>Year-End Closing Guide</h3><p>Complete annual close — adjustments, provisions, tax accruals, and audit handover.</p><div class="skill-meta"><span class="skill-price">$19</span><span class="skill-cta">Run →</span></div></a>
+</div>
+</div></section>
+
+<div class="back-section"><a href="index.html">← Back to all verticals</a></div>
+
+<footer><div class="footer-inner">
+<div class="footer-brand"><div class="seal">P</div><h4>Pandora's Skill Box</h4><p>Certified AI skills that run in your own account.</p></div>
+<div class="footer-col"><h5>Verticals</h5><a href="hr-solutions.html">HR Solutions</a><a href="real-estate.html">Real Estate</a><a href="ceo-reset.html">CEO Reset</a><a href="finance-audit.html">Finance & Audit</a></div>
+<div class="footer-col"><h5>Company</h5><a href="index.html#how">How it works</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+<div class="footer-col"><h5>Contact</h5><a href="mailto:founders@pandorasskillbox.com">founders@pandorasskillbox.com</a></div>
+</div><div class="footer-bottom"><span>© 2026 Pandora's Skill Box</span><span>Pandora Certified · 12-Point Security Scan</span></div></footer>
+
+</body></html>
