@@ -1,613 +1,793 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Life Reset Programme — 20 Sessions · Centre for Personal Wellbeing</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life Reset Programme — 20 Sessions to Reclaim Your Life | Centre for Personal Wellbeing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@300;400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;
-  --brass:#B8892D;--brass-soft:#E4C878;--brass-glow:#D4A84B;
-  --muted:#5C6F6A;--verdict:#17A673;--rose:#D64533;
-  --aurora-1:#7C3AED;--aurora-2:#06B6D4;--aurora-3:#10B981;--aurora-4:#F59E0B;
-  --font-display:'Instrument Serif',Georgia,serif;
-  --font-body:'Schibsted Grotesk',system-ui,sans-serif;
-  --font-mono:'Spline Sans Mono',monospace;
+:root {
+  --ink: #0B2E29;
+  --ink-deep: #072320;
+  --porcelain: #F4F6F2;
+  --paper: #FBFCFA;
+  --brass: #B8892D;
+  --brass-soft: #E4C878;
+  --brass-warm: #C9A84C;
+  --muted: #5C6F6A;
+  --muted-light: #8A9A95;
+  --verdict: #17A673;
+  --rose: #D64533;
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Schibsted Grotesk', system-ui, sans-serif;
+  --font-mono: 'Spline Sans Mono', monospace;
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--font-body);background:var(--ink-deep);color:var(--paper);overflow-x:hidden}
+body{font-family:var(--font-body);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
 
-/* ===== ANIMATED HERO BACKGROUND ===== */
-.hero{
-  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  position:relative;overflow:hidden;padding:80px 24px;text-align:center
-}
-.hero::before{
-  content:'';position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse 80% 50% at 20% 40%,rgba(124,58,237,0.3),transparent),
-    radial-gradient(ellipse 60% 40% at 80% 60%,rgba(6,182,212,0.25),transparent),
-    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(16,185,129,0.15),transparent);
-  animation:aurora 20s ease-in-out infinite;z-index:0
-}
-.hero::after{
-  content:'';position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='g' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(255,255,255,0.03)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3C/svg%3E");
-  z-index:1;pointer-events:none
-}
-@keyframes aurora{
-  0%,100%{transform:translate(0,0) scale(1)}
-  33%{transform:translate(30px,-30px) scale(1.1)}
-  66%{transform:translate(-20px,20px) scale(0.95)}
-}
-.hero-content{position:relative;z-index:2;max-width:900px}
-.hero-badge{
-  display:inline-block;padding:8px 20px;border:1px solid rgba(184,137,45,0.4);
-  border-radius:100px;font-family:var(--font-mono);font-size:11px;
-  color:var(--brass-soft);text-transform:uppercase;letter-spacing:2px;
-  margin-bottom:32px;backdrop-filter:blur(10px);background:rgba(184,137,45,0.08)
-}
-.hero h1{font-family:var(--font-display);font-size:clamp(40px,8vw,80px);font-weight:400;
-  line-height:1.05;margin-bottom:20px;background:linear-gradient(135deg,var(--paper) 0%,var(--brass-soft) 50%,var(--brass) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-sub{font-size:clamp(16px,2.5vw,22px);color:rgba(244,246,242,0.7);line-height:1.6;margin-bottom:40px;max-width:700px;margin-left:auto;margin-right:auto}
-.hero-cta{
-  display:inline-flex;align-items:center;gap:12px;padding:16px 40px;
-  background:linear-gradient(135deg,var(--brass),var(--brass-glow));color:var(--ink-deep);
-  font-size:16px;font-weight:700;border-radius:12px;text-decoration:none;
-  transition:all .3s;box-shadow:0 8px 32px rgba(184,137,45,0.4);position:relative;overflow:hidden
-}
-.hero-cta::before{
-  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
-  transition:left .5s
-}
-.hero-cta:hover::before{left:100%}
-.hero-cta:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(184,137,45,0.5)}
-.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:2;
-  display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.6;animation:bounce 2s infinite}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
-.scroll-indicator span{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:2px}
-.scroll-indicator .arrow{width:1px;height:40px;background:linear-gradient(to bottom,var(--brass),transparent)}
+/* Navigation */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,46,41,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(184,137,45,0.15);padding:0 24px}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-logo{height:36px;width:auto}
+.nav-brand-text h1{font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--porcelain);letter-spacing:0.5px}
+.nav-brand-text span{font-size:9px;color:var(--brass-soft);text-transform:uppercase;letter-spacing:2px}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{color:var(--porcelain);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.3px;transition:color 0.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--brass);transition:width 0.3s}
+.nav-links a:hover::after{width:100%}
+.nav-links a:hover{color:var(--brass-soft)}
+.nav-cta{background:var(--brass);color:var(--ink-deep);padding:8px 20px;border-radius:30px;font-size:12px;font-weight:600;text-decoration:none;transition:all 0.3s}
+.nav-cta:hover{background:var(--brass-soft);transform:translateY(-1px)}
+@media(max-width:768px){.nav-links{display:none}}
 
-/* ===== FLOATING ORBS ===== */
-.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.4;animation:float 15s ease-in-out infinite;pointer-events:none;z-index:0}
-.orb-1{width:300px;height:300px;background:var(--aurora-1);top:10%;left:10%;animation-delay:0s}
-.orb-2{width:250px;height:250px;background:var(--aurora-2);top:60%;right:15%;animation-delay:-5s}
-.orb-3{width:200px;height:200px;background:var(--aurora-3);bottom:20%;left:40%;animation-delay:-10s}
-.orb-4{width:180px;height:180px;background:var(--aurora-4);top:30%;right:30%;animation-delay:-7s}
-@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-40px) scale(1.1)}}
+/* Hero */
+.hero{position:relative;width:100%;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,35,32,0.3) 0%, rgba(7,35,32,0.7) 60%, rgba(7,35,32,0.95) 100%);z-index:2}
+.hero-content{position:relative;z-index:3;text-align:center;max-width:800px;padding:0 24px;margin-top:64px}
+.hero-badge{display:inline-block;padding:6px 18px;border:1px solid rgba(184,137,45,0.5);border-radius:30px;font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--brass-soft);margin-bottom:32px;background:rgba(184,137,45,0.08)}
+.hero h1{font-family:var(--font-display);font-size:clamp(42px,6vw,72px);font-weight:400;color:var(--porcelain);line-height:1.1;margin-bottom:24px;letter-spacing:-0.5px}
+.hero h1 em{font-style:italic;color:var(--brass-soft)}
+.hero-subtitle{font-size:clamp(16px,2vw,20px);color:rgba(244,246,242,0.75);max-width:560px;margin:0 auto 40px;font-weight:300;line-height:1.7}
+.hero-cta-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--brass);color:var(--ink-deep);padding:14px 36px;border-radius:40px;font-size:14px;font-weight:600;text-decoration:none;letter-spacing:0.5px;transition:all 0.4s;display:inline-block;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--brass-soft);transform:translateY(-2px);box-shadow:0 12px 40px rgba(184,137,45,0.3)}
+.btn-secondary{background:transparent;color:var(--porcelain);padding:14px 36px;border-radius:40px;font-size:14px;font-weight:500;text-decoration:none;letter-spacing:0.5px;transition:all 0.4s;display:inline-block;border:1px solid rgba(244,246,242,0.3)}
+.btn-secondary:hover{background:rgba(244,246,242,0.08);border-color:rgba(244,246,242,0.5)}
+.hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(244,246,242,0.4);font-size:11px;letter-spacing:2px;text-transform:uppercase;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
-/* ===== SECTIONS ===== */
-.section{padding:100px 24px;position:relative}
-.container{max-width:1200px;margin:0 auto}
-.section-header{text-align:center;margin-bottom:64px;position:relative;z-index:1}
-.section-label{font-family:var(--font-mono);font-size:11px;color:var(--brass);text-transform:uppercase;letter-spacing:3px;margin-bottom:16px}
-.section-title{font-family:var(--font-display);font-size:clamp(28px,5vw,48px);font-weight:400;margin-bottom:16px}
-.section-desc{font-size:18px;color:var(--muted);max-width:700px;margin:0 auto;line-height:1.6}
+/* Section styling */
+.section{padding:100px 24px}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-eyebrow{font-family:var(--font-mono);font-size:11px;color:var(--brass);letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+.section h2{font-family:var(--font-display);font-size:clamp(32px,4vw,48px);font-weight:400;color:var(--ink);line-height:1.2;margin-bottom:20px}
+.section h2 em{font-style:italic;color:var(--brass)}
+.section-desc{font-size:17px;color:var(--muted);max-width:640px;line-height:1.7;margin-bottom:60px;font-weight:300}
 
-/* ===== MODULE GRID ===== */
-.modules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px;position:relative;z-index:1}
-.module-card{
-  background:rgba(11,46,41,0.6);border:1px solid rgba(184,137,45,0.15);border-radius:16px;
-  padding:32px;position:relative;overflow:hidden;transition:all .4s;backdrop-filter:blur(10px);
-  display:flex;flex-direction:column;gap:16px
-}
-.module-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--aurora-1),var(--aurora-2),var(--aurora-3),var(--aurora-4));
-  opacity:0;transition:opacity .4s
-}
-.module-card:hover::before{opacity:1}
-.module-card:hover{
-  transform:translateY(-8px);border-color:rgba(184,137,45,0.3);
-  box-shadow:0 20px 60px rgba(0,0,0,0.3),0 0 40px rgba(124,58,237,0.1)
-}
-.module-num{
-  font-family:var(--font-mono);font-size:12px;color:var(--brass);font-weight:500;
-  display:inline-block;padding:4px 12px;border:1px solid rgba(184,137,45,0.3);border-radius:100px
-}
-.module-title{font-family:var(--font-display);font-size:22px;color:var(--paper);line-height:1.3}
-.module-desc{font-size:14px;color:var(--muted);line-height:1.7;flex:1}
-.module-icon{
-  width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-  font-size:24px;margin-bottom:8px;background:rgba(184,137,45,0.1);border:1px solid rgba(184,137,45,0.2)
-}
+/* Journey Overview */
+.journey-overview{background:var(--porcelain)}
+.journey-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.journey-card{background:var(--paper);border-radius:16px;padding:32px;text-align:center;transition:all 0.4s;border:1px solid rgba(11,46,41,0.06)}
+.journey-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(11,46,41,0.08);border-color:rgba(184,137,45,0.2)}
+.journey-number{font-family:var(--font-display);font-size:36px;color:var(--brass);line-height:1;margin-bottom:12px}
+.journey-label{font-size:13px;font-weight:600;color:var(--ink);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.journey-desc{font-size:13px;color:var(--muted);line-height:1.6}
+@media(max-width:768px){.journey-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.journey-grid{grid-template-columns:1fr}}
 
-/* ===== JOURNEY TIMELINE ===== */
-.timeline{position:relative;max-width:900px;margin:0 auto}
-.timeline::before{
-  content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;
-  background:linear-gradient(to bottom,var(--brass),var(--verdict),var(--aurora-2));
-  transform:translateX(-50%)
-}
-.timeline-item{display:flex;justify-content:flex-end;padding-right:50%;position:relative;margin-bottom:48px}
-.timeline-item:nth-child(even){justify-content:flex-start;padding-right:0;padding-left:50%}
-.timeline-dot{
-  position:absolute;left:50%;top:0;width:16px;height:16px;border-radius:50%;
-  background:var(--brass);border:3px solid var(--ink-deep);transform:translateX(-50%);
-  box-shadow:0 0 20px rgba(184,137,45,0.5);z-index:2
-}
-.timeline-content{
-  background:rgba(11,46,41,0.6);border:1px solid rgba(184,137,45,0.15);border-radius:12px;
-  padding:24px;max-width:380px;margin:0 24px;backdrop-filter:blur(10px)
-}
-.timeline-phase{font-family:var(--font-mono);font-size:10px;color:var(--brass);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
-.timeline-title{font-family:var(--font-display);font-size:20px;margin-bottom:8px}
-.timeline-desc{font-size:14px;color:var(--muted);line-height:1.6}
-@media(max-width:768px){
-  .timeline::before{left:20px}
-  .timeline-item,.timeline-item:nth-child(even){justify-content:flex-start;padding-left:56px;padding-right:0}
-  .timeline-dot{left:20px}
-}
+/* Modules */
+.modules-section{background:var(--paper)}
+.modules-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
+.module-card{background:var(--porcelain);border-radius:20px;overflow:hidden;transition:all 0.4s;border:1px solid rgba(11,46,41,0.06)}
+.module-card:hover{transform:translateY(-4px);box-shadow:0 24px 80px rgba(11,46,41,0.1)}
+.module-img{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--ink-deep)}
+.module-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s}
+.module-card:hover .module-img img{transform:scale(1.05)}
+.module-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(7,35,32,0.8) 100%)}
+.module-img-badge{position:absolute;top:16px;left:16px;background:rgba(11,46,41,0.85);color:var(--brass-soft);padding:6px 14px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:1px}
+.module-body{padding:28px}
+.module-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.module-number{font-family:var(--font-mono);font-size:12px;color:var(--brass);background:rgba(184,137,45,0.1);padding:4px 12px;border-radius:20px}
+.module-duration{font-size:12px;color:var(--muted-light)}
+.module-title{font-family:var(--font-display);font-size:22px;color:var(--ink);margin-bottom:12px;line-height:1.3}
+.module-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.module-focus{display:flex;flex-wrap:wrap;gap:8px}
+.module-focus span{font-size:11px;color:var(--muted);background:rgba(92,111,106,0.08);padding:4px 10px;border-radius:12px}
 
-/* ===== PRICING ===== */
-.pricing-card{
-  max-width:600px;margin:0 auto;background:linear-gradient(135deg,rgba(184,137,45,0.15),rgba(11,46,41,0.8));
-  border:2px solid var(--brass);border-radius:24px;padding:48px;text-align:center;
-  position:relative;overflow:hidden;backdrop-filter:blur(20px)
-}
-.pricing-card::before{
-  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
-  background:radial-gradient(circle,rgba(184,137,45,0.1),transparent 70%);
-  animation:pulse 4s ease-in-out infinite
-}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-.pricing-badge{
-  display:inline-block;padding:6px 16px;background:rgba(23,166,115,0.2);color:var(--verdict);
-  font-family:var(--font-mono);font-size:11px;border-radius:100px;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px
-}
-.pricing-amount{font-family:var(--font-display);font-size:clamp(48px,10vw,80px);color:var(--brass-soft);line-height:1}
-.pricing-amount span{font-size:24px;color:var(--muted);vertical-align:super}
-.pricing-original{font-size:18px;color:var(--muted);text-decoration:line-through;margin:12px 0}
-.pricing-save{font-size:16px;color:var(--verdict);font-weight:600;margin-bottom:32px}
-.pricing-features{text-align:left;max-width:400px;margin:0 auto 32px}
-.pricing-features li{
-  list-style:none;padding:8px 0 8px 28px;position:relative;font-size:15px;color:rgba(244,246,242,0.8);border-bottom:1px solid rgba(184,137,45,0.1)
-}
-.pricing-features li::before{content:'✦';position:absolute;left:0;color:var(--brass)}
+/* Full-width module for hero sections */
+.module-full{grid-column:1 / -1}
+.module-full .module-img{aspect-ratio:21/9}
+.module-full .module-title{font-size:28px}
 
-/* ===== CTA SECTION ===== */
-.cta-section{
-  text-align:center;padding:100px 24px;background:linear-gradient(180deg,transparent,rgba(184,137,45,0.05));
-  position:relative;overflow:hidden
-}
-.cta-section::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(124,58,237,0.1),transparent);
-  pointer-events:none
-}
-.cta-btn{
-  display:inline-flex;align-items:center;gap:12px;padding:18px 48px;
-  background:linear-gradient(135deg,var(--brass),var(--brass-glow));color:var(--ink-deep);
-  font-size:18px;font-weight:700;border-radius:14px;text-decoration:none;
-  transition:all .3s;box-shadow:0 8px 32px rgba(184,137,45,0.4);position:relative;overflow:hidden
-}
+@media(max-width:768px){.modules-grid{grid-template-columns:1fr}.module-full .module-img{aspect-ratio:16/9}}
 
-/* ===== FOOTER ===== */
-.footer{padding:60px 24px 40px;border-top:1px solid rgba(184,137,45,0.15);text-align:center}
-.footer-logo{width:60px;height:auto;margin-bottom:20px;opacity:.8}
-.footer h3{font-family:var(--font-display);font-size:24px;margin-bottom:8px}
-.footer p{color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:24px}
-.footer-contact{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-bottom:24px}
-.footer-contact a{color:var(--brass-soft);text-decoration:none;font-size:14px;transition:color .2s}
-.footer-contact a:hover{color:var(--paper)}
-.footer-social{display:flex;justify-content:center;gap:16px;margin-bottom:24px}
-.social-link{
-  width:40px;height:40px;border-radius:50%;border:1px solid rgba(184,137,45,0.3);
-  display:flex;align-items:center;justify-content:center;color:var(--brass-soft);
-  text-decoration:none;font-size:16px;transition:all .3s
-}
-.social-link:hover{background:var(--brass);color:var(--ink-deep);transform:translateY(-3px)}
+/* Benefits */
+.benefits-section{background:var(--ink);color:var(--porcelain)}
+.benefits-section .section-eyebrow{color:var(--brass-soft)}
+.benefits-section h2{color:var(--porcelain)}
+.benefits-section .section-desc{color:rgba(244,246,242,0.6)}
+.benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:40px}
+.benefit-item{padding:28px 0;border-top:1px solid rgba(184,137,45,0.2)}
+.benefit-icon{font-size:24px;margin-bottom:12px}
+.benefit-title{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--porcelain)}
+.benefit-desc{font-size:14px;color:rgba(244,246,242,0.55);line-height:1.6}
+@media(max-width:768px){.benefits-grid{grid-template-columns:1fr}}
 
-/* ===== ANIMATIONS ON SCROLL ===== */
-@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-.animate-on-scroll{animation:fadeUp .8s ease-out forwards;opacity:0}
-.animate-on-scroll.visible{opacity:1}
+/* Session Map */
+.session-map{background:var(--porcelain)}
+.map-timeline{position:relative;padding-left:40px}
+.map-timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--brass) 0%,rgba(184,137,45,0.1) 100%)}
+.map-item{position:relative;padding-bottom:36px}
+.map-dot{position:absolute;left:-33px;top:4px;width:14px;height:14px;background:var(--brass);border-radius:50%;border:3px solid var(--porcelain);box-shadow:0 0 0 2px var(--brass)}
+.map-header{display:flex;align-items:baseline;gap:12px;margin-bottom:8px;flex-wrap:wrap}
+.map-phase{font-family:var(--font-mono);font-size:11px;color:var(--brass);text-transform:uppercase;letter-spacing:1px}
+.map-title{font-family:var(--font-display);font-size:20px;color:var(--ink)}
+.map-sessions{font-size:12px;color:var(--muted);margin-bottom:8px}
+.map-desc{font-size:14px;color:var(--muted);line-height:1.6;max-width:600px}
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
-  .modules-grid{grid-template-columns:1fr}
-  .pricing-card{padding:32px 24px}
-  .section{padding:60px 16px}
-}
-@media print{
-  .hero{min-height:auto;padding:40px 24px}
-  .orb,.scroll-indicator{display:none}
-  .module-card{break-inside:avoid}
-}
+/* CTA Section */
+.cta-section{background:linear-gradient(135deg, var(--ink-deep) 0%, var(--ink) 100%);text-align:center;padding:120px 24px;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:url('hero.png') center/cover no-repeat;opacity:0.08;filter:blur(40px)}
+.cta-content{position:relative;z-index:1;max-width:640px;margin:0 auto}
+.cta-section h2{font-family:var(--font-display);font-size:clamp(32px,4vw,48px);color:var(--porcelain);margin-bottom:20px}
+.cta-section p{color:rgba(244,246,242,0.7);font-size:17px;margin-bottom:40px;font-weight:300;line-height:1.7}
+
+/* Footer */
+.footer{background:var(--ink-deep);padding:60px 24px 40px;border-top:1px solid rgba(184,137,45,0.1)}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.footer-logo{height:40px;width:auto}
+.footer-brand-text h3{font-family:var(--font-display);font-size:16px;color:var(--porcelain);margin-bottom:2px}
+.footer-brand-text span{font-size:10px;color:var(--brass-soft);text-transform:uppercase;letter-spacing:1.5px}
+.footer-tagline{font-size:13px;color:var(--muted-light);max-width:280px;line-height:1.6}
+.footer-links{display:flex;gap:32px;flex-wrap:wrap}
+.footer-col h4{font-size:11px;color:var(--brass);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;font-weight:600}
+.footer-col a{display:block;color:var(--muted-light);text-decoration:none;font-size:13px;margin-bottom:10px;transition:color 0.3s}
+.footer-col a:hover{color:var(--porcelain)}
+.footer-bottom{margin-top:40px;padding-top:20px;border-top:1px solid rgba(92,111,106,0.2);text-align:center;font-size:12px;color:var(--muted)}
+@media(max-width:768px){.footer-inner{flex-direction:column}.footer-links{gap:24px}}
 </style>
 </head>
 <body>
 
-<!-- ===== HERO ===== -->
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <img src="cpw-logo.png" alt="Centre for Personal Wellbeing" class="nav-logo">
+      <div class="nav-brand-text">
+        <h1>Centre for Personal Wellbeing</h1>
+        <span>by Dr. Smitha Prabhakar</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#programme">Programme</a>
+      <a href="#modules">Modules</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#sessions">Sessions</a>
+      <a href="#contact" class="nav-cta">Begin Your Reset</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
 <section class="hero">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <div class="orb orb-4"></div>
-  
+  <img src="hero.png" alt="Spiritual awakening cosmic energy" class="hero-bg">
+  <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-badge">✦ 20 Sessions · Complete Transformation ✦</div>
-    <h1>Life Reset<br>Programme</h1>
-    <p class="hero-sub">
-      A sacred 20-session journey to release the past, reclaim your power, 
-      and rewrite your future. Mindset, energy, and health coaching 
-      by Dr. Smitha Prabhakar.
-    </p>
-    <a href="#modules" class="hero-cta">
-      Begin Your Transformation →
-    </a>
+    <div class="hero-badge">20-Session Transformation</div>
+    <h1>Life Reset<br><em>Programme</em></h1>
+    <p class="hero-subtitle">A sacred journey of self-discovery and renewal. Release what no longer serves you, reconnect with your inner wisdom, and step into a life of purpose, peace, and vitality.</p>
+    <div class="hero-cta-group">
+      <a href="#programme" class="btn-primary">Begin Your Journey</a>
+      <a href="#modules" class="btn-secondary">Explore Modules</a>
+    </div>
   </div>
-  
-  <div class="scroll-indicator">
-    <span>Scroll</span>
-    <div class="arrow"></div>
-  </div>
+  <div class="hero-scroll">Scroll</div>
 </section>
 
-<!-- ===== OVERVIEW ===== -->
-<section class="section" style="background:var(--ink);">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label">The Journey</div>
-      <h2 class="section-title">What Awaits You</h2>
-      <p class="section-desc">
-        Fifteen transformative modules woven into twenty intimate sessions. 
-        Each session is a portal — clearing, healing, and activating 
-        the life you were born to live.
-      </p>
-    </div>
-    
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-phase">Phase I · Sessions 1-5</div>
-          <div class="timeline-title">Release &amp; Clear</div>
-          <div class="timeline-desc">
-            Clear past traumas, negative emotions, and energetic debris. 
-            Reset your foundation.
-          </div>
-        </div>
+<!-- Journey Overview -->
+<section class="section journey-overview" id="programme">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Path</div>
+    <h2>Four Sacred Phases of <em>Transformation</em></h2>
+    <p class="section-desc">Each phase builds upon the last, creating a comprehensive container for deep healing and lasting change.</p>
+    <div class="journey-grid">
+      <div class="journey-card">
+        <div class="journey-number">01</div>
+        <div class="journey-label">Release</div>
+        <div class="journey-desc">Let go of emotional baggage, limiting beliefs, and energetic blockages</div>
       </div>
-      
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-phase">Phase II · Sessions 6-10</div>
-          <div class="timeline-title">Balance &amp; Align</div>
-          <div class="timeline-desc">
-            Chakra cleansing, quantum healing, polarity integration. 
-            Restore harmony to body and soul.
-          </div>
-        </div>
+      <div class="journey-card">
+        <div class="journey-number">02</div>
+        <div class="journey-label">Reconnect</div>
+        <div class="journey-desc">Restore your energy body, align your chakras, awaken your inner healer</div>
       </div>
-      
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-phase">Phase III · Sessions 11-15</div>
-          <div class="timeline-title">Empower &amp; Transform</div>
-          <div class="timeline-desc">
-            Breathwork, meditation, yoga, habit creation. 
-            Build the practices that sustain your new life.
-          </div>
-        </div>
+      <div class="journey-card">
+        <div class="journey-number">03</div>
+        <div class="journey-label">Rebuild</div>
+        <div class="journey-desc">Design your new life with clarity, purpose, and empowered intention</div>
       </div>
-      
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-phase">Phase IV · Sessions 16-20</div>
-          <div class="timeline-title">Flourish &amp; Integrate</div>
-          <div class="timeline-desc">
-            Relationship coaching, detox, addiction release. 
-            Step fully into your transformed reality.
-          </div>
-        </div>
+      <div class="journey-card">
+        <div class="journey-number">04</div>
+        <div class="journey-label">Radiate</div>
+        <div class="journey-desc">Live from your authentic power, serve others, embody your highest self</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== MODULES ===== -->
-<section class="section" id="modules" style="background:var(--ink-deep);">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label">The Curriculum</div>
-      <h2 class="section-title">15 Sacred Modules</h2>
-      <p class="section-desc">
-        Each module is a doorway. Together, they form a complete system 
-        for personal revolution.
-      </p>
-    </div>
-    
+<!-- Modules -->
+<section class="section modules-section" id="modules">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Curriculum</div>
+    <h2>20 Modules for <em>Complete Renewal</em></h2>
+    <p class="section-desc">Each session is a carefully crafted experience combining energy healing, spiritual practice, and practical tools for lasting transformation.</p>
     <div class="modules-grid">
-      <!-- M01 -->
-      <div class="module-card">
-        <div class="module-icon">🔮</div>
-        <div class="module-num">Module 01</div>
-        <div class="module-title">Life Reset Tools</div>
-        <div class="module-desc">
-          The foundational toolkit to envision and create a better, happier, 
-          and fulfilled life. Map your current reality and design your desired future 
-          with clarity and intention.
+
+      <!-- Foundation Phase -->
+      <div class="module-card module-full">
+        <div class="module-img">
+          <img src="m01.png" alt="Foundation and Trust">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Phase 1 — Foundation</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">Module 01</span>
+            <span class="module-duration">90 min</span>
+          </div>
+          <h3 class="module-title">Foundation &amp; Trust</h3>
+          <p class="module-desc">Establishing safety, setting intentions, and building the therapeutic relationship. Creating your sacred healing container.</p>
+          <div class="module-focus">
+            <span>Intention Setting</span>
+            <span>Safe Space Creation</span>
+            <span>Healing Contract</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M02 -->
+
       <div class="module-card">
-        <div class="module-icon">🕊️</div>
-        <div class="module-num">Module 02</div>
-        <div class="module-title">Clearing Past Traumas &amp; Negative Emotions</div>
-        <div class="module-desc">
-          Embrace healing to free your spirit from the shadows of the past. 
-          Release stored emotional pain and reclaim your natural state of peace.
+        <div class="module-img" style="background:linear-gradient(135deg,#0B2E29,#1a4a42)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 02</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">02</span>
+            <span class="module-duration">75 min</span>
+          </div>
+          <h3 class="module-title">Emotional Clearing</h3>
+          <p class="module-desc">Releasing suppressed emotions, grief, and trauma through Pranic Healing and guided release techniques.</p>
+          <div class="module-focus">
+            <span>Trauma Release</span>
+            <span>Grief Work</span>
+            <span>Emotional Detox</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M03 -->
+
       <div class="module-card">
-        <div class="module-icon">⚡</div>
-        <div class="module-num">Module 03</div>
-        <div class="module-title">Negative Energy Clearing &amp; Healing</div>
-        <div class="module-desc">
-          Release negative energy, welcome healing vibes, and let your inner light shine. 
-          Purify your energetic field and restore vibrant flow.
+        <div class="module-img" style="background:linear-gradient(135deg,#1a3a35,#0B2E29)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 03</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">03</span>
+            <span class="module-duration">75 min</span>
+          </div>
+          <h3 class="module-title">Energy Body Alignment</h3>
+          <p class="module-desc">Cleansing and harmonizing your energy field. Removing blockages and restoring natural flow through Reiki and Pranic Healing.</p>
+          <div class="module-focus">
+            <span>Aura Cleansing</span>
+            <span>Meridian Balance</span>
+            <span>Energy Flow</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M04 -->
+
       <div class="module-card">
-        <div class="module-icon">🌈</div>
-        <div class="module-num">Module 04</div>
-        <div class="module-title">Chakra Cleansing &amp; Balancing</div>
-        <div class="module-desc">
-          Harmonize your energy centers, find balance, and unlock your inner potential. 
-          Activate each chakra for total energetic alignment.
+        <div class="module-img" style="background:linear-gradient(135deg,#0d2e29,#16453d)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 04</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">04</span>
+            <span class="module-duration">90 min</span>
+          </div>
+          <h3 class="module-title">Deep Chakra Journey</h3>
+          <p class="module-desc">Comprehensive chakra assessment and deep healing. Working through each energy center to restore balance and vitality.</p>
+          <div class="module-focus">
+            <span>Chakra Diagnosis</span>
+            <span>Root-to-Crown</span>
+            <span>Energy Activation</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M05 -->
+
+      <!-- Release Phase -->
       <div class="module-card">
-        <div class="module-icon">🎯</div>
-        <div class="module-num">Module 05</div>
-        <div class="module-title">Life-Changing Decisions &amp; Habit Creation</div>
-        <div class="module-desc">
-          Master the art of effortless life-changing decisions through habit creation. 
-          Build neural pathways that serve your highest self.
+        <div class="module-img" style="background:linear-gradient(135deg,#1a2e2a,#0B2E29)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 05</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">05</span>
+            <span class="module-duration">75 min</span>
+          </div>
+          <h3 class="module-title">Limiting Belief Dissolution</h3>
+          <p class="module-desc">Identifying and releasing subconscious beliefs that keep you stuck. Rewiring your mental patterns for success and freedom.</p>
+          <div class="module-focus">
+            <span>Belief Mapping</span>
+            <span>Subconscious Clearing</span>
+            <span>Mind Rewiring</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M06 -->
+
       <div class="module-card">
-        <div class="module-icon">💞</div>
-        <div class="module-num">Module 06</div>
-        <div class="module-title">Relationship Coaching</div>
-        <div class="module-desc">
-          Elevate your relationships with expert coaching for better connections 
-          and lasting fulfillment. Transform how you love and communicate.
+        <div class="module-img" style="background:linear-gradient(135deg,#0B2E29,#1a3a35)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 06</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">06</span>
+            <span class="module-duration">90 min</span>
+          </div>
+          <h3 class="module-title">Ancestral &amp; Karmic Release</h3>
+          <p class="module-desc">Healing generational patterns and karmic imprints. Freeing yourself from inherited burdens and family conditioning.</p>
+          <div class="module-focus">
+            <span>Family Patterns</span>
+            <span>Karmic Clearing</span>
+            <span>Generational Healing</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M07 -->
+
       <div class="module-card">
-        <div class="module-icon">🔬</div>
-        <div class="module-num">Module 07</div>
-        <div class="module-title">Quantum Healing</div>
-        <div class="module-desc">
-          Explore the interplay of energy and consciousness to facilitate 
-          holistic well-being and recovery. Work at the quantum level of reality.
+        <div class="module-img" style="background:linear-gradient(135deg,#16453d,#0B2E29)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 07</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">07</span>
+            <span class="module-duration">75 min</span>
+          </div>
+          <h3 class="module-title">Past Life Integration</h3>
+          <p class="module-desc">Exploring soul memories and past life influences. Understanding recurring patterns from a higher perspective.</p>
+          <div class="module-focus">
+            <span>Past Life Recall</span>
+            <span>Soul Memory</span>
+            <span>Pattern Recognition</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M08 -->
+
       <div class="module-card">
-        <div class="module-icon">🌿</div>
-        <div class="module-num">Module 08</div>
-        <div class="module-title">Mind-Body Detox</div>
-        <div class="module-desc">
-          Rejuvenate your well-being with a holistic mind-body detox. 
-          Clear physical and mental toxins for renewed vitality.
+        <div class="module-img" style="background:linear-gradient(135deg,#0B2E29,#1a4a42)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 08</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">08</span>
+            <span class="module-duration">90 min</span>
+          </div>
+          <h3 class="module-title">Shadow Work &amp; Integration</h3>
+          <p class="module-desc">Embracing your shadow self with compassion. Transforming suppressed aspects into sources of power and wisdom.</p>
+          <div class="module-focus">
+            <span>Shadow Embrace</span>
+            <span>Inner Alchemy</span>
+            <span>Wholeness</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M09 -->
+
+      <!-- Reconnect Phase -->
       <div class="module-card">
-        <div class="module-icon">🧬</div>
-        <div class="module-num">Module 09</div>
-        <div class="module-title">Gut Detox Therapy</div>
-        <div class="module-desc">
-          Revitalize your health with targeted gut detox therapy. 
-          Restore your microbiome and strengthen your second brain.
+        <div class="module-img" style="background:linear-gradient(135deg,#1a4a42,#0B2E29)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 09</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">09</span>
+            <span class="module-duration">75 min</span>
+          </div>
+          <h3 class="module-title">Inner Child Healing</h3>
+          <p class="module-desc">Reparenting your wounded inner child. Healing childhood wounds and restoring innocence, joy, and playfulness.</p>
+          <div class="module-focus">
+            <span>Inner Child Work</span>
+            <span>Reparenting</span>
+            <span>Joy Restoration</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M10 -->
+
       <div class="module-card">
-        <div class="module-icon">⏳</div>
-        <div class="module-num">Module 10</div>
-        <div class="module-title">Timeline Therapy</div>
-        <div class="module-desc">
-          Unlock personal growth and healing through transformative timeline therapy. 
-          Rewrite your past narratives and free your future.
+        <div class="module-img" style="background:linear-gradient(135deg,#0B2E29,#1a3a35)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 10</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">10</span>
+            <span class="module-duration">90 min</span>
+          </div>
+          <h3 class="module-title">Divine Feminine / Masculine Balance</h3>
+          <p class="module-desc">Harmonizing your inner masculine and feminine energies. Creating balance between action and receptivity, strength and softness.</p>
+          <div class="module-focus">
+            <span>Yin-Yang Balance</span>
+            <span>Divine Union</span>
+            <span>Polarity Integration</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M11 -->
+
       <div class="module-card">
-        <div class="module-icon">☯️</div>
-        <div class="module-num">Module 11</div>
-        <div class="module-title">Polarity Integration</div>
-        <div class="module-desc">
-          Harmonize your inner polarities for holistic integration and balance. 
-          Embrace both shadow and light as one.
+        <div class="module-img" style="background:linear-gradient(135deg,#0d2e29,#16453d)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 11</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">11</span>
+            <span class="module-duration">75 min</span>
+          </div>
+          <h3 class="module-title">Soul Purpose Activation</h3>
+          <p class="module-desc">Discovering your soul's mission and life purpose. Aligning your daily life with your deeper calling and highest path.</p>
+          <div class="module-focus">
+            <span>Life Purpose</span>
+            <span>Soul Mission</span>
+            <span>Path Alignment</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M12 -->
+
       <div class="module-card">
-        <div class="module-icon">🌬️</div>
-        <div class="module-num">Module 12</div>
-        <div class="module-title">Breathwork</div>
-        <div class="module-desc">
-          Experience inner transformation through the power of breathwork. 
-          Use conscious breathing to access altered states and deep healing.
+        <div class="module-img" style="background:linear-gradient(135deg,#1a2e2a,#0B2E29)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 12</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">12</span>
+            <span class="module-duration">75 min</span>
+          </div>
+          <h3 class="module-title">Intuitive Development</h3>
+          <p class="module-desc">Awakening and refining your intuitive gifts. Learning to trust your inner guidance and read energy with confidence.</p>
+          <div class="module-focus">
+            <span>Third Eye Opening</span>
+            <span>Intuition Training</span>
+            <span>Energy Reading</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M13 -->
+
+      <!-- Rebuild Phase -->
       <div class="module-card">
-        <div class="module-icon">🧘</div>
-        <div class="module-num">Module 13</div>
-        <div class="module-title">Meditation</div>
-        <div class="module-desc">
-          Cultivate inner peace and clarity through the practice of meditation. 
-          Train your mind to be still, aware, and present.
+        <div class="module-img" style="background:linear-gradient(135deg,#16453d,#0B2E29)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 13</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">13</span>
+            <span class="module-duration">90 min</span>
+          </div>
+          <h3 class="module-title">Relationship Healing</h3>
+          <p class="module-desc">Healing relationship wounds and patterns. Restoring trust, boundaries, and healthy connection in all relationships.</p>
+          <div class="module-focus">
+            <span>Boundaries</span>
+            <span>Trust Repair</span>
+            <span>Healthy Connection</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M14 -->
+
       <div class="module-card">
-        <div class="module-icon">🤸</div>
-        <div class="module-num">Module 14</div>
-        <div class="module-title">Yoga</div>
-        <div class="module-desc">
-          Enhance your physical and mental well-being through the ancient wisdom of yoga. 
-          Unite body, breath, and mind in sacred movement.
+        <div class="module-img" style="background:linear-gradient(135deg,#0B2E29,#1a4a42)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 14</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">14</span>
+            <span class="module-duration">75 min</span>
+          </div>
+          <h3 class="module-title">Abundance &amp; Prosperity Alignment</h3>
+          <p class="module-desc">Clearing money blocks and scarcity consciousness. Opening to receive abundance in all forms — financial, emotional, spiritual.</p>
+          <div class="module-focus">
+            <span>Money Blocks</span>
+            <span>Abundance Mindset</span>
+            <span>Prosperity Flow</span>
+          </div>
         </div>
       </div>
-      
-      <!-- M15 -->
+
       <div class="module-card">
-        <div class="module-icon">🔓</div>
-        <div class="module-num">Module 15</div>
-        <div class="module-title">Addiction Release</div>
-        <div class="module-desc">
-          Find freedom from cigar and liquor addiction through tailored release strategies. 
-          Break the chains and reclaim your sovereignty.
+        <div class="module-img" style="background:linear-gradient(135deg,#1a3a35,#0B2E29)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 15</div>
         </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">15</span>
+            <span class="module-duration">90 min</span>
+          </div>
+          <h3 class="module-title">Body Wisdom &amp; Somatic Healing</h3>
+          <p class="module-desc">Reconnecting with your body's intelligence. Releasing stored trauma and restoring trust in your physical vessel.</p>
+          <div class="module-focus">
+            <span>Somatic Release</span>
+            <span>Body Intelligence</span>
+            <span>Embodiment</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-img" style="background:linear-gradient(135deg,#0d2e29,#1a2e2a)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 16</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">16</span>
+            <span class="module-duration">75 min</span>
+          </div>
+          <h3 class="module-title">Creative Expression &amp; Voice</h3>
+          <p class="module-desc">Unblocking your creative flow and authentic voice. Expressing your truth through art, movement, sound, and writing.</p>
+          <div class="module-focus">
+            <span>Creative Unblocking</span>
+            <span>Authentic Voice</span>
+            <span>Self-Expression</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Radiate Phase -->
+      <div class="module-card">
+        <div class="module-img" style="background:linear-gradient(135deg,#0B2E29,#16453d)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 17</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">17</span>
+            <span class="module-duration">90 min</span>
+          </div>
+          <h3 class="module-title">Spiritual Protection &amp; Boundaries</h3>
+          <p class="module-desc">Strengthening your energetic boundaries and spiritual protection. Maintaining your energy in challenging environments.</p>
+          <div class="module-focus">
+            <span>Energy Shielding</span>
+            <span>Psychic Protection</span>
+            <span>Boundaries</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-img" style="background:linear-gradient(135deg,#1a4a42,#0B2E29)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 18</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">18</span>
+            <span class="module-duration">75 min</span>
+          </div>
+          <h3 class="module-title">Manifestation Mastery</h3>
+          <p class="module-desc">Aligning your energy with your desires. Mastering the art of conscious creation and attracting your highest good.</p>
+          <div class="module-focus">
+            <span>Conscious Creation</span>
+            <span>Energy Alignment</span>
+            <span>Law of Attraction</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-img" style="background:linear-gradient(135deg,#0B2E29,#1a3a35)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 19</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">19</span>
+            <span class="module-duration">90 min</span>
+          </div>
+          <h3 class="module-title">Integration &amp; Future Self</h3>
+          <p class="module-desc">Meeting your future self and anchoring your transformation. Creating a bridge between who you are and who you're becoming.</p>
+          <div class="module-focus">
+            <span>Future Self Vision</span>
+            <span>Integration</span>
+            <span>Anchor Transformation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-card">
+        <div class="module-img" style="background:linear-gradient(135deg,#16453d,#0B2E29)">
+          <div class="module-img-overlay"></div>
+          <div class="module-img-badge">Module 20 — Closing</div>
+        </div>
+        <div class="module-body">
+          <div class="module-meta">
+            <span class="module-number">20</span>
+            <span class="module-duration">120 min</span>
+          </div>
+          <h3 class="module-title">Graduation &amp; Life Mastery</h3>
+          <p class="module-desc">Celebrating your journey and sealing your transformation. Creating your personal maintenance plan and ongoing practice.</p>
+          <div class="module-focus">
+            <span>Celebration</span>
+            <span>Life Mastery Plan</span>
+            <span>Ongoing Practice</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Benefits -->
+<section class="section benefits-section" id="benefits">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Transformation</div>
+    <h2>What You Will <em>Receive</em></h2>
+    <p class="section-desc">Beyond the sessions themselves, you gain tools, practices, and shifts that last a lifetime.</p>
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="benefit-icon">🌊</div>
+        <div class="benefit-title">Emotional Freedom</div>
+        <div class="benefit-desc">Release years of suppressed emotions, trauma, and limiting beliefs that have held you back.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">⚡</div>
+        <div class="benefit-title">Vital Energy</div>
+        <div class="benefit-desc">Restore your natural energy flow. Wake up refreshed, move through your day with sustained vitality.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🧭</div>
+        <div class="benefit-title">Clarity &amp; Purpose</div>
+        <div class="benefit-desc">Know exactly who you are and where you're going. Decision-making becomes effortless and aligned.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🤝</div>
+        <div class="benefit-title">Healthy Relationships</div>
+        <div class="benefit-desc">Attract and maintain nourishing connections. Set boundaries with love and communicate with authenticity.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">💰</div>
+        <div class="benefit-title">Abundance Flow</div>
+        <div class="benefit-desc">Clear financial blocks and open to receiving prosperity in all areas of your life.</div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-icon">🔮</div>
+        <div class="benefit-title">Intuitive Power</div>
+        <div class="benefit-desc">Trust your inner guidance implicitly. Navigate life with confidence and spiritual discernment.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== PRICING ===== -->
-<section class="section" style="background:var(--ink);">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label">Investment</div>
-      <h2 class="section-title">Your Transformation Awaits</h2>
-      <p class="section-desc">
-        20 sessions. 15 modules. One life, completely reset. 
-        The investment is small compared to the life you'll gain.
-      </p>
-    </div>
-    
-    <div class="pricing-card">
-      <div class="pricing-badge">✦ Complete Package ✦</div>
-      <div class="pricing-amount"><span>AED</span>10,000</div>
-      <div class="pricing-original">Regular value: AED 26,000 (20 sessions × AED 1,300)</div>
-      <div class="pricing-save">You save AED 16,000 (62% off)</div>
-      
-      <ul class="pricing-features">
-        <li>20 private 1-on-1 sessions (60-90 min each)</li>
-        <li>All 15 transformative modules included</li>
-        <li>Personalized session plan updated weekly</li>
-        <li>In-person at Al Barsha or online via video</li>
-        <li>WhatsApp support between sessions</li>
-        <li>Lifetime access to meditation recordings</li>
-        <li>Post-program maintenance check-in (30 days)</li>
-      </ul>
-      
-      <a href="#contact" class="hero-cta" style="font-size:18px;padding:18px 48px">
-        Book Your Discovery Call →
-      </a>
+<!-- Session Map -->
+<section class="section session-map" id="sessions">
+  <div class="section-inner">
+    <div class="section-eyebrow">The Schedule</div>
+    <h2>Your 20-Session <em>Journey Map</em></h2>
+    <p class="section-desc">Sessions are spaced 1–2 weeks apart to allow deep integration between each module.</p>
+    <div class="map-timeline">
+      <div class="map-item">
+        <div class="map-dot"></div>
+        <div class="map-header">
+          <span class="map-phase">Phase 1</span>
+          <span class="map-title">Foundation &amp; Trust</span>
+        </div>
+        <div class="map-sessions">Sessions 1–4 · Weeks 1–4</div>
+        <div class="map-desc">Establish safety, set intentions, begin emotional and energy clearing. Build your sacred healing container.</div>
+      </div>
+      <div class="map-item">
+        <div class="map-dot"></div>
+        <div class="map-header">
+          <span class="map-phase">Phase 2</span>
+          <span class="map-title">Deep Release</span>
+        </div>
+        <div class="map-sessions">Sessions 5–8 · Weeks 5–10</div>
+        <div class="map-desc">Dissolve limiting beliefs, heal ancestral and karmic patterns, integrate shadow work, explore past life influences.</div>
+      </div>
+      <div class="map-item">
+        <div class="map-dot"></div>
+        <div class="map-header">
+          <span class="map-phase">Phase 3</span>
+          <span class="map-title">Reconnection &amp; Awakening</span>
+        </div>
+        <div class="map-sessions">Sessions 9–12 · Weeks 11–16</div>
+        <div class="map-desc">Heal inner child, balance divine feminine/masculine, activate soul purpose, develop intuitive gifts.</div>
+      </div>
+      <div class="map-item">
+        <div class="map-dot"></div>
+        <div class="map-header">
+          <span class="map-phase">Phase 4</span>
+          <span class="map-title">Rebuilding &amp; Empowerment</span>
+        </div>
+        <div class="map-sessions">Sessions 13–16 · Weeks 17–22</div>
+        <div class="map-desc">Transform relationships, align with abundance, restore body wisdom, unblock creative expression and authentic voice.</div>
+      </div>
+      <div class="map-item">
+        <div class="map-dot"></div>
+        <div class="map-header">
+          <span class="map-phase">Phase 5</span>
+          <span class="map-title">Radiance &amp; Mastery</span>
+        </div>
+        <div class="map-sessions">Sessions 17–20 · Weeks 23–28</div>
+        <div class="map-desc">Master spiritual protection, manifestation, integration with future self, and graduation with life mastery plan.</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA ===== -->
+<!-- CTA -->
 <section class="cta-section" id="contact">
-  <div class="container">
-    <div class="section-header">
-      <div class="section-label">Begin Now</div>
-      <h2 class="section-title" style="font-size:clamp(32px,6vw,56px)">The Life You Want Is Waiting</h2>
-      <p class="section-desc">
-        Every great transformation begins with a single decision. 
-        Make yours today.
-      </p>
+  <div class="cta-content">
+    <div class="section-eyebrow">Begin Today</div>
+    <h2>Your New Life is <em>Waiting</em></h2>
+    <p>The Life Reset Programme is a sacred commitment to yourself. If you feel called to this journey, trust that impulse. Your soul knows what it needs.</p>
+    <div class="hero-cta-group">
+      <a href="https://centreforpersonalwellbeing.com" class="btn-primary" target="_blank">Book Your Session</a>
+      <a href="intake-form.html" class="btn-secondary">Complete Intake Form</a>
     </div>
-    
-    <a href="https://wa.me/971****7313" class="cta-btn" target="_blank">
-      💬 Message on WhatsApp
-    </a>
-    <p style="margin-top:24px;font-size:14px;color:var(--muted)">
-      Or call +971****7313 · Available 7 days a week
-    </p>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- Footer -->
 <footer class="footer">
-  <img src="https://fluxthealchemist-coder.github.io/pandora-skill-box/cpw-logo.png" alt="CPW" class="footer-logo">
-  <h3>Centre for Personal Wellbeing</h3>
-  <p>
-    by Dr. Smitha Prabhakar · Reiki Master &amp; Pranic Healing Practitioner<br>
-    Mindset, Energy &amp; Health Coaching · Dubai, UAE
-  </p>
-  
-  <div class="footer-contact">
-    <a href="https://wa.me/971****7313" target="_blank">📱 WhatsApp</a>
-    <a href="tel:+971****7313">📞 +971****7313</a>
-    <a href="mailto:info@centreforpersonalwellbeing.com">✉️ Email</a>
+  <div class="footer-inner">
+    <div class="footer-brand-col">
+      <div class="footer-brand">
+        <img src="cpw-logo.png" alt="Centre for Personal Wellbeing" class="footer-logo">
+        <div class="footer-brand-text">
+          <h3>Centre for Personal Wellbeing</h3>
+          <span>by Dr. Smitha Prabhakar</span>
+        </div>
+      </div>
+      <p class="footer-tagline">Healing, transformation, and spiritual growth for those ready to reclaim their lives.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Programmes</h4>
+        <a href="life-reset-programme.html">Life Reset</a>
+        <a href="healing-protocol.html">5-Session Healing</a>
+        <a href="healing-toolkit.html">Practitioner Toolkit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="intake-form.html">Intake Form</a>
+        <a href="client-analysis.html">Client Analysis</a>
+        <a href="cpw-invoice.html">Invoice</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="https://centreforpersonalwellbeing.com" target="_blank">centreforpersonalwellbeing.com</a>
+        <a href="https://wa.me/971585273713" target="_blank">WhatsApp</a>
+      </div>
+    </div>
   </div>
-  
-  <div class="footer-social">
-    <a href="https://instagram.com/drsmithaprabhakar" class="social-link" target="_blank">📸</a>
-    <a href="https://instagram.com/centreforpersonalwellbeing" class="social-link" target="_blank">🌐</a>
+  <div class="footer-bottom">
+    © 2026 Centre for Personal Wellbeing by Dr. Smitha Prabhakar. All rights reserved.
   </div>
-  
-  <p style="font-size:12px;color:var(--muted);margin-top:24px">
-    © 2026 Centre for Personal Wellbeing. All rights reserved. <br>
-    Al Barsha, Dubai · Online sessions available worldwide
-  </p>
 </footer>
 
-<script>
-// Simple scroll animation observer
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.module-card, .timeline-item').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(30px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
-});
-
-observer.observe(document.querySelector('.pricing-card'));
-
-document.querySelector('.pricing-card').style.opacity = '0';
-document.querySelector('.pricing-card').style.transform = 'translateY(30px)';
-document.querySelector('.pricing-card').style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-
-// Trigger visible when in view
-const originalCallback = observer.callback;
-observer.callback = (entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
-  });
-};
-</script>
-
-</body></html>
+</body>
+</html>
