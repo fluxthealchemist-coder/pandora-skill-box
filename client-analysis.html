@@ -10,10 +10,13 @@ html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{font-family:var(--font-body);background:#f5f5f0;color:var(--ink);min-height:100vh;padding:24px}
 .page{background:#fff;max-width:210mm;margin:0 auto;padding:28px 32px;box-shadow:0 4px 24px rgba(0,0,0,0.08)}
 @media print{body{background:#fff;padding:0}.page{box-shadow:none;padding:16px 20px;max-width:100%}}
-.header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--brass)}
-.header h1{font-family:var(--font-display);font-size:24px;font-weight:400}
-.header .sub{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-.seal{width:42px;height:42px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700;flex-shrink:0}
+.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:16px;border-bottom:2px solid var(--brass)}
+.header-left{display:flex;align-items:center;gap:14px}
+.logo-img{width:70px;height:auto;object-fit:contain}
+.header-text h1{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:2px}
+.header-text .sub{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px}
+.header-text .by{font-size:11px;color:var(--brass);margin-top:3px;font-style:italic}
+.seal{display:none}
 .meta{display:flex;gap:20px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
 .meta-item{font-size:12px;color:var(--muted)}
 .meta-item strong{color:var(--ink);font-weight:600}
@@ -53,11 +56,14 @@ tr:nth-child(even){background:#f9fafb}
 <div class="page">
 
 <div class="header">
-  <div>
-    <h1>Client Intake Analysis</h1>
-    <div class="sub">Reiki &amp; Pranic Healing · 5-Session Protocol</div>
+  <div class="header-left">
+    <img src="https://fluxthealchemist-coder.github.io/pandora-skill-box/cpw-logo.png" alt="Centre for Personal Wellbeing" class="logo-img">
+    <div class="header-text">
+      <h1>Client Intake Analysis</h1>
+      <div class="sub">Reiki &amp; Pranic Healing · 5-Session Protocol</div>
+      <div class="by">by Dr. Smitha Prabhakar</div>
+    </div>
   </div>
-  <div class="seal">H</div>
 </div>
 
 <div class="meta" id="metaRow">

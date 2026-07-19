@@ -10,9 +10,10 @@ html{font-size:16px}
 body{font-family:var(--font-body);background:var(--ink-deep);color:var(--paper);min-height:100vh;display:flex;flex-direction:column}
 .top-bar{background:var(--ink);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--brass)}
 .top-bar .brand{display:flex;align-items:center;gap:10px}
-.top-bar .seal{width:36px;height:36px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700}
+.logo-img-small{width:40px;height:auto;object-fit:contain}
 .top-bar .brand-text h1{font-family:var(--font-display);font-size:18px;font-weight:400}
 .top-bar .brand-text p{font-size:11px;color:var(--muted);margin-top:1px}
+.seal{display:none}
 .btn{font-family:var(--font-body);font-size:13px;font-weight:600;padding:8px 16px;border-radius:6px;border:none;cursor:pointer;transition:all .2s}
 .btn-primary{background:var(--brass);color:#fff}
 .btn-primary:hover{background:var(--brass-soft);color:var(--ink)}
@@ -80,7 +81,7 @@ input[type="text"]{min-height:40px}
 
 <div class="top-bar">
   <div class="brand">
-    <div class="seal">H</div>
+    <img src="https://fluxthealchemist-coder.github.io/pandora-skill-box/cpw-logo.png" alt="CPW" class="logo-img-small">
     <div class="brand-text">
       <h1>Healing Intake Form — Reiki &amp; Pranic Healing</h1>
       <p>5-Session Protocol · Personalized to your needs</p>
@@ -336,10 +337,15 @@ input[type="text"]{min-height:40px}
       <div class="q-hint-inline">Distant healing is equally effective — energy transcends physical distance.</div>
     </td><td>
       <div class="cb-list">
-        <label class="cb-row"><input type="radio" name="q19" value="in-person"><span>In-person — at the clinic</span></label>
-        <label class="cb-row"><input type="radio" name="q19" value="distant"><span>Distant — from home (equally effective)</span></label>
-        <label class="cb-row"><input type="radio" name="q19" value="hybrid"><span>Hybrid — first in-person, rest distant</span></label>
-        <label class="cb-row"><input type="radio" name="q19" value="flexible"><span>Flexible — decide each week</span></label>
+        <label class="cb-row"><input type="radio" name="q19" value="in-person" onclick="toggleZoomField()"><span>In-person — at the clinic</span></label>
+        <label class="cb-row"><input type="radio" name="q19" value="distant" onclick="toggleZoomField()"><span>Distant — from home (equally effective)</span></label>
+        <label class="cb-row"><input type="radio" name="q19" value="hybrid" onclick="toggleZoomField()"><span>Hybrid — first in-person, rest distant</span></label>
+        <label class="cb-row"><input type="radio" name="q19" value="flexible" onclick="toggleZoomField()"><span>Flexible — decide each week</span></label>
+      </div>
+      <div id="zoomField" style="display:none;margin-top:12px">
+        <div style="font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px">📹 Video Call Link</div>
+        <input type="text" name="q19_zoom" placeholder="Paste your Zoom / Google Meet / Teams link here..." style="width:100%;padding:10px 12px;border:1.5px solid var(--brass);border-radius:6px;font-size:14px">
+        <div style="font-size:12px;color:var(--muted);margin-top:4px">Or type your preferred video platform (Zoom, WhatsApp video, etc.)</div>
       </div>
     </td></tr>
 
@@ -395,10 +401,11 @@ function prevStep(){if(currentStep>0)showStep(currentStep-1);}
 function updateScale(input){const num=input.nextElementSibling;if(num&&num.classList.contains('scale-num'))num.textContent=input.value;}
 function resetForm(){if(!confirm('Clear all answers?'))return;document.querySelectorAll('input,textarea').forEach(el=>{if(el.type==='checkbox'||el.type==='radio')el.checked=false;else if(el.type==='range'){el.value=5;updateScale(el);}else{el.value='';}});showStep(0);}
 function toggleZoom(){document.body.classList.toggle('zoom-mode');const btn=document.querySelector('.zoom-toggle');btn.textContent=document.body.classList.contains('zoom-mode')?'🔍 Normal Mode':'🔍 Zoom Mode';}
+function toggleZoomField(){const zoomField=document.getElementById('zoomField');const selected=document.querySelector('input[name="q19"]:checked');if(selected&&(selected.value==='distant'||selected.value==='hybrid'||selected.value==='flexible')){zoomField.style.display='block';}else{zoomField.style.display='none';}}
 function gatherData(){const fd=new FormData(document.getElementById('intakeForm'));const data={};fd.forEach((v,k)=>{if(data[k]){if(Array.isArray(data[k]))data[k].push(v);else data[k]=[data[k],v];}else{data[k]=v;}});return data;}
 function formatMessage(data){
   let msg='Healing Intake Form\n\n';
-  const map={'q01':'Q01. Primary Reason','q02':'Q02. Medical Diagnoses','q03':'Q03. Medications','q04':'Q04. Conditions','q05':'Q05. Energy Level','q06':'Q06. Sleep','q07':'Q07. Pain Patterns','q08':'Q08. Mobility','q09':'Q09. Emotional State','q10':'Q10. Life Changes','q11':'Q11. Anxiety','q12':'Q12. Mood','q13':'Q13. Joy','q14':'Q14. Mental Health Support','q15':'Q15. Prior Healing','q15_detail':'Q15b. Healing Detail','q16':'Q16. Energy Sensitivity','q17':'Q17. Spiritual Practice','q18':'Q18. Goals','q19':'Q19. Session Format','q20':'Q20. Touch Preference','q21':'Q21. Caregiver','q22':'Q22. Additional Notes'};
+  const map={'q01':'Q01. Primary Reason','q02':'Q02. Medical Diagnoses','q03':'Q03. Medications','q04':'Q04. Conditions','q05':'Q05. Energy Level','q06':'Q06. Sleep','q07':'Q07. Pain Patterns','q08':'Q08. Mobility','q09':'Q09. Emotional State','q10':'Q10. Life Changes','q11':'Q11. Anxiety','q12':'Q12. Mood','q13':'Q13. Joy','q14':'Q14. Mental Health Support','q15':'Q15. Prior Healing','q15_detail':'Q15b. Healing Detail','q16':'Q16. Energy Sensitivity','q17':'Q17. Spiritual Practice','q18':'Q18. Goals','q19':'Q19. Session Format','q19_zoom':'Q19b. Video Call Link','q20':'Q20. Touch Preference','q21':'Q21. Caregiver','q22':'Q22. Additional Notes'};
   for(const[k,v]of Object.entries(data)){const label=map[k]||k;let val=v;if(Array.isArray(val))val=val.join(', ');msg+=label+': '+val+'\n\n';}
   return msg;
 }

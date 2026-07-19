@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Invoice — Centre for Personal Wellbeing</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0B2E29;--ink-deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--muted:#5C6F6A;--verdict:#17A673;--rose:#D64533;--font-display:'Instrument Serif',Georgia,serif;--font-body:'Schibsted Grotesk',system-ui,sans-serif;--font-mono:'Spline Sans Mono',monospace;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--font-body);background:#f5f5f0;color:var(--ink);min-height:100vh;padding:24px}
+.page{background:#fff;max-width:210mm;margin:0 auto;padding:36px 40px;box-shadow:0 4px 24px rgba(0,0,0,0.08);min-height:297mm}
+@media print{body{background:#fff;padding:0}.page{box-shadow:none;padding:24px 32px;min-height:auto}}
+.header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid var(--brass)}
+.header-left{display:flex;align-items:center;gap:16px}
+.logo-img{width:80px;height:auto;object-fit:contain}
+.header-text h1{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--ink);margin-bottom:4px}
+.header-text .sub{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.2px}
+.header-text .by{font-size:12px;color:var(--brass);margin-top:4px;font-style:italic}
+.invoice-badge{text-align:right}
+.invoice-badge .label{font-family:var(--font-mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+.invoice-badge .value{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.invoice-badge .date{font-size:12px;color:var(--muted)}
+
+.meta-row{display:flex;gap:32px;margin-bottom:24px;font-size:13px;color:var(--muted)}
+.meta-row .col{flex:1}
+.meta-row .col strong{color:var(--ink);font-weight:600;display:block;margin-bottom:4px;font-size:12px;text-transform:uppercase;letter-spacing:0.5px}
+.meta-row .col .editable{border-bottom:1px dashed var(--brass);cursor:text;min-width:80px;display:inline;padding:0 2px;color:var(--ink);font-weight:500}
+
+.table-wrap{margin-bottom:24px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--ink);color:var(--paper);padding:10px 12px;text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.8px}
+td{padding:12px;border-bottom:1px solid #e5e7eb;vertical-align:top}
+tr:nth-child(even){background:#f9fafb}
+.td-item{font-weight:600;color:var(--ink)}
+.td-desc{font-size:12px;color:var(--muted);margin-top:2px}
+.td-price{text-align:right;font-weight:600;font-family:var(--font-mono)}
+.td-qty{text-align:center}
+.total-row td{border-top:2px solid var(--ink);border-bottom:none;font-weight:700;font-size:16px}
+.total-row .total-label{text-align:right;padding-right:12px}
+.total-row .total-value{text-align:right;font-family:var(--font-mono);color:var(--verdict)}
+
+.notes{margin-top:24px;padding-top:20px;border-top:1px solid #e5e7eb}
+.notes h3{font-family:var(--font-display);font-size:16px;margin-bottom:10px}
+.notes ul{padding-left:20px;font-size:13px;color:var(--muted);line-height:1.8}
+.notes li{margin-bottom:4px}
+
+.footer{margin-top:32px;padding-top:16px;border-top:2px solid var(--brass);display:flex;justify-content:space-between;align-items:flex-end}
+.footer-left{font-size:12px;color:var(--muted);line-height:1.6}
+.footer-left strong{color:var(--ink)}
+.stamp{display:inline-block;padding:10px 24px;border:2px solid var(--brass);border-radius:6px;font-family:var(--font-mono);font-size:11px;color:var(--brass);text-transform:uppercase;letter-spacing:1px;background:rgba(184,137,45,0.05)}
+.stamp .editable{border-bottom:1px dashed var(--brass);cursor:text;padding:0 2px}
+
+.payment-box{background:var(--porcelain);border-radius:8px;padding:16px 20px;margin-top:20px}
+.payment-box h4{font-family:var(--font-display);font-size:14px;margin-bottom:8px;color:var(--ink)}
+.payment-box p{font-size:12px;color:var(--muted);line-height:1.6}
+
+@media print{
+  .page{box-shadow:none}
+  @page{margin:0;size:auto}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="header">
+  <div class="header-left">
+    <img src="https://fluxthealchemist-coder.github.io/pandora-skill-box/cpw-logo.png" alt="Centre for Personal Wellbeing" class="logo-img">
+    <div class="header-text">
+      <h1>Centre for Personal Wellbeing</h1>
+      <div class="sub">Reiki · Pranic Healing · Holistic Wellness</div>
+      <div class="by">by Dr. Smitha Prabhakar</div>
+    </div>
+  </div>
+  <div class="invoice-badge">
+    <div class="label">Invoice</div>
+    <div class="value"><span class="editable" contenteditable="true">CPW-2026-001</span></div>
+    <div class="date">Date: <span class="editable" contenteditable="true">19 July 2026</span></div>
+  </div>
+</div>
+
+<div class="meta-row">
+  <div class="col">
+    <strong>Bill To</strong>
+    <span class="editable" contenteditable="true">Client Name</span><br>
+    <span class="editable" contenteditable="true">Dubai, UAE</span>
+  </div>
+  <div class="col">
+    <strong>Practitioner</strong>
+    Dr. Smitha Prabhakar<br>
+    Reiki Master &amp; Pranic Healing Practitioner<br>
+    Dubai, UAE
+  </div>
+  <div class="col">
+    <strong>Payment Terms</strong>
+    Due within 7 days<br>
+    Bank transfer or cash<br>
+    <span class="editable" contenteditable="true">Non-refundable after Session 1</span>
+  </div>
+</div>
+
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Session / Service</th>
+        <th style="width:20%">Modality</th>
+        <th style="width:15%">Duration</th>
+        <th style="width:15%;text-align:right">Price (AED)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <div class="td-item"><span class="editable" contenteditable="true">Session 1 — Foundation &amp; Trust</span></div>
+          <div class="td-desc"><span class="editable" contenteditable="true">Reiki crown-to-root balancing, gentle grounding, establish baseline</span></div>
+        </td>
+        <td><span class="editable" contenteditable="true">Reiki</span></td>
+        <td class="td-qty"><span class="editable" contenteditable="true">60 min</span></td>
+        <td class="td-price"><span class="editable" contenteditable="true">500</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-item"><span class="editable" contenteditable="true">Session 2 — Energetic Vitality</span></div>
+          <div class="td-desc"><span class="editable" contenteditable="true">Pranic Healing aura scan, general cleansing, spleen &amp; basic chakra energizing</span></div>
+        </td>
+        <td><span class="editable" contenteditable="true">Pranic Healing</span></td>
+        <td class="td-qty"><span class="editable" contenteditable="true">60 min</span></td>
+        <td class="td-price"><span class="editable" contenteditable="true">500</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-item"><span class="editable" contenteditable="true">Session 3 — Deep Targeted Work</span></div>
+          <div class="td-desc"><span class="editable" contenteditable="true">Blended Reiki + Pranic: localized cleansing, emotional release, energizing with colored prana</span></div>
+        </td>
+        <td><span class="editable" contenteditable="true">Reiki + Pranic</span></td>
+        <td class="td-qty"><span class="editable" contenteditable="true">75 min</span></td>
+        <td class="td-price"><span class="editable" contenteditable="true">500</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-item"><span class="editable" contenteditable="true">Session 4 — Integration &amp; Release</span></div>
+          <div class="td-desc"><span class="editable" contenteditable="true">Gentle lymphatic or tissue-level work followed by Reiki re-balancing</span></div>
+        </td>
+        <td><span class="editable" contenteditable="true">Blended / Device</span></td>
+        <td class="td-qty"><span class="editable" contenteditable="true">60 min</span></td>
+        <td class="td-price"><span class="editable" contenteditable="true">500</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="td-item"><span class="editable" contenteditable="true">Session 5 — Consolidation &amp; Maintenance Plan</span></div>
+          <div class="td-desc"><span class="editable" contenteditable="true">Full Pranic deep cleanse + Reiki seal. Guided gratitude meditation. Self-care recommendations.</span></div>
+        </td>
+        <td><span class="editable" contenteditable="true">Reiki + Pranic</span></td>
+        <td class="td-qty"><span class="editable" contenteditable="true">75 min</span></td>
+        <td class="td-price"><span class="editable" contenteditable="true">500</span></td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="3" class="total-label">TOTAL DUE</td>
+        <td class="total-value">AED <span class="editable" contenteditable="true">2,500</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="notes">
+  <h3>Notes &amp; Terms</h3>
+  <ul>
+    <li><strong>Package Rate:</strong> 5-session package at AED 2,500 (regular rate AED 6,500). Family/friend discount applied.</li>
+    <li><strong>Cancellation:</strong> 24-hour notice required. Less than 24 hours = session forfeited.</li>
+    <li><strong>Payment:</strong> Bank transfer or cash accepted. Non-refundable after Session 1 begins.</li>
+    <li><strong>Medical:</strong> Energy healing is complementary, not a substitute for medical care. Continue all prescribed treatments.</li>
+    <li><strong>Privacy:</strong> All client information is held in strict confidence. Nothing shared with third parties.</li>
+  </ul>
+</div>
+
+<div class="payment-box">
+  <h4>Payment Details</h4>
+  <p>
+    <strong>Account Name:</strong> Dr. Smitha Prabhakar<br>
+    <strong>Bank:</strong> <span class="editable" contenteditable="true">[Your Bank Name]</span><br>
+    <strong>IBAN:</strong> <span class="editable" contenteditable="true">[Your IBAN]</span><br>
+    <strong>Reference:</strong> <span class="editable" contenteditable="true">CPW-2026-001 + Client Name</span>
+  </p>
+</div>
+
+<div class="footer">
+  <div class="footer-left">
+    <strong>Centre for Personal Wellbeing</strong><br>
+    by Dr. Smitha Prabhakar<br>
+    Reiki Master &amp; Pranic Healing Practitioner<br>
+    Dubai, UAE · <span class="editable" contenteditable="true">[Your Phone]</span> · <span class="editable" contenteditable="true">[Your Email]</span>
+  </div>
+  <div class="stamp">
+    <span class="editable" contenteditable="true">SEALED · Paid in Full</span>
+  </div>
+</div>
+
+</div>
+</body></html>
