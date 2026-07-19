@@ -41,23 +41,18 @@ input[type="text"],textarea,select{width:100%;padding:14px 16px;border:2px solid
 input:focus,textarea:focus,select:focus{outline:none;border-color:var(--brass)}
 textarea{min-height:100px;resize:vertical;line-height:1.6}
 input[type="text"]{min-height:48px}
-
-/* NATIVE CHECKBOXES */
 .cb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.cb-item{display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(11,46,41,0.03);border-radius:8px;cursor:pointer;transition:all .2s;border:2px solid transparent;position:relative}
+.cb-item{display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(11,46,41,0.03);border-radius:8px;cursor:pointer;transition:all .2s;border:2px solid transparent}
 .cb-item:hover{background:rgba(11,46,41,0.06)}
 .cb-item:has(input:checked){background:rgba(184,137,45,0.1);border-color:var(--brass)}
 .cb-item input[type="checkbox"]{width:20px;height:20px;accent-color:var(--brass);flex-shrink:0;cursor:pointer;margin:0}
 .cb-item span{font-size:15px;color:var(--ink);cursor:pointer;flex:1}
-
-/* NATIVE RADIOS */
 .radio-grid{display:grid;gap:10px}
 .radio-item{display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(11,46,41,0.03);border-radius:8px;cursor:pointer;transition:all .2s;border:2px solid transparent}
 .radio-item:hover{background:rgba(11,46,41,0.06)}
 .radio-item:has(input:checked){background:rgba(184,137,45,0.1);border-color:var(--brass)}
 .radio-item input[type="radio"]{width:20px;height:20px;accent-color:var(--brass);flex-shrink:0;cursor:pointer;margin:0}
 .radio-item span{font-size:15px;color:var(--ink);cursor:pointer;flex:1}
-
 .scale-wrap{display:flex;align-items:center;gap:16px;margin-top:8px}
 .scale-wrap input[type="range"]{flex:1;height:8px;accent-color:var(--brass)}
 .scale-num{font-family:var(--font-mono);font-size:28px;color:var(--brass);font-weight:600;min-width:36px;text-align:center}
@@ -105,7 +100,7 @@ input[type="text"]{min-height:48px}
   <div class="step-label">Welcome</div>
   <h2>Client Intake Form</h2>
   <p style="font-size:17px;color:var(--muted);margin-bottom:24px">
-    This form guides you through 22 questions about health, emotional state, energy sensitivity, and goals.
+    This form guides you through 22 questions about your health, emotional state, energy sensitivity, and healing goals.
     It takes 10–15 minutes. Your answers help Dr. Smitha design your personalized 5-session healing protocol.
   </p>
   <div style="background:var(--porcelain);padding:20px;border-radius:12px;margin-bottom:24px">
@@ -130,11 +125,11 @@ input[type="text"]{min-height:48px}
 
   <div class="q-block"><div class="q-num">Q01</div>
     <div class="q-text">What is your primary reason for seeking energy healing?</div>
-    <textarea name="q01" placeholder="e.g., chronic back pain, anxiety, grief, sleep issues..."></textarea></div>
+    <textarea name="q01" placeholder="e.g., chronic back pain, anxiety, grief, sleep issues, general wellbeing..."></textarea></div>
 
   <div class="q-block"><div class="q-num">Q02</div>
     <div class="q-text">Please list all current medical diagnoses and conditions:</div>
-    <textarea name="q02" placeholder="e.g., arthritis, hypertension, diabetes, fibromyalgia..."></textarea></div>
+    <textarea name="q02" placeholder="e.g., arthritis, hypertension, diabetes, fibromyalgia, asthma..."></textarea></div>
 
   <div class="q-block"><div class="q-num">Q03</div>
     <div class="q-text">Are you taking any medications? Please list them:</div>
@@ -142,6 +137,7 @@ input[type="text"]{min-height:48px}
 
   <div class="q-block"><div class="q-num">Q04</div>
     <div class="q-text">Do you have any of the following? (Tick all that apply)</div>
+    <div class="q-hint">This helps Dr. Smitha choose the safest healing approach for you.</div>
     <div class="cb-grid">
       <label class="cb-item"><input type="checkbox" name="q04" value="pacemaker"><span>Pacemaker or implanted device</span></label>
       <label class="cb-item"><input type="checkbox" name="q04" value="heart"><span>Heart condition / hypertension</span></label>
@@ -157,7 +153,7 @@ input[type="text"]{min-height:48px}
 
   <div class="q-block"><div class="q-num">Q05</div>
     <div class="q-text">On a scale of 0–10, rate your average daily energy level:</div>
-    <div class="q-hint">0 = cannot get out of bed | 10 = fully vibrant</div>
+    <div class="q-hint">0 = cannot get out of bed | 10 = fully vibrant and energetic</div>
     <div class="scale-wrap"><input type="range" name="q05" min="0" max="10" value="5" oninput="updateScale(this)">
       <div class="scale-num" id="q05-num">5</div></div>
     <div class="scale-labels"><span>0</span><span>5</span><span>10</span></div></div>
@@ -199,16 +195,16 @@ input[type="text"]{min-height:48px}
 
   <div class="q-block"><div class="q-num">Q09</div>
     <div class="q-text">How would you describe your emotional landscape right now?</div>
-    <div class="q-hint">e.g., anxious, grieving, numb, hopeful, overwhelmed, peaceful</div>
+    <div class="q-hint">e.g., anxious, grieving, numb, hopeful, overwhelmed, peaceful, lonely</div>
     <input type="text" name="q09" placeholder="Your answer..."></div>
 
   <div class="q-block"><div class="q-num">Q10</div>
     <div class="q-text">Have you experienced significant losses or life changes in the past 2 years?</div>
-    <textarea name="q10" placeholder="e.g., death of a loved one, divorce, retirement..."></textarea></div>
+    <textarea name="q10" placeholder="e.g., death of a loved one, divorce, retirement, moving home, diagnosis..."></textarea></div>
 
   <div class="q-block"><div class="q-num">Q11</div>
     <div class="q-text">Do you experience anxiety? If yes, what triggers it?</div>
-    <div class="q-hint">e.g., racing thoughts, physical tension, panic, insomnia</div>
+    <div class="q-hint">e.g., racing thoughts, physical tension, panic, insomnia, social situations</div>
     <textarea name="q11" placeholder="Your answer..."></textarea></div>
 
   <div class="q-block"><div class="q-num">Q12</div>
@@ -250,12 +246,12 @@ input[type="text"]{min-height:48px}
 
   <div class="q-block"><div class="q-num">Q16</div>
     <div class="q-text">Are you sensitive to energy? Do you notice subtle sensations?</div>
-    <div class="q-hint">e.g., feeling someone staring, sensing room energy, tingling</div>
+    <div class="q-hint">e.g., feeling someone staring, sensing room energy, tingling, warmth, intuition</div>
     <textarea name="q16" placeholder="Your answer..."></textarea></div>
 
   <div class="q-block"><div class="q-num">Q17</div>
     <div class="q-text">Do you have a regular spiritual or contemplative practice?</div>
-    <div class="q-hint">e.g., prayer, meditation, yoga, nature walks, journaling</div>
+    <div class="q-hint">e.g., prayer, meditation, yoga, nature walks, journaling, church, gratitude practice</div>
     <textarea name="q17" placeholder="Your answer..."></textarea></div>
 
   <div class="nav-btns"><button type="button" class="btn btn-secondary" onclick="prevStep()">← Back</button>
@@ -282,6 +278,7 @@ input[type="text"]{min-height:48px}
 
   <div class="q-block"><div class="q-num">Q19</div>
     <div class="q-text">Do you prefer in-person or distant healing sessions?</div>
+    <div class="q-hint">Distant healing is equally effective — energy transcends physical distance.</div>
     <div class="radio-grid">
       <label class="radio-item"><input type="radio" name="q19" value="in-person"><span>In-person — at the clinic</span></label>
       <label class="radio-item"><input type="radio" name="q19" value="distant"><span>Distant — from home (equally effective)</span></label>
@@ -291,6 +288,7 @@ input[type="text"]{min-height:48px}
 
   <div class="q-block"><div class="q-num">Q20</div>
     <div class="q-text">Do you prefer hands-on or hands-off treatment?</div>
+    <div class="q-hint">Pranic Healing is always hands-off. Reiki can be hands-on or hands-off.</div>
     <div class="radio-grid">
       <label class="radio-item"><input type="radio" name="q20" value="hands-on"><span>Gentle hands-on is fine</span></label>
       <label class="radio-item"><input type="radio" name="q20" value="hands-off"><span>Prefer hands hovering above (no touch)</span></label>
@@ -304,10 +302,9 @@ input[type="text"]{min-height:48px}
 
   <div class="q-block"><div class="q-num">Q22</div>
     <div class="q-text">Is there anything else I should know to serve you best?</div>
-    <div class="q-hint">Fears, preferences, cultural considerations, language, etc.</div>
+    <div class="q-hint">Fears, preferences, cultural considerations, language, accessibility needs, etc.</div>
     <textarea name="q22" placeholder="Your answer..."></textarea></div>
 
-  <!-- COPY ALL BLOCK -->
   <div class="copy-block">
     <h3>All Done?</h3>
     <p>Click below. All 22 answers will be copied in a clean, numbered format.<br>Then paste them into your message to Dr. Smitha.</p>
