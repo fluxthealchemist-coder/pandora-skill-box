@@ -14,6 +14,7 @@ body{font-family:var(--font-body);background:#e8ebe6;padding:24px;color:var(--in
 .seal{width:48px;height:48px;border-radius:50%;background:var(--brass);display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:700}
 .meta-row{display:flex;gap:24px;margin-bottom:20px;font-size:13px;color:var(--muted)}
 .meta-row span{color:var(--ink);font-weight:600}
+@media print{.meta-row,.footer{display:none}}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
 .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px}
 .section{margin-bottom:16px}
@@ -35,7 +36,9 @@ tr:nth-child(even){background:#f9fafb}
 .tag-green{background:#f0fdf4;color:#166534}
 .tag-blue{background:#eff6ff;color:#1e40af}
 .footer{margin-top:20px;padding-top:14px;border-top:1px solid #e5e7eb;display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
-@media print{body{background:#fff;padding:0}.page{box-shadow:none;padding:20px 24px}}
+@media print{body{background:#fff;padding:0}.page{box-shadow:none;padding:20px 24px}
+  @page{margin:0;size:auto}
+}
 </style>
 </head>
 <body>
