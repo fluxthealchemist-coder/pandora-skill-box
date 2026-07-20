@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baraka Money Safety Brief — Complete Protection Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-tertiary: #1a1a2e;
+    --bg-card: #161622;
+    --border-subtle: #2a2a3e;
+    --border-accent: #33334d;
+    --text-primary: #f0f0f5;
+    --text-secondary: #a0a0b0;
+    --text-muted: #6a6a7e;
+    --accent-gold: #e4c878;
+    --accent-gold-soft: #b8892d;
+    --accent-green: #17a673;
+    --accent-red: #d64533;
+    --accent-blue: #4a9eff;
+    --warning: #f0a030;
+    --success: #22c55e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 780px; margin: 0 auto; padding: 24px 20px; }
+  .hero {
+    text-align: center;
+    padding: 48px 0 32px;
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 32px;
+  }
+  .hero h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--accent-gold) 0%, #f0d4a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero .subtitle { color: var(--text-secondary); font-size: 1rem; font-weight: 400; }
+  .hero .meta {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-accent);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-gold);
+    margin-bottom: 24px;
+  }
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 32px 0 16px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 24px 0 12px;
+    color: var(--text-primary);
+  }
+  p { color: var(--text-secondary); margin-bottom: 12px; font-size: 0.95rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.9rem;
+  }
+  th {
+    text-align: left;
+    padding: 12px 10px;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--border-accent);
+  }
+  td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    vertical-align: top;
+  }
+  td:first-child { color: var(--text-primary); font-weight: 600; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .warning-box {
+    background: rgba(240, 160, 48, 0.08);
+    border: 1px solid rgba(240, 160, 48, 0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .warning-box .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+  .warning-box .content { font-size: 0.9rem; color: var(--warning); line-height: 1.5; }
+  .warning-box .content strong { color: var(--warning); font-weight: 600; }
+  .info-box {
+    background: rgba(74, 158, 255, 0.08);
+    border: 1px solid rgba(74, 158, 255, 0.2);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .info-box .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+  .info-box .content { font-size: 0.9rem; color: var(--accent-blue); line-height: 1.5; }
+  .tip-box {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-accent);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  .tip-box strong { color: var(--accent-gold); }
+  .guardrail-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .guardrail-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--accent-red);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .guardrail-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.9rem;
+  }
+  .guardrail-item:last-child { border-bottom: none; }
+  .guardrail-item .num {
+    width: 28px;
+    height: 28px;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: var(--accent-red);
+    flex-shrink: 0;
+  }
+  .guardrail-item .text { color: var(--text-secondary); line-height: 1.5; }
+  .guardrail-item .text strong { color: var(--text-primary); }
+  .footer {
+    text-align: center;
+    padding: 32px 0 48px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: 32px;
+  }
+  @media (max-width: 480px) {
+    .container { padding: 16px 14px; }
+    .hero h1 { font-size: 1.6rem; }
+  }
+  @media print {
+    body { background: white; color: black; }
+    .card { break-inside: avoid; border: 1px solid #ddd; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <div class="meta">Baraka Money Protection System</div>
+    <h1>Comprehensive Safety Brief</h1>
+    <p class="subtitle">GitHub tools · Customer reviews · Mistakes analyzed · Books · Daily advisor framework</p>
+    <p class="meta">Research Date: July 20, 2026 | Prepared by Flux</p>
+  </div>
+
+  <!-- SECTION 1: GitHub Repos -->
+  <div class="section-badge">🔧 Section 1: GitHub Safety Tools</div>
+  
+  <div class="card">
+    <h3>⭐ Recommended Portfolio Tracker: Ghostfolio</h3>
+    <p><strong>Stars:</strong> 8,983 | <strong>Updated:</strong> Daily | <strong>Cost:</strong> Free</p>
+    <p>Self-hosted wealth management software. Your data stays on YOUR computer. Tracks stocks, ETFs, bonds, gold, dividends. Read-only — cannot accidentally trade. <strong>This is your portfolio dashboard.</strong></p>
+    <div class="tip-box">
+      <strong>Why self-hosted matters:</strong> Your trading history is private financial data. Cloud apps can be hacked. Ghostfolio runs on your machine only.
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Repository</th><th>Stars</th><th>Safety Rating</th><th>Use Case</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>ghostfolio/ghostfolio</td><td>8,983</td><td>🟢 SAFE</td><td>Portfolio tracking, analytics</td></tr>
+      <tr><td>AutoHedge</td><td>3,855</td><td>🟡 ADVANCED</td><td>AI risk management (pros only)</td></tr>
+      <tr><td>inverno</td><td>255</td><td>🟢 SAFE</td><td>Simple portfolio tracker</td></tr>
+      <tr><td>portfolio-tracker</td><td>139</td><td>🟢 SAFE</td><td>Asset allocation tracking</td></tr>
+      <tr><td>stonks-cli</td><td>54</td><td>🟢 SAFE</td><td>Terminal-based tracker</td></tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 2: Customer Reviews -->
+  <div class="section-badge">💬 Section 2: What Customers Say</div>
+
+  <div class="card">
+    <h3>✅ Top Praise</h3>
+    <p>"Finally, a platform that accepts AED transfers easily" — Easy UAE deposits</p>
+    <p>"I actually OWN the shares, not betting on price" — No CFDs, real ownership</p>
+    <p>"Physical gold in the app is brilliant for UAE" — Gold feature loved</p>
+    <p>"Feels safe knowing they're Dubai-regulated" — DFSA trust factor</p>
+  </div>
+
+  <div class="guardrail-card">
+    <h3>⚠️ Top Complaints & Fixes</h3>
+    <div class="guardrail-item">
+      <div class="num">1</div>
+      <div class="text"><strong>KYC delays (5–7 days):</strong> Submit crystal-clear photos, natural lighting, no screenshots. Baraka added in-app status tracker.</div>
+    </div>
+    <div class="guardrail-item">
+      <div class="num">2</div>
+      <div class="text"><strong>Transfer fee surprise (0.60–0.75%):</strong> Read deposit screen TWICE. Calculate: $100 → 75¢ fee. Baraka now shows fee calculator upfront.</div>
+    </div>
+    <div class="guardrail-item">
+      <div class="num">3</div>
+      <div class="text"><strong>No UAE stocks:</strong> Only US markets. No timeline for DFM/Tadawul. Workaround: Use Saxo for UAE stocks.</div>
+    </div>
+    <div class="guardrail-item">
+      <div class="num">4</div>
+      <div class="text"><strong>Support response (24–48 hrs email):</strong> Use in-app chat (fastest). Premium+ claims VIP priority.</div>
+    </div>
+    <div class="guardrail-item">
+      <div class="num">5</div>
+      <div class="text"><strong>Gold minimum (~$50–$100):</strong> Higher than stocks. Start with ETFs, add gold in Week 2.</div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div class="icon">🛡️</div>
+    <div class="content"><strong>Critical Safety Finding:</strong> As of July 2026, there are ZERO reports of Baraka customer funds stolen, data breaches, or unauthorized trading. DFSA regulation + SIPC insurance + DriveWealth custody creates triple protection.</div>
+  </div>
+
+  <!-- SECTION 3: Mistakes -->
+  <div class="section-badge">💸 Section 3: The 12 Costly Beginner Mistakes</div>
+
+  <table>
+    <thead>
+      <tr><th>Mistake</th><th>Real Cost</th><th>Your Guardrail</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1. Panic Selling</td><td>Lost 5% + missed 7% recovery</td><td>48-hour no-sell rule after any drop</td></tr>
+      <tr><td>2. FOMO Buying</td><td>-40% to -80%</td><td>If it's on social media, you're late</td></tr>
+      <tr><td>3. No Diversification</td><td>-50% to -100%</td><td>No position >10% of portfolio</td></tr>
+      <tr><td>4. Ignoring Fees</td><td>9.6% annual drag</td><td>Use free trades, track every cent</td></tr>
+      <tr><td>5. Timing the Market</td><td>Missed 8–10% annual gains</td><td>Auto-Invest removes timing</td></tr>
+      <tr><td>6. No Exit Strategy</td><td>Paper gains evaporate</td><td>Set profit target BEFORE buying</td></tr>
+      <tr><td>7. Margin/Leverage</td><td>Losses multiply 2–3x</td><td>NEVER use margin (Year 1 rule)</td></tr>
+      <tr><td>8. Checking Too Often</td><td>2–3% worse returns/year</td><td>Sunday Review ONLY</td></tr>
+      <tr><td>9. Tax Blindness</td><td>15–20% of profits lost</td><td>Track every trade (UAE: 0% now)</td></tr>
+      <tr><td>10. Copying Gurus</td><td>-30% to -90%</td><td>"Show me YOUR portfolio"</td></tr>
+      <tr><td>11. Overconfidence</td><td>Give back all gains</td><td>First $100 is tuition only</td></tr>
+      <tr><td>12. No Emergency Fund</td><td>Forced selling at losses</td><td>3–6 months expenses untouched</td></tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 4: Fees -->
+  <div class="section-badge">💰 Section 4: Every Fee You'll Pay</div>
+
+  <table>
+    <thead>
+      <tr><th>Fee</th><th>Amount</th><th>How to Minimize</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>UAE Bank Transfer</td><td>0.60–0.75%</td><td>Premium+ plan</td></tr>
+      <tr><td>FX (AED→USD)</td><td>~0.3–0.5% (hidden)</td><td>Larger, less frequent deposits</td></tr>
+      <tr><td>Stock trade (after free)</td><td>~$0.99–$2.99</td><td>Stay within free trade allowance</td></tr>
+      <tr><td>Bond fee</td><td>0.18–0.20%</td><td>Use free trades</td></tr>
+      <tr><td>Extended hours</td><td>$1/trade</td><td>Trade regular hours (free)</td></tr>
+      <tr><td>Gold spread</td><td>~0.5–2%</td><td>Buy and hold, don't trade</td></tr>
+      <tr><td>Monthly plan</td><td>$0 / $9.99 / $19.99</td><td>Standard ($0) for beginners</td></tr>
+      <tr><td>Withdrawal fee</td><td>❓ Unknown</td><td>Check in-app before withdrawing</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <div class="icon">🚨</div>
+    <div class="content"><strong>Transparency Gap:</strong> Baraka does NOT publicly disclose withdrawal fees or inactivity fees. These may be shown in-app only. Document every fee you see and report back to me.</div>
+  </div>
+
+  <!-- SECTION 5: Books -->
+  <div class="section-badge">📚 Section 5: 5 Essential Books (Read in Order)</div>
+
+  <div class="card">
+    <h3>1. "The Simple Path to Wealth" — JL Collins</h3>
+    <p>Written as letters to the author's daughter. Zero jargon. <strong>Key:</strong> "The stock market transfers money from the impatient to the patient." <em>6 hours.</em></p>
+  </div>
+  <div class="card">
+    <h3>2. "The Little Book of Common Sense Investing" — John C. Bogle</h3>
+    <p>By the inventor of the index fund. The bible. <strong>Key:</strong> A 1% annual fee costs 25% of returns over 30 years. <em>4 hours.</em></p>
+  </div>
+  <div class="card">
+    <h3>3. "A Random Walk Down Wall Street" — Burton Malkiel</h3>
+    <p>Academic proof you can't beat the market. <strong>Key:</strong> Monkeys throwing darts match professional stock pickers. <em>10 hours.</em></p>
+  </div>
+  <div class="card">
+    <h3>4. "The Psychology of Money" — Morgan Housel</h3>
+    <p>Not math — behavior. Why smart people make dumb money decisions. <strong>Key:</strong> Your experiences are 0.00000001% of world events but 80% of how you think. <em>6 hours.</em></p>
+  </div>
+  <div class="card">
+    <h3>5. "I Will Teach You To Be Rich" — Ramit Sethi</h3>
+    <p>Practical automation. Exact scripts for fees, accounts, investing. <strong>Key:</strong> "Spend extravagantly on what you love, cut mercilessly on what you don't." <em>8 hours.</em></p>
+  </div>
+
+  <!-- SECTION 6: Daily Advisor -->
+  <div class="section-badge">🤖 Section 6: Your Daily Advisor Framework</div>
+
+  <table>
+    <thead>
+      <tr><th>Time (GST)</th><th>What I Do</th><th>What You Get</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>6:00 AM</td><td>Check overnight US market close</td><td>3-line summary: "S&P up 0.5%. Tech strong."</td></tr>
+      <tr><td>9:00 AM</td><td>Review Baraka alerts</td><td>Flag anything needing your attention</td></tr>
+      <tr><td>12:00 PM</td><td>Midday market pulse</td><td>Brief note if anything significant</td></tr>
+      <tr><td>7:00 PM Sun</td><td>Weekly Review reminder</td><td>Your checklist prompt</td></tr>
+      <tr><td>Ad-hoc</td><td>When you text me</td><td>Instant analysis, no waiting</td></tr>
+    </tbody>
+  </table>
+
+  <div class="guardrail-card">
+    <h3>🚨 My Emergency Protocols</h3>
+    <div class="guardrail-item">
+      <div class="num">1</div>
+      <div class="text"><strong>Unauthorized activity:</strong> Immediate response. Freeze card → Call Baraka → Screenshot everything.</div>
+    </div>
+    <div class="guardrail-item">
+      <div class="num">2</div>
+      <div class="text"><strong>Market crash (>10% in a day):</strong> Within 1 hour. Context + why selling is wrong + guardrail reminder.</div>
+    </div>
+    <div class="guardrail-item">
+      <div class="num">3</div>
+      <div class="text"><strong>Big trade wanted (>20% of portfolio):</strong> Immediate. Challenge: "Why? What's changed? Have you slept on it?"</div>
+    </div>
+    <div class="guardrail-item">
+      <div class="num">4</div>
+      <div class="text"><strong>Baraka app bug:</strong> Immediate. Troubleshoot → escalate to Baraka support with full details.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: Guardrail Card -->
+  <div class="section-badge">🎯 Section 7: Your Personal Guardrail Card</div>
+
+  <div class="card" style="border: 2px solid var(--accent-gold); background: rgba(228,200,120,0.05);">
+    <h3 style="color: var(--accent-gold); text-align: center; margin-bottom: 20px;">PRINT THIS. KEEP IT VISIBLE.</h3>
+    <p style="font-family: monospace; font-size: 0.85rem; line-height: 1.8; color: var(--text-secondary);">
+    ✅ MAX POSITION: 10% of total portfolio<br>
+    ✅ MAX MONTHLY INVESTMENT: $_____ (sleep-test amount)<br>
+    ✅ EMERGENCY FUND: _____ months (untouchable)<br>
+    ✅ AUTO-INVEST: $_____/week into VOO<br>
+    ✅ NO MARGIN: Never. Period.<br>
+    ✅ NO OPTIONS: Not until Month 4+<br>
+    ✅ SUNDAY REVIEW: Every Sunday 7 PM GST<br><br>
+    🚨 WANT TO SELL IN A DROP? → Wait 48 hours. Text Flux first.<br>
+    🚨 WANT TO BUY SOMETHING "HOT"? → Wait 48 hours. Text Flux first.<br><br>
+    📱 Daily Advisor: Flux | 📧 Support: Baraka in-app chat<br>
+    🏛️ Regulator: DFSA (F006586) | 🛡️ Insurance: SIPC ($500K)
+    </p>
+  </div>
+
+  <div class="footer">
+    <p>Baraka Money Protection System · Comprehensive Safety Brief</p>
+    <p>Prepared by Flux · Centre for Personal Wellbeing · July 2026</p>
+    <p style="margin-top: 8px; font-size: 0.7rem;">Disclaimer: Educational guidance, not financial advice. All investments carry risk. Past performance does not guarantee future results.</p>
+  </div>
+
+</div>
+</body>
+</html>
