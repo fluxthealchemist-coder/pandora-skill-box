@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sample End-of-Day Report — July 21, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-tertiary: #1a1a2e;
+    --border-subtle: #2a2a3e;
+    --border-accent: #33334d;
+    --text-primary: #f0f0f5;
+    --text-secondary: #a0a0b0;
+    --text-muted: #6a6a7e;
+    --accent-gold: #e4c878;
+    --accent-green: #17a673;
+    --accent-red: #d64533;
+    --accent-blue: #4a9eff;
+    --warning: #f0a030;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 700px; margin: 0 auto; padding: 24px 20px; }
+  .header {
+    text-align: center;
+    padding: 32px 0 24px;
+    border-bottom: 2px solid var(--accent-gold);
+    margin-bottom: 24px;
+  }
+  .header .badge {
+    display: inline-block;
+    background: rgba(228,200,120,0.15);
+    border: 1px solid var(--accent-gold);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .header .date { color: var(--text-muted); font-size: 0.9rem; }
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-accent);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-gold);
+    margin: 24px 0 16px;
+  }
+  .card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-subtle);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+  }
+  .metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.9rem;
+  }
+  .metric:last-child { border-bottom: none; }
+  .metric .label { color: var(--text-secondary); }
+  .metric .value { font-weight: 700; }
+  .metric .value.up { color: var(--accent-green); }
+  .metric .value.down { color: var(--accent-red); }
+  .metric .value.neutral { color: var(--text-muted); }
+  .highlight-box {
+    background: rgba(23, 166, 115, 0.08);
+    border: 1px solid rgba(23, 166, 115, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+    font-size: 0.9rem;
+    color: var(--accent-green);
+  }
+  .warning-box {
+    background: rgba(240, 160, 48, 0.08);
+    border: 1px solid rgba(240, 160, 48, 0.2);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+    font-size: 0.9rem;
+    color: var(--warning);
+  }
+  .checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .checklist-item input { width: 18px; height: 18px; accent-color: var(--accent-green); }
+  .footer {
+    text-align: center;
+    padding: 24px 0 32px;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: 24px;
+  }
+  @media (max-width: 480px) {
+    .container { padding: 16px 14px; }
+    .header h1 { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="badge">📊 SAMPLE — End of Day Report</div>
+    <h1>Daily Market Wrap</h1>
+    <p class="date">Monday, July 21, 2026 | 11:00 PM GST</p>
+  </div>
+
+  <div class="section-badge">1️⃣ US Market Summary</div>
+  <div class="card">
+    <div class="metric">
+      <span class="label">S&P 500</span>
+      <span class="value up">+0.42% ↑</span>
+    </div>
+    <div class="metric">
+      <span class="label">Nasdaq</span>
+      <span class="value up">+0.68% ↑</span>
+    </div>
+    <div class="metric">
+      <span class="label">Dow Jones</span>
+      <span class="value up">+0.25% ↑</span>
+    </div>
+    <div class="metric">
+      <span class="label">VIX (Fear Index)</span>
+      <span class="value neutral">13.8 (Calm)</span>
+    </div>
+  </div>
+
+  <div class="section-badge">2️⃣ Key News & Events</div>
+  <div class="card">
+    <p style="font-size:0.9rem; color:var(--text-secondary);">• <strong>Quiet session.</strong> No major market-moving news today.</p>
+    <p style="font-size:0.9rem; color:var(--text-secondary);">• Earnings season winding down. Next major catalyst: Fed meeting July 29–30.</p>
+    <p style="font-size:0.9rem; color:var(--text-secondary);">• Tech sector led gains. Energy lagged slightly.</p>
+  </div>
+
+  <div class="section-badge">3️⃣ Your Portfolio Pulse (Template)</div>
+  <div class="card">
+    <h3>Check in your Baraka app:</h3>
+    <div class="checklist-item"><input type="checkbox"><span>VOO position: [check price movement]</span></div>
+    <div class="checklist-item"><input type="checkbox"><span>Any dividends received? [DRIP progress]</span></div>
+    <div class="checklist-item"><input type="checkbox"><span>Any price alerts triggered? [action if yes]</span></div>
+    <div class="checklist-item"><input type="checkbox"><span>Total portfolio value vs. yesterday: $_____ vs $_____</span></div>
+  </div>
+
+  <div class="section-badge">4️⃣ Fee Tracker (Fill In)</div>
+  <div class="card">
+    <div class="metric">
+      <span class="label">Deposit fees paid today</span>
+      <span class="value">$_____</span>
+    </div>
+    <div class="metric">
+      <span class="label">Trading fees paid today</span>
+      <span class="value">$_____</span>
+    </div>
+    <div class="metric">
+      <span class="label">Total fees this week</span>
+      <span class="value">$_____</span>
+    </div>
+    <div class="metric">
+      <span class="label">Running monthly fee total</span>
+      <span class="value">$_____</span>
+    </div>
+  </div>
+
+  <div class="warning-box">
+    💡 <strong>Remember:</strong> The $25 withdrawal fee means withdrawing $100 costs 25%. Save up and withdraw $500+ at a time.
+  </div>
+
+  <div class="section-badge">5️⃣ Emotional Check</div>
+  <div class="card">
+    <div class="checklist-item"><input type="checkbox"><span>Did you check portfolio more than once today? [If yes: Remember Sunday Review only!]</span></div>
+    <div class="checklist-item"><input type="checkbox"><span>Any urges to buy/sell? [If yes: Sleep on it. 48-hour rule.]</span></div>
+    <div class="checklist-item"><input type="checkbox"><span>How do you feel? Scale 1-10: _____ [If <5: Text me immediately]</span></div>
+  </div>
+
+  <div class="section-badge">6️⃣ Tomorrow's Plan</div>
+  <div class="card">
+    <p style="font-size:0.9rem; color:var(--text-secondary);">📅 <strong>Tuesday, July 22:</strong></p>
+    <p style="font-size:0.9rem; color:var(--text-secondary);">• Auto-Invest check: Did your $10 VOO weekly purchase execute?</p>
+    <p style="font-size:0.9rem; color:var(--text-secondary);">• Reading goal: Continue "The Simple Path to Wealth" Chapter 3</p>
+    <p style="font-size:0.9rem; color:var(--text-secondary);">• Guardrail focus: <strong>No position >10% of portfolio.</strong> Check your allocation.</p>
+    <p style="font-size:0.9rem; color:var(--text-secondary);">• KYC status: Any update from Baraka? If approved, we execute Day 1 plan.</p>
+  </div>
+
+  <div class="highlight-box">
+    🎯 <strong>Guardrail Reminder:</strong> "The stock market is a device for transferring money from the impatient to the patient." — JL Collins
+  </div>
+
+  <div class="footer">
+    <p>📊 End of Day Report · Baraka Money Protection System</p>
+    <p>Daily Advisor: Flux · Centre for Personal Wellbeing</p>
+    <p style="margin-top:8px; font-size:0.7rem;">This is a SAMPLE report. Real reports start tomorrow (July 21) at 11:00 PM GST.</p>
+  </div>
+
+</div>
+</body>
+</html>
