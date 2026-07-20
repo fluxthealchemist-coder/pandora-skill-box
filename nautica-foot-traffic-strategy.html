@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nautica UAE — Foot Traffic Growth Strategy</title>
+<style>
+:root{--ink:#0B2E29;--deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--brass-deep:#8F6716;--verdict:#17A673;--flag:#D64533;--muted:#5C6F6A;--surface:#162c27;--surface-2:#1a332d;--border:rgba(184,137,45,0.22);}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--deep);color:var(--porcelain);line-height:1.6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:20px}
+.header{text-align:center;padding:28px 0 20px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.header h1{font-size:1.7rem;color:var(--brass-soft);margin-bottom:6px}
+.header .subtitle{color:var(--muted);font-size:0.9rem}
+
+.section{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px}
+.section h2{font-size:1.1rem;color:var(--brass-soft);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.section h3{font-size:0.95rem;color:var(--brass-soft);margin:14px 0 8px;border-bottom:1px solid var(--border);padding-bottom:6px}
+.section p,.section li{color:var(--porcelain);opacity:0.92;font-size:0.9rem;margin-bottom:6px}
+.section ul{list-style:none;padding-left:0}
+.section ul li{padding-left:22px;position:relative;margin-bottom:5px}
+.section ul li::before{content:"→";position:absolute;left:0;color:var(--brass)}
+.section ul li.check::before{content:"✓";color:var(--verdict)}
+.section ul li.money::before{content:"💰";color:var(--brass-soft)}
+.section ul li.pin::before{content:"📍";color:var(--flag)}
+.section ul li.phone::before{content:"📱";color:var(--verdict)}
+
+.grid-2{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:640px){.grid-2{grid-template-columns:1fr 1fr}}
+.grid-3{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:768px){.grid-3{grid-template-columns:1fr 1fr 1fr}}
+
+.card{background:var(--deep);border:1px solid var(--border);border-radius:10px;padding:14px}
+.card h4{color:var(--brass-soft);font-size:0.9rem;margin-bottom:8px}
+.card p{font-size:0.85rem;color:var(--muted);margin-bottom:4px}
+
+.tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.75rem;font-weight:600;margin:2px}
+.tag-green{background:rgba(23,166,115,0.15);color:var(--verdict);border:1px solid var(--verdict)}
+.tag-red{background:rgba(214,69,51,0.15);color:var(--flag);border:1px solid var(--flag)}
+.tag-brass{background:rgba(184,137,45,0.15);color:var(--brass-soft);border:1px solid var(--brass)}
+
+.persona-card{background:var(--deep);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:10px}
+.persona-card h4{color:var(--brass-soft);font-size:1rem;margin-bottom:6px}
+.persona-card .stats{font-size:0.8rem;color:var(--muted);margin-bottom:10px}
+.persona-card ul{font-size:0.85rem}
+
+.tactic-box{background:rgba(184,137,45,0.08);border-left:3px solid var(--brass);padding:12px 14px;border-radius:6px;margin:10px 0;font-size:0.88rem}
+.tactic-box strong{color:var(--brass-soft)}
+
+.metric{display:inline-block;background:var(--deep);border:1px solid var(--border);border-radius:8px;padding:8px 14px;margin:4px;text-align:center}
+.metric .num{display:block;font-size:1.2rem;font-weight:700;color:var(--brass-soft)}
+.metric .label{font-size:0.75rem;color:var(--muted)}
+
+.footer{text-align:center;padding:24px;color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);margin-top:24px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<h1>🧭 Nautica UAE — Foot Traffic Growth Strategy</h1>
+<div class="subtitle">O2O (Online-to-Offline) Tactics for 5 Retail Locations</div>
+<div style="margin-top:10px">
+<span class="tag tag-brass">Male 30+</span>
+<span class="tag tag-brass">Disposable Income 20K+ AED</span>
+<span class="tag tag-green">Casual Shoppers</span>
+<span class="tag tag-red">25K+ Female Segment</span>
+</div>
+</div>
+
+<!-- PROBLEM STATEMENT -->
+<div class="section">
+<h2>🎯 The Core Problem</h2>
+<p>Nautica UAE operates <strong>5 physical retail locations</strong> across Dubai's premium malls. The challenge is converting online awareness and casual mall visitors into <strong>paying in-store customers</strong>.</p>
+
+<div style="text-align:center;margin:16px 0">
+<span class="metric"><span class="num">5</span><span class="label">Mall Locations</span></span>
+<span class="metric"><span class="num">30+</span><span class="label">Target Male Age</span></span>
+<span class="metric"><span class="num">20K+</span><span class="label">AED Disposable Income</span></span>
+<span class="metric"><span class="num">25K+</span><span class="label">Female Shoppers</span></span>
+</div>
+
+<p style="color:var(--flag);font-size:0.9rem">⚠️ <strong>Key Insight:</strong> Nautica's website is 100% e-commerce focused with NO store locator, NO "Check In-Store Availability," and NO click-and-collect. This is a massive O2O gap. Customers browsing online have zero pathway to visit a physical store.</p>
+</div>
+
+<!-- TARGET PERSONAS -->
+<div class="section">
+<h2>👤 Target Customer Personas</h2>
+
+<div class="persona-card">
+<h4>🎯 Persona A: "The Established Professional" (Primary)</h4><div class="stats">Male | 30-45 | Disposable income 20K+ AED/month | Emirati / Western Expats</div>
+<ul>
+<li>Works in Business Bay, DIFC, or JLT</li>
+<li>Shops at Dubai Mall, Dubai Hills on weekends</li>
+<li>Values quality over price — willing to pay premium for fit & fabric</li>
+<li>Wears polos, linen shirts, chinos to work and social events</li>
+<li><strong>Pain point:</strong> Doesn't know Nautica has stores in Dubai — thinks it's US-only online</li>
+</ul>
+</div>
+
+<div class="persona-card">
+<h4>🎯 Persona B: "The Casual Weekender" (Secondary)</h4><div class="stats">Male | 25-35 | Disposable income 15-25K AED | South Asian / Arab Expats</div>
+<ul>
+<li>Visits Deira City Centre, BurJuman for family shopping</li>
+<li>Looks for deals but won't compromise on brand recognition</li>
+<li>Buys during sales (Eid, National Day, Boxing Week)</li>
+<li>Influenced by WhatsApp forwards and Instagram ads</li>
+<li><strong>Pain point:</strong> Finds online prices too high, doesn't know about outlet mall discounts</li>
+</ul>
+</div>
+
+<div class="persona-card">
+<h4>🎯 Persona C: "The Female Gift Buyer" (Growth Segment)</h4><div class="stats">Female | 25-40 | Disposable income 20K+ AED | All nationalities</div>
+<ul>
+<li>25,000+ potential customers currently underserved</li>
+<li>Buys for husband, father, brother, or self (women's collection)</li>
+<li>Shops at Dubai Mall, Dubai Hills — premium mall preference</li>
+<li>Values in-store experience: touch fabric, check fit, get gift wrapping</li>
+<li><strong>Pain point:</strong> Nautica's marketing is 100% male-focused. She feels excluded.</li>
+</ul>
+</div>
+</div>
+
+<!-- MALL STRATEGY -->
+<div class="section">
+<h2>📍 Per-Mall Growth Tactics</h2>
+
+<div class="grid-2">
+<div class="card">
+<h4>🏢 Dubai Mall (Flagship)</h4>
+<p><strong>Footfall:</strong> 80M+ visitors/year | <strong>Profile:</strong> Tourists + luxury locals</p>
+<ul>
+<li class="pin"><strong>Geo-fenced Instagram ads:</strong> Target users within 500m of Dubai Mall with "Nautica — Ground Floor, Fashion Avenue" </li>
+<li class="pin"><strong>Tourist package:</strong> "Show your passport — 15% off + VAT refund" at checkout</li>
+<li class="pin"><strong>Valet partnership:</strong> Nautica-branded valet tickets at Fashion Avenue entrance</li>
+<li class="pin"><strong>Digital window:</strong> QR code on store window → "Scan to see this season's lookbook"</li>
+</ul>
+</div>
+
+<div class="card">
+<h4>🌳 Dubai Hills Mall (Family)</h4>
+<p><strong>Footfall:</strong> 20M+ visitors/year | <strong>Profile:</strong> Families, residents, weekend leisure</p>
+<ul>
+<li class="pin"><strong>Family bundle:</strong> "Dad + Kids matching polos — 25% off when you buy 3+"</li>
+<li class="pin"><strong>Play area partnership:</strong> Branded seating near kids' zone with Nautica logo</li>
+<li class="pin"><strong>Resident discount:</strong> Show Dubai Hills address proof = 10% off (builds loyalty)</li>
+<li class="pin"><strong>Weekend activation:</strong> Saturday styling sessions — "Free 15-min personal shopper"</li>
+</ul>
+</div>
+
+<div class="card">
+<h4>🛍️ Deira City Centre (Value)</h4>
+<p><strong>Footfall:</strong> 30M+ visitors/year | <strong>Profile:</strong> Value-seekers, families, South Asian demographic</p>
+<ul>
+<li class="pin"><strong>"Outlet prices, flagship experience":</strong> Rotate end-of-season stock here at 40-60% off</li>
+<li class="pin"><strong>Eid / Diwali campaigns:</strong> Cultural festival promotions with extended family sizing</li>
+<li class="pin"><strong>Cashback partnership:</strong> Tie up with Emirates NBD / FAB debit cards for 5% cashback</li>
+<li class="pin"><strong>Bus stand branding:</strong> Nautica ads at Deira City Centre metro/bus stops</li>
+</ul>
+</div>
+
+<div class="card">
+<h4>🏛️ BurJuman Centre (Heritage)</h4>
+<p><strong>Footfall:</strong> 15M+ visitors/year | <strong>Profile:</strong> Older, established families, loyal shoppers</p>
+<ul>
+<li class="pin"><strong>"Classic Collection" exclusive:</strong> Carry timeless pieces (navy blazers, white shirts) not available at other locations</li>
+<li class="pin"><strong>Loyalty program launchpad:</strong> BurJuman shoppers are repeat customers — test "Nautica Crew" loyalty app here first</li>
+<li class="pin"><strong>Alteration service:</strong> Free tailoring for pants/shirts — appeals to older demographic who values fit</li>
+</ul>
+</div>
+
+<div class="card">
+<h4>🏷️ Dubai Outlet Mall (Bargain)</h4>
+<p><strong>Footfall:</strong> 10M+ visitors/year | <strong>Profile:</strong> Deal hunters, bulk buyers, price-sensitive</p>
+<ul>
+<li class="pin"><strong>"Last Season, First Quality":</strong> Clear messaging that outlet stock is previous season, not defective</li>
+<li class="pin"><strong>Bulk pricing:</strong> "Buy 3 polos = 40% off" — drives basket size, not just footfall</li>
+<li class="pin"><strong>Bus service:</strong> Free shuttle from Deira / Bur Dubai on weekends (advertised via WhatsApp)</li>
+<li class="pin"><strong>Flash sale alerts:</strong> WhatsApp broadcast: "72-hour flash sale — additional 20% off outlet prices"</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- O2O TACTICS -->
+<div class="section">
+<h2>🔗 Online-to-Offline (O2O) Bridge Tactics</h2>
+
+<h3>1. Website Fixes (Immediate — Week 1)</h3>
+<ul>
+<li class="check"><strong>Add Store Locator:</strong> Interactive map showing all 5 locations with hours, phone, directions</li>
+<li class="check"><strong>"Check In-Store Availability":</strong> On every product page: "Available at Dubai Mall" with size check</li>
+<li class="check"><strong>Click & Collect:</strong> Buy online, pick up in store within 2 hours (no delivery fee)</li>
+<li class="check"><strong>"Try Before You Buy":</strong> Order 3 sizes, try in store, pay for what fits, return rest on spot</li>
+<li class="check"><strong>Reserve in Store:</strong> Hold item for 24 hours — creates urgency + guarantees walk-in</li>
+</ul>
+
+<h3>2. WhatsApp Business (Critical for UAE)</h3>
+<ul>
+<li class="phone"><strong>WhatsApp Catalog:</strong> Upload full product catalog with prices — UAE shoppers browse WhatsApp before websites</li>
+<li class="phone"><strong>"Nearest Store" chatbot:</strong> User sends location → bot replies with nearest Nautica + directions + current stock</li>
+<li class="phone"><strong>Appointment booking:</strong> "Book a fitting session" — drives high-intent foot traffic</li>
+<li class="phone"><strong>Broadcast lists:</strong> Segment by mall: Dubai Mall list, Outlet Mall list — location-specific offers</li>
+</ul>
+
+<h3>3. Instagram / Meta Ads (Geo-Targeted)</h3>
+<ul>
+<li class="check"><strong>500m radius targeting:</strong> Instagram ads only to users physically inside each mall</li>
+<li class="check"><strong>"You're nearby" creative:</strong> Ad copy: "You're 200m from Nautica at Dubai Mall. New linen shirts just dropped."</li>
+<li class="check"><strong>Stories + Reels:</strong> "Day in the life" of a Nautica store — staff styling, customer reactions, behind-the-scenes</li>
+<li class="check"><strong>Influencer walk-ins:</strong> Pay 5 UAE micro-influencers (10-50K followers) to "spontaneously" visit & post Stories</li>
+</ul>
+
+<h3>4. In-Store Digital Integration</h3>
+<ul>
+<li class="check"><strong>QR codes on hangers:</strong> Scan to see styling suggestions, fabric details, care instructions</li>
+<li class="check"><strong>"Scan to unlock discount":></strong> In-store QR → 10% off if you follow on Instagram + check in on Stories</li>
+<li class="check"><strong>Smart fitting rooms:</strong> Tablet in fitting room showing "Complete the look" recommendations + instant size request</li>
+<li class="check"><strong>Exit QR:</strong> Receipt includes QR: "Rate your visit → Unlock 15% off your next online order"</li>
+</ul>
+</div>
+
+<!-- FEMALE SEGMENT -->
+<div class="section">
+<h2>💃 Capturing the 25K+ Female Segment</h2>
+
+<p>Nautica UAE has <strong>25,000+ female shoppers</strong> who are currently underserved. The brand is perceived as "men's only." Here's how to fix that:</p>
+
+<div class="grid-2">
+<div class="card">
+<h4>🎁 "Gift Mode" Campaign</h4>
+<ul>
+<li><strong>"Gift for Him":</strong> Curated boxes: "The Executive" (polo + belt), "The Weekender" (linen shirt + shorts)</li>
+<li><strong>Gift wrapping station:</strong> Free premium wrapping in store — female shoppers love this</li>
+<li><strong>"Can't decide? Let him choose":</strong> Buy a gift card, he tries in store, you pay after he picks</li>
+</ul>
+</div>
+<div class="card">
+<h4>👗 Women's Collection Push</h4>
+<ul>
+<li><strong>Female-focused window displays:</strong> 30% of window real estate to women's polos, dresses, accessories</li>
+<li><strong>"Nautica for Her" microsite:</strong> Separate landing page: nautica-ae.com/women — styled differently (softer tones)</li>
+<li><strong>Female influencer partnerships:</strong> UAE-based fashion influencers wearing Nautica women's line</li>
+</ul>
+</div>
+<div class="card">
+<h4>👨‍👩‍👧‍👦 Family Positioning</h4>
+<ul>
+<li><strong>"Family Matching":</strong> Dad + Son polo sets, Mom + Daughter dresses — drives basket size</li>
+<li><strong>Mother's Day / Women's Day:</strong> "Buy for her, get 20% off for you" — brings male shoppers too</li>
+<li><strong>Kids as entry point:</strong> Mom buys kids' clothes, discovers women's section while in store</li>
+</ul>
+</div>
+<div class="card">
+<h4>📱 WhatsApp for Female Shoppers</h4>
+<ul>
+<li><strong>"Stylist on WhatsApp":</strong> Send 3 outfit photos, get recommendations from store staff</li>
+<li><strong>New arrival alerts:</strong> "Just landed: Women's linen shirt in 4 colors. Available at Dubai Mall."</li>
+<li><strong>Private shopping hours:</strong> "Ladies-only styling sessions, Sunday mornings, Dubai Hills"</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- TACTICS MATRIX -->
+<div class="section">
+<h2>📊 Tactics Priority Matrix</h2>
+
+<table class="price-table" style="font-size:0.85rem">
+<tr><th>Tactic</th><th>Impact</th><th>Effort</th><th>Cost</th><th>Timeline</th><th>Owner</th></tr>
+<tr><td><strong>WhatsApp Business Setup</strong></td><td>🔥🔥🔥 High</td><td>Low</td><td>Free</td><td>Week 1</td><td>Marketing</td></tr>
+<tr><td><strong>Store Locator on Website</strong></td><td>🔥🔥🔥 High</td><td>Low</td><td>Free</td><td>Week 1</td><td>Tech</td></tr>
+<tr><td><strong>Click & Collect</strong></td><td>🔥🔥🔥 High</td><td>Medium</td><td>Low</td><td>Week 2</td><td>Ops + Tech</td></tr>
+<tr><td><strong>Geo-Targeted Instagram Ads</strong></td><td>🔥🔥 High</td><td>Low</td><td>2-5K AED/mo</td><td>Week 1</td><td>Marketing</td></tr>
+<tr><td><strong>In-Store QR Codes</strong></td><td>🔥🔥 High</td><td>Low</td><td><500 AED</td><td>Week 1</td><td>Store Ops</td></tr>
+<tr><td><strong>"Reserve in Store"</strong></td><td>🔥🔥 High</td><td>Medium</td><td>Low</td><td>Week 2</td><td>Tech + Ops</td></tr>
+<tr><td><strong>Loyalty Program (Nautica Crew)</strong></td><td>🔥🔥 High</td><td>High</td><td>5-10K AED</td><td>Month 2</td><td>Marketing + Tech</td></tr>
+<tr><td><strong>Influencer Walk-Ins</strong></td><td>🔥🔥 High</td><td>Medium</td><td>3-8K AED/mo</td><td>Week 2</td><td>Marketing</td></tr>
+<tr><td><strong>Smart Fitting Rooms</strong></td><td>🔥 Medium</td><td>High</td><td>15-25K AED</td><td>Month 2</td><td>Tech + Ops</td></tr>
+<tr><td><strong>Women's Collection Push</strong></td><td>🔥🔥 High</td><td>Medium</td><td>5-8K AED</td><td>Month 1</td><td>Marketing + Merch</td></tr>
+</table>
+</div>
+
+<!-- MEASUREMENT -->
+<div class="section">
+<h2>📈 Success Metrics & KPIs</h2>
+
+<div class="grid-3">
+<div class="card">
+<h4>📍 Foot Traffic</h4>
+<ul>
+<li>Daily walk-ins per store (baseline + growth)</li>
+<li>Weekend vs weekday ratio</li>
+<li>"Online-to-offline" attribution (QR scans, click-and-collect orders)</li>
+</ul>
+</div>
+<div class="card">
+<h4>💰 Conversion</h4>
+<ul>
+<li>Foot traffic → purchase rate (target: 25%+)</li>
+<li>Average basket size (target: Dhs. 400+)</li>
+<li>Units per transaction (target: 2.5+)</li>
+</ul>
+</div>
+<div class="card">
+<h4>📱 Digital Bridge</h4>
+<ul>
+<li>WhatsApp catalog views → store visits</li>
+<li>"Reserve in Store" conversion rate</li>
+<li>Instagram geo-ad click-through rate (target: 3%+)</li>
+</ul>
+</div>
+</div>
+
+<div class="tactic-box">
+<strong>🎯 90-Day Targets:</strong><br>
+• 30% increase in foot traffic across all 5 locations<br>
+• 50% of online orders include "Click & Collect" or "Reserve in Store"<br>
+• 10,000 new WhatsApp subscribers across 5 locations<br>
+• 15% of total revenue from female shoppers (up from ~5%)<br>
+• 20% repeat visit rate within 60 days (loyalty program)
+</div>
+</div>
+
+<!-- IMPLEMENTATION -->
+<div class="section">
+<h2>⏱️ 4-Week Sprint Plan</h2>
+
+<h3>Week 1: Foundation (Quick Wins)</h3>
+<ul>
+<li class="check">Set up WhatsApp Business API with catalog + auto-replies</li>
+<li class="check">Add Store Locator to website (Shopify app: "Store Locator" — $5/mo)</li>
+<li class="check">Print QR codes for all 5 stores (window, counter, fitting room, receipt)</li>
+<li class="check">Launch geo-targeted Instagram ads for Dubai Mall + Dubai Hills</li>
+<li class="check">Train staff: "Every customer gets asked: Would you like us to alert you on WhatsApp for new arrivals?"</li>
+</ul>
+
+<h3>Week 2: Conversion Optimization</h3>
+<ul>
+<li class="check">Launch Click & Collect (Shopify Local Pickup — built-in feature)</li>
+<li class="check">Launch "Reserve in Store" (manual process first: customer WhatsApps, staff holds item)</li>
+<li class="check">First influencer walk-in at Dubai Mall (Instagram Stories takeover)</li>
+<li class="check">"Summer Special" window refresh at all 5 locations</li>
+</ul>
+
+<h3>Week 3: Female Segment Push</h3e>
+<ul>
+<li class="check">"Gift for Him" campaign launch (Mother's Day / Women's Day prep)</li>
+<li class="check">Female-focused Instagram Reels series (3 videos: styling, gift guide, store tour)</li>
+<li class="check">Ladies-only styling session pilot at Dubai Hills (Sunday morning)</li>
+<li class="check">Window display refresh: 30% women's collection at Dubai Mall + BurJuman</li>
+</ul>
+
+<h3>Week 4: Loyalty + Scale</h3>
+<ul>
+<li class="check">Soft launch "Nautica Crew" loyalty program at BurJuman (test market)</li>
+<li class="check">Export WhatsApp subscriber list → segmented broadcast lists by mall</li>
+<li class="check">First mall-specific promotion: "Dubai Outlet Mall Flash Sale" (WhatsApp exclusive)</li>
+<li class="check">Measure baseline vs Week 4: foot traffic, basket size, female %, repeat visits</li>
+</ul>
+</div>
+
+<!-- BUDGET -->
+<div class="section">
+<h2>💰 Recommended Budget (Month 1)</h2>
+
+<table class="price-table">
+<tr><th>Item</th><th>Cost (AED)</th><th>Notes</th></tr>
+<tr><td>WhatsApp Business API Setup</td><td>Free</td><td>Meta Business partner (BSP) required for API</td></tr>
+<tr><td>Instagram Geo-Ads</td><td>5,000</td><td>2-week campaign, 5 locations, 500m radius</td></tr>
+<tr><td>QR Code Print + Install</td><td>800</td><td>All 5 stores, 10 codes per store</td></tr>
+<tr><td>Influencer Walk-Ins (5 micro)</td><td>8,000</td><td>1,600 each, 10-50K followers</td></tr>
+<tr><td>Store Locator App (Shopify)</td><td>20</td><td>$5/month</td></tr>
+<tr><td>Window Display Refresh</td><td>3,000</td><td>Props, signage, mannequins</td></tr>
+<tr><td>Staff Training (5 stores)</td><td>1,000</td><td>1-hour session per store</td></tr>
+<tr><td>Loyalty Program Pilot (BurJuman)</td><td>2,000</td><td>Cards, app integration, staff incentives</td></tr>
+<tr><td><strong>TOTAL MONTH 1</strong></td><td><strong>19,820 AED</strong></td><td>~<strong>$5,400 USD</strong></td></tr>
+</table>
+</div>
+
+<div class="footer">
+🧭 Nautica UAE Foot Traffic Strategy v1.0 | Prepared by Flux for Dr. Smitha Prabhakar | July 2026<br>
+<strong>Next Step:</strong> Start with WhatsApp Business + Store Locator (Week 1, Day 1).
+</div>
+
+</div>
+</body>
+</html>
