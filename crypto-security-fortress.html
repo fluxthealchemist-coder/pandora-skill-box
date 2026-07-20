@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crypto Security Fortress — 12-Layer Protection System</title>
+<style>
+:root{--ink:#0B2E29;--deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--brass-deep:#8F6716;--verdict:#17A673;--flag:#D64533;--muted:#5C6F6A;--surface:#162c27;--surface-2:#1a332d;--border:rgba(184,137,45,0.22);--gold-glow:0 0 24px rgba(184,137,45,0.18);}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--deep);color:var(--porcelain);line-height:1.6;min-height:100vh}
+.container{max-width:720px;margin:0 auto;padding:20px}
+.header{text-align:center;padding:28px 0 20px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.header h1{font-size:1.6rem;color:var(--brass-soft);margin-bottom:6px}
+.header .subtitle{color:var(--muted);font-size:0.9rem}
+.header .badge{display:inline-block;background:var(--flag);color:#fff;padding:3px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;margin-top:10px}
+
+.layer-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px;position:relative;overflow:hidden}
+.layer-card::before{content:attr(data-layer);position:absolute;top:12px;right:16px;font-size:2rem;font-weight:800;color:rgba(184,137,45,0.12)}
+.layer-card h2{font-size:1.1rem;color:var(--brass-soft);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.layer-card h2 .emoji{font-size:1.3rem}
+.layer-card p, .layer-card li{color:var(--porcelain);opacity:0.92;font-size:0.92rem;margin-bottom:6px}
+.layer-card ul{list-style:none;padding-left:0}
+.layer-card ul li{padding-left:24px;position:relative;margin-bottom:5px}
+.layer-card ul li::before{content:"✓";position:absolute;left:0;color:var(--verdict)}
+.layer-card ul li.dont::before{content:"✗";color:var(--flag)}
+.layer-card .critical{background:rgba(214,69,51,0.1);border-left:3px solid var(--flag);padding:10px 14px;border-radius:6px;margin:10px 0;font-size:0.88rem}
+.layer-card .safe{background:rgba(23,166,115,0.1);border-left:3px solid var(--verdict);padding:10px 14px;border-radius:6px;margin:10px 0;font-size:0.88rem}
+.layer-card .action{background:rgba(184,137,45,0.12);border-left:3px solid var(--brass);padding:10px 14px;border-radius:6px;margin:10px 0;font-size:0.88rem}
+
+.summary-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.85rem}
+.summary-table th{text-align:left;padding:8px 6px;border-bottom:2px solid var(--border);color:var(--brass-soft);font-weight:600;font-size:0.78rem;text-transform:uppercase;letter-spacing:0.5px}
+.summary-table td{padding:8px 6px;border-bottom:1px solid rgba(184,137,45,0.1);vertical-align:top}
+.summary-table tr:last-child td{border-bottom:none}
+.summary-table .risk{color:var(--flag);font-weight:700}
+.summary-table .protect{color:var(--verdict);font-weight:600}
+
+.week-box{background:var(--deep);border:1px dashed var(--border);border-radius:10px;padding:14px;margin:10px 0}
+.week-box h4{color:var(--brass-soft);font-size:0.95rem;margin-bottom:6px}
+.week-box ul{list-style:none;padding-left:0}
+.week-box ul li{padding-left:20px;position:relative;margin-bottom:4px;font-size:0.85rem}
+.week-box ul li::before{content:"→";position:absolute;left:0;color:var(--brass)}
+
+.footer{text-align:center;padding:24px;color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);margin-top:24px}
+
+@media(min-width:640px){
+.container{padding:32px}
+.header h1{font-size:2rem}
+.layer-card{padding:24px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<h1>🔐 Crypto Security Fortress</h1>
+<div class="subtitle">12-Layer Protection System for Crypto & Bitcoin Trading</div>
+<div class="badge">⚠️ MANDATORY BEFORE ANY CRYPTO ACTIVITY</div>
+</div>
+
+<!-- THREAT TABLE -->
+<div class="layer-card" data-layer="🎯">
+<h2><span class="emoji">🎯</span> The 12 Deadliest Crypto Attacks</h2>
+<table class="summary-table">
+<tr><th>#</th><th>Attack</th><th>How You Lose</th><th>Layer</th></tr>
+<tr><td>1</td><td class="risk">Seed Phrase Theft</td><td>Wallet drained in seconds</td><td class="protect">Layer 1</td></tr>
+<tr><td>2</td><td class="risk">Exchange Hack/Bankruptcy</td><td>FTX-style collapse, funds gone</td><td class="protect">Layer 3</td></tr>
+<tr><td>3</td><td class="risk">Phishing (Fake Login)</td><td>Password stolen via fake email</td><td class="protect">Layer 6</td></tr>
+<tr><td>4</td><td class="risk">SIM Swap</td><td>Attacker ports your number, bypasses SMS 2FA</td><td class="protect">Layer 7</td></tr>
+<tr><td>5</td><td class="risk">Clipboard Hijacking</td><td>Malware replaces BTC address you copied</td><td class="protect">Layer 4</td></tr>
+<tr><td>6</td><td class="risk">Fake Customer Support</td><td>"Support" DMs you on Telegram, steals credentials</td><td class="protect">Layer 6</td></tr>
+<tr><td>7</td><td class="risk">Rug Pull / Token Scam</td><td>New coin promises 1000x, devs drain liquidity</td><td class="protect">Layer 8</td></tr>
+<tr><td>8</td><td class="risk">Malware / Keylogger</td><td>Infected laptop records seed phrase</td><td class="protect">Layer 5</td></tr>
+<tr><td>9</td><td class="risk">Social Engineering</td><td>"Friend" asks for crypto help, sends scam link</td><td class="protect">Layer 9</td></tr>
+<tr><td>10</td><td class="risk">Dusting Attack</td><td>Tiny amount sent to track your wallet</td><td class="protect">Layer 5</td></tr>
+<tr><td>11</td><td class="risk">Pump and Dump</td><td>"Signal group" — you buy top, they sell</td><td class="protect">Layer 8</td></tr>
+<tr><td>12</td><td class="risk">Smart Contract Exploit</td><td>DeFi protocol hacked, staked funds drained</td><td class="protect">Layer 8</td></tr>
+</table>
+</div>
+
+<!-- LAYER 1 -->
+<div class="layer-card" data-layer="L1">
+<h2><span class="emoji">🔐</span> Layer 1: Hardware Wallet Mandate</h2>
+<p><strong>Rule:</strong> Any crypto holding >$1,000 MUST be on a hardware wallet.</p>
+<div class="action">
+<strong>Recommended:</strong> Ledger Nano S Plus ($79) or Trezor Model One ($69)<br>
+Buy ONLY from <strong>ledger.com</strong> or <strong>trezor.io</strong>. NEVER Amazon/eBay.
+</div>
+<ul>
+<li>Set up on a CLEAN computer (no malware)</li>
+<li>Write seed phrase on PAPER with a PEN (not pencil, not digital)</li>
+<li>Store in 2+ physical locations (home safe + bank safe deposit)</li>
+<li class="dont">NEVER screenshot, photograph, or type seed phrase on any device</li>
+</ul>
+</div>
+
+<!-- LAYER 2 -->
+<div class="layer-card" data-layer="L2">
+<h2><span class="emoji">🗝️</span> Layer 2: Seed Phrase Fortress</h2>
+<p><strong>The Rule of Three:</strong></p>
+<div class="safe">
+<strong>Primary:</strong> Fireproof safe at home — You only<br>
+<strong>Backup:</strong> Bank safe deposit box — You only<br>
+<strong>Emergency:</strong> Trusted family member (sealed envelope) — Only if you die
+</div>
+<div class="critical">
+<strong>NEVER DO:</strong> Screenshot • Photo on phone • iCloud/Google Drive • Notes app • Password manager • Email/chat • Sticky note on monitor
+</div>
+</div>
+
+<!-- LAYER 3 -->
+<div class="layer-card" data-layer="L3">
+<h2><span class="emoji">🏛️</span> Layer 3: Exchange Safety Protocol</h2>
+<p><strong>Maximum Funds on Exchange:</strong></p>
+<table class="summary-table">
+<tr><th>Level</th><th>Max Exposure</th><th>Why</th></tr>
+<tr><td>Beginner (0-6 mo)</td><td class="risk">$500</td><td>Learning phase</td></tr>
+<tr><td>Intermediate (6-12 mo)</td><td class="risk">$2,000</td><td>Small exposure</td></tr>
+<tr><td>Advanced (1+ yr)</td><td class="risk">$5,000</td><td>Experienced but limit risk</td></tr>
+<tr><td><strong>HARD CEILING</strong></td><td class="risk"><strong>$10,000</strong></td><td><strong>No exceptions</strong></td></tr>
+</table>
+<div class="action"><strong>Enable on ALL exchanges:</strong> Anti-Phishing Code • Authenticator 2FA • Withdrawal Whitelist • Withdrawal Delay (24-48h) • Email Confirmation • Login Notifications</div>
+</div>
+
+<!-- LAYER 4 -->
+<div class="layer-card" data-layer="L4">
+<h2><span class="emoji">✅</span> Layer 4: Transaction Verification Protocol</h2>
+<p><strong>The 5-Second Rule (Before EVERY transaction):</strong></p>
+<ul>
+<li><strong>1. Verify Address</strong> — Check first 6 and last 6 chars match destination</li>
+<li><strong>2. Verify Network</strong> — ERC-20 vs BEP-20 vs BTC = lost forever if wrong</li>
+<li><strong>3. Verify Amount</strong> — Send $10 test first, then full amount</li>
+<li><strong>4. Verify Fee</strong> — Don't overpay gas during congestion</li>
+<li><strong>5. Verify Device</strong> — Confirming on hardware wallet screen, not computer</li>
+</ul>
+<div class="safe"><strong>Test Transaction Protocol:</strong> Send $10 → Wait for blockchain confirmation → Then send full amount. Reduces catastrophic error risk by 99%.</div>
+</div>
+
+<!-- LAYER 5 -->
+<div class="layer-card" data-layer="L5">
+<h2><span class="emoji">💻</span> Layer 5: Device Isolation</h2>
+<p><strong>Dedicated Crypto Device for high-value transactions:</strong></p>
+<ul>
+<li>Separate laptop or tablet — never used for browsing/email</li>
+>li>Brave or Firefox browser (not Chrome for crypto)</li>
+<li>VPN always ON (ProtonVPN / Mullvad)</li>
+<li>No password managers for exchange passwords (memorize or offline)</li>
+<li>Clean USB cable only for hardware wallet (no public charging stations)</li>
+</ul>
+</div>
+
+<!-- LAYER 6 -->
+<div class="layer-card" data-layer="L6">
+<h2><span class="emoji">🎣</span> Layer 6: Anti-Phishing Fortress</h2>
+<div class="critical">
+<strong>No exchange has official WhatsApp support.</strong><br>
+<strong>No "CEO" or "founder" DMs you on Telegram.</strong><br>
+<strong>No customer support reaches out first.</strong>
+</div>
+<ul>
+<li>Bookmark exchange URLs. Never click links in emails.</li>
+<li>Verify anti-phishing code in every exchange email</li>
+<li>Verify sender domain: @crypto.com ✓ | @crypto-support.com ✗</li>
+<li>No exchange EVER asks for your password or seed phrase via email</li>
+</ul>
+<div class="action"><strong>Flux Communication Protocol:</strong> Before clicking ANY crypto link → Text link to Flux → Wait for verification → If Flux says NO = do not click.</div>
+</div>
+
+<!-- LAYER 7 -->
+<div class="layer-card" data-layer="L7">
+<h2><span class="emoji">📱</span> Layer 7: SIM Swap Protection</h2>
+<div class="critical">
+<strong>SMS 2FA is DEATH.</strong> Attacker ports your number → receives all SMS codes → drains account in minutes.
+</div>
+<div class="action">
+<strong>Replace SMS 2FA with:</strong> Google Authenticator (not Authy — centralized) or hardware security key (YubiKey)
+</div>
+<ul>
+<li>Call Etisalat/du — request <strong>SIM port freeze</strong></li>
+<li>Require in-person ID verification for any number changes</li>
+<li>Set account PIN (not birthday or 1234)</li>
+</ul>
+</div>
+
+<!-- LAYER 8 -->
+<div class="layer-card" data-layer="L8">
+<h2><span class="emoji">🚫</span> Layer 8: Investment Discipline (Scam Prevention)</h2>
+<p><strong>Coin Selection Rules:</strong></p>
+<table class="summary-table">
+<tr><th>Tier</th><th>Criteria</th><th>Examples</th><th>Max Allocation</th></tr>
+<tr><td><strong>Tier 1</strong></td><td>Top 10 market cap, 5+ years, institutional adoption</td><td>BTC, ETH</td><td>Up to 50%</td></tr>
+<tr><td><strong>Tier 2</strong></td><td>Top 50, 3+ years, real use case</td><td>SOL, XRP, ADA</td><td>Up to 20%</td></tr>
+<tr><td><strong>Tier 3</strong></td><td>Top 100, 1+ years, emerging</td><td>Avoid for now</td><td>0%</td></tr>
+<tr><td><strong>Blacklist</strong></td><td>Meme coins, new launches, "guaranteed 10x"</td><td>DOGE, SHIB, influencer coins</td><td class="risk">0%</td></tr>
+</table>
+<div class="critical">
+<strong>Auto-Block Red Flags:</strong> Guaranteed returns • Exclusive pre-sale • Send crypto receive double back • Elon/CZ endorsed • Limited time act now • Telegram signal groups • Download "special wallet" • Person you just met recommends coin
+</div>
+</div>
+
+<!-- LAYER 9 -->
+<div class="layer-card" data-layer="L9">
+<h2><span class="emoji">🤐</span> Layer 9: Operational Security (OPSEC)</h2>
+<p><strong>Information Classification:</strong></p>
+<table class="summary-table">
+<tr><th>Secret Level</th><th>What</th><th>Who Knows</th></tr>
+<tr><td class="risk">TOP SECRET</td><td>Seed phrase, hardware wallet PIN</td><td>You only</td></tr>
+<tr><td class="risk">SECRET</td><td>Exchange passwords, 2FA backup codes</td><td>You only</td></tr>
+<tr><td>CONFIDENTIAL</td><td>Holdings amount, exchange names</td><td>You + Flux (if needed)</td></tr>
+<tr><td class="protect">PUBLIC</td><td>General crypto interest, learning</td><td>Anyone</td></tr>
+</table>
+<div class="action">
+<strong>If anyone asks about your crypto:</strong><br>
+"Do you own Bitcoin?" → "I keep a small amount for learning."<br>
+"How much do you have?" → "Not much, just experimenting."<br>
+"Can you help me with a trade?" → "I don't trade. Too risky for me."
+</div>
+</div>
+
+<!-- LAYER 10 -->
+<div class="layer-card" data-layer="L10">
+<h2><span class="emoji">🤖</span> Layer 10: Flux Automated Safety Checks</h2>
+<p><strong>Pre-Transaction Checklist (Runs Before Every Trade):</strong></p>
+<ul>
+<li>Hardware wallet connected? (if >$500)</li>
+<li>Anti-phishing code verified in exchange email?</li>
+<li>Withdrawal address whitelisted?</li>
+<li>First/last 6 chars of address verified?</li>
+<li>Network correct? (BTC≠ETH≠BSC)</li>
+<li>Test transaction ($10) completed first?</li>
+<li>VPN active?</li>
+<li>2FA via Authenticator (not SMS)?</li>
+<li>No "act now" urgency / time pressure?</li>
+<li>Coin is Tier 1 or Tier 2 (top 50 market cap)?</li>
+</ul>
+<div class="critical"><strong>If ANY checkbox fails → TRANSACTION BLOCKED.</strong> Text Flux immediately.</div>
+</div>
+
+<!-- LAYER 11 -->
+<div class="layer-card" data-layer="L11">
+<h2><span class="emoji">🚨</span> Layer 11: Emergency Response</h2>
+<table class="summary-table">
+<tr><th>Scenario</th><th>Immediate Action</th></th></tr>
+<tr><td class="risk">Seed phrase exposed</td><td>Move ALL funds to new wallet with NEW seed phrase</td></tr>
+<tr><td class="risk">Exchange hacked</td><td>Change password, disable API keys, contact support</td></tr>
+<tr><td class="risk">SIM swapped</td><td>Call carrier immediately, freeze number, change passwords from clean device</td></tr>
+<tr><td class="risk">Phishing link clicked</td><td>Disconnect internet, malware scan, change all passwords from clean device</td></tr>
+</table>
+</div>
+
+<!-- LAYER 12 -->
+<div class="layer-card" data-layer="L12">
+<h2><span class="emoji">🇦🇪</span> Layer 12: Crypto.com Specific (VARA Licensed)</h2>
+<div class="action">
+<strong>Crypto.com UAE Setup:</strong><br>
+Anti-Phishing Code • Authenticator 2FA • Withdrawal Whitelist • 24h Withdrawal Delay • Email Confirmations • Login Notifications • App Lock (biometric + PIN) • Transaction Signing • Monthly Device Review
+</div>
+</div>
+
+<!-- IMPLEMENTATION TIMELINE -->
+<div class="layer-card" data-layer="⏱️">
+<h2><span class="emoji">⏱️</span> 4-Week Implementation Timeline</h2>
+<div class="week-box">
+<h4>Week 1: Foundation</h4>
+<ul>
+<li>Order Ledger/Trezor hardware wallet</li>
+<li>Set up Crypto.com account with full security</li>
+<li>Download Google Authenticator</li>
+<li>Bookmark exchange URLs</li>
+<li>Enable anti-phishing codes</li>
+</ul>
+</div>
+<div class="week-box">
+<h4>Week 2: Hardware Wallet</h4>
+<ul>
+<li>Set up on CLEAN device</li>
+<li>Write seed phrase, store in 2 locations</li>
+<li>Test $10 BTC receive and send</li>
+<li>Verify seed phrase works (reset and restore)</li>
+</ul>
+</div>
+<div class="week-box">
+<h4>Week 3: Device Security</h4>
+<ul>
+<li>Dedicated browser profile for crypto</li>
+<li>Install VPN (ProtonVPN free tier)</li>
+<li>Call carrier, request SIM port freeze</li>
+<li>Create emergency contact card (offline)</li>
+</ul>
+</div>
+<div class="week-box">
+<h4>Week 4: First Deposit</h4>
+<ul>
+<li>Deposit $500 maximum to Crypto.com</li>
+<li>Enable all security features</li>
+<li>Practice test transactions</li>
+<li>Set up Flux weekly security audit cron job</li>
+</ul>
+</div>
+</div>
+
+<div class="footer">
+🔐 Crypto Security Fortress v1.0 • Prepared by Flux for Dr. Smitha Prabhakar • July 2026<br>
+<strong>⚠️ MANDATORY: Complete all 12 layers before ANY crypto trading activity.</strong>
+</div>
+
+</div>
+</body>
+</html>
