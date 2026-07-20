@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baraka Purchase Guide — Andy's $20K Beat-FD Portfolio</title>
+<style>
+:root{--ink:#0B2E29;--deep:#072320;--porcelain:#F4F6F2;--paper:#FBFCFA;--brass:#B8892D;--brass-soft:#E4C878;--brass-deep:#8F6716;--verdict:#17A673;--flag:#D64533;--muted:#5C6F6A;--surface:#162c27;--surface-2:#1a332d;--border:rgba(184,137,45,0.22);--gold-glow:0 0 24px rgba(184,137,45,0.18);}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--deep);color:var(--porcelain);line-height:1.6;min-height:100vh}
+.container{max-width:720px;margin:0 auto;padding:20px}
+.header{text-align:center;padding:28px 0 20px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.header h1{font-size:1.6rem;color:var(--brass-soft);margin-bottom:6px}
+.header .subtitle{color:var(--muted);font-size:0.9rem}
+.header .badge{display:inline-block;background:var(--verdict);color:#fff;padding:3px 12px;border-radius:20px;font-size:0.75rem;font-weight:600;margin-top:10px}
+
+.step-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:18px;position:relative;overflow:hidden}
+.step-card::before{content:attr(data-step);position:absolute;top:12px;right:16px;font-size:2rem;font-weight:800;color:rgba(184,137,45,0.12)}
+.step-card h2{font-size:1.15rem;color:var(--brass-soft);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.step-card h2 .emoji{font-size:1.3rem}
+.step-card p, .step-card li{color:var(--porcelain);opacity:0.92;font-size:0.95rem;margin-bottom:8px}
+.step-card ul{list-style:none;padding-left:0}
+.step-card ul li{padding-left:24px;position:relative;margin-bottom:6px}
+.step-card ul li::before{content:"→";position:absolute;left:0;color:var(--brass)}
+.step-card .highlight{background:rgba(184,137,45,0.12);border-left:3px solid var(--brass);padding:10px 14px;border-radius:6px;margin:10px 0;font-size:0.9rem}
+.step-card .warning{background:rgba(214,69,51,0.1);border-left:3px solid var(--flag);padding:10px 14px;border-radius:6px;margin:10px 0;font-size:0.9rem;color:var(--porcelain)}
+.step-card .success{background:rgba(23,166,115,0.1);border-left:3px solid var(--verdict);padding:10px 14px;border-radius:6px;margin:10px 0;font-size:0.9rem}
+
+.portfolio-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:0.88rem}
+.portfolio-table th{text-align:left;padding:10px 8px;border-bottom:2px solid var(--border);color:var(--brass-soft);font-weight:600;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.5px}
+.portfolio-table td{padding:10px 8px;border-bottom:1px solid rgba(184,137,45,0.1);vertical-align:top}
+.portfolio-table tr:last-child td{border-bottom:none}
+.portfolio-table .ticker{font-weight:700;color:var(--brass-soft)}
+.portfolio-table .amount{color:var(--verdict);font-weight:600}
+
+.btn{display:inline-block;background:var(--brass);color:var(--deep);padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.95rem;margin-top:8px;box-shadow:var(--gold-glow)}
+.btn:hover{background:var(--brass-soft)}
+
+.footer{text-align:center;padding:24px;color:var(--muted);font-size:0.8rem;border-top:1px solid var(--border);margin-top:24px}
+
+.order-box{background:var(--deep);border:1px dashed var(--border);border-radius:10px;padding:16px;margin:12px 0}
+.order-box .order-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(184,137,45,0.08)}
+.order-box .order-item:last-child{border-bottom:none}
+.order-box .order-num{width:28px;height:28px;background:var(--brass);color:var(--deep);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.8rem;flex-shrink:0}
+.order-box .order-details{flex:1;padding-left:12px}
+.order-box .order-ticker{font-weight:700;color:var(--brass-soft);font-size:0.95rem}
+.order-box .order-desc{font-size:0.82rem;color:var(--muted)}
+.order-box .order-amount{font-weight:700;color:var(--verdict);font-size:0.95rem;text-align:right;white-space:nowrap}
+
+@media(min-width:640px){
+.container{padding:32px}
+.header h1{font-size:2rem}
+.step-card{padding:24px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+<h1>📱 Andy's Baraka Purchase Guide</h1>
+<div class="subtitle">Step-by-step $20K execution — Beat FD Portfolio</div>
+<div class="badge">ANDROID • BEGINNER • SAFE</div>
+</div>
+
+<!-- STEP 0: BEFORE YOU START -->
+<div class="step-card" data-step="0">
+<h2><span class="emoji">🎯</span> What You're Building</h2>
+<p>A <strong>$20,000 portfolio</strong> designed to beat your 6-7% UAE bank FD over 3-5 years.</p>
+<table class="portfolio-table">
+<tr><th>Asset</th><th>Ticker</th><th>$</th><th>%</th><th>Job</th></tr>
+<tr><td>Dividend Growth</td><td class="ticker">SCHD</td><td class="amount">$6,000</td><td>30%</td><td>Pays quarterly</td></tr>
+<tr><td>S&P 500</td><td class="ticker">VOO</td><td class="amount">$6,000</td><td>30%</td><td>Growth engine</td></tr>
+<tr><td>Covered Call Income</td><td class="ticker">JEPI</td><td class="amount">$4,000</td><td>20%</td><td>Monthly income</td></tr>
+<tr><td>Short-Term Bonds</td><td class="ticker">BIL</td><td class="amount">$2,000</td><td>10%</td><td>Sleep-well anchor</td></tr>
+<tr><td>Physical Gold</td><td class="ticker">Gold</td><td class="amount">$2,000</td><td>10%</td><td>Inflation hedge</td></tr>
+<tr style="border-top:2px solid var(--border)"><td><strong>TOTAL</strong></td><td></td><td class="amount"><strong>$20,000</strong></td><td><strong>100%</strong></td><td></td></tr>
+</table>
+<div class="success">✅ Expected 3-5 year average: <strong>8-10%</strong> annually vs. your FD at 6-7%</div>
+</div>
+
+<!-- STEP 1: APP SETUP -->
+<div class="step-card" data-step="1">
+<h2><span class="emoji">1️⃣</span> Download & Setup</h2>
+<ul>
+<li>Download <strong>Baraka</strong> from Google Play Store</li>
+<li>Tap "Get Started" → Enter phone number → Verify with SMS</li>
+<li>Complete KYC: Upload passport + Emirates ID front & back</li>
+<li>Take selfie (ensure good lighting, plain background)</li>
+<li>Submit <strong>W-8BEN</strong> form inside app (certifies non-US status, reduces withholding)</li>
+<li>Wait for KYC approval (usually 24-48 hours)</li>
+</ul>
+<div class="warning">⚠️ Use your <strong>virtual card</strong> (not main salary card). Set limit to $500 for safety.</div>
+</div>
+
+<!-- STEP 2: UPGRADE PLAN -->
+<div class="step-card" data-step="2">
+<h2><span class="emoji">2️⃣</span> Upgrade to Premium ($9.99/month)</h2>
+<ul>
+<li>Tap <strong>Profile</strong> (bottom right) → <strong>Subscription Plans</strong></li>
+<li>Select <strong>Premium — $9.99/month</strong></li>
+<li>Why: You get <strong>12 free trades/month</strong>. You need 5 trades for this portfolio.</li>
+<li>Standard plan only gives 1 free trade/month = you'd wait 5 months to complete purchases.</li>
+</ul>
+<div class="highlight">💡 Math: $9.99 × 1 month = $10. Much cheaper than paying per-trade fees on 5 purchases.</div>
+</div>
+
+<!-- STEP 3: FUND ACCOUNT -->
+<div class="step-card" data-step="3">
+<h2><span class="emoji">3️⃣</span> Deposit $20,000</h2>
+<ul>
+<li>Tap <strong>Wallet</strong> (bottom nav) → <strong>Deposit</strong></li>
+<li>Select <strong>Debit Card</strong> or <strong>Google Pay</strong> (AVOID bank wire — your bank charges $15-30)</li>
+<li>Enter amount: <strong>20,000 USD</strong> (or 73,450 AED — Baraka auto-converts)</li>
+<li>Confirm. Funds arrive instantly with card. Wire takes 1-3 days.</li>
+</ul>
+<div class="success">✅ Your $20K is now in your Baraka wallet, ready to deploy.</div>
+</div>
+
+<!-- STEP 4: ENABLE DRIP -->
+<div class="step-card" data-step="4">
+<h2><span class="emoji">4️⃣</span> Enable DRIP (Auto-Reinvest Dividends)</h2>
+<ul>
+<li>Tap <strong>Profile</strong> → <strong>Settings</strong> → <strong>Dividend Reinvestment (DRIP)</strong></li>
+<li>Toggle <strong>ON</strong></li>
+<li>What this does: Every dividend payment automatically buys more shares. Compound growth accelerates.</li>
+</ul>
+<div class="highlight">📊 SCHD pays ~$210/year in dividends. DRIP turns that into more SCHD shares automatically.</div>
+</div>
+
+<!-- STEP 5: SET AUTO-INVEST -->
+<div class="step-card" data-step="5">
+<h2><span class="emoji">5️⃣</span> Set Auto-Invest ($200/week)</h2>
+<ul>
+<li>Tap <strong>Invest</strong> (bottom nav) → <strong>Auto-Invest</strong></li>
+<li>Create new plan:</li>
+<li>Amount: <strong>$200</strong> | Frequency: <strong>Weekly</strong> | Day: <strong>Monday</strong></li>
+<li>Target: Split between SCHD (50%) and VOO (50%)</li>
+<li>Toggle <strong>ON</strong></li>
+</ul>
+<div class="success">✅ Now your portfolio grows automatically every Monday. No emotions. No decisions.</div>
+</div>
+
+<!-- STEP 6: EXECUTE PURCHASES -->
+<div class="step-card" data-step="6">
+<h2><span class="emoji">6️⃣</span> Execute Purchases (In This Order)</h2>
+<p>Follow this exact order. Don't skip. Don't rearrange.</p>
+<div class="order-box">
+<div class="order-item">
+<div class="order-num">1</div>
+<div class="order-details">
+<div class="order-ticker">SCHD — $6,000</div>
+<div class="order-desc">Search "SCHD" → Buy → Enter $6,000 → Market Order → Confirm</div>
+</div>
+<div class="order-amount">$6,000</div>
+</div>
+<div class="order-item">
+<div class="order-num">2</div>
+<div class="order-details">
+<div class="order-ticker">VOO — $6,000</div>
+<div class="order-desc">Search "VOO" → Buy → Enter $6,000 → Market Order → Confirm</div>
+</div>
+<div class="order-amount">$6,000</div>
+</div>
+<div class="order-item">
+<div class="order-num">3</div>
+<div class="order-details">
+<div class="order-ticker">JEPI — $4,000</div>
+<div class="order-desc">Search "JEPI" → Buy → Enter $4,000 → Market Order → Confirm</div>
+</div>
+<div class="order-amount">$4,000</div>
+</div>
+<div class="order-item">
+<div class="order-num">4</div>
+<div class="order-details">
+<div class="order-ticker">BIL — $2,000</div>
+<div class="order-desc">Search "BIL" → Buy → Enter $2,000 → Market Order → Confirm</div>
+</div>
+<div class="order-amount">$2,000</div>
+</div>
+<div class="order-item">
+<div class="order-num">5</div>
+<div class="order-details">
+<div class="order-ticker">Physical Gold — $2,000</div>
+<div class="order-desc">Search "Gold" → Buy Physical Gold → Enter $2,000 → Confirm</div>
+</div>
+<div class="order-amount">$2,000</div>
+</div>
+</div>
+<div class="highlight">📸 Screenshot each confirmation. Save in a folder called "Baraka Purchases 2026."</div>
+</div>
+
+<!-- STEP 7: VERIFY -->
+<div class="step-card" data-step="7">
+<h2><span class="emoji">7️⃣</span> Verify Everything</h2>
+<ul>
+<li>Tap <strong>Portfolio</strong> (bottom nav). You should see 5 positions totaling ~$20,000.</li>
+<li>Check: SCHD $6K + VOO $6K + JEPI $4K + BIL $2K + Gold $2K = $20K</li>
+<li>Tap each position. Confirm quantity and average price populated.</li>
+<li>Tap <strong>Profile</strong> → <strong>Settings</strong> → Confirm DRIP is ON.</li>
+<li>Tap <strong>Auto-Invest</strong> → Confirm $200/week is scheduled.</li>
+</ul>
+<div class="success">✅ Your "Beat FD" portfolio is LIVE. Capital is deployed.</div>
+</div>
+
+<!-- STEP 8: THE RULES -->
+<div class="step-card" data-step="8">
+<h2><span class="emoji">🛡️</span> The Rules (Non-Negotiable)</h2>
+<table class="portfolio-table">
+<tr><th>Rule</th><th>Why</th></tr>
+<tr><td><strong>Hold minimum 3 years</strong></td><td>Markets recover. FD doesn't. Time is your edge.</td></tr>
+<tr><td><strong>Never sell in Year 1</strong></td><td>Short-term volatility is noise, not signal.</td></tr>
+<tr><td><strong>Auto-invest $200/week</strong></td><td>Dollar-cost averaging beats timing. Discipline > genius.</td></tr>
+<tr><td><strong>Rebalance January 1st</strong></td><td>Sell winners, buy laggards. Forces "buy low, sell high."</td></tr>
+<tr><td><strong>Check only on Sundays</strong></td><td>Daily checking causes panic-selling. Weekly is enough.</td></tr>
+<tr><td><strong>Text Flux before any sale</strong></td><td>48-hour cooling off. Prevents emotional decisions.</td></tr>
+</table>
+</div>
+
+<!-- STEP 9: EXPECTED RESULTS -->
+<div class="step-card" data-step="9">
+<h2><span class="emoji">📈</span> What to Expect vs. Your FD</h2>
+<table class="portfolio-table">
+<tr><th>Year</th><th>FD @ 6.5%</th><th>Your Portfolio @ 8.5%</th><th>You Win By</th></tr>
+<tr><td>Year 1</td><td>$21,300</td><td>$21,700</td><td>+$400</td></tr>
+<tr><td>Year 3</td><td>$24,160</td><td>$25,560</td><td>+$1,400</td></tr>
+<tr><td>Year 5</td><td>$27,380</td><td>$30,090</td><td>+$2,710</td></tr>
+<tr><td>Year 10</td><td>$37,050</td><td>$47,800</td><td>+$10,750</td></tr>
+</table>
+<div class="success">✅ After 5 years: You beat the FD by <strong>$2,710</strong>. After 10 years: <strong>$10,750 more</strong>.</div>
+</div>
+
+<!-- EMERGENCY -->
+<div class="step-card" data-step="🚨">
+<h2><span class="emoji">🚨</span> If Market Drops 20%</h2>
+<div class="warning">
+<strong>DO NOT SELL.</strong> This is normal. It happens every 5-7 years.<br><br>
+Your BIL bonds (10%) and Gold (10%) hold value. Your SCHD dividends keep paying. Your auto-invest buys MORE shares at cheaper prices.<br><br>
+<strong>Recovery timeline:</strong> 12-24 months historically. Every crash in history recovered.<br><br>
+<strong>Text Flux immediately.</strong> Do not act alone.
+</div>
+</div>
+
+<div class="footer">
+🔒 Baraka Money Protection System • Prepared by Flux • July 2026<br>
+Disclaimer: Educational guidance, not financial advice. Past performance does not guarantee future results.
+</div>
+
+</div>
+</body>
+</html>
